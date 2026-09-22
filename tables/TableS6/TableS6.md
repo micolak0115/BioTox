@@ -1,0 +1,21 @@
+## Table S6
+
+Table S6. Repeated outer-loop evaluation. Twenty repetitions of five-fold outer cross-validation yield 100 paired held-out evaluations per endpoint-context pair. Molecular-only and transcriptome-complemented predictions are evaluated on the same held-out compounds, with all fitted quantities estimated from the corresponding outer training set only.
+
+| section | setting | value | provenance |
+| --- | --- | --- | --- |
+| Study design | Chemical prior | Endpoint-specific top-4 arithmetic mean | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Study design | Chemical prior coefficient | Fixed at 1.0 | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Study design | Stage-2 intercept | Fit an unpenalized offset-only intercept on each inner/outer training partition, then freeze it for β estimation and predictions | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Study design | Transcriptomic coefficients | β only; minimize mean unweighted BCE + (λ/2)||β||² with the calibrated molecular offset fixed | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Input | Cell lines | HA1E, HEPG2, HT29, MCF7 | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Input | Primary exposure | Primary full-cohort 6 h; paired 6-h and 24-h cohorts evaluated separately | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Input | Dose window | 8-12 uM | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Input | Genes | 978 L1000 landmark genes | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Input | Replicate aggregation | Feature-wise median | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Preprocessing | No-adjustment variant | Unadjusted perturbation expression; feature-wise training mean/SD (ddof=0); replace SD < 1e-8 by 1; apply training scaler to validation/test | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Validation | Outer repeats | 20 | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Validation | Outer folds per repeat | 5 | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Validation | Outer grouping | Bemis-Murcko scaffold | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Validation | Distinct outer partitions | Required; duplicate signatures forbidden | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |
+| Validation | Minimum class count | At least 2 positives and 2 negatives in outer train and test | Corrected completed-run manifests; methodology_audit/METHODS_ALIGNMENT.md; offset_ridge_fixed.py; nested_cv_offset_logistic_calibrated.py |

@@ -1,0 +1,1 @@
+**Table S7. Inner-loop ridge selection. For each outer training set, three-fold inner cross-validation selects the largest eligible ridge penalty within one standard error of the minimum mean validation BCE. Standardization, calibration, and transcriptomic coefficients are estimated from inner training data only.**

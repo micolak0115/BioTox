@@ -1,0 +1,72 @@
+{
+  "files": {
+    "Figure2.eps": {
+      "bytes": 252267,
+      "sha256": "657bd767c9f82b9957503000b8f6e163511b07b5d08127930b2335bbebb778c0"
+    },
+    "Figure2.pdf": {
+      "bytes": 37640,
+      "sha256": "dd88772c41018c1746e8c5fdb9ef968828a3a07a0df0f63d25d1ad532124c6cd"
+    },
+    "Figure2.png": {
+      "bytes": 840381,
+      "sha256": "591fc0f01152338c91d9c12f82debe6738908720226061a66478f60421e246cd"
+    },
+    "Figure2.svg": {
+      "bytes": 191404,
+      "sha256": "79977cad6006ee45bc5b74b190566769cda884f2a6b4bae499f77d5e890f1532"
+    },
+    "Figure2.tiff": {
+      "bytes": 2283180,
+      "sha256": "5c01aaeadcaef86b1c0abd52ea2f67853a3117b49072a5af18c20c236a0afbad"
+    },
+    "caption.md": {
+      "bytes": 1260,
+      "sha256": "98b0fdeca888367511ae6504c7dc995da6178118bdbd75db111cb871fee35b67"
+    },
+    "code/.matplotlib-cache/fontlist-v3.11.0.json": {
+      "bytes": 157932,
+      "sha256": "8086b0ff5911bd550fd6337b2a0dd15a2f30e186435abe6f53dd2bc5a3a2baf0"
+    },
+    "code/config.json": {
+      "bytes": 149,
+      "sha256": "9a04f5a685a245264265a9460d19ca5c84223103d0bb6574de22c987d064cd63"
+    },
+    "code/generate_figure.py": {
+      "bytes": 13564,
+      "sha256": "40da11a1338280ac8fa4b24155ab37f38980bc7763dcb4f3b60daccd2026fa36"
+    },
+    "generation/RUN_COMPLETE.json": {
+      "bytes": 1946,
+      "sha256": "1da9654ec631df42ac56d4b0ac23f7c670a9658b46548571309d961fa7cda0bc"
+    },
+    "generation/stage1_topk_ensemble_a4_publication_final.pdf": {
+      "bytes": 37640,
+      "sha256": "dd88772c41018c1746e8c5fdb9ef968828a3a07a0df0f63d25d1ad532124c6cd"
+    },
+    "generation/stage1_topk_ensemble_a4_publication_final.png": {
+      "bytes": 840381,
+      "sha256": "591fc0f01152338c91d9c12f82debe6738908720226061a66478f60421e246cd"
+    },
+    "generation/stage1_topk_ensemble_a4_publication_final.svg": {
+      "bytes": 191404,
+      "sha256": "79977cad6006ee45bc5b74b190566769cda884f2a6b4bae499f77d5e890f1532"
+    },
+    "generation/stage1_topk_ensemble_a4_publication_final_caption.md": {
+      "bytes": 1260,
+      "sha256": "98b0fdeca888367511ae6504c7dc995da6178118bdbd75db111cb871fee35b67"
+    },
+    "generation/stage1_topk_global_macro_auprc.csv": {
+      "bytes": 783,
+      "sha256": "ffc625a729b2eb4094e200569c62c75af8cebd8b1f5cb43ef507314c64752667"
+    },
+    "source_data/Figure2_ensemble_size_selection.csv": {
+      "bytes": 783,
+      "sha256": "ffc625a729b2eb4094e200569c62c75af8cebd8b1f5cb43ef507314c64752667"
+    },
+    "source_data/Figure2_topk_ensemble_curve.csv": {
+      "bytes": 15930,
+      "sha256": "1e46566353426226977e795c92e6511e1f1c047778a0f03fa7f71307eba97961"
+    }
+  }
+}

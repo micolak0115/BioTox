@@ -1,0 +1,15 @@
+{
+  "python": "/data/kyungan/miniconda3/envs/crisp_env/bin/python",
+  "tables": {
+    "main": {
+      "description": "Table1/Table2 discrimination + calibration performance tables and forest-plot figures",
+      "script": "generate_table.py",
+      "args": ["--config", "/data/kyungan/scripts/BioTox/publication/tables/code/table_paths.json", "--output-dir", "{run_dir}"]
+    },
+    "supplementary": {
+      "description": "TableS1-S9 dataset and model specification source tables",
+      "script": "generate_supplementary_tables.py",
+      "args": ["--config", "/data/kyungan/scripts/BioTox/publication/tables/code/table_paths.json", "--output-dir", "{run_dir}"]
+    }
+  }
+}

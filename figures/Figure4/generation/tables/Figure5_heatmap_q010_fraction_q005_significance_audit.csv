@@ -1,0 +1,93 @@
+task,gene_set,source_gene_set,n_active,q_lt_0_05_n,q_lt_0_10_n,fraction_q_lt_0_05,fraction_q_lt_0_10,confirmed_enriched,n_endpoints_significant
+NR-Aromatase,Allograft Rejection,Allograft Rejection,76,0,0,0.0,0.0,False,1
+NR-Aromatase,Apical Surface,Apical Surface,76,0,0,0.0,0.0,False,1
+NR-Aromatase,Apoptosis,Apoptosis,76,0,0,0.0,0.0,False,2
+NR-Aromatase,Cholesterol Homeostasis,Cholesterol Homeostasis,76,5,6,0.0657894736842105,0.0789473684210526,True,2
+NR-Aromatase,E2F Targets,E2F Targets,76,39,43,0.5131578947368421,0.5657894736842105,True,4
+NR-Aromatase,G2-M Checkpoint,G2-M Checkpoint,76,37,39,0.4868421052631579,0.5131578947368421,True,3
+NR-Aromatase,Hypoxia,Hypoxia,76,0,0,0.0,0.0,False,1
+NR-Aromatase,IL-6/JAK/STAT3 Signaling,IL-6/JAK/STAT3 Signaling,76,1,1,0.0131578947368421,0.0131578947368421,True,1
+NR-Aromatase,Interferon Gamma Response,Interferon Gamma Response,76,0,0,0.0,0.0,False,2
+NR-Aromatase,KRAS Signaling Dn,KRAS Signaling Dn,76,0,0,0.0,0.0,False,1
+NR-Aromatase,KRAS Signaling Up,KRAS Signaling Up,76,0,0,0.0,0.0,False,1
+NR-Aromatase,Mitotic Spindle,Mitotic Spindle,76,0,0,0.0,0.0,False,2
+NR-Aromatase,Myc Targets V1,Myc Targets V1,76,7,15,0.0921052631578947,0.1973684210526315,True,2
+NR-Aromatase,Myc Targets V2,Myc Targets V2,76,0,0,0.0,0.0,False,1
+NR-Aromatase,Peroxisome,Pperoxisome,76,4,5,0.0526315789473684,0.0657894736842105,True,2
+NR-Aromatase,ROS Pathway,Reactive Oxygen Species Pathway,76,0,0,0.0,0.0,False,1
+NR-Aromatase,Spermatogenesis,Spermatogenesis,76,0,7,0.0,0.0921052631578947,False,1
+NR-Aromatase,TGF-beta Signaling,TGF-beta Signaling,76,0,0,0.0,0.0,False,1
+NR-Aromatase,TNF-alpha Pathway,TNF-alpha Signaling via NF-kB,76,3,3,0.0394736842105263,0.0394736842105263,True,4
+NR-Aromatase,UV Response Dn,UV Response Dn,76,0,0,0.0,0.0,False,1
+NR-Aromatase,Unfolded Protein Response,Unfolded Protein Response,76,0,0,0.0,0.0,False,1
+NR-Aromatase,mTORC1 Signaling,mTORC1 Signaling,76,1,9,0.0131578947368421,0.1184210526315789,True,3
+NR-Aromatase,p53 Pathway,p53 Pathway,76,0,0,0.0,0.0,False,2
+SR-ARE,Allograft Rejection,Allograft Rejection,98,0,0,0.0,0.0,False,1
+SR-ARE,Apical Surface,Apical Surface,98,0,2,0.0,0.0204081632653061,False,1
+SR-ARE,Apoptosis,Apoptosis,98,3,3,0.0306122448979591,0.0306122448979591,True,2
+SR-ARE,Cholesterol Homeostasis,Cholesterol Homeostasis,98,1,2,0.010204081632653,0.0204081632653061,True,2
+SR-ARE,E2F Targets,E2F Targets,98,15,22,0.1530612244897959,0.2244897959183673,True,4
+SR-ARE,G2-M Checkpoint,G2-M Checkpoint,98,9,21,0.0918367346938775,0.2142857142857142,True,3
+SR-ARE,Hypoxia,Hypoxia,98,3,10,0.0306122448979591,0.1020408163265306,True,1
+SR-ARE,IL-6/JAK/STAT3 Signaling,IL-6/JAK/STAT3 Signaling,98,0,0,0.0,0.0,False,1
+SR-ARE,Interferon Gamma Response,Interferon Gamma Response,98,1,1,0.010204081632653,0.010204081632653,True,2
+SR-ARE,KRAS Signaling Dn,KRAS Signaling Dn,98,0,0,0.0,0.0,False,1
+SR-ARE,KRAS Signaling Up,KRAS Signaling Up,98,0,0,0.0,0.0,False,1
+SR-ARE,Mitotic Spindle,Mitotic Spindle,98,2,2,0.0204081632653061,0.0204081632653061,True,2
+SR-ARE,Myc Targets V1,Myc Targets V1,98,0,0,0.0,0.0,False,2
+SR-ARE,Myc Targets V2,Myc Targets V2,98,0,0,0.0,0.0,False,1
+SR-ARE,Peroxisome,Pperoxisome,98,0,0,0.0,0.0,False,2
+SR-ARE,ROS Pathway,Reactive Oxygen Species Pathway,98,2,6,0.0204081632653061,0.0612244897959183,True,1
+SR-ARE,Spermatogenesis,Spermatogenesis,98,1,2,0.010204081632653,0.0204081632653061,True,1
+SR-ARE,TGF-beta Signaling,TGF-beta Signaling,98,0,0,0.0,0.0,False,1
+SR-ARE,TNF-alpha Pathway,TNF-alpha Signaling via NF-kB,98,34,37,0.3469387755102041,0.3775510204081632,True,4
+SR-ARE,UV Response Dn,UV Response Dn,98,0,0,0.0,0.0,False,1
+SR-ARE,Unfolded Protein Response,Unfolded Protein Response,98,7,15,0.0714285714285714,0.1530612244897959,True,1
+SR-ARE,mTORC1 Signaling,mTORC1 Signaling,98,8,12,0.0816326530612244,0.1224489795918367,True,3
+SR-ARE,p53 Pathway,p53 Pathway,98,12,20,0.1224489795918367,0.2040816326530612,True,2
+SR-MMP,Allograft Rejection,Allograft Rejection,141,3,5,0.0212765957446808,0.0354609929078014,True,1
+SR-MMP,Apical Surface,Apical Surface,141,1,1,0.0070921985815602,0.0070921985815602,True,1
+SR-MMP,Apoptosis,Apoptosis,141,0,0,0.0,0.0,False,2
+SR-MMP,Cholesterol Homeostasis,Cholesterol Homeostasis,141,0,1,0.0,0.0070921985815602,False,2
+SR-MMP,E2F Targets,E2F Targets,141,2,23,0.0141843971631205,0.1631205673758865,True,4
+SR-MMP,G2-M Checkpoint,G2-M Checkpoint,141,0,0,0.0,0.0,False,3
+SR-MMP,Hypoxia,Hypoxia,141,0,0,0.0,0.0,False,1
+SR-MMP,IL-6/JAK/STAT3 Signaling,IL-6/JAK/STAT3 Signaling,141,0,0,0.0,0.0,False,1
+SR-MMP,Interferon Gamma Response,Interferon Gamma Response,141,0,0,0.0,0.0,False,2
+SR-MMP,KRAS Signaling Dn,KRAS Signaling Dn,141,1,1,0.0070921985815602,0.0070921985815602,True,1
+SR-MMP,KRAS Signaling Up,KRAS Signaling Up,141,2,2,0.0141843971631205,0.0141843971631205,True,1
+SR-MMP,Mitotic Spindle,Mitotic Spindle,141,0,0,0.0,0.0,False,2
+SR-MMP,Myc Targets V1,Myc Targets V1,141,0,0,0.0,0.0,False,2
+SR-MMP,Myc Targets V2,Myc Targets V2,141,0,0,0.0,0.0,False,1
+SR-MMP,Peroxisome,Pperoxisome,141,3,5,0.0212765957446808,0.0354609929078014,True,2
+SR-MMP,ROS Pathway,Reactive Oxygen Species Pathway,141,0,1,0.0,0.0070921985815602,False,1
+SR-MMP,Spermatogenesis,Spermatogenesis,141,0,0,0.0,0.0,False,1
+SR-MMP,TGF-beta Signaling,TGF-beta Signaling,141,1,1,0.0070921985815602,0.0070921985815602,True,1
+SR-MMP,TNF-alpha Pathway,TNF-alpha Signaling via NF-kB,141,16,33,0.1134751773049645,0.2340425531914893,True,4
+SR-MMP,UV Response Dn,UV Response Dn,141,1,1,0.0070921985815602,0.0070921985815602,True,1
+SR-MMP,Unfolded Protein Response,Unfolded Protein Response,141,0,0,0.0,0.0,False,1
+SR-MMP,mTORC1 Signaling,mTORC1 Signaling,141,0,0,0.0,0.0,False,3
+SR-MMP,p53 Pathway,p53 Pathway,141,0,0,0.0,0.0,False,2
+SR-p53,Allograft Rejection,Allograft Rejection,98,0,0,0.0,0.0,False,1
+SR-p53,Apical Surface,Apical Surface,98,0,0,0.0,0.0,False,1
+SR-p53,Apoptosis,Apoptosis,98,2,2,0.0204081632653061,0.0204081632653061,True,2
+SR-p53,Cholesterol Homeostasis,Cholesterol Homeostasis,98,0,0,0.0,0.0,False,2
+SR-p53,E2F Targets,E2F Targets,98,52,68,0.5306122448979592,0.6938775510204082,True,4
+SR-p53,G2-M Checkpoint,G2-M Checkpoint,98,51,59,0.5204081632653061,0.6020408163265306,True,3
+SR-p53,Hypoxia,Hypoxia,98,0,5,0.0,0.0510204081632653,False,1
+SR-p53,IL-6/JAK/STAT3 Signaling,IL-6/JAK/STAT3 Signaling,98,0,0,0.0,0.0,False,1
+SR-p53,Interferon Gamma Response,Interferon Gamma Response,98,3,6,0.0306122448979591,0.0612244897959183,True,2
+SR-p53,KRAS Signaling Dn,KRAS Signaling Dn,98,0,0,0.0,0.0,False,1
+SR-p53,KRAS Signaling Up,KRAS Signaling Up,98,0,0,0.0,0.0,False,1
+SR-p53,Mitotic Spindle,Mitotic Spindle,98,16,34,0.1632653061224489,0.3469387755102041,True,2
+SR-p53,Myc Targets V1,Myc Targets V1,98,1,19,0.010204081632653,0.1938775510204081,True,2
+SR-p53,Myc Targets V2,Myc Targets V2,98,1,1,0.010204081632653,0.010204081632653,True,1
+SR-p53,Peroxisome,Pperoxisome,98,0,0,0.0,0.0,False,2
+SR-p53,ROS Pathway,Reactive Oxygen Species Pathway,98,0,0,0.0,0.0,False,1
+SR-p53,Spermatogenesis,Spermatogenesis,98,0,0,0.0,0.0,False,1
+SR-p53,TGF-beta Signaling,TGF-beta Signaling,98,0,0,0.0,0.0,False,1
+SR-p53,TNF-alpha Pathway,TNF-alpha Signaling via NF-kB,98,21,39,0.2142857142857142,0.3979591836734694,True,4
+SR-p53,UV Response Dn,UV Response Dn,98,0,0,0.0,0.0,False,1
+SR-p53,Unfolded Protein Response,Unfolded Protein Response,98,0,0,0.0,0.0,False,1
+SR-p53,mTORC1 Signaling,mTORC1 Signaling,98,3,5,0.0306122448979591,0.0510204081632653,True,3
+SR-p53,p53 Pathway,p53 Pathway,98,26,29,0.2653061224489796,0.2959183673469387,True,2

@@ -1,0 +1,279 @@
+{
+  "created_at_utc": "2026-08-25T02:30:51.424536+00:00",
+  "analysis": "paired_timepoint_sensitivity",
+  "adata_path": "/data/kyungan/scripts/BioTox/publication/final/data/lincs/lincs_merge_chemical_filter_select_align_aggregate.h5ad",
+  "adata_sha256": "784d0c08163fa7ef8541199159e2579d65f1d94f557c997824dcd461b1949823",
+  "obsm_key": "X_centered",
+  "gene_scope": "L1000 landmark genes, duplicate symbols removed",
+  "n_gene_features": 978,
+  "replicate_aggregation": "median within compound/cell/time/8-12uM",
+  "dose_window_um": [
+    8.0,
+    12.0
+  ],
+  "paired_timepoints_hours": [
+    6.0,
+    24.0
+  ],
+  "paired_cohort_definition": "per-cell Tox21 compounds observed at both 6h and 24h",
+  "stage1_split_path": "/data/kyungan/scripts/BioTox/publication/final/data/generated/molecular_prediction_and_ensemble/cohort/tox21_scaffold_df_split_chem_finetune_pool.pkl",
+  "stage1_split_sha256": "e960edb255feda66623726690b7bb9f90bd50a8012de3844b084e374d6561dd4",
+  "stage1_scaffold_overlap_required": 0,
+  "cells": {
+    "HA1E": {
+      "n_6h": 1012,
+      "n_24h": 1163,
+      "n_paired": 861,
+      "n_6h_only": 151,
+      "n_24h_only": 302,
+      "paired_stage1_scaffold_overlap": 0,
+      "cohort_file": "/data/kyungan/scripts/BioTox/publication/final/data/generated/transcriptomic_residual_learning/paired_inputs_6h24h/cohort/tox21_scaffold_df_split_HA1E_8to12uM_paired6h24h.pkl",
+      "cohort_file_sha256": "2a29e0bf6de0a5c0a40e77a4e097b3c54d097cdb3d9974fefe84028defdb9435",
+      "task_counts": {
+        "NR-AR": {
+          "n_labeled": 830,
+          "n_positive": 59,
+          "n_negative": 771
+        },
+        "NR-AR-LBD": {
+          "n_labeled": 747,
+          "n_positive": 39,
+          "n_negative": 708
+        },
+        "NR-AhR": {
+          "n_labeled": 727,
+          "n_positive": 91,
+          "n_negative": 636
+        },
+        "NR-Aromatase": {
+          "n_labeled": 655,
+          "n_positive": 57,
+          "n_negative": 598
+        },
+        "NR-ER": {
+          "n_labeled": 689,
+          "n_positive": 112,
+          "n_negative": 577
+        },
+        "NR-ER-LBD": {
+          "n_labeled": 772,
+          "n_positive": 40,
+          "n_negative": 732
+        },
+        "NR-PPAR-gamma": {
+          "n_labeled": 696,
+          "n_positive": 29,
+          "n_negative": 667
+        },
+        "SR-ARE": {
+          "n_labeled": 584,
+          "n_positive": 118,
+          "n_negative": 466
+        },
+        "SR-ATAD5": {
+          "n_labeled": 778,
+          "n_positive": 43,
+          "n_negative": 735
+        },
+        "SR-HSE": {
+          "n_labeled": 697,
+          "n_positive": 43,
+          "n_negative": 654
+        },
+        "SR-MMP": {
+          "n_labeled": 613,
+          "n_positive": 111,
+          "n_negative": 502
+        },
+        "SR-p53": {
+          "n_labeled": 757,
+          "n_positive": 76,
+          "n_negative": 681
+        }
+      },
+      "feature_files_sha256": {
+        "6h": {
+          "HA1E_gene_features_raw.csv": "babc6529aab429d0e2efcf9ee8847d646ea4bd35febed31a5dfb247ff1f73007",
+          "HA1E_gene_features_residualized.csv": "066aa20564430232355d915d74167c11b09a1664b1b00505e1ed2f8660ea257c",
+          "HA1E_ceviche_score.csv": "ee23ac7b2f1c8fbcbbe5a0b3db8ab413b2f78bb4fe1b04352e33dbff77a06de9"
+        },
+        "24h": {
+          "HA1E_gene_features_raw.csv": "90753967939cde70df64cccb70c961628f393a9709057cffec5fb26b535a3df9",
+          "HA1E_gene_features_residualized.csv": "b73687346729dd915f8cd942ca0f41f59e94fde2cf584b798a8cf0d96d72d7b0",
+          "HA1E_ceviche_score.csv": "0974fdb963fae788152eca259f13bcfa70f9677b357efec11f38bfdc0b544364"
+        }
+      }
+    },
+    "HT29": {
+      "n_6h": 1005,
+      "n_24h": 906,
+      "n_paired": 606,
+      "n_6h_only": 399,
+      "n_24h_only": 300,
+      "paired_stage1_scaffold_overlap": 0,
+      "cohort_file": "/data/kyungan/scripts/BioTox/publication/final/data/generated/transcriptomic_residual_learning/paired_inputs_6h24h/cohort/tox21_scaffold_df_split_HT29_8to12uM_paired6h24h.pkl",
+      "cohort_file_sha256": "643a9b744eda6389e35cc881aefcb49d3adc4c1bfaf418f1c0f23a3134160cac",
+      "task_counts": {
+        "NR-AR": {
+          "n_labeled": 585,
+          "n_positive": 44,
+          "n_negative": 541
+        },
+        "NR-AR-LBD": {
+          "n_labeled": 523,
+          "n_positive": 19,
+          "n_negative": 504
+        },
+        "NR-AhR": {
+          "n_labeled": 516,
+          "n_positive": 63,
+          "n_negative": 453
+        },
+        "NR-Aromatase": {
+          "n_labeled": 475,
+          "n_positive": 45,
+          "n_negative": 430
+        },
+        "NR-ER": {
+          "n_labeled": 487,
+          "n_positive": 76,
+          "n_negative": 411
+        },
+        "NR-ER-LBD": {
+          "n_labeled": 547,
+          "n_positive": 25,
+          "n_negative": 522
+        },
+        "NR-PPAR-gamma": {
+          "n_labeled": 483,
+          "n_positive": 17,
+          "n_negative": 466
+        },
+        "SR-ARE": {
+          "n_labeled": 416,
+          "n_positive": 80,
+          "n_negative": 336
+        },
+        "SR-ATAD5": {
+          "n_labeled": 544,
+          "n_positive": 30,
+          "n_negative": 514
+        },
+        "SR-HSE": {
+          "n_labeled": 498,
+          "n_positive": 31,
+          "n_negative": 467
+        },
+        "SR-MMP": {
+          "n_labeled": 430,
+          "n_positive": 61,
+          "n_negative": 369
+        },
+        "SR-p53": {
+          "n_labeled": 533,
+          "n_positive": 57,
+          "n_negative": 476
+        }
+      },
+      "feature_files_sha256": {
+        "6h": {
+          "HT29_gene_features_raw.csv": "deda213aed340e284d1b3ed58170970f94cbf12f346b2d94e535cac29a01b5c8",
+          "HT29_gene_features_residualized.csv": "ebc9fef452b2e0fcfe610d1897c375cbc94cc76630236a0a3687daf70ab3d15e",
+          "HT29_ceviche_score.csv": "ef6527f807a2ab83a3dd096d5663f769741d1cf58689f017fd7b844b22230366"
+        },
+        "24h": {
+          "HT29_gene_features_raw.csv": "384bd2ac63fdf8a959ec0ec6be3971d4f489fbd45889e063562643ddbca0e6bb",
+          "HT29_gene_features_residualized.csv": "ad5c540fedcafdc7710be3b314c5b1e3e853838b729f202892fac76fc398a021",
+          "HT29_ceviche_score.csv": "ffaa78a147c05883e7217dc0c866c6e6dc792cb5621c6b06db0c70d3cafa16ce"
+        }
+      }
+    },
+    "MCF7": {
+      "n_6h": 1332,
+      "n_24h": 1512,
+      "n_paired": 1316,
+      "n_6h_only": 16,
+      "n_24h_only": 196,
+      "paired_stage1_scaffold_overlap": 0,
+      "cohort_file": "/data/kyungan/scripts/BioTox/publication/final/data/generated/transcriptomic_residual_learning/paired_inputs_6h24h/cohort/tox21_scaffold_df_split_MCF7_8to12uM_paired6h24h.pkl",
+      "cohort_file_sha256": "95a60162c58fe06603b6c99b1b17a6c18a75f6411fde4e2b971f7cf2e55e1e18",
+      "task_counts": {
+        "NR-AR": {
+          "n_labeled": 1243,
+          "n_positive": 78,
+          "n_negative": 1165
+        },
+        "NR-AR-LBD": {
+          "n_labeled": 1129,
+          "n_positive": 51,
+          "n_negative": 1078
+        },
+        "NR-AhR": {
+          "n_labeled": 1099,
+          "n_positive": 111,
+          "n_negative": 988
+        },
+        "NR-Aromatase": {
+          "n_labeled": 1012,
+          "n_positive": 76,
+          "n_negative": 936
+        },
+        "NR-ER": {
+          "n_labeled": 1054,
+          "n_positive": 154,
+          "n_negative": 900
+        },
+        "NR-ER-LBD": {
+          "n_labeled": 1178,
+          "n_positive": 59,
+          "n_negative": 1119
+        },
+        "NR-PPAR-gamma": {
+          "n_labeled": 1060,
+          "n_positive": 33,
+          "n_negative": 1027
+        },
+        "SR-ARE": {
+          "n_labeled": 913,
+          "n_positive": 159,
+          "n_negative": 754
+        },
+        "SR-ATAD5": {
+          "n_labeled": 1180,
+          "n_positive": 55,
+          "n_negative": 1125
+        },
+        "SR-HSE": {
+          "n_labeled": 1065,
+          "n_positive": 62,
+          "n_negative": 1003
+        },
+        "SR-MMP": {
+          "n_labeled": 947,
+          "n_positive": 141,
+          "n_negative": 806
+        },
+        "SR-p53": {
+          "n_labeled": 1142,
+          "n_positive": 98,
+          "n_negative": 1044
+        }
+      },
+      "feature_files_sha256": {
+        "6h": {
+          "MCF7_gene_features_raw.csv": "2a246a039f4ec725611978b10826a90343f01ccefaebab17f50b85a46612e01b",
+          "MCF7_gene_features_residualized.csv": "a87365840d20d2ced257c1d2d312fe395986cc42b0192269e72e600dcacacd3d",
+          "MCF7_ceviche_score.csv": "b655d8280147b279b134cb5d2e7ed7b25c69f9cac449d9a099f3bae7e4b27ec8"
+        },
+        "24h": {
+          "MCF7_gene_features_raw.csv": "33dc7746b3d38ab948e4626a6870ab1799e2db0bc10d95ad5c99761b45685d81",
+          "MCF7_gene_features_residualized.csv": "6fc684bd55af22ba878f86d9c1c83b6df9f043f3cdd4975fb2c159a0abcf7593",
+          "MCF7_ceviche_score.csv": "87f7667519d0136907197026474ff95e4df9506b04964ad23783c25b106385ff"
+        }
+      }
+    }
+  },
+  "feature_time_hours": 6.0,
+  "feature_dir": "/data/kyungan/scripts/BioTox/publication/final/data/generated/transcriptomic_residual_learning/paired_inputs_6h24h/gene_features_6h",
+  "cohort_dir": "/data/kyungan/scripts/BioTox/publication/final/data/generated/transcriptomic_residual_learning/paired_inputs_6h24h/cohort"
+}

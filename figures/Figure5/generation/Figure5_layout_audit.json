@@ -1,0 +1,44 @@
+{
+  "rows_per_heatmap": {
+    "Correction": 20,
+    "Rescue": 20
+  },
+  "gap_separated_outlier_rows_per_heatmap": {
+    "Correction": 1,
+    "Rescue": 1
+  },
+  "subtitle_font_pt": 10.5,
+  "panel_letter_font_pt": 16,
+  "BC_label_clearance_pt": 19.34439999999995,
+  "AB_label_clearance_pt": 29.509360000000004,
+  "subtitle_to_endpoint_header_clearance_pt": 6.227999999999984,
+  "SR_MMP_annotation_collision_check": [
+    {
+      "compound": "BRD-K11451237",
+      "display_label": "BRD-\nK11451237",
+      "label_axes_position": [
+        0.9349999999999999,
+        0.36750000000000016
+      ],
+      "label_fully_inside_scatter": true,
+      "overlapping_selected_markers": 0,
+      "overlapping_all_markers": 0,
+      "overlaps_heatmap_labels": false
+    },
+    {
+      "compound": "Diphemanil",
+      "display_label": "Diphe-\nmanil",
+      "label_axes_position": [
+        0.8849999999999999,
+        0.5550000000000003
+      ],
+      "label_fully_inside_scatter": true,
+      "overlapping_selected_markers": 0,
+      "overlapping_all_markers": 0,
+      "overlaps_heatmap_labels": false
+    }
+  ],
+  "global_maxima_marked_in_scatter": 8,
+  "global_maxima_outlined_in_topN": 6,
+  "global_maxima_outlined_total": 8
+}

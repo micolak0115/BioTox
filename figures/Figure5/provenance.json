@@ -1,0 +1,72 @@
+{
+  "files": {
+    "Figure5.eps": {
+      "bytes": 1153918,
+      "sha256": "d1a1b163ac8dffa6664f663c57156e39fcfeecf7466f41a916fa7e8713c342ce"
+    },
+    "Figure5.pdf": {
+      "bytes": 123730,
+      "sha256": "f9320beffef98d196e115b5cdeb52ee952792c36c66fb344f5c3aa8855a6c862"
+    },
+    "Figure5.png": {
+      "bytes": 2296618,
+      "sha256": "277f9636bb117d43f9531c7130e4f7c2c82c827d2006524d5cea7d9bcca018db"
+    },
+    "Figure5.svg": {
+      "bytes": 798450,
+      "sha256": "86f42023d5f52d894b8380691ab804605cdb52b8b6fdb8e443b0017c6def4f50"
+    },
+    "Figure5.tiff": {
+      "bytes": 5131194,
+      "sha256": "3742b529ea58d98137146ea1cc579788921001d2d5998e7f863ae53440117463"
+    },
+    "Figure5_preview.png": {
+      "bytes": 457506,
+      "sha256": "40107b6f4df8fe93d361dc3d43e79156626bb734bdea5b57a81811083d25231c"
+    },
+    "caption.md": {
+      "bytes": 1303,
+      "sha256": "537b82a077c916a27027687bec48adb22edf715fbcf625f3ccc1a3c0a9fa6746"
+    },
+    "code/config.json": {
+      "bytes": 316,
+      "sha256": "48c89f9108166d0ab7ec36e2bbb69305ccc5fe90a9ee3e5da0f244cf998b49ea"
+    },
+    "code/generate_figure5.py": {
+      "bytes": 32962,
+      "sha256": "abb4bf02b4c74d39c57cc5ac0355d4698f2702a596b1599bbe1144febef5358e"
+    },
+    "generation/Figure5_global_endpoint_maxima_audit.csv": {
+      "bytes": 4239,
+      "sha256": "3312e68793f670d29792cd527edc34fe4d575cd40bb6d8c7372f5710c57dcf08"
+    },
+    "generation/Figure5_layout_audit.json": {
+      "bytes": 1218,
+      "sha256": "d6f531adf41e1910e1fbd8a3fbacb1998497b5e4b0c17b8e1fab59b219f884b6"
+    },
+    "generation/Figure5_manifest.json": {
+      "bytes": 2930,
+      "sha256": "bc5bb789e27bacb179a4109a9495b8626fd2bfc18fb7da8f09804199f660430a"
+    },
+    "methods.md": {
+      "bytes": 1949,
+      "sha256": "84560597d8fbcc013b2e15a6592ede23b1eadecdbc8c7a2bbf151cf9272a17d3"
+    },
+    "source_data/Figure5_all_compound_rankings.csv": {
+      "bytes": 42649,
+      "sha256": "dffc8a5fcbbec92e9bafe89c5225d7299d68a5f236c22bb22b1867a14fe18f47"
+    },
+    "source_data/Figure5_compound_selection_statistics.csv": {
+      "bytes": 1297366,
+      "sha256": "4652172d47564171909226f03698d521637df42d2b7f32c1a237083f1a2be3af"
+    },
+    "source_data/Figure5_heatmap_cells.csv": {
+      "bytes": 47424,
+      "sha256": "a5ffb3dadc639e020ac94b800a4a970180ed5015b59fa46a2a56fe0d22ea3e8f"
+    },
+    "source_data/Figure5_heatmap_displayed_compounds.csv": {
+      "bytes": 3946,
+      "sha256": "1e7edffe1c3489f1646ab06cc3ec9d5b4b4ceec9bbec47db034706a9cfdbb4d9"
+    }
+  }
+}

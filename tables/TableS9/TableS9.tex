@@ -1,0 +1,100 @@
+
+\small
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{p{0.137\linewidth}p{0.137\linewidth}p{0.137\linewidth}p{0.137\linewidth}p{0.137\linewidth}p{0.137\linewidth}p{0.137\linewidth}}
+\caption*{\textbf{Table S9}. Context-specific predictive performance of chemical and transcriptome-complemented models across the twelve Tox21 endpoints. AUPRC is reported to three decimal places for Chem. and Chem. + Bio. on matching held-out compounds within each endpoint, cell line, and exposure time. The 6-h rows represent primary full cohorts; the 24-h rows represent paired exposure-time cohorts. The frozen chemical logit is calibrated on each training partition; this intercept is held fixed while transcriptomic β coefficients are fitted using unweighted BCE plus a ridge penalty selected by inner cross-validation. Unadjusted perturbation expression is standardized using training-fold means and standard deviations. Bold Chem. + Bio. values and asterisks denote nominally significant positive improvements over the corresponding Chem. value (*P < 0.05, two-sided Nadeau–Bengio corrected resampled test, without multiple-testing adjustment). Endpoint labels are bold when at least one displayed context meets this criterion. † denotes fewer than 20 active compounds. Paired-cohort 6-h results are retained in the full numeric source but are not displayed.}\\
+\toprule
+Endpoint & Cell & Time (h) & n & Active & Chem. & Chem. + Bio. \\
+\midrule
+\endfirsthead
+\toprule
+Endpoint & Cell & Time (h) & n & Active & Chem. & Chem. + Bio. \\
+\midrule
+\endhead
+NR-AR & HA1E & 6 & 968 & 72 & 0.461 & 0.461 \\
+NR-AR & HepG2 & 6 & 668 & 46 & 0.537 & 0.537 \\
+NR-AR & HT29 & 6 & 960 & 72 & 0.457 & 0.457 \\
+NR-AR & MCF7 & 6 & 1259 & 82 & 0.459 & 0.459 \\
+NR-AR & HA1E & 24 & 830 & 59 & 0.432 & 0.432 \\
+NR-AR & HT29 & 24 & 585 & 44 & 0.385 & 0.385 \\
+NR-AR & MCF7 & 24 & 1243 & 78 & 0.460 & 0.460 \\
+NR-AR-LBD & HA1E & 6 & 869 & 49 & 0.554 & 0.554 \\
+NR-AR-LBD & HepG2 & 6 & 598 & 37 & 0.554 & 0.554 \\
+NR-AR-LBD & HT29 & 6 & 862 & 47 & 0.561 & 0.561 \\
+NR-AR-LBD & MCF7 & 6 & 1145 & 53 & 0.581 & 0.585 \\
+NR-AR-LBD & HA1E & 24 & 747 & 39 & 0.503 & 0.503 \\
+NR-AR-LBD & HT29 & 24 & 523 & 19 & 0.510 & 0.510† \\
+NR-AR-LBD & MCF7 & 24 & 1129 & 51 & 0.583 & 0.586 \\
+NR-AhR & HA1E & 6 & 849 & 102 & 0.526 & 0.526 \\
+NR-AhR & HepG2 & 6 & 585 & 65 & 0.477 & 0.482 \\
+NR-AhR & HT29 & 6 & 841 & 95 & 0.479 & 0.479 \\
+NR-AhR & MCF7 & 6 & 1111 & 112 & 0.473 & 0.472 \\
+NR-AhR & HA1E & 24 & 727 & 91 & 0.527 & 0.530 \\
+NR-AhR & HT29 & 24 & 516 & 63 & 0.521 & 0.521 \\
+NR-AhR & MCF7 & 24 & 1099 & 111 & 0.468 & 0.468 \\
+\textbf{NR-Aromatase} & HA1E & 6 & 759 & 63 & 0.384 & 0.384 \\
+\textbf{NR-Aromatase} & HepG2 & 6 & 512 & 47 & 0.346 & 0.356 \\
+\textbf{NR-Aromatase} & HT29 & 6 & 758 & 63 & 0.372 & 0.378 \\
+\textbf{NR-Aromatase} & MCF7 & 6 & 1021 & 76 & 0.409 & 0.431 \\
+\textbf{NR-Aromatase} & HA1E & 24 & 655 & 57 & 0.397 & 0.482 \\
+\textbf{NR-Aromatase} & HT29 & 24 & 475 & 45 & 0.371 & 0.371 \\
+\textbf{NR-Aromatase} & MCF7 & 24 & 1012 & 76 & 0.411 & \textbf{0.538}* \\
+NR-ER & HA1E & 6 & 805 & 132 & 0.430 & 0.430 \\
+NR-ER & HepG2 & 6 & 540 & 92 & 0.477 & 0.477 \\
+NR-ER & HT29 & 6 & 799 & 128 & 0.419 & 0.419 \\
+NR-ER & MCF7 & 6 & 1067 & 155 & 0.402 & 0.402 \\
+NR-ER & HA1E & 24 & 689 & 112 & 0.441 & 0.441 \\
+NR-ER & HT29 & 24 & 487 & 76 & 0.409 & 0.409 \\
+NR-ER & MCF7 & 24 & 1054 & 154 & 0.407 & 0.407 \\
+NR-ER-LBD & HA1E & 6 & 907 & 55 & 0.385 & 0.384 \\
+NR-ER-LBD & HepG2 & 6 & 620 & 39 & 0.404 & 0.404 \\
+NR-ER-LBD & HT29 & 6 & 902 & 53 & 0.397 & 0.398 \\
+NR-ER-LBD & MCF7 & 6 & 1194 & 61 & 0.379 & 0.418 \\
+NR-ER-LBD & HA1E & 24 & 772 & 40 & 0.411 & 0.400 \\
+NR-ER-LBD & HT29 & 24 & 547 & 25 & 0.375 & 0.369 \\
+NR-ER-LBD & MCF7 & 24 & 1178 & 59 & 0.397 & 0.429 \\
+NR-PPAR-gamma & HA1E & 6 & 811 & 34 & 0.235 & 0.235 \\
+NR-PPAR-gamma & HepG2 & 6 & 552 & 19 & 0.300 & 0.299† \\
+NR-PPAR-gamma & HT29 & 6 & 803 & 29 & 0.193 & 0.192 \\
+NR-PPAR-gamma & MCF7 & 6 & 1073 & 34 & 0.222 & 0.222 \\
+NR-PPAR-gamma & HA1E & 24 & 696 & 29 & 0.241 & 0.241 \\
+NR-PPAR-gamma & HT29 & 24 & 483 & 17 & 0.278 & 0.277† \\
+NR-PPAR-gamma & MCF7 & 24 & 1060 & 33 & 0.212 & 0.212 \\
+\textbf{SR-ARE} & HA1E & 6 & 690 & 136 & 0.474 & 0.479 \\
+\textbf{SR-ARE} & HepG2 & 6 & 451 & 98 & 0.452 & \textbf{0.553}* \\
+\textbf{SR-ARE} & HT29 & 6 & 682 & 129 & 0.451 & 0.452 \\
+\textbf{SR-ARE} & MCF7 & 6 & 923 & 160 & 0.452 & 0.459 \\
+\textbf{SR-ARE} & HA1E & 24 & 584 & 118 & 0.469 & 0.482 \\
+\textbf{SR-ARE} & HT29 & 24 & 416 & 80 & 0.498 & 0.492 \\
+\textbf{SR-ARE} & MCF7 & 24 & 913 & 159 & 0.449 & 0.463 \\
+SR-ATAD5 & HA1E & 6 & 911 & 50 & 0.295 & 0.293 \\
+SR-ATAD5 & HepG2 & 6 & 619 & 33 & 0.372 & 0.368 \\
+SR-ATAD5 & HT29 & 6 & 903 & 50 & 0.307 & 0.316 \\
+SR-ATAD5 & MCF7 & 6 & 1196 & 57 & 0.254 & 0.260 \\
+SR-ATAD5 & HA1E & 24 & 778 & 43 & 0.311 & 0.337 \\
+SR-ATAD5 & HT29 & 24 & 544 & 30 & 0.308 & 0.308 \\
+SR-ATAD5 & MCF7 & 24 & 1180 & 55 & 0.257 & 0.319 \\
+SR-HSE & HA1E & 6 & 814 & 52 & 0.234 & 0.248 \\
+SR-HSE & HepG2 & 6 & 547 & 30 & 0.269 & 0.252 \\
+SR-HSE & HT29 & 6 & 806 & 50 & 0.254 & 0.251 \\
+SR-HSE & MCF7 & 6 & 1077 & 64 & 0.248 & 0.245 \\
+SR-HSE & HA1E & 24 & 697 & 43 & 0.231 & 0.238 \\
+SR-HSE & HT29 & 24 & 498 & 31 & 0.297 & 0.299 \\
+SR-HSE & MCF7 & 24 & 1065 & 62 & 0.239 & 0.254 \\
+\textbf{SR-MMP} & HA1E & 6 & 723 & 129 & 0.588 & \textbf{0.646}* \\
+\textbf{SR-MMP} & HepG2 & 6 & 495 & 102 & 0.616 & \textbf{0.686}* \\
+\textbf{SR-MMP} & HT29 & 6 & 717 & 121 & 0.563 & \textbf{0.643}* \\
+\textbf{SR-MMP} & MCF7 & 6 & 958 & 143 & 0.527 & \textbf{0.635}* \\
+\textbf{SR-MMP} & HA1E & 24 & 613 & 111 & 0.571 & \textbf{0.681}* \\
+\textbf{SR-MMP} & HT29 & 24 & 430 & 61 & 0.547 & 0.553 \\
+\textbf{SR-MMP} & MCF7 & 24 & 947 & 141 & 0.529 & \textbf{0.659}* \\
+\textbf{SR-p53} & HA1E & 6 & 884 & 89 & 0.361 & 0.404 \\
+\textbf{SR-p53} & HepG2 & 6 & 603 & 64 & 0.344 & 0.395 \\
+\textbf{SR-p53} & HT29 & 6 & 877 & 85 & 0.338 & 0.427 \\
+\textbf{SR-p53} & MCF7 & 6 & 1158 & 100 & 0.295 & \textbf{0.397}* \\
+\textbf{SR-p53} & HA1E & 24 & 757 & 76 & 0.350 & 0.381 \\
+\textbf{SR-p53} & HT29 & 24 & 533 & 57 & 0.374 & 0.399 \\
+\textbf{SR-p53} & MCF7 & 24 & 1142 & 98 & 0.294 & \textbf{0.508}* \\
+\bottomrule
+\end{longtable}
+

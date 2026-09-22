@@ -1,0 +1,72 @@
+{
+  "analysis": "paired_timepoint_sensitivity",
+  "pert_time_hours": 24,
+  "dose_window_um": [
+    8.0,
+    12.0
+  ],
+  "paired_compounds_required": true,
+  "cohort_dir": "/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/paired_timepoint_inputs_6h24h_8to12uM_v1/cohort",
+  "gene_features_dir": "/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/paired_timepoint_inputs_6h24h_8to12uM_v1/gene_features_24h",
+  "chemical_offset_path": "/data/kyungan/scripts/BioTox/backup/chem_offset_k4_deployed/chem_offset_final.csv",
+  "chemical_offset_sha256": "b4aef5a1efa6d3b2d6819a32343a634b884db9b0d4e2592fe9c3755dee15fac0",
+  "chemical_offset_frozen": true,
+  "chemical_offset_coefficient": 1.0,
+  "stage1_ensemble": "task-specific K=4 arithmetic mean",
+  "variants": [
+    "standardized"
+  ],
+  "tasks": [
+    "NR-AR",
+    "NR-AR-LBD",
+    "NR-AhR",
+    "NR-Aromatase",
+    "NR-ER",
+    "NR-ER-LBD",
+    "NR-PPAR-gamma",
+    "SR-ARE",
+    "SR-ATAD5",
+    "SR-HSE",
+    "SR-MMP",
+    "SR-p53"
+  ],
+  "cells": [
+    "HA1E",
+    "HT29",
+    "MCF7"
+  ],
+  "outer_seeds": [
+    2042,
+    3042,
+    4042,
+    5042,
+    6042,
+    7042,
+    8042,
+    9042,
+    10042,
+    11042,
+    12042,
+    13042,
+    14042,
+    15042,
+    16042,
+    17042,
+    18042,
+    19042,
+    20042,
+    21042
+  ],
+  "n_repeats": 20,
+  "outer_folds_per_repeat": 5,
+  "n_jobs": 24,
+  "output_root": "/data/kyungan/scripts/BioTox/publication/standalone/bio/run/methodology_audit/results/paired_24h_20x5",
+  "summary_root": "/data/kyungan/scripts/BioTox/publication/standalone/bio/run/methodology_audit/results/paired_24h_20x5_summary",
+  "hepg2_complete_matrix_excluded": true,
+  "hepg2_paired_compounds": 46,
+  "input_manifest_feature_time": 24.0,
+  "created_at_utc": "2026-09-22T06:55:09.770498+00:00",
+  "chemical_offset_sha256_after": "b4aef5a1efa6d3b2d6819a32343a634b884db9b0d4e2592fe9c3755dee15fac0",
+  "deployment_report_sha256": "cee760af18c5c3e677bc811f2a63903009fd1740e10696bc2250052a39ea7d67",
+  "complete": true
+}

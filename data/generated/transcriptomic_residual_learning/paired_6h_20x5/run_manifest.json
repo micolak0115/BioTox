@@ -1,0 +1,5926 @@
+{
+  "created_at_utc": "2026-09-22T06:38:23.118839+00:00",
+  "pipeline": "calibrated_stage2_repeated_nested_cv_innerseed_v3",
+  "stage2_model_spec": "frozen_offset_fixed_calibration_intercept_ridge_biology_v3",
+  "solver": "lbfgs",
+  "chemical_offset_path": "/data/kyungan/scripts/BioTox/backup/chem_offset_k4_deployed/chem_offset_final.csv",
+  "chemical_offset_sha256": "b4aef5a1efa6d3b2d6819a32343a634b884db9b0d4e2592fe9c3755dee15fac0",
+  "chemical_offset_frozen": true,
+  "chemical_offset_coefficient": 1.0,
+  "cohort_dir": "/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/paired_timepoint_inputs_6h24h_8to12uM_v1/cohort",
+  "gene_features_dir": "/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/paired_timepoint_inputs_6h24h_8to12uM_v1/gene_features_6h",
+  "gene_feature_files_sha256": {
+    "HA1E_gene_features_raw.csv": "babc6529aab429d0e2efcf9ee8847d646ea4bd35febed31a5dfb247ff1f73007",
+    "HT29_gene_features_raw.csv": "deda213aed340e284d1b3ed58170970f94cbf12f346b2d94e535cac29a01b5c8",
+    "MCF7_gene_features_raw.csv": "2a246a039f4ec725611978b10826a90343f01ccefaebab17f50b85a46612e01b",
+    "FEATURE_MANIFEST.json": "08e459674ea2bb3cbed34ec9c98f0623e2f26bbe98ec7b6b70fa9c59752130c9"
+  },
+  "stage1_ensemble_rule": "task-specific top-4 candidate arithmetic mean",
+  "stage1_k": 4,
+  "stage1_deployment_report": "/data/kyungan/scripts/BioTox/backup/chem_offset_k4_deployed/chem_prior_deployment_report.csv",
+  "stage1_deployment_report_sha256": "cee760af18c5c3e677bc811f2a63903009fd1740e10696bc2250052a39ea7d67",
+  "intercept_penalized": false,
+  "calibration_intercept_frozen": true,
+  "calibration_policy": "fit_on_each_training_subset_then_freeze_during_beta_fit",
+  "alpha_selection_rule": "largest_grid_value_within_one_se_of_global_minimum",
+  "validation_loss": "unpenalized_mean_binary_cross_entropy_from_logits",
+  "stage2_likelihood": "unweighted_publication_primary",
+  "variants": [
+    "standardized"
+  ],
+  "tasks": [
+    "NR-AR",
+    "NR-AR-LBD",
+    "NR-AhR",
+    "NR-Aromatase",
+    "NR-ER",
+    "NR-ER-LBD",
+    "NR-PPAR-gamma",
+    "SR-ARE",
+    "SR-ATAD5",
+    "SR-HSE",
+    "SR-MMP",
+    "SR-p53"
+  ],
+  "cells": [
+    "HA1E",
+    "HT29",
+    "MCF7"
+  ],
+  "n_repeats": 20,
+  "outer_folds_per_repeat": 5,
+  "outer_seed_requests": [
+    2042,
+    3042,
+    4042,
+    5042,
+    6042,
+    7042,
+    8042,
+    9042,
+    10042,
+    11042,
+    12042,
+    13042,
+    14042,
+    15042,
+    16042,
+    17042,
+    18042,
+    19042,
+    20042,
+    21042
+  ],
+  "outer_seed_request_count": 20,
+  "outer_split_actual_seeds": [
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "ca362dbb24ef751d462a52a5cade4fe1619ded879920b525964dbc430cf01154"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "211ab1f5179a87c0e65fa8c932f38443964a86f791d8ba1dc5e461ddd4d72b68"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "8ec0ce2292a43d55f18f65a2c905524bf11947c46f75407d2981c1a8cfad0313"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "8638aac507e8ade30d3b8bafa715e047985bf1fdcaa8b15bc7602860f5163457"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "8a361dc1234b396f7074e9382c6c05904c62b7c1b3c2197fca2e44f74eec15a5"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "085c9f97a95ebb4bc0587e8d1f6aaf8286d1f223013a59bb567a499e9b3575d7"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "329b1fa3b976e60fcbe29addae0deb576556a095273b8123f89ee4a906d6bbd0"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "3e193421394c7d00234ac0a51e299634426209f761cf8da727a013382d748579"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "a016a5966e446522c397cf83838efe41beb1a78a8f4e875ac5a78f84c010e20d"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "2557035400ed8f8ab1cab4cd03a999d292fdd5d0325c61ef60aa2dbaa580e597"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "74edab83c3eb1131756797726ef55ddf79f457669b7dcacf6a9143876db6d0cc"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "ddc82e13c02138dcd798379f9d103ad60932c9198111abf0ccdf4adc7f189f45"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "ff921422d16dab0cbdce863abeed61b401b564b80884412b5074944342529c96"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "861cc09598aea355b6ee9f1eebb68bf2c8e6690542dd27587025fcb262aa5044"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "47c1ac3a8c9d91ffc76eaa621a626f5db4b7ba5b1d1ffcb98de7a5e98eae0f6d"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "aa2cde4dadfc8ee2d81459786a6bd400e9a07264ea3a353d6270b142619d307d"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "78a89e88845baeea788884d4e27881b4ea0e0e11aae2db596ad99b0a465c3a33"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "535e065d1e3a3c8a3e52addc5d7d52737a99ca79051bf60f2a64e928a78c84ec"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "7a9300d6326edbf747691d5e75eb7adc4ceeaa163bb3f9d5966cb18ecae65487"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "1a893c96c7f0d4ea3f75877488cc47fb2e767ed204971b89ae2c414fdf8d772e"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "2bdc45f77d4decf4b316eaa0587f11eb06b2546722a66322b169945e3d0d01a6"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "d2d04637ac36e0b52013acbf9afca1fe76b09508dbecd9dad8ef7f29bafd78d7"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "b113bd88099996cdb002ef43ed20fdabeae95a224a95bfd64bc37711b92313de"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "a42a79c64a26d5fc849b2ca51e8288aa177529f74dc00c976d72f667d2ddac46"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "68bfb680f82b4ebb6353b4da8ecfc3e278b29194eadd892c6dd7603c95c281c3"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "af009fa2cc06b53fb981ffff4794e74f4b277afe28139df7555ff2cab2b75f2c"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "c3da764ccd0a982f125f83f3db63d5a3d8c977bb3a2dd43f887cb9d4c731cd59"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "13214f365c1aacf95441e4346a7dd343cb0c72d1ee057566644ffef6c46bd43e"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "e78c6a787b86d4321ff064ab5654c5d3fca8f3580d02566f9e6619b4d094148f"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "1dafa0687fe526b1b87fdac24eb37eb0fac5844ac6305c1ed2c2f16efa4b653c"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "cd9fdcc4e299ee4a7b6ca2f43d035114a3b66f1b4b51952441344fc4da1005f7"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "6732c50ed6d5b78dd03d1c8db6522fe6829ab78bd2d04ad42c02582ed326b7a0"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "bec163198648eb44bfe6c573dabbeaf5c599ddc1b962b8e047d379ff6fde3c97"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "ea942b7ab8b96131e8df999288fd9bcd943d10770a617c2a015b6b4768dce5bb"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "dd81f39a9642c5f0402bacb691838ddf6b4539d996dee83eac585e65a867037d"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "e1ab32e18e9e60d162ba88f4203fbbc07d738347fcaa4ef89e1fa81479ff09b3"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "35815c5f93b00ff81f8dc8b08c7f71a43fe3d77fcfb20c91134aa8bb4b5cd046"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "ae69bc6d7053ac23fe62bfa5663b52b222aad366f31367ad193ab6820ee657c1"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "210ff6f826e1a6fc17e1822461a8fc99174a7d21f29d9d651361029e19420c96"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "7c7eb1a6ff032c804744eeddf2998abb1dd9b2a53c4d5b0aae2e53f23fc97b8d"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "19a40998fc60b687762af859dcecdfc773b0aaecaa7538c9aa5917717d62c386"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "f869732cacb039e5b52558acb5c193206a4ae0a31e9336e50829e3249e6a78a7"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "ade9664f30954ae88396cdbfbc244e5a34331956adbe01daad5b85b1b5355b0c"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "2738d7b99da7801d5dc0c4202e759e45f307d09de10835587b0550145258580b"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "554983404d264e3ff4703504ef4a4bad3d5996c40f512cfc4892348330318dcd"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "85086c1a5af78e44e2843ae9c983e8caf43356931ccd351efbc376fcb15b42ad"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "f2659de000135f6869d0b291cf58dd91db9c15a841bfbaa6aed02fea17bcb344"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "ea16bc9d49d1f64b8d746def4ea6514945a8e5bdcd6923dfe76b5730697a086b"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "babb83cc07fb153ac672cd1c97d3da83c93d5bd27695b4faa2825e8dc0b1681e"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "10ee5cf713eb572422ca665126924448b2d88ac833bef6375528648f2069af67"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "964c332f062a9152bcb8532bc78171a366aebe7b4b2423674022c91c9ebd2bf5"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "5d62ee3509f525bcb221c133f36a5c85ccd219226a770253dd65f6fb8e054e89"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "7788812fac67b3520ce38c2ebe1d9ab5e00237e01c9217fed1869b9bdd4471c1"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "a66d9f73cd03c03fc002e8433543370b52186ac3cc04936bed31f1e50e62feee"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "f62f2f16ba6afc54038d75ace31670744bd438e3a8d7ac02792d90f2afd5e344"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "6f3db79178735638742421635bcdad94835ef8d4f2cb443453400413e8dc1b95"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "0364a3cd30d104a1bdc8bd44d779f5d90644d142ebdcba9755f28283500fae8d"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "e28d6fc9ce5cc2afa46f5b3222ae5fe75196753c389f9baa38b3a9b5fec7942e"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "c0d337bd74b211882cd163691716a88e8daeb74f18d6b9bf9d7d80c7503f9811"
+    },
+    {
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "c88ccbdf8b113870b2c6e3d0f2d48f8b0e8097f14535e4d77bf0ede9590a79b8"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "097d908afb744d0065d1fa2752ee84d34208203736abfaac2a74a2ff22326d38"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3043,
+      "outer_split_signature": "8fb5e160ce9d35c46e9d9b1fbb0169ec2517883dd5b975ea11934db55108faef"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "02ef52924f419074b052b91bf04c2a8fba0e5f34df7b1eb28a125d2645c64538"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "aa3eed91f3419903e53b78159def8413b4ac05668369154f7aad62ce68135740"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "1325f7c4c5216949bc799bb5a29786cc1fa52f024fd2696ed9d7bbd32ebb64f9"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "73f99f083b59b3639f3249cd56a770cad79c6c8fa335976fb385b6ce47ea7493"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "74fde7a601d3338d0410c6742bd7b6218cdc95c52ec72cebb8f97b36081421de"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "15862662f05a597c005640bbb567fb2c4870db55e17063c81ae9d3742b564a10"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "a3fadbc1f89b06b2cc96101c2e6fa422c8f73821838aa4c51a9e220b209356bf"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "316d1ec165fc907eaf0abdd11f996c982bcf78be739b602b52f13033c9a58c3d"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "9ea529d39d172f8b37fd419b8bfa13e2661a838775c7a9016540250f8e1d9bca"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13043,
+      "outer_split_signature": "4d4caf4ddeea0388c3c158835af10ca3b7cde909d23ec2f3da3ecf489fb5c866"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "6ac32224bd9654085ef0c109214527306fb82b2a26a7d15a71381ef13749189b"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15043,
+      "outer_split_signature": "27e86b3b203bb77c898dac06c3b9f9f4a96f950531bc5a1d59d8de0e1fa82bfb"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "c840f641745cc6796cdde93f94c4d5afc87d1ab6070d3efc07d25af2187208b3"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17043,
+      "outer_split_signature": "c653c337345b7ce1e54745a679fcbc9f5a244d408c1376ff1d5d115b6a3078ea"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "4aafbdb4e7a0acaa85c574c9bcbe3aa2e3e07c431ba2280d4200ad68335f73e6"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "75b07e3e62048fbd32d49c977e2a2b8f06c65fe3e06d90729ca1945d1ecee634"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "c774abee876484f9e936c212823e611661439ce58853b72d968433ecb2806109"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21043,
+      "outer_split_signature": "828937ded65be86a1e80de50bc7972e26485fbe4c322a83d203cf4e626064e75"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "efe1fe65bc4a043c1677716b7630b9ad5b3b1f499455904fb16b0cc86fef3628"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3043,
+      "outer_split_signature": "005a05fd981febde90e9148133194b38b51422ef317a535833a913cb2525bfec"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4043,
+      "outer_split_signature": "00b7d417756f3301975c523ee8b58ca20ca1b6c6aab1d8ecc8f4d34c5f389633"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "bdc0fb3dc9b180b09c4002be466395945cc8638f5cc87a897e50803ef31f6ac4"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "0ba99c53f12571b15d756ee34e5393695a9f4f0e7e615029dc55962247bff222"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "d7aea76a8a0e64599721ea8d1f22f86b6dbb86f169f1dd264e9643905814963f"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8043,
+      "outer_split_signature": "ecffe89e2875fd6694211c56c90f0cabc8aac314ace7e34ce9dbd1c5d652bc27"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "d2a06de4c2e185a6efd8278b51ba8b9884ec6af6204d0058a8dcaaed234630ec"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10043,
+      "outer_split_signature": "aaaa3e1110739ec4aea4eba2dad01592532d0800c7c5b147ea401062d041f6f7"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11043,
+      "outer_split_signature": "2433cc3a048808e2c0081c9205c6624ad4ff8963e5f16cc06a2fbb057660b06f"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "678a48b7ba1121316cfa841ac464484e423457a114b18b1b5e4be8c5362dfb0c"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "19df9c935ea401c98034844d52b68f39051c615b4af4f4e752cd9010332aa2a7"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14043,
+      "outer_split_signature": "b7b880a484007b5ede71ae1fbcc8dc5baed99dbb3678bf193d47efa164b576b0"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15044,
+      "outer_split_signature": "4ad80f23b5b49ffbd69d225964c6368b30af8434766618e1d6fe055e3d95ca9b"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "5bcbf487c0c16f6e1b5f852fb9b4e593df70fa19083e09e0129618adc5f18f2f"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "3c7e2c5b29e3be96ac5e548da485ff2cd6e9128e317b1da83c05b997619c927d"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "49c2526de8382119f3fb7623374f8834ff41826f0e1e8a55a0da3f86f086afc8"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "42479b9222c14bca0848911133dcdb71e239a1ea958e93df34163f99533ede48"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "4bff3068200f534398df28bb37fcdee9affda216c012e35853172ff30d98cb18"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "30c6cc733f2687129ae562bf6a2626c333a90a2f84a48a8b735ae6672bf08e34"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "016412b7ccbb6b7c6bc1b480569f19ea18fa27151a4b2988d62ac456e5dffeab"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "fcdb9335ea07778ec38f948c1e8c665639517377f440fcfb15a515dbcac5b01b"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4043,
+      "outer_split_signature": "cd6b5d79091c75e01b38af39960fb9d33a096c6f7f8e28ef37bb730a27455488"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5043,
+      "outer_split_signature": "aa50268e50485eeb2f6b1cafbf9e059295f116aad75cc87dec98bed56010d6b9"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "a2ccd737a8931886db54ddb3fd54975ed448333fa8f21b4920f6779ca19a2e06"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7043,
+      "outer_split_signature": "32b47f9d843c21b00e0bcf3eab7205c95898ceaffaa891509be4274c8ede63fc"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "fc0f15bbee36c82e81fdc7f0d423763df3ff1fa1870f175afc428e023b801b61"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "fab8f2824f76e729b7e1516682c56ca120a6357e5ab54b5a9ab479401dbd7f56"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "72746822d0368409d5ef500808c4fdb59615aaf089622bae6b8042072deefc48"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "a76aa7aa37705aa29216c18884ec3f52e5f5117786b042eba4e6d6394c0965c2"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "e99e0d7dd6dac9e5b4e551cd8bab170ade65e35fcb94e7c54e326ce5bba88db5"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "5df868238db68848bdb7a2977ccea47438bad5fb82b59218ae6c87b896a41836"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "b7dbb0ae139aed9f839354084680fc2ee784fecb62af3f43ef0a2ddd47a7fd0e"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "9b28b92c7e00117e08be1cdefac987443a8ccca93af36f322af8e8b1e89e22a9"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "7e4809c842923c929a1cda2ec18b2c16b9493c7316f776af93faf24953bc2ada"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "fd65a9348f0b3c519ce46cc5c1415f8fa77f728a24d498a0de846b2712e607ca"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "c1320329828749d323bdaa3e23696cda34cc4cb56a17f256974d1b3c7403cdc5"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "8aded32be78ae4f2965362901b683985433632f0057b934bf2c2eb163c81cd8c"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "581ed75a8859f2d6cf887950e65c85e6a23ce5db7e399d31e74955ea73ecc72d"
+    },
+    {
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "1c083b034a0e0a6a851f77c32c7911f0b7a211d4f67b1a311a4fca119669a410"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "cae50c5ed18775c33c66d4b56a09c0806eabfd13ea88e4050c51b1d3b37cb1ea"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "1dcd934a180aabcb0b0b8f7d776b053242f7191fb0d60d0128217981423e20d8"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "8e575ee8d45653b6c96e71e9fabba010166974344f22effacffd6ce3dd47fe35"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "4c8bf5daefe3f0842a3ce3a67719154bac38dbf1ad39e954eb2f4113970ea75c"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "70863c9a65aa0e036485984b34f95f4563eb3ead7f7dcfa7d803be96e5a4cd44"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "345c52032a337086549b4e9a6c7ea8078afff9a30949108e32105f4a9a6bd10a"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "6056e942894ad99a29ad7bafda0bbab297f48b40b5d95f4156e134364b8c1463"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "88225b7ace572a4e202d9c6627e2eea4820f404891ee73e6dd79171c6fdf9bc7"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "5cc779e11c4c25c7845dd6cea97a923ead428cdf929cc3228090551b38908200"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "3a7df6629d63e5b3d44eb3efaa7c87f9709e836510a600ef94c0c3481d80140d"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "63e292c8789eada1787335b3c775d5d564e92aad0e52fa844e5b06adf9e98baa"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "5073d14b676874492a0610613c35b0877c503cd7828bb29a187fad0d9550dc8f"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "0021d552951ef267683091a5839c02cbda8a771a4eb50e22932276fd5fa2040c"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "8c0f4020a040a201015d1d6de174af014d410cdb656c0394add106e552e3c1ae"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "9c2c5f5064b2209dee7eb447315057381c3842b2f86f62560469f1071754ea20"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "9f69924549fc7ce748809b585fdf23d99f2065047e99f50ecb97ff04b1a2a7fd"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "8cf5b94583dcc3491d0ddd3f21838627abeb9edfd0b09a7a19950bdaa5c80c8b"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "7dd3509619d06d77a1837ef0c7df0c48728135f9cafc9c7d443208670e78180e"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "776c738c3a72d6e728c145802e36fb61c2c463ddaf56a246da6b4c2d29d3a217"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "6bfb73c59a390685bbdb703187940981a624081feb551bc109d8d2ea38fd0484"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "6cf9bd2c53007e48fbd9db156d4294603bce932cb347c19ed3a8ef44491d3b6e"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "c7ee4dfa63a6dfd1ea0f89ffe62e6cc4603698c69d4c54fe69c53d75f0a59760"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "9f34bc634634404b08180ec4c19e1a62721499375d7bdd3d60d819cbd9abf25f"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "82e9072ad5594af5d4626b4dedb99b74e456651f2fa20e59888a0c97b361b317"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "085797d93516fde9a7fc940ea5f798466204905eca519ebd52e34be31c95d62d"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "0e00b9ae02fed4f68b836b5c49a866cf2e7a4449f3fd60a407f5c2c9dfdd8953"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "5ee745240944e98df61cfd199a2092d760806926694a121503bd48a2a8fa66d7"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "0373a7490c48d0d546f45bcc354174e40723a9b3240f4bde5ee302d0d6553ff6"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "89bc9fef8b9b95f56a14b3477898a9adf62aaab4f55eec44f253187d2beb337a"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "b479e3420c3af462d43b8923d261a0228d53da135309bc720b6a56810a3ccae7"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "4d3b717c629791c665ad55a8c8eaffa5542fb8664e07234b4fdc729c39372586"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "c3f021680d8acd6df2ffe74483514311f8016cabb470160a74c9154141d4fa77"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "22a6b4cbef7208ffe266ec7786b9b2798d509e6df4bd0a5f37b08ee45c6eabfb"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "a4579dd49ca17df9f982ba2cb84a77e74576632e388353b00e0f0ecef868b783"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "a4536298186c9961c65007c6c98589cee9b8d3c6028554dbe64947aae8227be5"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "f28d6bc0644097025d4a732751a7ddb0dae671b1b9d492ecaf2774c3f0852e16"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "35cbc4ab8030d86f3c34628d843fc38590dd1c721f535c53b4de3e3bf9d80927"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "6c5e1191b2f2589b6b1cfb2d91cd6b884b9af88c56cfb5714f938493166deb21"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "15ab809e05bbb1838967c3ece505eccc6939dc002dd49105722cce015967f9e6"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "344d0cb2fb284bc1455f879e2cc63ca49d2c5d16caed343ba37981bbf87671c3"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "aeaf0ac2597a8fb482bac06485a9f27976f5df3fd18bd8e7c4134b5f56c07777"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "d85a409824e7aab309fae1718507b9fe693ba42876237c033d870073687f643a"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "7b109132bf9969302c1ade6a5f3a3030172c5b2f9dbed5aeef9974a5b0960731"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "820ea6c0e1004ec26b4ffe81ddcb881dac48db2f688cba2ce679479ccdfb683b"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "0130ee325418224f00902e2ee38cd14db335e4f3297a20dca38a8dc8ebd8de6a"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "1518bf8109fc77f6383cad54fb03ed17cf6f8cad192d6b59ee2738c8bcb951ef"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "e0ceee7ce1b82b09b4012c33398b97f48cd075705d9552df264e894499f93627"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "a75aad364c7312222e56e902c6165a0684d7ceac707595c4e52f2db9af19a7b3"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "7cff7a4c6bfb287edf4bd94368f38ea6c75fde6cf782e301a52da07c22a214b4"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "17aec7e65f2dcf1228466071bf23a121d718b180ac0daeabcded18136bd0aebd"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "3ddec3f7b9c9cfbec1b47615603a5e2cd9494f73dc9e18a6bb596fe6f1694d61"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "8940ef68bcbf18d5edc2b665e3bc7429fd629e2a17a7441fe4082d86a04285a4"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "f6829a58e752b861914807bb3f315af589d276f4f6830e3de34feecc7ef8d5cf"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "bb750150f70f163e77fd51c5ed8e340353c0b8fefb9d902e2f0ba5c905ccedd2"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "01711a6c470a8b95ab4c6e7e2c94fdedcadab1883e9d8f2ed883a69981319e8e"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "ae9d7f14762603054de4e18659cbe0702b474c303aceb843af51e438adbc40c1"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "c0d60e53f1f6d9e0e8e33efa953f93e9a42577d1459a836ceaeb4821e108a56e"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "526aced62a7f5f93cd0e37e35bd33a4fd3c3c9ddd5874cf5a006d28fa5024084"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "c2c02312cb4992a0ac0b876bb3b8d09877538350fb2a87fa4c78519875f7ad62"
+    },
+    {
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "44842b8636edc50ae03aa0fdf509a81511bec960fe90396511a2a845ce482be3"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "097573bc44947d7b4e4220dca98ff57bc6510af9b4af4a054651dc43318d87f1"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "cef9ed36767d1b358a0e873a544f6752544a28f291a2da7f958e36fab383db96"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "4bcd5cffd9c165c2d54b8b410d27e738c390254e9d50ef3bc69e12b6fe1cfda6"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "79471a8c23c6a30507eab98a6b27d99bb6679f54c4b7bdf2e4db0c761a70b815"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "bd0aa05c6d17d92441e1c50391d8929e47fb776b949f8070a63114af7fce8200"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "bdbd2c63690ae0c6fdde6c6e83921d6feed6abff71960fa4674baf9fb18e592c"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "784a12016a5bc0eaaeaff62ead340da127ca123250710a161a4e142df0ece830"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "32ce403698c889e1608aa8b58f418932a1a63d767a9661e0b5fa3dcd911999f0"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "97a25ce8b537189e6175725e9fc7fe16aefc156e53040c51fa24b65f812ec703"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "099bfc6eb1d1e1c84c1455afa0ce8f9882790b98a8f69817d32678303fb04977"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "1d471d47c11ca75fda591037a66995b68fb55d4443bb8c7e5e14448e56994485"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "b032aa66a28bfb0c50321c74fa8993d8d2cb6c852cf05c32855c027ec33537b4"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "037d7fc20747d80d02d834f0d23197b883a62a5843c4dc973c40f4be027b3763"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "3c3ff01f856137b84d3615d6fe72258a2af110403c4f9c036b95b9079981c80e"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "d0f0ea204c3ae6574cf91c90931fc8f9c6330307579e318c5068c80f4e83c0f1"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "865c40f57122f94693c22b727af414db052aa3a4b6ea2a74623c20fdbb10e9f2"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "ce85621a9006a1b22ac073072d5e4b91e33bd0153c5c9ddae633b1e8cef1ff12"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "1000550e013a719599d9453f9459dad5b639f99521a78b4d633462ba64fd4b61"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "b7ad43e053fff59c7519f87d7a867f5e4b23f1b3ab9e1917be27fa39f6152972"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "39254e7a8d222cb13668bc2407b7b524349ff81849ee31137607add9d8ba8543"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "72505380440c79b972dfc942f1acb741652fa0c4fc620fca9df3c2516454efb6"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "15dac8ba107bb2724913676ee1e475c32da302ae89ae7b0c7ef3e2806c3f79b1"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "6e724486d57580cfb15826fa01f94ba4847a9543bb9c61b5f9781d7f01d74647"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "24c2758430feea407ef8cc8596f0701a052fb092b633ed8651c3722271af863e"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "48d048907340c82882a610bf0fc8a9dd7145d40ee0587385e12f5de71a519fff"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "1f9634a89a7c1d2294a452afd15c04b95c1c7c51b9dd026bf1ed280357d25b75"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "dad0ec2db23d1ec96105ad6291e4c80c99e1e8518c76e1b7f5edc06cb1508de9"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "c8e86c600d35d8b5852e4c482b1aa56ca7d6452b9292f2062cc3cb3f63541bc2"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "871832379620716256ec98c8e65d48fef7aec943cce9da7b68e72e92c9d44af3"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "c20716c5a1805bbb924b367a2d25b8b446072e65412a5826233859f7824b2610"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12043,
+      "outer_split_signature": "6640d5b42cb03ca41dd1c77101a0aa45bb301855e1e8e7902c391e3eba8f341a"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "adfa5ea0b2cf1925cec29df14a939a3a52336a5f5385be85c927e977461cfadb"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "c0abee0a8e519e9f3bfea4275408f9f1d7eac3ae619d1bb55bb8c5d2deaa0f19"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "81ffd5e6322768c0615eba8f3440bce15d1c2a046e3e93001ef77bf5c805699c"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "14bda4b6c40d9d621b659bb7594f1a1c6f43aa571513c17ff02196ba36bdf456"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "4fe492f2bb40b74ee3f2f3fe1ed44d988cd05f5af1b0ea29ea356324fd396483"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "7c9264e67b8ce290031f1efc9b7a39fef64e39fb30d903af467c5c5004d0224a"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "5b3698b45905537122ea51caf5951cd4761b2a08da6dba6f151da28ad89306bb"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "1077c03b11146fdbb5ca90ca22ae2c874a4928e8cb055479ddf9c529bdd6d926"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "be948859955047dc19b24d64b425788488c63c8ad098d5bdf0317510fc99f1db"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "8265e0826d91184dd1682525a0e576e0270c54287c84dc4b2e4642edae3d5e6c"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "4da2c8dd97518ea6050aa1b1b2cc8b86dc2df06dd4bad61127123a247ea019ec"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "d4faead6d03074fc8953508199ed1e1cdd4fca0c97f3c4995b49ffc0f667608c"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "60230b0dcef49b3af3203720443618b1d574724d562fb0ae15c5ac6bbafd6449"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "0eb3b845d3435b2de6de8a53941d8fd18e447e39942b359a4cd0d3064d15ce6e"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "a1507893029e86cd243951c69b1321fd7507927652f178b5873aa6a5cbb7273e"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "29c106742cf33c4a196628c8a2ab8fced3c817a69aed0e8e85b52425932e0b42"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "d8523df8cef034bf95d339d6de06f0e4c830196772911a4e49504c3d61e44d9d"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "e7b8cdf958688dfa1c0f4b71a3e099c706ca126065e6ffa61ee4c4802b5aa1d0"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "2a53ef3f9b2d6e35f82eb8ce0b75803b0bab59167571b3426fa62316affcb402"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "f0066e8e2d6066e58a97a7c09a3ca9e090bb0700bbea6764799a285b9460c61d"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "e2d527c591f2de805395d932a83803a2b19da9f30ffe8f6e84c819fd463732f8"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "0ab2d39b576037f5f136dbc65a9b45d8ab3c830b7e4ed0a6bf31dc7ea3a217f3"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "a95c7fb07570051c022e8bdd342d8433f60b5747ea59effbc46d88f6ee4818b5"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "08e8b774436a5f8bfa47f9c708a5e9ab303d3ab29a22d6abc93583604f711dc1"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "076d30a6b01bf88b9fe65301b049c3da4e1ee10e526634528e58b6cf8d47fa3b"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "9309a95e1000b4cf0ba2d827e0bfa3e1fdbff0362713294901827348c777ac3a"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "84c5ced06b1376243da7b1b632242d306ed495d03c45b6d3da1653219fe9525a"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "032e9789b93c823deed828b2aae425ac55bedb0b48ddac6f6b84c8c8f7ce78ba"
+    },
+    {
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "bd8d9db672b338e03e3f6ee23a8cdebf17138c3dd72ebfdc5aa9ab8d4b99282b"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "84c38cf070a20164074b9bd81ab659cc653974711b6af9ef5b2c89af736b7b75"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "c00d674df74478783bf8851011326481bc371b189d3cd36d2a9e0231188cbe2a"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "a49e2e4e9beebbd24951dd1f1539c771f738fb062f4fcfd6dd310fed2a0e20d4"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "c9dcf98127e1894c1c8392c0bfc0b87b7759698ea1f4d486e0a671db432ec0a4"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "b2e196f61891b3c4629cc7422fbcc9c7e65e5db5240314531044ef6ec8679738"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "1d83495a8f48da6fe92168c60e8416ff46f7fa6354c2b74bfa3fbb460264d1c7"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "9e4dc61c7fa97e77390947899a8a5bc6c5600488e70e80605428f52ecc93de8d"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "0cc13158c5f92df49ea5acacfdc99b292694efee6536ce298436c0a3f76ac244"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "ede2e9c0454d5f7b6bb96c44667a8afb59188ea580831d12cb81392291f8f909"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "476512687c9df848fe783f72cf13fce8f19d1231af23a8b481b6c798c250d7e6"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "20ad1577488537d051f886dbce0ee42ad27260e0cf7fbe6ccbd7fe2c9f1475f0"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "54e124051199d2b68b6dcf2b8eb5645f80b98020f215db7e4bf9f02cbd6a1fc5"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "5d7e3b8391074b615c00c5e78b82289140588015e2c4f71c39c32f3e9d45a731"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "22d3769bb58d5c25a95bc76508cb33c88775beee67d2069a3bae8629b0a7b97b"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "b536340b0202a77fbdbc79c39c85c72249d74cf1892aa601607a8706215c894c"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "412604da5cf24c4eddc4c9e10c15e50a776e887dfe00a46cda35f3d9502810e6"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "2b4c71e3ef1fcb6080a1dc5e54b943c5c0b0610a25cfff8dabd25f3b61f5833c"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "9aa11405d1a37dd1115750d7d3c2a683f059f140e5d03506874b28288fe8dfd0"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "4e773d5a888fa8c326362d468d1644cfd6483568cc4b420238acfc4cd2526c1b"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "c2c3ee8bcb9bb7dd3f31e8f493b47cfabb0ea6fac5514e6278ba7235c51bc500"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "52b69f84e1f3507d67f0e7bfe9690cafc30c43aca6a5c6a1b48f0aff06f6a7d4"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "7fd564e93104f2ffeef00be8a314c52c9fd0286328268ca009c120698c7771b3"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "effa38c394902cb2e97c63b81868ff2597f08372f21b53d7bd21c37fd2fb98de"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "7aae79ec3eee1e0582efcd74413cade9867c0b0b52f0410ea359bd757a2edb64"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "e1fff0edf74635228843a597f3f19ae55b377555d10fd24a264589756d054d6b"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "892a13d0438308c2383b8eed404996bae7b4213b486e28b64947757d9404afce"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "99312f661809782c35f881a89dcba765cf82015cef1eb08011873cfce2ca5010"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "b9d102c0ef99b05f18ad24e51c937e6b1a9a957af07b871df43eed4a59a67cc0"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "4c3898afb3fcec043e674eba3582affcd96c2fa618705c2ff60de1ed91c01362"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "0a1ff93192169210bccd6fa786ce05f23e9874a95a9c32109b7fde5d15015532"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "bbba2f45180864a973bc9913b9d15f4a68c5f8cc8a2c2bbde4cc3ed34034f03b"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "1dbc189dba890b1943d4fa51970def204f6263122dfb9e55a1569d97fdbafd3a"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "5c81d1ea39a0f18414c42f4481763b716a922b767dbdb12932532b8ef7ee0ac4"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "76bc39bbefcf43b26b30bddd4d6528a4fe35500b30e5e82ab723cd41ce66f5e6"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "08050c06c05c1c0f8cddbbcc46a351e5ad433dcf0a3d7984ee64418af0d6c080"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "8e4d3880edbca7cf3310521b3f82c17a76b11bc68da3eeaf3626bbe6e184798b"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "2bbee427d1d04af8cb5f995b1624f7ec736bcf2af0d2b9a7f60231ea2bde132a"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "aac70903a92879e9c29c8cbc158c20e5ab975ceac013462565860981fdde21f2"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "eab6d371da0d6ee49ebc4795900956d2a82dbc3d293fd2424b53cb8d669092ea"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "3ca3cdd60cb9ffe2ffa24289403686896924628f83fe4270d314479d63037428"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "2978fcae800d771fab0efc87a83a3be1c42ca18b95653051fdd0e9ee9b3b5d22"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "efb73e58d531c2114a0a6c4c323d15da0894ea7faa4b46d60c5a20a832ee51a5"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "6b1636049313258acdc5eb4b0d14913728995a6f27da896a821b0c7d5dc6c19c"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "50aad39c7a98ec04a73a3c2a94633b3e7da6ef1abc78084d807a5c5785aac2c5"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "4bdb22d24eb39fe6741bea27c751474016c7f4429e90e435c97e24fea2a28b89"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "58459795cb27e0276fa5c02ab227d495427f942f502da1a49dd064b088661dbb"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "281c935a0232b3a1e633359eee834cce3a49fe5392095fb0e15dc4662867dd42"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "5fd8743fcd7c03dc681b1f072fb3ebdeb9409f25c4817937436ac8bf657f73dd"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "7bf90f1703c52f05814bfd35edcc607a8ddde2d446d4a945679356a74c9d4f18"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "70f7e7344373d26116c8e9d9f905e67b60e1e3b17a37be823e878d44bd6a51e8"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "ea9de8ac1ec200d5f74732472738535ca22d2ff7832e06da1ab5555b925d5053"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "1e0aa455776d5c2928701ffdc050300ff86607cc9a73de7d7b2ec376ca4ed8b0"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "ac3bfaa9f4aaa55a5bcf15fca06847d0dc84058d5b42387435011c3160a6710b"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "c7c8d2a0fb2d26f10020efb67090d15eba19ac3d684002400d5749dbfd353e23"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "beb5ce1b013df42c8eee0c4c392322abea417d5ecfdc05a3dc1ae3194f95b75a"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "375c3a17264c0095725f8ebcb7702ab751b51051c9e99a9ae2cc420564132920"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "34ca3cf29cdfb5adea319839afc01e7bbcd6a77accfd25f98589277af6fac783"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "226885ac1ce5670c71c44bc9dd271a307c61c72f0c916f7e76f448f96cb5bab8"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "4ee508f7f76a4dd6370c1d51595883762ad835fcf8cdf18c42c7d611de94fc3e"
+    },
+    {
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "cd7e21e4951c5a6fa5ab2c066fc31105e5aeafc1704fd718bb49ce6a5b12e7f2"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2043,
+      "outer_split_signature": "eaa1c728f7bce957d98b9e80869a1b3c077ef71bff148d6869927c88ffa836e8"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "944de1d4720cbea971baa670ffd6e990af19f29884592d8eda44d159cbc85e8a"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "84178976c41465db0cdcb712343b8bfefd607dfdb337c175bd3985ee909b1fd2"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "4b6678c2c8e2b62be2a367757570ff6079cc018346934d140ec67f424b663cc8"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "4e0f5fefb2771030a5367c71705af0fc4d2c2914bdad1ca34298f0875d2f9d7d"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "31bb1a79e634e51b0881c1130a12f20dbc09cb7e7fb7db613951e79862edbe4a"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "e38b982c0b5a05e2baeacfdca8db646744aa98183f1f9dd734d72a78b771fec9"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9043,
+      "outer_split_signature": "15678777167576d8ed4de1be357ce76304afeabe44ae06fab0260eafc2c97250"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "995a3c86fbb140a8f41991e209fbe2c9908d84d99392447243ff449890e972f0"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "7adc748e1bfcab4e11e995e53e64b436afd071554622bd8b506876ecbf258bf0"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "18781253b18f8e5e64d533bfdb66b405e28986d2a3da422fea2d40583528227c"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "087cd42dbe6b63a49dbbf0f9d89f587ab9d8bac3a62964094776c35a30664803"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "23de608a1d73dbac8d81fb9262f4c5fc6384542b55ade85217054efd06e18855"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "50d57150d64cc4bacfc58223e685fd8417ddb8a38516871285966245a607bf2e"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "faded06f83b03f883fee5a2e7f559ac9390b704fef8dce1d0348e3c7f217359d"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "f8ecdaf84e77b22d8eb9abc08cb60c485885f9f6a1f2cf4cb710ecd7c3205c09"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "0928684c61de45ee0ed1b22cbcf1c7df5223c8570b3e5a96f4ea2032538981f3"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "10ab01f9005b3499bc5f76391743ff65feedf716a0ac7347a6e77be0406c2f5e"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "5cf31e6e6e62e650377137a413c415203263dc03834a3ed274a1e0e94d936b2a"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "160f3f8ffa1b7b859d3a01fb38c4a25c0233b54740fa0552bb349f5b6da536d6"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "023ce48d05ba3d38081fa02ccd258ce41ca05404a3ee8b503767a989aed73ec1"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3043,
+      "outer_split_signature": "dc6672d845574a9b66698efe42f0e0c9d1b95e1e9f2f721046c8fcf54fd971b3"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "3c531d57d265b532d71aa72a29a02f2146060797e8768e19dad21bde3776232a"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5043,
+      "outer_split_signature": "d68b3525ebe3f66ed72aeb61b2fb42fd20d4eff2be5e58b5bcb5b01e0ac72559"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6043,
+      "outer_split_signature": "f78af3d70573cbde66c3077cb446d24334cdafb686158ff6eed6037d4f8df86b"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7046,
+      "outer_split_signature": "3561d6f2a6c272068d6b639c44dd7945bd5fccabd5e3a3c2a367f1aa61bad4e0"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8043,
+      "outer_split_signature": "794167e320c100d7c61a6ed4c57c9083302b61a0c40aa6605ac689ba0ebd5002"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "400ef298289e20c00e5622845927f74fc5f8f03ac866adf01de7196b1ac20889"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10044,
+      "outer_split_signature": "492bc4818c7beaf0c8fcf718109678727421690aaf739cb34853f2af66f4f513"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "937a33f733d2f06a0892e660e2eadf75e271a69d634e9d003b5c58ba2855781a"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12043,
+      "outer_split_signature": "79146a5baf5f648d469a2813fc719d30b7ac401c9e083d5af505b3cb3e78df05"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "d86efc418589b5c942deaaf9787c8b37e06e09407f65444086486c97bf509d9e"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "e8f3ba5f66b3dfec2c90cc183b86bc6e549cf0d16c4b534a3a629235dbb56dfe"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15044,
+      "outer_split_signature": "174a25c488f87afbb6f9fb4c5a347ae0d0c79947dd7839f1a4cc0f19acb27081"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "7cab8da36ba55458700554482ebb4a36960da21696baf731ebd6b132e3593969"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "021f56cf6a679fca5aff4fffce7a336e37cdad021ac53362fd122c0660b7f0fa"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18043,
+      "outer_split_signature": "d13818cac03ebc9580a9e442b4c010421c10075b537db7059326ee2a35a937e4"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "0e10f596e50a844a05e1913455ae5456de2f880bfbbcf60341c8745992ce494d"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "441476ac69212a97ff45404dcf166911d4c2a24c74680d7bbf8784b67f9243e0"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21043,
+      "outer_split_signature": "7d952ed127bff1db579c218204016c49ddf7ad502123147bd1af5f7a89e56e66"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "a897325baf80a7b7559dec9255234d06e8598ecb8d65be254818fa18f0ef7795"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "6ae0facb32e4cf502add51fd2cfc343275d9c2ee02f5502de678627c0b8fd3d9"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "e6d89c205e392d8fb8044879908b458c00325c844c0e2a969a73353345e8fce5"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "711534e46571dbc61b41198b8d90b8905fa63c61cbebf2d82c778453360619dc"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "fc351b5611ebedfadd7cec809ad07e54e6e574e53ceaf53dfdaba528a4988d8b"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "3812efbd6a08f7fde9bc2056239cc75ea68675690187da357a8636838b446b75"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "23eb477d4b8cbec905610c0f19d0bbdcf55812e49d6b23c787168c931497cab1"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "d77f2bd1b4e61d7d7f33590b493fb78a0318baf35176dd269c41905041b89b50"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "c014af7c1d59707ec947dfd54af43057f2637663fc8d3a11ea7575b8d663d7fa"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "d800c208433bbd7e94f361880c50121e54c91ec231426db3dce19d4829730844"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "dbd988d34777a1df9f33b7503248f798cd775f949d15345e82f8b6448f979bd6"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "1137781c5f094e6cc107affd6e66e73531636231762e565e78575f8339a89c5e"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "dd91ca251f7e48d7f151f96ef8d0521f39d4f93945021ad446622653925b45c0"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15043,
+      "outer_split_signature": "8d9842d3891d6d9b0ae9247f6f063ba5437fbc8c14df9c5e14539adf5e603e0a"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "f25d2503e1b11660754fc43930f144155d39e8d2b4d3ed5a7353e1ddad4fd705"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "07298be076cd3e4c1dad6ddc3e4f8e59b7afffdfb17cefeef17eb3aefa24cdc4"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "9c779af985781cb8941e38e4d6e353cf6a111312a5ef92628f6e2c69901bca0d"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "2c77bb16e64072bb5f92f7adff937914d9d3e1cbf039a32ebd42eecf194eca6a"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "4e4c211a5d8b3aef7afc9d9ef73e30ba73cb3c44d35fe9ebe9bbedefc51ced82"
+    },
+    {
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "3f995ede101101f5dbba43ca1890c00114c819dea3e4a9b8824e31805b189900"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "c893f891eba0e200b1ddeb699a07bd1e09c2ba72001012dfa02b24c5739f074d"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3043,
+      "outer_split_signature": "a927a8b20bfd8d0de297c7f95e09c336cf11248d0b5ad657138b9c4743c1ccb8"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "2a5774cdbd9c2a42a030b543220cbd07dbf71a30a677bf279e5116b15a074953"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "3d7757d03a35f2bf941974992d356bc5401920588ccfad5fda0579db1ae973b4"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6046,
+      "outer_split_signature": "285691a75b389d2c9cfc923d344801da09d66be7fb9bc5c6ed5d2330a0956c26"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "2bdae74b7bce31926dd49c682b40767c2428da6abaf7eec203dc0db66a3a615b"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "7710a54d98ba6779d815a904920d0bb2fbed60eba72dd13f7ae93808622e0697"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "8f8a9332c132bc984c74299e0f0705fd5fb1bce49745f01bf80dd2bd551e5e9c"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "3dfa2d3f8dfc34893cbf203f8b4982169a520dcb249738dd43716bae0cce2c8d"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11047,
+      "outer_split_signature": "b6982eda4f45a5e8dac50a01a01991c7dc0187aaf2084809acabd3a30aa8ad56"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "13bf26af2fe352a6d8e5de802ad2877b1613dc4cb6d36178fe7bea6ae5746797"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "a16bffdde666544d0a3571dbbe466bb5b8057a1ee09143f9b939640428673325"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "6b120d427b481cb92de67349e6ca595719dfd4ea6673935aba8e3f9dacf1916f"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "a6c7ff467275791100f85635f71fc1a71ac9562f18b6b6efa0e38c8360a9110e"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "feabcf36745e42c635d9d854b96750cb264f91980f8ef077ceafc895187d1fb8"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "0b4d150dcad5047c56d3afe91ba0444322eb17c4cb17305d2ffeca7a07a986df"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18043,
+      "outer_split_signature": "98970227b6e371d805976b8f0fb3661362148c259bc80088e0114579134d0aba"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "3978b802ea6943dd389ca725c9ba63b0f0ca577080fb76734c71ccf2f28e6741"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "1525ba47cfeeedcc79a461d53ccd02e7defed9c3019ebaef947fa2ba8ebc4750"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21043,
+      "outer_split_signature": "84c1de3191fc1cc95a61daed05982ac7d3ae195bb0ee26e2fa3a754dc0b32fb4"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2043,
+      "outer_split_signature": "4ed46a0598a066c47c636127d50d43812c566b943fd7eaba504c4e8c7b980375"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "a822a056bea2c5caf5063b598349904808b3b7aa9a7942c78c8a741eed694f16"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "5f4038fda760c8bd46ccf653083e0e553449757092137854d7273f91d3a7b187"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5046,
+      "outer_split_signature": "710abda490c6e6f6371d4ba07240c665191916da58aaee72f63fd284393a64b7"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6045,
+      "outer_split_signature": "724297870165e55b0c1a0c88005fd0fe300c8832e158d279231a7a6d6327c84c"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7043,
+      "outer_split_signature": "314ec4398a8cf576174da563b17690aa0fc8c5664c0142f822df93b40fe2df6e"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8043,
+      "outer_split_signature": "b88d61aa151e7212cee38dbe7dac5a82bc136730e796738bee1faa6749b8449c"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9044,
+      "outer_split_signature": "7e34e4cab95cfcf57bdced6279a158e6f501f18f687b46feddf5f64c31c6e9c1"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10043,
+      "outer_split_signature": "5cb725c8c2a5b7fe6010cb3327433a1c6f4ec73a3f2b30d0e6bf807d52bb603c"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "eef90a0662e6d448c1633cd9e00b73d90a677dad52357bd3147da884047e53de"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "1a73bf9d5e32508580e6e494aedd2ae9701b4e7c57777f739928af599da43927"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13044,
+      "outer_split_signature": "64506153588cf53a60f18c50e2aa7ce44468c80affdae69c8888708cfdea5e14"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "ad23224ad10e9bf16d05c231a33409610877c2a76d69f20682999f10cf840f86"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15044,
+      "outer_split_signature": "219dfe39a4a83e635251e30e96a2a042b32979f22a077f5b4a6ab7ad89cd3023"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "be5bb4492ea8805056e480988d17f000478665fbb637e8988e15b9faf867e764"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17045,
+      "outer_split_signature": "ca87f38391c215370ea0152f272356c329a84be01aaba281bb1d9a7fef0c3965"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "d2a3bdd80df4936a1ccc1d151a8f5270e9bf31b6dd522cc48461096dc80f96b2"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19044,
+      "outer_split_signature": "45524abd6e614b34bfe1f17201c8dce54abdd6a2c1d681eaebbf190ef998e07b"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20047,
+      "outer_split_signature": "838f45bab5fa86ff186fbd13eb71bf18fa7e4d0e59639554b4653c5523cb99e5"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21049,
+      "outer_split_signature": "ccca1e0ef7138756d9740403b3540919d6adcda77e63a10e5e62a315bb8f942b"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "03f46689ccc46b4135434806e985b57e502bc31255d22010df5734c3cd9d83e8"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3043,
+      "outer_split_signature": "fa61cb6237a7b2ffb74a4f50990db44e5db35787e1bc9dea6c54080e31f159e3"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "88dd5c97193adf3c99d7ae036ed846cb93472a4c58c4b6e943c5d64deef0e1bc"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "61f253ccfaf272cb75550cf13693be6944111219b39ffcca62abea4ff70e4723"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "9f513c4ef1ec1c0fb40b3d5ec489cd5679169068ec8ca9166eca48f6c39f99df"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "5892f0426901f5cd81240e0a0574e757e2a4b07e9ba92d873e3b117628939108"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "af5b57ec6b750a72bf8c23297eeb375a64bcdce2e7546b3a94aa91b2b44d1f91"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "9966c00a619eac4b746f802414c64d46d5eaa29d53bbcf67ad582d7e80d29cf5"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "ccd366ed7ce911d968c17e7cadc7cba1437a4a4b9d9c3a15ddaf30f9d58b7a09"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "d48dc4c79d4154261a2213349d2706cb086c791725ea617db8361f106727272a"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "f62608d1d2a054b1a7054b5ac0d3a0c70330e615a59ea067ba6804bfc9a8266e"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13043,
+      "outer_split_signature": "2343c663a5c26de38310921b066adf2d3cd2c175e32a238a63f2bd2f339d7c5e"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "d6c0d0eccb65f5e1a967bd9d11c5229b2d4a3b3debe4c62bb384db5355b66dd6"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "4d7992bd80e5e8fd10525120fb8a6001a36f01fea1c9995746df5dddc6418a76"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "23c9a5ab70769ff837cd3a9942d41f12ad949f0192cdfc84979a0c5b9c6d1cf3"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "1f042d27a65f3286f863a5c9904d0c82d693e8152932999b7f5f10b79a2efe51"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18043,
+      "outer_split_signature": "3bf86e4ab3178667c4689588c5bd355782fdd51359384e597443d26b1c9651aa"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "b86cb4ff7da2f43b4d902a38934395b829dcf66c990da65f3460e4dfdc6b8631"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "6ac4ae57548a3e91a36f2e39f43665af4fb7df5d34e9110f2214ac92f23d0adc"
+    },
+    {
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "c1516305e9fb6942aaa61a3c57173552ae7f980bce072ba34a283345e1451bb2"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "a41eb39fc2b655d1f873f00f6529f7cc12b3ade61e202aeafe0506b182e37c88"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "cc8036f193524e5a74a5f44b38694ccf6a109611c94cf823ef0cb0ddca2440c4"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "db644a006b13fc77fae0c51dbd0521a38adeb237cdb5d0a1bcff072069c5e683"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "33846aa9772677836cdadfa7d9cc61813afd2383f5870d69c096e414899d1c60"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "8462a73b09165ca48a4b8e2cd75e1b4bc7f6228071bbd804ac05b6164d80d5a2"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "745992fc58deeaec402abcb7adf8b7fb4d945dd6d1045445fbfb0c7da558b213"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "0ba873d5b52bc51ef7ecf80450c04639278af977f76f2981b818b86a93ba6179"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "82e0fc4040cdf85a9a09dbcb32b0f8e80ab774a2bfcd1e57a4cc1ef24ad795cf"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "e6517aa394a9687cbebe082283d77b0cc4834f495f11eb8b968e6cde156f87d3"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "c055564800b5bb447cd599d6edeb9017e74407cc9fb1dc252fc550a66ba9f48b"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "3d0b402937ec075a32dba4c886623e9085d09236128f4934898735132a0ba9b9"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "745057dab4e5d2db77fc24fcac351ec707d85ac3626bd6da59a70df444cbd09d"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "69364e35290097d732266f43c02e2cf2c42f21e0a306914d6b438230bb22431f"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "e8d02801a624450b6543202a33715420dc0ca09bd22e36234b156fd02ff5f728"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "19b7adf3688e3f9ee03402f1f053dde20b874ccb33bd40a0a630e19add2c685f"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "0a7b8853064cdcc830ede5ae3b2a01cfec820d56c1ca6e10a08c21be0c07f4ca"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "16149a377ae6801b57ca89fb5023aded5b00693aa09261d3d10db530e262a46a"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "69263c748471e1a28574fbb6c668af7342c766b8f66caeadeea5d73215e29a34"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "d5033a38ae01276ea217c7c0153834d1ae6116daff852b8a92dc12c35bed47b8"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "f7a08a4986b006fee1ead95a6e60eaaa4718ce941a050e2454930d695a70a66b"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "74277b460c3d0e469c28a513bb0288130dabeb609288510273514fa7998c9ea6"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "d21f71420d2d01bbc0917ef265184e68025de8be1e229476e2f594f2b3cef638"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "a230611299e2fea5f284804d7862c411efb884c1469379dfa02e9016b83d8b21"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "6e9f60dac03c97a87b70eafb8dac476147c15f3dd1e8b8c8e476491922476c22"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "fadcc740b7c684e4d90d24b114ad611189e2511a02cba939161296e930290d52"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "1612bcfb0744814360effaa57ea2623e998e85c3d138257717819ceadfb10d67"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "dbfd9a3c99843f745e060237e1e371218810bb0e3e65291bdcd4aad5c1005f69"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "85fe3c6bc7c39f9e5b7bc396e09456579f419b1bb4ade72548c35d912153787e"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "3b84e104bb9b9b55fdf7276799c302f12070cbb051106cb0efba21950f9d2b92"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "63ffe29db2a8fb572c8bc03e7dbcc8bd9c88b77749c7322e244abc370c258cd7"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "fd43cf365baecd1f4203389eafd19c8dc3187277e5d3893efe6233f0e8c4d47c"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "31765661ed41af25f1ce4e58c037010322f684e2950d1f59e659bcd081797d08"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "70bc689aaac9fdfd15d94d5f11c0304be81b488142527174b12177e6be11233f"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "77293853acf86a895e0e7c3e7f25d63fcb7d0dbd9fc0664b2790c9fec2378c1b"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "462fb92aa3cc51b73c033586e627662d230530fc7cbbc8d4652b0dc42806257e"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "9cbdb08d18ae06b80cd956e23cd38ff36630519ebf452840a604d121990d8f4f"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "8bcdc7afe4f6ac4a22d928aac74853cb163b31b12810e9b828e93d619693698e"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "31f55c4fae84823d816a41241cf3bd51fcaf7b42710839daf0b738a03b5ec6a4"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "45983e60c0a870bbbe05cd9db89935f684c3beada26f2c30c3c8bfd17068a0d3"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "fbf2fb93d55e6755121f37caafc7982f3140c755557512d2c85109bbc687ffda"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "c46b3f0e160bf1db58860a9b80f1d42e4389a0181a81f9291415c6d9d5a2281e"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "1bbab903c17f84566eecd392d62781d062bed3be71383c649fbcf6eeba791672"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "4e5f38861cb05ae9c72ccae049722743c6ae0d300606bf6fdfd159196f129767"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "20f79f9e10629a8dd3a139b6945429293ed9efa23dec25d68dba4be1c3f20580"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "51bce0bc66fe4de9751ca60a170082b059060130f9838348db04c6de6f769c74"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "de80d9b8cb227af5b68b2a43913601af0f182bb6fc5e336e4c99a488617367be"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "a52f66c63fd4b18a9c377d0585ce77e4934fb000b82985268c1a742a68bc2423"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "25c03ee889ac7c417e048458f1bc3d93be36115f06578e2fd643f5124b49f2fa"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "addafa03f7066d2cd8d6d3cdde90d4512844ea31c218254e3aedc2878fd9cac6"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "ebd3065d4a8ceb6e2a5377378e11c972438de5b462acf1b583da56336dd932e5"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "aa98d07f5d937aa596e808eef1db4fd401f70c628b3c8917e82f36609f139798"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "ff1a49780bb0c2ba21f0f48ebfcb67dae4b9a7c47316af6a056e34abbcfe33a1"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "cb93fa41e36acda782ecbe9d23762a414239802f0bbfb5a3a5aa158122acac4a"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "59d1161b5ee1faaae0bac787b2fafc38f6fa4324515ee1c04be64fa40aa641d4"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "02b3f4aceb6fe52e9e345822bf3b3f36a75e07be49fd7419f3708d79a96f8ab4"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "7e71738edc4620ca7279c45c0077e140bdfd2fbeb5205f7055a40c7befa6f52c"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "b47a973b6d6b6b5db59a4328addff10567ec1fcb96080175ec2e7968777fd161"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "edcdb56fe4b84a8897340be7bf2fe210431bc008e147fc76a4821089daf478c0"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "96a6a3fdfd2d14022af19f6ef66b93bcdf0ecccf67f57ceaf16f33d91a28e7f8"
+    },
+    {
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "03412f7e56d0f9fa61f53a075f72c25238f25a8300fd3740b0de3486cfc02e6c"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "fa35b8cfa0fa8100d83718ce1b05f5a1f101f1c4cf1a716439868ec106bb1298"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "9285208259b8a8ede2f63a90f0cac90924e0ff3b99ed6b3b77b4b4749b09d88b"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "0b12ee296676fc19b131bc4f5029defc262345bc28d6e6494db9fc5e975e3a94"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "4bc0716d703583409acddfdfbf31bb2353316c418a6a62ffa99b72e712da8925"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "aebd3d444d1bf3a6c4ffc5d8a6ddf701d331ea85f0f9152b4ed3f4cc2b721083"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "9fcf82e8692d35187591dfc0eccff132cf5b3c74b5c9322e2008bf78fc4bbe3f"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "da7c3b22ee201d93ae8ee0b94d4aa9b160796af4a6bc140d006d7a43b16a02dc"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "f8a65ec8a2eb499d7a5cb644977fc3017f48bc00d7ad13308454094fd31150a6"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "d14dc220b6133a7223a7ff0b2c5d357823bb0377e94ee80ee408eb208a6704c8"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "b1b8d74ab6eaa89e2452c77288041e5dc0ddc6895969d613f63e9d0a566dba25"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "2f83c69c162705d23ca089d337c8e9a10be670138e26141738f52a4132daf708"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "db02f4c127920fdfcd0f69478fdf4d925a6f7b80e117b69544c5e424a1b197f6"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "6f7ac65fcfa9b51739e96ce2bd025ce272a776d756e7e293069d315d5ecc4f8f"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "c0d6b3bbd4c89e950e3e97864798e61029a46dbfb1ed7aacff4ca1ea0cce8629"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "0ed84a952d1abe90e397cbbcffbf676495da0e0fa80ab2230de33a1261f79bad"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "f344cf5615b11c3fe73426988b67b4d3f826ecdaf3ad1ce5b7400a4aac27dbf6"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "64e414ecbeabe3a32c629ce855e3873bea1c309de9d841c9edca8e20e94db35a"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "d30e143be8b81c10b59e9ee8481bbb34b7d1f1303169d4d83e329c126f284c4c"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "da8288340ef03bf69a192637943c629b51d2eb34909be00af032a6ee7ba986c1"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "6e1716059c9a2059c3ea68521d3b718fa060fd00c81dbc606948fd5d65ae6874"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "ed228dfad68fd093aefa1e8c53e61f110985228560966ac94f88adde0f00a2b8"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "0cc34f5625b9e0185dd8a8c695f2f27670726d2855b68983c65171f1786c3da2"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4043,
+      "outer_split_signature": "60d46bc154ddad496b75ee653cf860f3ec4ac51a4d4cb7e16ed7a2951bf9e22c"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "7b5a662aefe95187a34771fdb73b242dddf63657f222e3970bd60527083d5e42"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "2c67b93ae540111f4dc6d71d677de7bcb5658ff852a463979cc7b0e2fdd23341"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7043,
+      "outer_split_signature": "db9f98ea4a3eb916ca878b47bbf64fe2191e2139b6a1e3feb1443f58edd38ee7"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "c510d36ac61f7ffc4a54e0c6fef19e4e25b3a1262d9e637e0e25e033047d5320"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "fa6945b1a653d4bf6e94ef1aa16d3605b8c7ccfecf4282aff37570cc53b37e37"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "f26efc3b98eaa8597164faf70fd1fa06ca301045bbf18a095a5f07f75a5b8dc1"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "536b3209912530a18d5c8f1b7633b85629e18ce488bef9b63d51bb2bf187d732"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "28b3aa993b66215455e156590630a62b80564efe67a9af2860935cad948a8e51"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "383717921336a94b09082d1627f9112c8639f49a46ae1396aa5b032437479ccd"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "0bd5eceea2dca5a90d93a0ce978e0ea51f822a6eb6e7d391582ecd3e01ca3d07"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "1e07ce11f8fa04558e5f1a13c5e67b1f258cb2ca52f63f5addc98ccd29c7a14c"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "f2a0d24615c028d498169210bd906bddd24d68a97a4f9d37be122f9ab1b3bf36"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "2e17eb1cfe5265c0536089a65b591706f41216eacf5cedb13072017fbcbcae15"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "c7344dae0c3bee3e19230ec1761809a0a3500594d709c312d821292ed57b0537"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "586f77cf1e572ae1f680d558716603691af27e69201d00eef785dc301d25892b"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "37a35ea71d4093c3a886187fe0298855ed3787b77a0eaa8e4f45bd4a070f0bc2"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "e21a6d7c4a28eae857211d39648cee140e6aa984afe16b4963a57fa3052e5192"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "2c642d58e6d2ad50a6067b5db06694f70008034b5c6f41e4dbe533d842976cd7"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "b83989392838a0d1787266146430b8886091e25187621f0bdb00629f33e6c927"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "c8e45db3a4e217c8589d30cce93cc39844859b214eb73eda46fff21638805416"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "97ed0a0d649bfee2eb631dfded1ba38640f3a8f9d117e90de64d8b3846a3f25e"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "1b20ea0b6632f0a185af761e61546a07f60f5903fbf1cbacb934abeda16ed2a7"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "344280f5d765fe3d82248d0ef3669e747e5eae63b3f76f84cc077cb897534075"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "dd07aac261492941279dce74135a14ab0c48498419c58a6091cbc0e1de2aed2c"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "f877f2fd9caeffebee1a13dfadc8973ce563e4472469a80e2938ca1338607cc2"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "3aa12ef906a0f443a2601a25f1194fe357b6243506ff494179357d04067559a4"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "fea0efc8e5c313f264b71da5c29aff92881e883e4e1fc955ecf9dc21a0d718a7"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "020c343b227997d61c62e0d3294fe7235f5dc6855c1aaebb357821b66ecb361f"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "c926a46bdfd435fc19312e07c96aa4169bdbff19baf15c7e9408bb88babe34ba"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "fedca5c7038e3f05f864d9c4cdbf8e36b3ac001d0a2217a4aa965e7666150b83"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "ec15428ccff5dc527e16f174507cbe7643e4f6d707968e53b3c830a21dd49436"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "a3ec61599f0403702a97e05dc00347c57103d9598c88f4853491bc56968d9171"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "6213d679f0ec76cd020d0141009784d723653e203dab4ed822fe16446ac4f2b4"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "694aa84e36a9fcb0f2845479d58e5129b70df31d055e8cba3618b6b7e18fa31f"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "df9da2c29f61a9b7e426a41e706ad4a0622ba9883b4e703f3abcba21933e8551"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "4e0feee3827ef496dc1f5c249b9695f8583ea7bd1661c8cca2e6f2c654bbc3e1"
+    },
+    {
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "96e5d72209d605bac9797bab7e0e7214f30cac46f44f428f26e7da5a5f0f3680"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "aefaed69cee142bf4f7d7f9c2f5e2fbbbc84cdbf697438b91fcfaef1e96b99c5"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3043,
+      "outer_split_signature": "d4aae6d381cbf4a77a66437c2b10f3845ece281ba5a408c3d2b73165bc0f4bb0"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "c11c6dd0c854d8a9a221a078bd89f6950bcd1f2c7144c68b4d6531367fd6f843"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "3c8912762b8fc25c0d669ad277ae33ed1a48e801d7c05fac5b0907f5dbd3c1aa"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "b839a96c9157c7d4bd7d0bce86d8b22a05b34f2224adf3f787f12dc534596340"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "af6f31f8de0d9852c5b8f1beeb58a6e95242442e047ff6742a8324c0efe7ad02"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "de2f72906307dd2480d11f0db074e8c39a15e835bc1f26220e1626295f2abf49"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "e702661cfa16ec89cba468a3b7723775f677d06fd1375cfca9b3bc500b7c1c24"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10043,
+      "outer_split_signature": "73430f92c86f8aff8c427ea296842d4d1a9f5385dc4ccdea3e79216166124f6c"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "ba778db26717aa3db21b5ae14c2ad2d8fb984d15df6728ac84de5c1fe39bc6f9"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "76db79de3b18d4f429cb10e8b43d679a46411f32120d32c26ef853100d536f6d"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "0281e39a8b23e93c0bdbe3d9832ecc66efa590bd1a107d1e19611a872869920c"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "39b53b8cc2507fd296ce1bf6b49b751f3dc1d06bc79258c347079fba97398cba"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "404d67de8a0f4da0772624ad2a54c222feec86ae0b202982c6d3dbe2177f3148"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "efc05d45a2ec8e06f539e6ac522c6225aa1523002cf402385079022358f5cfb9"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "b404c4a903d498bc3310b58dc81beb789655c670b2afb232968f1caecdd4d159"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "8e4b579c026e6c674c68688ffcb1a82f98d50b133d1bcb271af72c0f3cd65939"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "700dee9042aef1f7e47796d262280a0571a6001f191b0751d78070dda2ee5f8a"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "6fc19130fc80b7650357a50e7f511b4838a4d500434f3d2c746a7880e145fe27"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "4f175cbc5e8c9a9ce095180b34c998382a2289c2c39cc0303bf98cfd84751493"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "a4ac2822c3026de6583454bed2ab40a633849ae9a22d22234192245aec27de59"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "18c0dbb59223c388b1a4bc5717e67eed6983617c643aa21b7ab49ca0b1dcf17d"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "57844c5705e51f89c21a34503d857475d600fb921cb59b0d8e95127882515ee8"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "13530622db7200311f54393de0159bd9474dd27f5de2488c8fc3719e7f2e8c69"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "2e69dd1464008aff32e15f897ef57e87965b8ee76acd7835624eb36114f725c0"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "5eb080512a9ea9a700170717212bf2eaba1c28107c574e57fa80f9427624765d"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "ffbc1292a903ed350e53133a6695f05e4c42079733ac9c22569429a180c346a9"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "07a938e1a124ad69e5e09979c118be39a590aad9cb60b6ad531a543d75665e72"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "831602f314ab91a7aebc2e5c56123c859cdc1f06981954fc2acfbe94c338e79b"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11043,
+      "outer_split_signature": "e8521e2187e484d0cd2d13f91cd85e7f5a1240aa87b7eada35234bd92cbb3c85"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "a8671fbfdb3c6270ff14759229b6137dc5aabae5788498221c8433cc271e7ffb"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "e77a99043390cb3d19576242785f7fa31d708a8c5127c7cccc31ffc70fb5b2b5"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "1e4ff867e9c115511a98b2a60f82f269502439dd537e579d4df8ec2276759742"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "97865a7c06e624c086c5e7422a69efcf7cb9281aadd5cc3453db4df5b42c90e7"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "d906e593fbd586fa0462f1b6c46fe3e5919e9b2fef7b4b3752fbf8106a6ea1fe"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17043,
+      "outer_split_signature": "6c42782ff51d087e8f99f5e275b5372805a095eae1d075ee273cb8f2c7ce179a"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "8756183dfe8187f7dea66c281fdcf75318e330b43ac1bcea8a66065f9d841254"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "387d1c2b665b48379c3926b7ff2bbedbb039a2533ec92f3c8b2416d8281a45cf"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "f4fda582e9af21690913e0f2f668d66b29b2395bc926021a86f54f01495d9fcf"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "45a56831aea603759b490b78754abbffb6fdfbd4b2f04b8af1ad973653e98a7f"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "95c0179a19b653d0e39b7f4134d22488f981bab4a1552d656bc86a7bf55214a9"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "3d3aad00963785e0ea0a2b78904e9041ff59043e148f0c276728284765f7f8c7"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "d41c91fe9bdf94bed6b0c35896fae797e499a56312d8788f6263348c7ef0caac"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "5c853700b34bfef83f7eb14611088f0acac5a00a2062837b8c2bcfd181b9ab8f"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "3f96b22d557f30731eb551de0808e74c07e817142b687ddd4da962b5d0b2e922"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "59c25e436e8c6544bda6bc314fab79668f616830e07f3847782849ea70c91d7f"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "d0dbf19601152c3c50a06dbce4385b8913cd9eedef3b7aeee9822cae8e997546"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "37fe0d6d817c511b2349f7f2729da6f6f772a6acf3e2e1196cfe19f8f72f1394"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "95b6bb8d024dbdaf49a447b74c0bf71971d03f1c5833209a011c25a042f70d8b"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "3d77530c2e3f8fcbef28476a2d9d67fea5cd5466e1cbe82d6de3766ef212b2e2"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "dc3ea5ee675891bd998f7f0f5269f2d3e6fce0c008cacf7bcdafc45821d16f17"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "5a0aee2b15b116217e4b53fab2bef5ed48674b0e0dc57eb544977c13d095f063"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "1af6a0cf1df8de365bc95e412afb8481f08a1410b03cbc55170ead49c357910d"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "c57a93f2bddbee94ecc6e451b3567ab4c34d530824d009569033eacc68378420"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "75ad2d79518e26167ab43be129190ac74e82a464fdfa884da0894044b78f212b"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "f7559e88d5ce84ef82c479f78f3ce6dc1978966cc2617baa90d48e75f151f4c0"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "a57a57d5f06adacdc030cfd6804338a1a76205e451b40a7b4c54de2e65fe3307"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "8c8859e4a2b934c22c7cb1fdc10e28feeb513da610c6a5fbf092ce6a8f25ff35"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "ff8252bf7b621561102a1bcd718ab92578f60901857071e9ed9eb2943d2b0b64"
+    },
+    {
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "2be3020a9bb101b49f3dcf42cd6510b6d19d9e732c25fd7c15a3f3f3aff9bd93"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "d5fd0a20c6df5a3df8512c6517fb768e39944801d4c3d6c048a0175411b8a2dc"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "1ae103e2be6980fe2f9d0bec53aa790143181786cdfbda47e79d0007af75b75d"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "de6d92e765d48876b0d990bdc0af5a03d2ad8ad355368e5e3b37aadba4a87104"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "359de0824d9cd8b51a0c3c91e1ce1b45ce1ee19fe94ed25342f6dfc27361b2dd"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "787d6664d283d20b8eaf06fe8b54a812ed809d606d7d9e650c50639af9ca9a60"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "1b57664935d68105fbad9d7f935e2117aaa533aac0672d3fce81823a6a93eaca"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "dbfe05a3d00da9ff6151ace97ab9b273c6b4d0e7f7394eaeca91b09c92d93850"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "81eee1d531610bdcb4d05758ff6cb108f67dc166d418cb291231b0ef666de9ba"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "0ec727d7b3f924c73a386a38a89f7a64745e2cac7fafb1dfbe62d194c33e365b"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "1a1adfd1cd21145535680a14e33441e5db1f238db56affb2fec793c02642c2ff"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "d203f25b7a1481070c61179488d8450e81cf8f0e5af9609f4db63b538c32c1a2"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "a23b8160723264245a27075188752437a90120af1d631674c60ddcf2dbecd5cf"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "4e92502ba89265d8cb6605b9b7d238fb45e432b131584e30b2ab99ab914267c3"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "2926d03d6bb26cf357c363b16ef98142fc6a044327fad4bf9787ad9e35108371"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "6c8ffbb516593287eb5b00259782a6de1999ae91821cfc00b5055a28931c2d3b"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "ca1febc4c0903d8c62ccac89258e060a013b5e9c71445b048524a9a20723056d"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "64a3b2f3d62dbf8921106fce5db0302b471a55d66ad900ab1f744466a22dd258"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "93f8bee9fe7c3aff06d7e7c7b53afd0979e5dd9bd53598951c6cb12254b30dc2"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "1b13694ccadc2c78357afdb256db84d7192df1af954c4a0a6b04183141f502a1"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "faf1ea031a60982c253553b589cf936203a6c0805596608770416d0b10af19c5"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "594449ec5ea47ec081304755150d33c7d787a8c8fa9b28c6fdfc0f52d351ab4f"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "447937a43947cf11233ec3e294d82705c275bebf1b5a517e316d936954062c30"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "90817870116b9fcc7f063f763eb56a2ef81800c67761487b03d207e3445cb0c9"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "33647f55ccd7f3be22b5693d19b571f368f708ea2c13287fe809f16bb5beb11d"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "14adecf2eff513065abea9f072660be43ace3ea3b14dfc6f9cc48064e2042108"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "5db9918ae1e0d075c00f42dd800a5a5822488a758a4c47b30e1228893ec1cbc8"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "503429c3922d1ac6a06d1d79f42aed243416d24d78a75e924d423e9ca58634a2"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "3de99beb1212ba74bf5f5d29719ff1c64330a896987fd3eddb573ba43f32ab4f"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "28881d4472ae8f30f9ffb714acd0dedda9a705a158c1d50f90effd58b720c067"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "85d1f7895cd7e1c73f0dca6a2fdea699bd8df73ff9747b2f8853398a6b111c61"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "4266d2d5a5ddf766c7ff29dffad31818955bdac6194dcfda26a65dbbb66dc060"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "5151432d5069f0f3f7c0da2e121e62f5112ee82af657847d4f1b7d66c123337b"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "411f2777c0df50d6bf602486c0a07836f860c839c53362ea7042eeebf4dbc957"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "35870735ebcb1f952283f43e06048eb8af86c90af1913511a1b524031f12ebc0"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "9687970a31fffc0115c6e9ca0f039f6f34a71654d12409bf9cf23375590e0bda"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "8691d817c80cf9e11dbb266d4a1c12ebeb1bed5ff895e7f3655da4c60891276b"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "3da7115dacb50e52ac9a079e1395e7d7f815ce58e424c5e4d21a9d49793d4b0a"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "3689661da824b56ea9cfbad115ac99099d8cc1fa76f20f3bb04e63b8e2ca97e0"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "689e2af6b8e7cd7c27553105f34b3280be24ae0e81f776bc8fe14663d89ccdec"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "e530eca66e14ebed5000bd2419dcc8dbbded6c393c4f71b48260aa83f365de11"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "84b90ebb2c9b61aee857d4614cf060c5efc610a1dba1b69e6084f908ad721dc6"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "8c8a105ad658ac39170a3317d4eb49aa81622c118fca9a8f44fba49211fb9112"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "f77d687434469a8055894f6c487f03f1295da2968aa1a3b738777cb65453503d"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "0c6cf4f311d24fe14ab05f280b95b3f5dd0c10a27b20873794db197076a4f002"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "e99fb8c93efc28c7e53d3932a62b346b643163764308a2cae66b18495567f572"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "5a176f9d4b5a75d7c536b7474a3b4b310446d369aadbcbbdeaf73545fc565913"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "b4a630409f7a8bfbcc72fb37231226cfd04dd5c0cdc52bc080713575db9661c7"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "193f75bb74fd34aa193a47b4a81c08b52ebf9808fbaf9c9363d7cbc0b0a00735"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "6fad47b77c2be509f76268ffa7c0fd87209b48d78d15600401a767fffc7a7431"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "38cb7a43c0daddb1675735250bf49c3fcff3c3afcc99a87659a89f530cd234b7"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "5e4f534fc555e3309772511bb05e74455e0c554fad24d610cc552d52a80e7505"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "5409bafc9e2c80bb17269c4bc933d033659b59ccfe7cbccf2594f9f81cd84653"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "87eb8d361ccad683ca1ae7c1cd74dfefb094ae5c58dc1a0f4049c74449d824cd"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "72199ec7e25efa0fbfea54357e36dfe448fb2c69ea8ace95a3aac1d26bb3417f"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "ff650929e2ddc58b4a51970669dd3c28312940b4a49eb3e68551b73893fe0dc9"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "ede0a00328fe3667948b9c71df49e7c212530db8c5e4383d8799e93cea648ddb"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "e7dc9c4bbeb147fe78f8657d1bf9abc81fed149a367f26f5196ed12b0ea51a50"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "3c7aa987d1ab3ee740fd5f383a21166e1b0e85de74f7adf243f9c2380b639721"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "8a331ccefdfcbac08b9565bb38bc80d4165410a08cf08d141456a47d901a00e7"
+    },
+    {
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "9fa12e44d28d365e65de2f458210071a6fb517dff57f89e8e4c9836ed3810486"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "9cd44808c57436cb96715840a5614c8dbfa01085d5fa806af91ddbaaa62faa2c"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "0666a35ccc95f48ef57e0071378fafc23ce3c6637c3c9540afaa3f882cfe6e75"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "14aff0f8ac0dce42c8f873ac975ef45f1e2f3aad1a7f1823024767f83a993e0f"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "428ddca8156dbe77285592aef9e11e5fe3dc3e4ac81eaf81c1217aab7b9167ac"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "ebc6ffbdf4fc51e9e7ccfd94801ef12683d9a2eefde0c625e2efb5c549592506"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "040864076b68b8f041eb79ad296a11a89701d6162175eae9547baa1196b3680b"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "4bb8a56241be0750b3965ed7aa1425f25844c00647db3c64567d4f769a68ac7c"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "1c5d661f409665038cfc3ff252455bf945f45f9a97272d8a7dc3143d11e45bcf"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "d5089b1edf328ed1b863b90b45e71e07ce111c27dd50f51d7ea05c593259cd80"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "f4c79df916828089fae58513ec666112e271bb97fe8ae6868ab278183f78452c"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "aba088b3c6e61dfa2019abcb7e65f08301df77d1bd59c0c67d50930fc794fdb5"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "0cc2d6b1d055deca79e9bd927ce2b59f3279b5af28d418051c94cd81cbf4357c"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "07b9e21bfd17f4120fc8ed7aaa6b9e559ce74cdd73580b7ac54fc21097269d80"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "02847f71848a19708603833c1f19023f8199c151ab046bf8e61df818e0620f0c"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "b973e64903b356b6de468ca64aa9458106ffc116e8429a55bce54de154e82faf"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "1f56aebe00c9f96d350deb8df6255a91fd1624fbbd7e401947793f7b71c67370"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "703409da0fe48fb562a8a6a816465b3cfb09e333e4a242b638d71acace5738a0"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "5ee961fb68e905119873cbd8a21314fe230b3b110285fa93d521280a95a8d04e"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "cbc007330673db7ef06027a2d8b67fe96d4b3f610086c64d9e1986ea29fd0313"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "2c866ab01a67a8769fe1ccba77b7987e23c3c4f66af6b56017a1d48152f19d12"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "4ce442b30a6a92de0a7275d3acbf6572d2c8127814eeb87067d2f5bd70339819"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "64f92f3b9f644a5fd60d8924dabbd008f5aec30238acfe5c61bc33e99eb0c0f6"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "76e30b196cca1cda61c76b02ec0ce625c25af4b818d0aecc2e4d823df72b9b13"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "83ded7cd46fde1b0d19f18a104d58ae4848b263b2dc34760f46ca39e7ebb5bdd"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "18110fe2a72d02ef1c364aff8758cfe168c9734864a3c44ac8d9bf17f0492c82"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "335eba40c9247dfbdfe76cd889a647730a3ee9a99aeb9bfc02974007ea1c65cc"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "51ae3fb19951eb629f882e2f44a83976435e2e576a8d561ca294c8478c4a84bf"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "98eea21457ebe1f70fa8380baed6bd3af88d8b15086851a90a50c19a14318a82"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10043,
+      "outer_split_signature": "941afbd1539fa6bb78bc7aae5c5b85660de65873a1be5ed739c2ca4ec9fe7490"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "a1c70e0a9359e4f9b7b24d48dc6c79f46ddf624e5374c686293f6bc168d1deaf"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "89255526ae12a8c4c0f47c3a50e8ae07bf054e5a29189e827162d08bb04280e5"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "12ff99c820758aec3d30379a266360e3f8c4a82bf34ac552f81b23873702ee6a"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "e9ed697dde529804b39c3a1bb89e47b5bf362dd7a01cae14b1acd2941420adc0"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "391092e80a94056a59f79f47d1ef403fee94e75441e412682bfc084decde1a29"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "07981211412e8408c2d6a64f30840e273a020d5c0d8598bdcdc985840791c15f"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "9de5867164aae6e42358dcb5811332c095c23fe03d2f7e944a04e1917a2bd46d"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "7a9277e55513dc33d55fceb9f7929bad486a61defde47b0484ed1c47a80ae016"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "2a5a1f9ebc5a77381510e1843244991fa0539cd980fdd49b12b0359f6f4ea89e"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "6c16e8163b2cb702b200db3c59125ad197307a4e99cdc1fca2bb5741fbcb3562"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "HT29",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "91a2aaaa11eba6d016dcb8eed0545a80d6074e8879102c6906bd63c7371179a7"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 0,
+      "outer_seed_requested": 2042,
+      "outer_split_seed": 2042,
+      "outer_split_signature": "c813560f976c845365f150851496e5e8ef6df0541be1b2b5eecbc3b201f678dd"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 1,
+      "outer_seed_requested": 3042,
+      "outer_split_seed": 3042,
+      "outer_split_signature": "989d87bda7bdc5a795537e5999b4ce81465b4ca62189fce66c428837de44412a"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 2,
+      "outer_seed_requested": 4042,
+      "outer_split_seed": 4042,
+      "outer_split_signature": "fe12ca0116d78d4da2ab3c6d21048aaea85984ee71d4aebf1a551d0939873818"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 3,
+      "outer_seed_requested": 5042,
+      "outer_split_seed": 5042,
+      "outer_split_signature": "cca9d0a84e51d260207ed0a164371d637e8a9f22967ac9e4ce8f5c252f259863"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 4,
+      "outer_seed_requested": 6042,
+      "outer_split_seed": 6042,
+      "outer_split_signature": "b40c1b512ad7e64dcb62000422a8e0b59b3befaf7d3925c65c8e19fc175fae1c"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 5,
+      "outer_seed_requested": 7042,
+      "outer_split_seed": 7042,
+      "outer_split_signature": "b7532dc238fbb30043ae34a2a7af7ffa09644bd1094f3b7101c419606ba8bff9"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 6,
+      "outer_seed_requested": 8042,
+      "outer_split_seed": 8042,
+      "outer_split_signature": "cdf2b030f0d69d0b0f3d86f9622371240affbd823f1f6e2fa63844fa599bfb1b"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 7,
+      "outer_seed_requested": 9042,
+      "outer_split_seed": 9042,
+      "outer_split_signature": "db989e980bfbc951e8284fada6842c39e6d80a32e778cdc6500e2e1b2bce486f"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 8,
+      "outer_seed_requested": 10042,
+      "outer_split_seed": 10042,
+      "outer_split_signature": "c627e26cdfa0e778285bda2dd8a721a91eb3b6bff120b6f6d5b72e541967531a"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 9,
+      "outer_seed_requested": 11042,
+      "outer_split_seed": 11042,
+      "outer_split_signature": "eaffa480164606eb460e0c27be428d3496a7ccec5059d222ab64d68c9c5a5d9f"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 10,
+      "outer_seed_requested": 12042,
+      "outer_split_seed": 12042,
+      "outer_split_signature": "f09198f50ded0e3b21e34bbaf2f34e925a4c3dd87b4d5266dbc215b53989f83e"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 11,
+      "outer_seed_requested": 13042,
+      "outer_split_seed": 13042,
+      "outer_split_signature": "f68472bec02df2884637c4263321d5a216ad8430d3574932d14f686c7a655cc7"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 12,
+      "outer_seed_requested": 14042,
+      "outer_split_seed": 14042,
+      "outer_split_signature": "ea449da88cf069c8c01d934ddc641e3b351765680c6c3807f80dee0a69083a60"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 13,
+      "outer_seed_requested": 15042,
+      "outer_split_seed": 15042,
+      "outer_split_signature": "6467f8cb9f541b08ed8ac6e23ba3c1c8abcd193617f4303a78cbb445dee5e3f6"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 14,
+      "outer_seed_requested": 16042,
+      "outer_split_seed": 16042,
+      "outer_split_signature": "3994bef0ca9969792034aa015b02a817b98f731c45fd5b3e159acca13b97aa1d"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 15,
+      "outer_seed_requested": 17042,
+      "outer_split_seed": 17042,
+      "outer_split_signature": "af6ee8dfb7a97451bdb4086aefae7ab18d84311427b6fbedc422400b906e3289"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 16,
+      "outer_seed_requested": 18042,
+      "outer_split_seed": 18042,
+      "outer_split_signature": "c5ead2f3f44a7855e4ee1eaed28ba42c04f0baed94a49d96dd3793a20c9b1a52"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 17,
+      "outer_seed_requested": 19042,
+      "outer_split_seed": 19042,
+      "outer_split_signature": "521cc6c2c37e6cec2cc302c1fe052038b66bf30e3e20a9d9c5ddc77ff9cae4ca"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 18,
+      "outer_seed_requested": 20042,
+      "outer_split_seed": 20042,
+      "outer_split_signature": "ede0adf7b90d6c86b751eed3cf11e9518ca9f6a01de21c5208db5498f05dfa27"
+    },
+    {
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "repeat_id": 19,
+      "outer_seed_requested": 21042,
+      "outer_split_seed": 21042,
+      "outer_split_signature": "5d885f146a3ccdb3b3851a818a6ecbfe5448d98baf520306f82213eec6aad542"
+    }
+  ],
+  "outer_split_actual_seed_count_by_task_cell": {
+    "NR-AR-LBD__HA1E": 20,
+    "NR-AR-LBD__HT29": 20,
+    "NR-AR-LBD__MCF7": 20,
+    "NR-AR__HA1E": 20,
+    "NR-AR__HT29": 20,
+    "NR-AR__MCF7": 20,
+    "NR-AhR__HA1E": 20,
+    "NR-AhR__HT29": 20,
+    "NR-AhR__MCF7": 20,
+    "NR-Aromatase__HA1E": 20,
+    "NR-Aromatase__HT29": 20,
+    "NR-Aromatase__MCF7": 20,
+    "NR-ER-LBD__HA1E": 20,
+    "NR-ER-LBD__HT29": 20,
+    "NR-ER-LBD__MCF7": 20,
+    "NR-ER__HA1E": 20,
+    "NR-ER__HT29": 20,
+    "NR-ER__MCF7": 20,
+    "NR-PPAR-gamma__HA1E": 20,
+    "NR-PPAR-gamma__HT29": 20,
+    "NR-PPAR-gamma__MCF7": 20,
+    "SR-ARE__HA1E": 20,
+    "SR-ARE__HT29": 20,
+    "SR-ARE__MCF7": 20,
+    "SR-ATAD5__HA1E": 20,
+    "SR-ATAD5__HT29": 20,
+    "SR-ATAD5__MCF7": 20,
+    "SR-HSE__HA1E": 20,
+    "SR-HSE__HT29": 20,
+    "SR-HSE__MCF7": 20,
+    "SR-MMP__HA1E": 20,
+    "SR-MMP__HT29": 20,
+    "SR-MMP__MCF7": 20,
+    "SR-p53__HA1E": 20,
+    "SR-p53__HT29": 20,
+    "SR-p53__MCF7": 20
+  },
+  "outer_split_registry_rows": 720,
+  "outer_seed_search_attempts": 1000,
+  "outer_seed_windows_nonoverlapping": true,
+  "duplicate_outer_partitions_allowed": false,
+  "outer_min_class_per_partition": 2,
+  "inner_folds": 3,
+  "inner_seed": 42,
+  "alpha_grid": [
+    100000000.0,
+    31622776.60168379,
+    10000000.0,
+    3162277.6601683795,
+    1000000.0,
+    316227.7660168379,
+    100000.0,
+    31622.776601683796,
+    10000.0,
+    3162.277660168379,
+    1000.0,
+    316.2277660168379,
+    100.0,
+    31.622776601683796,
+    10.0,
+    3.162277660168379,
+    1.0,
+    0.31622776601683794,
+    0.09999999999999999,
+    0.03162277660168379,
+    0.01,
+    0.0031622776601683794,
+    0.001,
+    0.00031622776601683794,
+    9.999999999999999e-05
+  ],
+  "alpha_selection_scope": "independently_within_each_repeat_outer_training_partition",
+  "alpha_reused_across_outer_partitions": false,
+  "cv_design": "fully_repeated_nested_scaffold_cv",
+  "primary_inference": "nadeau_bengio_corrected_resampled_paired_t_test",
+  "paired_comparison": "BioTox minus Chem-only on identical outer-test compounds",
+  "multiple_testing": "Benjamini-Hochberg within variant and cell across 12 tasks",
+  "confirmatory_multiplicity_family": "standardized variant: 12 tasks within each cell; residualized variant reported as a separate sensitivity family",
+  "requested_n_jobs": 24,
+  "resolved_n_jobs": 24,
+  "available_logical_cpus": 64,
+  "parallel_unit": "repeat_outer_fold",
+  "backend": "loky",
+  "inner_max_num_threads": 1,
+  "n_requested_groups": 36,
+  "n_expected_outer_fold_jobs": 3600,
+  "n_launched_outer_fold_jobs": 3600,
+  "analysis_started": true
+}

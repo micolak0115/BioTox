@@ -1,0 +1,2536 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{algpseudocode}
+\usepackage{pdflscape}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[nopatch=footnote]{microtype}
+\usepackage{cite}
+\usepackage{setspace}
+\usepackage{lineno}
+\usepackage{xurl}
+\usepackage{hyperref}
+
+\Urlmuskip=0mu plus 1mu\relax
+\setlength{\emergencystretch}{2em}
+
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7\baselineskip}
+\setlist{nosep,leftmargin=*}
+
+\newcommand{\AUPRC}{\mathrm{AUPRC}}
+\newcommand{\meanSD}[2]{#1\,{\tiny\(\pm\,#2\)}}
+\newcommand{\deltaCI}[3]{\shortstack{\ensuremath{#1}\\{\tiny [#2,\,#3]}}}
+\newcommand{\ctxmatch}{\shortstack{\ensuremath{\checkmark}\\{\tiny\strut}}}
+\newcommand{\ctxexplore}{\shortstack{\ensuremath{\triangle}\\{\tiny\strut}}}
+\newcommand{\ctxnomatch}{\shortstack{\ensuremath{\times}\\{\tiny\strut}}}
+\newcommand{\ctxmismatch}[1]{\shortstack{\ensuremath{\times}\\{\tiny(#1 duration)}}}
+\newcommand{\tableStructLabel}{{\normalsize\textit{Chem.-only}}}
+\newcommand{\tableStructBioLabel}{{\normalsize\textit{Chem. + Bio.}}}
+\title{Quantifying Biological Complementarity of Perturbation Transcriptomics Beyond Molecular Structure for Toxicity Prediction}
+\author{%
+  Kyungwhan An\textsuperscript{1,2},
+  Ho Gym\textsuperscript{3},
+  Eunho Lee\textsuperscript{3},
+  Seong Gyu Choi\textsuperscript{3},\\
+  Sukyeon Ha\textsuperscript{4},
+  Suyeon Kim\textsuperscript{4,*},
+  Hwanjo Yu\textsuperscript{1,2,*}\\[0.5em]
+  \small\textsuperscript{1}Department of Computer Science and Engineering,\\
+  \small Pohang University of Science and Technology (POSTECH), Pohang,
+  Republic of Korea\\
+  \small\textsuperscript{2}Graduate School of Artificial Intelligence,\\
+  \small Pohang University of Science and Technology (POSTECH), Pohang,
+  Republic of Korea\\
+  \small\textsuperscript{3}BASGENBIO Inc., Seoul, Republic of Korea\\
+  \small\textsuperscript{4}School of Computer Science and Engineering,\\
+  \small Kyungpook National University, Daegu, Republic of Korea\\[0.5em]
+  \small\textbf{Contacts}\\
+  \small Kyungwhan An:
+  \href{mailto:micolak0115@postech.ac.kr}{micolak0115@postech.ac.kr};
+  ORCID: \href{https://orcid.org/0000-0001-9595-5130}{0000-0001-9595-5130}\\
+  \small Ho Gym:
+  \href{mailto:kkhh4@basgenbio.com}{kkhh4@basgenbio.com};
+  ORCID: \href{https://orcid.org/0009-0003-3137-745X}{0009-0003-3137-745X}\\
+  \small Eunho Lee:
+  \href{mailto:ehlee@basgenbio.com}{ehlee@basgenbio.com};
+  ORCID: \href{https://orcid.org/0009-0001-2679-131X}{0009-0001-2679-131X}\\
+  \small Seong Gyu Choi:
+  \href{mailto:sgchoi@basgenbio.com}{sgchoi@basgenbio.com};
+  ORCID: \href{https://orcid.org/0000-0002-2598-2747}{0000-0002-2598-2747} \\
+  \small Sukyeon Ha:
+  \href{mailto:sukyeon17@knu.ac.kr}
+  {sukyeon17@knu.ac.kr};
+  ORCID: \href{https://orcid.org/0009-0007-8192-3921}{0009-0007-8192-3921} \\
+  \small Suyeon Kim:
+  \href{mailto:kimsu55@knu.ac.kr}{kimsu55@knu.ac.kr};
+  ORCID: \href{https://orcid.org/0009-0000-9031-4094}{0009-0000-9031-4094};
+  Tel.: +82-10-9040-4814\\
+  \small Hwanjo Yu:
+  \href{mailto:hwanjoyu@postech.ac.kr}{hwanjoyu@postech.ac.kr};
+  ORCID: \href{https://orcid.org/0000-0002-7510-0255}{0000-0002-7510-0255};
+  Tel.: +82-10-5528-7006\\[0.5em]
+  \small\textsuperscript{*}Correspondence:
+  \href{mailto:kimsu55@knu.ac.kr}{kimsu55@knu.ac.kr};
+  \href{mailto:hwanjoyu@postech.ac.kr}{hwanjoyu@postech.ac.kr}
+}
+\date{}
+
+\begin{document}
+\doublespacing
+
+\maketitle
+\linenumbers
+
+\begin{abstract}
+
+Molecular structure-based models provide increasingly competitive toxicity
+predictions, yet they do not directly capture cellular responses elicited by
+chemical exposure. Perturbation transcriptomics addresses this gap by directly
+probing these responses, but its incremental contribution is difficult to
+isolate in jointly trained multimodal models. We present a fully interpretable,
+model-agnostic framework that freezes an independently developed
+molecular toxicity model and uses gene expression responses solely as residual corrections to its prediction. This framework separates biological complementarity
+from molecular model retraining or joint optimization, enabling broad
+application to future molecular architectures. Across twelve toxicity endpoints and contexts spanning four
+cell lines and two exposure times, transcriptomic complementarity was selective
+and strongly context dependent. Confirmatory improvements were observed for
+SR-MMP and SR-p53, while NR-Aromatase and SR-ARE provided exploratory evidence.
+The largest gain was observed for SR-p53 in MCF7 cells at 24 h (\(\Delta\mathrm{AUPRC}=+0.215\)). Biological interpretation of the residual models highlighted endpoint-associated transcriptional programs, including cholesterol homeostasis for NR-Aromatase, oxidative stress for SR-ARE, organelle stress for SR-MMP, and genotoxic stress for SR-p53. At the compound level, transcriptomic residuals rescued assay-active compounds underestimated by the molecular model while also correcting overprediction for assay-inactive compounds. The proposed framework provides a general strategy for quantifying biological complementarity across molecular modeling approaches and a practical basis for prioritizing experimental conditions for future data generation and multimodal toxicity modeling.
+
+\end{abstract}
+
+\noindent\textbf{Keywords:} toxicity prediction; transcriptomics; molecular structure; explainability
+
+\section{Introduction}
+
+Molecular structure is the principal basis for computational toxicity prediction, supported by increasingly expressive representations and learning strategies~\cite{wu2018moleculenet}. Effective prediction depends critically on which structure-property relationships are accessible to the model~\cite{deng2023keyelements}. To capture molecular structure with increasing fidelity and maximize predictive performance across molecular property prediction tasks, molecular representations have progressively evolved from engineered descriptors and fingerprints~\cite{rogers2010extended} to graph~\cite{gilmer2017neural} and tokenized-sequence embeddings~\cite{chithrananda2020chemberta}, geometry-aware~\cite{zhou2023unimol}, image-based~\cite{zeng2022imagemol}, and multiview encodings~\cite{zhang2024mvmrl}. Large-scale pretraining has further improved representation transferability and performance in data-limited toxicity prediction~\cite{mendezlucio2024mole}. Nevertheless, these models remain fundamentally structure-centered and are therefore limited to signals encoded in molecular structure.
+
+Toxicity, however, emerges from the response of an exposed biological system. An initial interaction between a chemical and a molecular target may trigger toxicity, but the resulting adverse effect develops through downstream biological responses across multiple levels of the system~\cite{ankley2010aop}. Molecular structure helps determine physicochemical behavior and the propensity for target engagement, whereas the eventual response is also shaped by dose, exposure duration, biological context, and the functional state of relevant pathways~\cite{niepel2017celltype}. Accordingly, structurally similar compounds can produce different responses across biological contexts, while structurally dissimilar compounds can converge on similar toxic effects~\cite{stumpfe2019activitycliffs}. This creates a fundamental gap for structure-based toxicity prediction. Molecular structure reflects intrinsic toxicological potential but cannot fully determine the response realized under a specific biological context. Cellular response measurements, including pathway-specific assays and perturbation transcriptomics, can therefore provide complementary, context-dependent signals beyond molecular structure.
+
+Motivated by the context dependence of toxicity, prior studies have sought to augment molecular prediction with biological measurements~\cite{liu2023chemicalbiological}, including knowledge-based representations~\cite{park2025cotox}, morphological profiles~\cite{sanchezfernandez2023cloome}, transcriptomic responses~\cite{cattebeke2026integrating}, bioassays~\cite{zhang2025genotoxnet}, and pathological features~\cite{zhong2025hepatotoxicity}. These modalities are typically integrated with molecular features through concatenation or joint optimization. Yet the inclusion of an additional modality neither guarantees that the model will exploit it effectively nor establishes that it contributes predictive value beyond a strong molecular baseline~\cite{hessel2020multimodal}. In chemical-perturbation response prediction, removing or shuffling drug-specific molecular representations has produced little change in performance for unseen compounds, showing that multimodal models can effectively disregard an intended source of signal~\cite{bai2026perturbation}. More strikingly, transcriptomic responses used as pretraining supervision have been reported to impair downstream ADMET prediction~\cite{sypetkowski2024molgps}. These findings shift the focus from increasingly elaborate multimodal integration to a controlled assessment of the incremental predictive value contributed by each modality.
+
+Here, we formulate transcriptomic complementation as a conditional residual problem anchored to a fixed molecular reference. For each endpoint, we first establish a strong molecular model and freeze its predictions before introducing biological data. We then estimate and fix a cohort-specific calibration intercept and learn a ridge-regularized transcriptomic correction on top of the frozen molecular logit. This construction enables a clean paired comparison between molecular-only and transcriptome-complemented predictions on the same test compounds. Because the molecular component is held fixed, any change in prediction arises exclusively from the additive transcriptomic contribution, allowing the incremental predictive value of biological data to be quantified without confounding from model retraining or reweighting. The framework is inherently model-agnostic and enables biological complementarity to be traced from context-level performance to gene- and compound-level contributions.
+
+Applying the framework across twelve toxicity endpoints and perturbation-transcriptomic contexts spanning four cell lines and early and late time points revealed highly selective, context-dependent complementarity. Confirmatory gains were concentrated in SR-MMP and SR-p53, with the largest improvement observed for SR-p53 in MCF7 cells at 24~h (\(\Delta\mathrm{AUPRC}=+0.215\)); NR-Aromatase and SR-ARE provided additional exploratory evidence. Residual models captured endpoint-relevant biology, including cholesterol homeostasis for NR-Aromatase, NRF2-associated oxidative stress for SR-ARE, peroxisomal and mitochondrial stress for SR-MMP, and canonical genotoxic stress for SR-p53. These signals translated into substantial compound-level corrections, including rescue of niclosamide for SR-MMP (\(\Delta p=+0.585\)) and teniposide for SR-p53 (\(\Delta p=+0.703\)), together with downward correction of diphemanil and voriconazole. Transcriptomic complementation also resolved effects not explained by structural similarity alone. Structurally similar teniposide and etoposide diverged, whereas structurally dissimilar niclosamide and gossypol converged toward similar SR-MMP predictions.
+
+\section{Methods}
+
+\subsection{Overview}
+
+\begin{figure}[!htbp]
+\centering
+\captionsetup{font=footnotesize}
+\includegraphics[
+  width=0.96\linewidth,
+  height=0.42\textheight,
+  keepaspectratio
+]{Figures/Figure1.eps}
+\caption{\textbf{Two-stage framework for context-dependent transcriptomic complementarity.}
+Abbreviations: DMSO, dimethyl sulfoxide; trt, treatment.
+\textbf{ALT TEXT:}
+Flow diagram illustrating molecular structures and Tox21 assays entering a
+frozen molecular-prediction stage, and the fixed predictions themselves with LINCS transcriptomic profiles together entering
+a context-matched residual-modeling stage, and outputs for context-, gene-,
+and compound-level analyses.}
+\label{fig:framework-overview}
+\end{figure}
+
+We asked whether a measured cellular response improves toxicity prediction
+for the same compound beyond what can be predicted from molecular structure
+alone (Fig.~\ref{fig:framework-overview}). Stage~1 uses molecular structures
+and activity labels to construct an endpoint-specific molecular reference
+model, which is subsequently frozen. Stage~2 transfers the frozen molecular
+prediction to compound-matched transcriptomic cohorts, estimates a
+cohort-level calibration shift, and then learns a regularized transcriptomic
+correction while keeping both the molecular prediction and calibration shift
+fixed. Molecular-only and transcriptome-complemented predictions are then
+compared on the same test compounds to quantify predictive
+complementarity. The fitted transcriptomic component is subsequently
+interpreted at the gene and compound levels.
+
+\subsection{Input data and biological context construction}
+
+\paragraph{Dataset notation.}
+
+This study uses two input datasets: a molecular dataset with endpoint-specific activity labels \(\mathcal D^{\mathrm{chem}}\), and a transcriptomic dataset indexed by biological context, \(\mathcal D^{\mathrm{bio}}\). For notational simplicity, explicit compound indices are omitted.
+Instead, $s$ denotes a structurally identified compound and serves both
+as the molecular structure input and as the compound key linking records
+across datasets.
+
+The labeled molecular dataset is defined as 
+
+\begin{equation}
+\mathcal D^{\mathrm{chem}}
+=
+\left\{
+(s,e,y_e)
+\in
+\mathcal S\times\mathcal E\times\{0,1\}
+:
+y_e \text{ is observed for compound } s \text{ at endpoint } e
+\right\},
+\label{eq:chem-dataset}
+\end{equation}
+
+where $\mathcal S$ denotes the set of structurally identified compounds
+and $\mathcal E$ denotes the set of twelve binary Tox21 assay tasks.
+Each $s\in\mathcal S$ represents a molecular structure together with its
+corresponding compound identity, whereas $e\in\mathcal E$ indexes the
+assay endpoint. The value $y_e\in\{0,1\}$ denotes the activity label of
+compound $s$ for endpoint $e$.
+
+The transcriptomic dataset \(\mathcal D^{\mathrm{bio}}\), whose records do not include activity labels, is defined as
+
+\begin{equation}
+\mathcal D^{\mathrm{bio}}
+=
+\left\{
+(s,c,\mathbf x_c)
+\in \mathcal S \times \mathcal C \times \mathbb R^{978}
+:
+\mathbf x_c \text{ is available for } s
+\right\}.
+\label{eq:bio-dataset}
+\end{equation}
+
+where $\mathcal C$ denotes the set of biological contexts, each defined
+by a cell background and exposure time. The vector
+$\mathbf x_c\in\mathbb R^{978}$ denotes the perturbation-induced
+transcriptomic response of compound $s$ in context $c$.
+
+The context-matched cohort is obtained by joining records from
+$\mathcal D^{\mathrm{chem}}$ and $\mathcal D^{\mathrm{bio}}$ on the
+shared compound $s$ within each biological context $c$:
+
+\begin{equation}
+\mathcal D^{\mathrm{chem+bio}}
+=
+\left\{
+(s,e,c,\mathbf x_{ec},y_{ec})
+:
+(s,e,y_e)\in\mathcal D^{\mathrm{chem}},
+\;
+(s,c,\mathbf x_c)\in\mathcal D^{\mathrm{bio}}
+\right\},
+\label{eq:chem+bio-dataset}
+\end{equation}
+
+where each matched record contains a molecular structure, an
+endpoint-specific activity label, and a transcriptomic response measured
+in biological context. For each matched compound, we write
+$\mathbf x_{ec}:=\mathbf x_c$ and $y_{ec}:=y_e$ to indicate restriction
+to endpoint-context pair $(e,c)$; matching does not alter either
+observed quantity.
+
+We further define
+\(\mathcal D^{\mathrm{chem-only}}\)
+as the scaffold-disjoint subset of \(\mathcal D^{\mathrm{chem}}\) obtained by excluding compounds whose Bemis--Murcko scaffold occurs in \(\mathcal D^{\mathrm{bio}}\). Let $\operatorname{sf}(s)$ denote
+the Bemis--Murcko scaffold of compound $s$~\cite{bemis1996properties}. Then
+
+\begin{equation}
+\mathcal D^{\mathrm{chem-only}}
+=
+\left\{
+(s,e,y_e)\in\mathcal D^{\mathrm{chem}}
+:
+\operatorname{sf}(s)\neq\operatorname{sf}(s')
+\quad
+\forall\,
+(s',c,\mathbf x_c)\in\mathcal D^{\mathrm{bio}}
+\right\}.
+\label{eq:chem-only-dataset}
+\end{equation}
+
+The datasets are subsequently restricted by endpoint $e$, context $c$,
+or endpoint--context pair $(e,c)$ to define
+$\mathcal D^{\mathrm{chem}}_e$,
+$\mathcal D^{\mathrm{chem-only}}_e$,
+$\mathcal D^{\mathrm{bio}}_c$, and
+$\mathcal D^{\mathrm{chem+bio}}_{ec}$, respectively.
+The endpoint-specific
+$\mathcal D^{\mathrm{chem-only}}_e$ subsets were used exclusively for
+Stage~1 molecular-model development. Together,
+$\mathcal D^{\mathrm{chem-only}}$ contained 15,695 endpoint-labeled
+records corresponding to 1,732 unique compounds
+(Table~\ref{tab:stage1-cohort-composition}).
+
+The matched subsets
+$\mathcal D^{\mathrm{chem+bio}}_{ec}$ served as the context-matched
+Stage~2 cohorts and together contained 67,867 matched records, with the
+number of unique compounds varying across endpoint-context pairs
+(Tables~\ref{tab:nuclear-receptor-task-cell-counts}
+and~\ref{tab:stress-response-task-cell-counts}).
+
+For a cohort containing
+$n_{ec}=|\mathcal D^{\mathrm{chem+bio}}_{ec}|$ records, the
+978-dimensional transcriptomic response vectors are stacked row-wise to
+form the design matrix
+$\mathbf X_{ec}\in\mathbb R^{n_{ec}\times978}$, while the corresponding
+activity labels form
+$\mathbf y_{ec}\in\{0,1\}^{n_{ec}}$.
+The frozen Stage~1 model was applied to the molecular structure of each
+matched compound to obtain one pre-calibration molecular logit per
+compound. These logits were stacked in the same compound order as
+$\mathbf X_{ec}$ and $\mathbf y_{ec}$ to form
+$\boldsymbol\eta^{\mathrm{chem}}_{ec}\in\mathbb R^{n_{ec}}$.
+
+\paragraph{Small molecules and toxicity assays.}
+Twelve Tox21 endpoints were included in the study, comprising seven nuclear-receptor (NR) and five stress-response (SR) endpoints
+(Table~\ref{tab:tox21-lincs-configurations})
+\cite{huang2016challenge}. The set of compounds
+with the available Tox21 label constituted
+$\mathcal D^{\mathrm{chem}}_e$ for each endpoint \(e\).
+Molecular structures were standardized and assigned Bemis--Murcko
+scaffolds using RDKit~v2024.03.2~\cite{landrum2024rdkit}.
+To prevent structural overlap with the transcriptomic data, compounds
+sharing a scaffold with any compound in
+$\mathcal D^{\mathrm{bio}}_c$, for any $c\in\mathcal C$, were excluded,
+yielding the scaffold-disjoint endpoint-specific datasets
+$\mathcal D^{\mathrm{chem-only}}_e
+\subset\mathcal D^{\mathrm{chem}}_e$ defined above.
+
+\paragraph{Perturbation transcriptomics.}
+Using LINCS L1000 Level~3 chemical perturbation profiles from HA1E,
+HepG2, HT29, and MCF7 cells~\cite{subramanian2017l1000}, we constructed
+transcriptional responses to treatment relative to vehicle controls. These
+Level~3 profiles, denoted $\mathcal D^{\mathrm{bio}}$, retain normalized
+replicate-level expression before differential expression and consensus
+transformations, enabling study-specific quality control, replicate
+aggregation, and control referencing (Text~S1). All 12,328 genes were retained
+during preprocessing; predictive modeling was restricted to the 978 measured
+landmark genes.
+
+\paragraph{Context-matched cohort.}
+Correspondence between Tox21 and LINCS was evaluated in two stages:
+compounds were first matched across datasets, after which each LINCS
+profiling context was assessed for biological correspondence with the
+associated Tox21 endpoint. Molecular correspondence was established by canonicalizing Tox21 and
+LINCS compounds and matching the 14-character InChIKey connectivity
+block (Tables~\ref{tab:nuclear-receptor-task-cell-counts}
+and~\ref{tab:stress-response-task-cell-counts}).
+Restricting each $\mathcal D^{\mathrm{bio}}_c$ to compounds with an
+available activity label for endpoint $e$ yielded the context-matched
+Stage~2 cohort $\mathcal D^{\mathrm{chem+bio}}_{ec}$. Biological correspondence between Tox21 assays and LINCS contexts was
+classified as exact, tissue-proxy, or unmatched
+(Table~\ref{tab:tox21-lincs-configurations}).
+
+\clearpage
+
+\begin{landscape}
+\begin{table}[p]
+\centering
+\caption{\textbf{Context correspondence between Tox21 and LINCS datasets.}
+The context score summarizes cellular, temporal, and mechanistic correspondence between Tox21 assays and available LINCS profiles; parentheses indicate component scores. Overall context scores of 1-4 are displayed as number of stars ($\bigstar$), while dash (\textit{--}) denotes a score of 0. Exposure times were retained as reported, with the unreported time for SR-ATAD5 left unspecified. \textbf{ALT TEXT:}
+Table comparing cellular, temporal, and mechanistic correspondence between
+twelve Tox21 assays and available LINCS contexts, with combined context scores
+from zero to four.
+}
+\label{tab:tox21-lincs-configurations}
+\fontsize{8.2}{9.6}\selectfont
+\setlength{\tabcolsep}{2.8pt}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} c l l c l l l c l c @{}}
+\toprule
+& \multirow[c]{2}{*}{Endpoint} &
+\multicolumn{2}{c}{Tox21} &
+\multicolumn{2}{c}{LINCS} &
+\multicolumn{3}{c}{Context correspondence} &
+\multirow[c]{2}{*}{Context score} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-9}
+& & Cell & Time &
+Cell & Time & Cell & Time & Mechanistic & \\
+\midrule
+\multirow[c]{7}{*}{\rotatebox[origin=c]{90}{Nuclear receptor}}
+& AR & MDA-kb2 & 16~h & MCF7 & 6 and 24~h & Breast-Proxy (+1) & Match (+1) & Receptor binding (+0) & $\bigstar\bigstar$ \\
+& AR-LBD & HEK293T & 16~h & HA1E & 6 and 24~h & Kidney-Proxy (+1) & Match (+1) & Receptor binding (+0) & $\bigstar\bigstar$ \\
+& AhR & HepG2 & 24~h & HepG2 & 6~h & Exact (+2) & No match (+0) & Receptor binding (+0) & $\bigstar\bigstar$ \\
+& Aromatase & MCF7 (AroER) & 24~h & MCF7 & 6 and 24~h & Exact (+2) & Match (+1) & Enzymatic activity (+0) & $\bigstar\bigstar\bigstar$ \\
+& ER & BG1 & 22~h & \textit{-} & \textit{-} & No match (+0) & No match (+0) & Receptor binding (+0) & \textit{--} \\
+& ER-LBD & HEK293 & 18~h & HA1E & 6 and 24~h & Kidney-Proxy (+1) & Match (+1) & Receptor binding (+0) & $\bigstar\bigstar$ \\
+& PPAR-\(\gamma\) & HEK293 & 17~h & HA1E & 6 and 24~h & Kidney-Proxy (+1) & Match (+1) & Receptor binding (+0) & $\bigstar\bigstar$ \\
+\midrule
+\multirow[c]{5}{*}{\rotatebox[origin=c]{90}{Stress response}}
+& ARE & HepG2 & 16~h & HepG2 & 6~h & Exact (+2) & No match (+0) & Transcriptional response (+1) & $\bigstar\bigstar\bigstar$ \\
+& ATAD5 & HEK293T & \textit{-} & HA1E & 6 and 24~h & Kidney-Proxy (+1) & No match (+0) & Transcriptional response (+1) & $\bigstar\bigstar$ \\
+& HSE & HeLa & 5~h & \textit{-} & \textit{-} & No match (+0) & No match (+0) & Transcriptional response (+1) & $\bigstar$ \\
+& MMP & HepG2 & 1~h & HepG2 & 6~h & Exact (+2) & No match (+0) & Mitochondrial depolarization (+1) & $\bigstar\bigstar\bigstar$ \\
+& p53 & HCT116 & 16~h & HT29 & 6 and 24~h & Colorectal-Proxy (+1) & Match (+1) & Transcriptional response (+1) & $\bigstar\bigstar\bigstar$ \\
+\bottomrule
+\end{tabular*}
+\end{table}
+\end{landscape}
+\clearpage
+
+\subsection{Model specification}
+
+For each endpoint $e$, the analysis comprised two sequential stages, each
+consisting of two steps. Stage~1 constructed an endpoint-specific molecular
+reference ensemble $\mathcal M_e^\star$ and applied the frozen ensemble to
+each context-matched cohort $\mathcal D^{\mathrm{chem+bio}}_{ec}$, yielding
+molecular structure-based predictions $\mathbf p^{\mathrm{chem}}_{ec}$ and
+corresponding logits $\boldsymbol\eta^{\mathrm{chem}}_{ec}$.
+
+Stage~2 performed 20 repetitions of five-fold nested cross-validation
+(CV) to calibrate the molecular reference and estimate the incremental
+predictive contribution of transcriptomic responses. Let $i=1,\ldots,20$
+denote the repetition and $j=1,\ldots,5$ the outer fold, with
+$u=(i,j)$ indexing the resulting 100 outer-fold evaluations.
+Within each $u$, molecular calibration was parameterized by
+$\widehat a_{ec}^{(u)}$ and transcriptomic complementation by
+$\widehat{\boldsymbol\beta}_{ec}^{(u)}$
+(Figure~\ref{fig:nested-validation}). Conceptually,
+
+\begin{equation}
+\begin{gathered}
+\underbrace{
+(\mathcal D^{\mathrm{chem-only}}_e,\mathcal M)
+\underset{\mathrm{train}}{\longrightarrow}
+\{(\boldsymbol\theta_{em},p^{\mathrm{chem}}_{em})\}_{m\in\mathcal M}
+\underset{\mathrm{ensemble}}{\longrightarrow}
+\mathcal M_e^\star
+}_{\text{Stage 1a: ensemble construction}}
+\\[2ex]
+%
+\underbrace{
+(\mathcal D^{\mathrm{chem+bio}}_{ec},\mathcal M_e^\star)
+\underset{\mathrm{infer}}{\longrightarrow}
+\mathbf p^{\mathrm{chem}}_{ec}
+\underset{\mathrm{logit}}{\longrightarrow}
+\boldsymbol\eta^{\mathrm{chem}}_{ec}
+}_{\text{Stage 1b: molecular structure-based prediction}}
+\\[2ex]
+%
+(\mathcal D^{\mathrm{chem+bio}}_{ec},
+\boldsymbol\eta^{\mathrm{chem}}_{ec})
+\underset{\mathrm{repeated\ nested\ CV}}{\longrightarrow}
+\boxed{
+\begin{aligned}
+&
+\underbrace{
+\boldsymbol\eta^{\mathrm{chem},(u)}_{ec}
+\overset{\widehat a_{ec}^{(u)}}{\longrightarrow}
+\boldsymbol\eta^{\mathrm{chem,cal},(u)}_{ec}
+}_{\text{Stage 2a: molecular reference calibration}}
+\\[2ex]
+&
+\underbrace{
+(\widetilde{\mathbf X}^{(u)}_{ec},
+\boldsymbol\eta^{\mathrm{chem,cal},(u)}_{ec})
+\overset{\widehat{\boldsymbol\beta}_{ec}^{(u)}}{\longrightarrow}
+\boldsymbol\eta^{\mathrm{bio},(u)}_{ec}
+}_{\text{Stage 2b: transcriptomic complementation}}
+\end{aligned}
+}
+\\[-0.5ex]
+\qquad
+u=(i,j),\quad
+i=1,\ldots,20,\quad
+j=1,\ldots,5.
+\end{gathered}
+\label{eq:two-stage-overview}
+\end{equation}
+
+\paragraph{Stage 1a: Molecular ensemble construction.}
+
+Stage~1a constructed an endpoint-specific molecular reference from a model
+set \(\mathcal M\) spanning complementary molecular
+representations and learning architectures. For each model \(m\in\mathcal M\),
+the standardized molecular structure \(s\) was mapped to a model-specific
+representation \(\phi_m(s)\), comprising a fingerprint vector, a molecular
+graph, or a tokenized SMILES sequence.
+
+The model set comprised twelve distinct configurations, including logistic regression and
+XGBoost~\cite{chen2016xgboost} applied to MACCS
+keys~\cite{durant2002mdl}, Morgan (ECFP4)
+fingerprints~\cite{rogers2010extended}, or RDKit topological
+fingerprints~\cite{landrum2024rdkit}; Chemprop~\cite{yang2019analyzing};
+pretrained graph neural networks (GCN, GAT, GIN, and
+GraphSAGE)~\cite{hu2020strategies}; and
+ChemBERTa~\cite{chithrananda2020chemberta}. Molecular standardization,
+fingerprint generation, and structural processing were performed using
+RDKit~v2024.03.2~\cite{landrum2024rdkit}. Model-specific representations,
+architectures, and training configurations are provided in
+Tables~\ref{tab:stage1-classical-settings}
+and~\ref{tab:stage1-deep-settings}.
+
+For endpoint $e\in\mathcal E$, each model $m\in\mathcal M$ was fitted on
+the endpoint-labeled training subset of
+$\mathcal D^{\mathrm{chem-only}}_e$, with the validation
+subset used for model-specific hyperparameter selection and early
+stopping where applicable. The fitted model, parameterized by
+$\boldsymbol\theta_{em}$, produced the endpoint-toxicity probability
+
+\begin{equation}
+p^{\mathrm{chem}}_{em}(s)
+=
+m\!\left(
+\phi_m(s);
+\boldsymbol\theta_{em}
+\right).
+\label{eq:individual-molecular-prediction}
+\end{equation}
+
+The twelve fitted models were evaluated on the held-out
+ensemble-selection subset and ranked by AUPRC. Let
+$m_{e,(1)},\ldots,m_{e,(12)}$ denote this ordering, such that
+$\operatorname{AUPRC}(m_{e,(i)})
+\geq
+\operatorname{AUPRC}(m_{e,(i+1)})$.
+For each ensemble size $k=1,\ldots,12$, the top-$k$ models
+were combined by unweighted averaging,
+
+\begin{equation}
+\mathcal M_e^{(k)}
+=
+\{m_{e,(1)},\ldots,m_{e,(k)}\},
+\qquad
+p^{\mathrm{chem},(k)}_e(s)
+=
+\frac{1}{k}
+\sum_{m\in\mathcal M_e^{(k)}}
+p^{\mathrm{chem}}_{em}(s).
+\label{eq:candidate-molecular-ensemble}
+\end{equation}
+
+A common ensemble size was selected by maximizing macro-AUPRC across the
+twelve endpoints on the held-out ensemble-selection subset:
+
+\begin{equation}
+\overline{\operatorname{AUPRC}}^{(k)}
+=
+\frac{1}{|\mathcal E|}
+\sum_{e\in\mathcal E}
+\operatorname{AUPRC}
+\!\left(p^{\mathrm{chem},(k)}_e\right),
+\qquad
+k^\star
+=
+\operatorname*{arg\,max}_{k\in\{1,\ldots,12\}}
+\overline{\operatorname{AUPRC}}^{(k)},
+\qquad
+\mathcal M_e^\star
+=
+\mathcal M_e^{(k^\star)}.
+\label{eq:ensemble-selection}
+\end{equation}
+
+The resulting common size was $k^\star=4$, while the constituent models
+remained endpoint specific because model ranking was performed separately
+within each endpoint. After ensemble selection, the constituent models,
+fitted parameters, and ensemble membership were frozen and transferred
+unchanged to Stage~1b.
+
+\paragraph{Stage 1b: Molecular structure-based prediction.}
+
+The frozen ensemble $\mathcal M_e^\star$ was applied without retraining to
+each matched endpoint-context cohort
+$\mathcal D^{\mathrm{chem+bio}}_{ec}$, yielding
+$\mathbf p^{\mathrm{chem}}_{ec}\in(0,1)^{n_{ec}}$.
+For additive modeling on the log-odds scale, probabilities were transformed as
+
+\begin{equation}
+\boldsymbol\eta^{\mathrm{chem}}_{ec}
+=
+\operatorname{logit}
+\!\left[
+\operatorname{clip}_{\varepsilon}
+\!\left(
+\mathbf p^{\mathrm{chem}}_{ec}
+\right)
+\right],
+\qquad
+\varepsilon=10^{-7},
+\label{eq:mol-logit}
+\end{equation}
+
+where
+$\operatorname{clip}_{\varepsilon}(p)
+=\min\{1-\varepsilon,\max(\varepsilon,p)\}$
+and
+$\operatorname{logit}(p)=\log[p/(1-p)]$.
+Clipping avoided infinite logits when predicted probabilities were equal to 0 or 1, ensuring stable downstream modeling.
+
+\paragraph{Stage 2a: Molecular structure-based calibration.}
+
+Stage~2 was performed independently for each endpoint-context cohort using
+20 repetitions of nested cross-validation. In each repetition, molecular
+calibration (Stage~2a) and transcriptomic complementation (Stage~2b) were fitted within the inner and outer training partitions.
+
+A five-fold outer loop was used for held-out performance evaluation, with
+$\mathcal D_{ec}^{\mathrm{t}_{\mathrm{out}}}$ denoting the outer-training
+set and $\mathcal D_{ec}^{\mathrm{held}}$ its outer-test set. Within each
+outer-training set, three-fold inner cross-validation was used for
+regularization selection, with
+$\mathcal D_{ec}^{\mathrm{t}_{\mathrm{in}}}$ denoting the inner-training
+set and $\mathcal D_{ec}^{\mathrm{val}}$ its validation set.
+Bemis--Murcko scaffolds were disjoint between training and evaluation
+partitions in both loops
+(Tables~\ref{tab:outer-validation} and~\ref{tab:inner-validation};
+Fig.~\ref{fig:nested-validation}).
+
+For either training level
+$r\in\{\mathrm{t}_{\mathrm{in}},\mathrm{t}_{\mathrm{out}}\}$, let
+$\mathcal D_{ec}^{r}\subset\mathcal D^{\mathrm{chem+bio}}_{ec}$ contain
+$n$ compounds with activity labels
+$\mathbf y_{ec}^{r}\in\{0,1\}^{n}\setminus
+\{\mathbf 0_n,\mathbf 1_n\}$ and corresponding molecular logits
+$\boldsymbol\eta_{ec}^{\mathrm{chem},r}\in\mathbb R^n$.
+A scalar calibration intercept was estimated as
+
+\begin{equation}
+\widehat a_{ec}^{r}
+=
+\underset{a\in\mathbb R}{\arg\min}\;
+\mathcal L_{\mathrm{BCE}}
+\!\left(
+\mathbf y_{ec}^{r},
+\sigma\!\left(
+\boldsymbol\eta_{ec}^{\mathrm{chem},r}
++
+a\mathbf 1_n
+\right)
+\right),
+\label{eq:calibration-intercept}
+\end{equation}
+
+where
+\(
+\mathcal L_{\mathrm{BCE}}(\mathbf y,\mathbf p)
+=
+-\frac{1}{n}
+\left[
+\mathbf y^{\mathsf T}\log(\mathbf p)
++
+(\mathbf 1_n-\mathbf y)^{\mathsf T}
+\log(\mathbf 1_n-\mathbf p)
+\right],
+\)
+and $\sigma(t)=[1+\exp(-t)]^{-1}$ is applied element-wise. The calibrated
+molecular logits were
+
+\begin{equation}
+\boldsymbol\eta_{ec}^{\mathrm{chem,cal},r}
+=
+\boldsymbol\eta_{ec}^{\mathrm{chem},r}
++
+\widehat a_{ec}^{r}\mathbf 1_n.
+\label{eq:calibrated-molecular-logit}
+\end{equation}
+
+\paragraph{Stage 2b: Transcriptomic complementation.}
+
+For each partition $\mathcal D_{ec}^{r}$, transcriptomic responses were
+standardized using statistics estimated from the training
+partition $\mathcal D_{ec}^{r'}$:
+\begin{equation}
+\widetilde{\mathbf x}_{ec}^{r}(s)
+=
+\bigl(
+\mathbf x_c(s)-\boldsymbol\mu_{ec}^{r'}
+\bigr)
+\oslash
+\mathbf d_{ec}^{r'},
+\qquad
+(r,r')
+\in
+\{
+(\mathrm{t_{in}},\mathrm{t_{in}}),
+(\mathrm{val},\mathrm{t_{in}}),
+(\mathrm{t_{out}},\mathrm{t_{out}}),
+(\mathrm{held},\mathrm{t_{out}})
+\}.
+\label{eq:standardization}
+\end{equation}
+
+Here,
+$\boldsymbol\mu_{ec}^{r'},\mathbf d_{ec}^{r'}\in\mathbb R^{978}$
+are the training-partition mean and standard-deviation vectors,
+$\oslash$ denotes element-wise division, and standard deviations below
+$10^{-8}$ were replaced by one. Standardized feature vectors and labels
+were stacked row-wise to form $\widetilde{\mathbf X}_{ec}^{r}$ and
+$\mathbf y_{ec}^{r}$.
+
+With the calibration intercept $\widehat a_{ec}^{r}$ fixed,
+transcriptomic coefficients were estimated by ridge-regularized binary
+cross-entropy minimization:
+
+\begin{equation}
+\widehat{\boldsymbol\beta}_{ec}^{r}(\lambda)
+=
+\underset{\boldsymbol\beta\in\mathbb R^{978}}{\arg\min}
+\left\{
+\mathcal L_{\mathrm{BCE}}
+\!\left(
+\mathbf y_{ec}^{r},
+\sigma\!\left(
+\boldsymbol\eta^{\mathrm{chem},r}_{ec}
++\widehat a_{ec}^{r}\mathbf 1_n
++\widetilde{\mathbf X}^{r}_{ec}\boldsymbol\beta
+\right)
+\right)
++
+\frac{\lambda}{2}
+\|\boldsymbol\beta\|_2^2
+\right\},
+\qquad
+r\in\{\mathrm{t_{in}},\mathrm{t_{out}}\}.
+\label{eq:residual-objective}
+\end{equation}
+
+Only $\boldsymbol\beta$ was penalized. Within each inner loop,
+$\widehat a_{ec}^{\mathrm{t_{in}}}$ was first estimated and fixed, after
+which $\widehat{\boldsymbol\beta}_{ec}^{\mathrm{t_{in}}}(\lambda)$ was
+fitted over
+$\lambda\in\Lambda\subset[10^{-4},10^{8}]$.
+
+For each valid candidate \(\lambda\), mean validation loss across the three inner folds
+was
+
+\begin{equation}
+\overline{\mathcal L}^{\mathrm{val}}_{ec}(\lambda)
+=
+\frac{1}{3}
+\sum_{\ell=1}^{3}
+\mathcal L^{\mathrm{val},\ell}_{ec}(\lambda),
+\label{eq:mean-validation-loss}
+\end{equation}
+
+\begin{equation}
+\mathcal L^{\mathrm{val},\ell}_{ec}(\lambda)
+=
+\mathcal L_{\mathrm{BCE}}
+\!\left(
+\mathbf y^{\mathrm{val},\ell}_{ec},
+\sigma\!\left(
+\boldsymbol\eta^{\mathrm{chem,val},\ell}_{ec}
++
+\widehat a_{ec}^{\mathrm{t_{in}},\ell}
+\mathbf 1_{n_{\mathrm{val},\ell}}
++
+\widetilde{\mathbf X}^{\mathrm{val},\ell}_{ec}
+\widehat{\boldsymbol\beta}_{ec}^{\mathrm{t_{in}},\ell}(\lambda)
+\right)
+\right),
+\label{eq:inner-validation-loss}
+\end{equation}
+
+where $\ell$ denotes the inner folds and
+$\widetilde{\mathbf X}^{\mathrm{val},\ell}_{ec}$ was standardized using inner-training partition.
+
+The minimum-loss candidate was
+
+\begin{equation}
+\lambda^{\min}_{ec}
+=
+\operatorname*{arg\,min}_{\lambda\in\Lambda}
+\overline{\mathcal L}^{\mathrm{val}}_{ec}(\lambda),
+\label{eq:lambda-min}
+\end{equation}
+
+and the outer-fold regularization parameter was selected by the
+one-standard-error (1-SE) rule:
+
+\begin{equation}
+\widehat\lambda_{ec}
+=
+\max
+\left\{
+\lambda\in\Lambda:
+\overline{\mathcal L}^{\mathrm{val}}_{ec}(\lambda)
+\le
+\overline{\mathcal L}^{\mathrm{val}}_{ec}
+\!\left(\lambda^{\min}_{ec}\right)
++
+\operatorname{SE}_{ec}
+\!\left(\lambda^{\min}_{ec}\right)
+\right\}.
+\label{eq:lambda-selection}
+\end{equation}
+
+The corresponding standard error was
+
+\begin{equation}
+\operatorname{SE}_{ec}(\lambda)
+=
+\sqrt{
+\frac{1}{3(3-1)}
+\sum_{\ell=1}^{3}
+\left[
+\mathcal L_{ec}^{\mathrm{val},\ell}(\lambda)
+-
+\overline{\mathcal L}_{ec}^{\mathrm{val}}(\lambda)
+\right]^2
+}.
+\label{eq:validation-se}
+\end{equation}
+
+The 1-SE rule therefore selected the largest $\lambda$ whose mean
+validation loss remained within one standard error of the minimum,
+favoring stronger regularization to improve stability and reduce overfitting in the
+high-dimensional transcriptomic setting.
+
+After selecting $\widehat\lambda_{ec}$, standardization statistics and the
+calibration intercept were re-estimated on the complete outer-training
+partition $\mathcal D_{ec}^{\mathrm{t_{out}}}$.
+With $\widehat a_{ec}^{\mathrm{t_{out}}}$ fixed,
+$\boldsymbol\beta$ was refitted using $\widehat\lambda_{ec}$ and applied
+to $\mathcal D_{ec}^{\mathrm{held}}$. For each held-out compound $s$,
+
+\begin{equation}
+\begin{aligned}
+p^{\mathrm{chem,cal}}_{ec}(s)
+&=
+\sigma\!\left(
+\eta^{\mathrm{chem}}_{ec}(s)
++
+\widehat a_{ec}^{\mathrm{t_{out}}}
+\right),
+\\
+p^{\mathrm{chem+bio}}_{ec}(s)
+&=
+\sigma\!\left(
+\eta^{\mathrm{chem}}_{ec}(s)
++
+\widehat a_{ec}^{\mathrm{t_{out}}}
++
+(\widetilde{\mathbf x}_{ec}^{\mathrm{held}}(s))^{\mathsf T}
+\widehat{\boldsymbol\beta}_{ec}^{\mathrm{t_{out}}}
+(\widehat\lambda_{ec})
+\right).
+\end{aligned}
+\label{eq:final-predictions}
+\end{equation}
+
+Because both predictions share the same molecular logit and calibration
+intercept, their logit difference equals the transcriptomic contribution:
+
+\begin{equation}
+\operatorname{logit}
+\!\left(p^{\mathrm{chem+bio}}_{ec}(s)\right)
+-
+\operatorname{logit}
+\!\left(p^{\mathrm{chem,cal}}_{ec}(s)\right)
+=
+\eta^{\mathrm{bio}}_{ec}(s),
+\qquad
+\eta^{\mathrm{bio}}_{ec}(s)
+=
+(\widetilde{\mathbf x}_{ec}^{\mathrm{held}}(s))^{\mathsf T}
+\widehat{\boldsymbol\beta}_{ec}^{\mathrm{t_{out}}}
+(\widehat\lambda_{ec}).
+\label{eq:logit-contribution}
+\end{equation}
+
+Across the 20 repetitions, each compound received 20 held-out molecular-only
+and transcriptome-complemented predictions, which were retained for
+compound-level post-hoc analyses. In the 6-h calibration analysis, calibration
+left AUPRC unchanged ($\Delta\mathrm{AUPRC}=0$;
+Table~\ref{tab:s1-calibration-selected-endpoints}), as expected because an
+intercept shift preserves ranking within each held-out partition.
+
+\subsection{Outputs and post-hoc analyses}
+
+\paragraph{Context-dependent prediction.}
+
+Transcriptomic complementarity was evaluated on outer held-out compounds.
+Twenty repetitions of five-fold outer cross-validation yielded 100 paired
+evaluations for each endpoint-context pair. AUPRC was used as the
+primary metric because of class imbalance~\cite{saito2015precision}.
+Complementarity was quantified by \(\Delta\mathrm{AUPRC}\), with positive
+values indicating improved ranking after adding the transcriptomic term.
+Calibration was assessed separately using
+\(\Delta\mathrm{LogLoss}\), with negative values indicating improved probabilistic fit. Paired fold-level effects were
+tested using a two-sided Nadeau-Bengio corrected resampled \(t\)-test~\cite{nadeau2003inference}. Benjamini-Hochberg adjustment was applied across
+the twelve endpoints separately within each cell line, exposure time, and
+analysis cohort.
+
+\paragraph{Gene-level analysis.}
+
+For each endpoint-context pair, the fitted ridge coefficient vectors were
+averaged across the 100 outer training fits to obtain
+\(\overline{\boldsymbol\beta}_{ec}\in\mathbb R^{978}\). The entries of
+\(\overline{\boldsymbol\beta}_{ec}\) summarize the direction and magnitude
+of the conditional predictive association of the genes beyond
+the molecular reference model.
+
+\paragraph{Compound-level transcriptomic contribution analysis.}
+
+For each outer held-out compound, the total transcriptomic effect was
+quantified by the change from the molecular-only to the
+transcriptome-complemented probability in
+Eq.~\eqref{eq:final-predictions}. Assay-active compounds were classified as rescued
+when this probability increased by more than \(0.02\) on average and the
+change was positive in all 20 repetitions. Assay-inactive compounds were
+classified as corrected when the probability decreased by more than \(0.02\)
+on average and the change was negative in all 20 repetitions. Changes were
+tested using one-sided Wilcoxon signed-rank tests with Benjamini-Hochberg
+correction within each endpoint~\cite{benjamini1995fdr};
+compounds with \(q<0.05\) were retained.
+
+For gene-level interpretation, the scalar contribution
+\(\eta^{\mathrm{bio}}_{ec}\) was decomposed into the gene-wise contribution
+vector
+\begin{equation}
+\boldsymbol{\psi}^{\mathrm{bio}}_{ec}
+=
+\widetilde{\mathbf x}_{ec}
+\odot
+\widehat{\boldsymbol\beta}_{ec}
+\in\mathbb R^{978},
+\label{eq:gene-wise-transcriptomic-contribution}
+\end{equation}
+where \(\odot\) denotes element-wise multiplication. The entries sum to the total transcriptomic contribution:
+\begin{equation}
+\mathbf 1_{978}^{\mathsf T}
+\boldsymbol{\psi}^{\mathrm{bio}}_{ec}
+=
+\eta^{\mathrm{bio}}_{ec}.
+\label{eq:sum-gene-contributions}
+\end{equation}
+
+\paragraph{Compound-level pathway enrichment analysis.}
+For each compound, the gene-wise contribution vectors obtained across its
+held-out evaluations were averaged to obtain
+\(\overline{\boldsymbol{\psi}}^{\mathrm{bio}}_{ec}\in\mathbb R^{978}\).
+Weighted gene-set enrichment analysis (GSEA)~\cite{subramanian2005gsea}
+was then applied to the 978 genes ranked by the
+entries of
+\(\overline{\boldsymbol{\psi}}^{\mathrm{bio}}_{ec}\), using Hallmark gene sets~\cite{liberzon2015hallmark}.
+Normalized enrichment scores (NES) were evaluated
+against 10,000 size-matched random gene sets. Empirical \(P\)-values were
+computed with finite-sampling correction~\cite{phipson2010permutation}
+and adjusted using the Benjamini-Hochberg
+procedure within each endpoint--pathway combination. Figure~\ref{fig:gene-atlas}
+reports confirmatory enrichment at \(q<0.05\) and exploratory enrichment at
+\(0.05\leq q<0.10\).
+
+\section{Results}
+
+\subsection{Endpoint-specific ensembles establish the molecular reference}
+
+We first established a molecular reference model against which the incremental
+predictive contribution of transcriptomics could be evaluated. Two potential
+sources of apparent improvement were addressed before introducing
+transcriptomic features: (i) an insufficiently strong molecular model and (ii)
+systematic probability-scale differences between the compound-pool of Stage~1 model development and the independent compound-matched cohorts in Stage~2. We therefore constructed endpoint-specific molecular ensembles and then assessed cohort-specific probability shifts after transfer. Together, endpoint-specific ensembling and cohort-specific calibration provided a stable molecular reference model for evaluating transcriptomic complementarity.
+
+No single molecular model performed best across all endpoints, motivating an endpoint-specific ensemble. We compared twelve molecular models across twelve Tox21 endpoints using 1,732 compounds. Morgan-XGBoost achieved the highest nuclear-receptor (NR) macro-AUPRC among individual models at \(0.381\), whereas GIN achieved the highest stress-response (SR) macro-AUPRC at \(0.440\); the best-performing
+architecture also differed across individual endpoints (Table~\ref{tab:structure-ensemble-auprc}).
+
+Models were therefore ranked separately within each endpoint and combined by
+equal-weight probability averaging. Macro-AUPRC increased from \(0.443\) for
+the endpoint-specific best single models (\(k=1\)) to \(0.483\) at \(k=4\),
+with corresponding NR and SR macro-AUPRCs of \(0.465\) and \(0.508\),
+respectively (Fig.~\ref{fig:ensemble-size-selection}). The four-model ensemble outperformed the highest-ranked
+individual model for 10 of 12 endpoints, whereas performance declined as
+additional lower-ranked models were included. We therefore selected a common
+ensemble size of \(k=4\), while retaining endpoint-specific constituent
+models, and froze the resulting ensembles before Stage~2 analysis.
+
+We then examined whether transfer to the compound-matched cohorts introduced cohort-specific calibration shifts. Cohort-level intercept adjustment consistently reduced held-out log loss across all evaluated 6-h endpoint--context pairs (\(\Delta\)log loss: \(-0.2372\) to \(-0.0577\); all \(q<0.05\); Table~\ref{tab:s1-calibration-selected-endpoints}), indicating improved probabilistic calibration. Because the intercept adds a constant to all molecular logits within a cohort, compound rankings were preserved exactly and AUPRC remained unchanged (\(\Delta\mathrm{AUPRC}=0\); Table~\ref{tab:s1-calibration-selected-endpoints}).
+
+\clearpage
+
+\begingroup
+\begin{landscape}
+\begin{table}[p]
+\centering
+\caption{\textbf{Molecular-model performance on twelve Tox21 endpoints.}
+Endpoint AUPRC and group macro-AUPRC are shown for nuclear-receptor (NR)
+and stress-response (SR) endpoints. Bold and underline mark column-best
+and second-best values; random-baseline AUPRC equals endpoint activity prevalence. \textbf{ALT TEXT:}
+Table comparing AUPRC for twelve molecular-model configurations and a
+top-four ensemble across seven nuclear-receptor and five stress-response
+toxicity endpoints.}
+\label{tab:structure-ensemble-auprc}
+\fontsize{9.0}{10.0}\selectfont
+\setlength{\tabcolsep}{1.0pt}
+\renewcommand{\arraystretch}{1.20}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}ccc*{8}{c}*{6}{c}@{}}
+\toprule
+&
+\multirow[c]{2}{*}{Model}
+& \multirow[c]{2}{*}{\shortstack{Input\\representation}}
+& \multicolumn{8}{c}{Nuclear receptor (NR)}
+& \multicolumn{6}{c}{Stress response (SR)} \\
+\cmidrule(lr){4-11}\cmidrule(lr){12-17}
+& & & AR
+& AR-LBD
+& AhR
+& Aromatase
+& ER
+& ER-LBD
+& PPAR-\(\gamma\)
+& Overall
+& ARE
+& ATAD5
+& HSE
+& MMP
+& p53
+& Overall \\
+\midrule
+& Random baseline
+& Held-out activity prevalence
+& 0.038 & 0.040 & 0.159 & 0.074 & 0.140 & 0.046 & 0.045 & 0.077
+& 0.279 & 0.058 & 0.089 & 0.200 & 0.136 & 0.152 \\
+
+\midrule
+\multirow[c]{6}{0.45cm}{\centering\rotatebox[origin=c]{90}{\scriptsize\bfseries Classical ML}}
+& \multirow{3}{*}{Logistic regression}
+& MACCS keys
+& 0.696 & 0.273 & 0.319 & 0.206 & 0.370 & 0.130 & 0.057 & 0.293
+& 0.377 & 0.086 & 0.154 & 0.473 & 0.292 & 0.276 \\
+
+& & Morgan fingerprint
+& 0.775 & 0.231 & 0.491 & 0.252 & 0.309 & 0.150 & 0.234 & 0.349
+& 0.450 & 0.205 & 0.226 & 0.537 & 0.327 & 0.349 \\
+
+& & RDKit topological fingerprint
+& 0.706 & 0.339 & 0.445 & 0.251 & 0.238 & 0.194 & 0.193 & 0.338
+& 0.470 & 0.177 & 0.144 & 0.552 & 0.286 & 0.326 \\
+
+\addlinespace[6pt]
+& \multirow{3}{*}{XGBoost}
+& MACCS keys
+& 0.616 & 0.374 & 0.375 & 0.360 & 0.384 & \textbf{0.264} & 0.101 & 0.353
+& 0.539 & 0.110 & 0.111 & 0.513 & 0.339 & 0.323 \\
+
+& & Morgan fingerprint
+& 0.764 & \underline{0.381} & 0.424 & \underline{0.370} & 0.331 & 0.153 & 0.246 & \underline{0.381}
+& 0.428 & 0.159 & 0.157 & 0.474 & 0.247 & 0.293 \\
+
+& & RDKit topological fingerprint
+& 0.616 & 0.341 & 0.472 & 0.221 & 0.307 & 0.195 & 0.150 & 0.329
+& 0.480 & 0.178 & 0.154 & 0.475 & 0.292 & 0.316 \\
+
+\midrule
+\multirow[c]{6}{0.45cm}{\centering\rotatebox[origin=c]{90}{\scriptsize\bfseries Deep Learning}}
+& GCN
+& \multirow[c]{5}{*}{Molecular graph}
+& 0.736 & 0.306 & 0.432 & 0.237 & 0.388 & 0.167 & 0.103 & 0.339
+& 0.500 & 0.116 & 0.383 & \underline{0.572} & 0.390 & 0.392 \\
+
+& GAT
+&
+& 0.138 & 0.087 & 0.365 & 0.165 & 0.263 & 0.049 & 0.073 & 0.163
+& 0.371 & 0.140 & 0.129 & 0.351 & 0.211 & 0.240 \\
+
+& GraphSAGE
+&
+& 0.802 & 0.342 & 0.448 & 0.350 & 0.376 & 0.183 & 0.074 & 0.368
+& 0.508 & 0.131 & 0.321 & 0.544 & 0.431 & 0.387 \\
+
+& GIN
+&
+& \underline{0.818} & 0.370 & \underline{0.512} & 0.309 & 0.386 & 0.166 & 0.072 & 0.376
+& \underline{0.569} & \underline{0.212} & \textbf{0.456} & 0.525 & \underline{0.436} & \underline{0.440} \\
+
+& Chemprop
+&
+& 0.734 & 0.232 & 0.373 & 0.251 & 0.335 & 0.121 & \underline{0.308} & 0.336
+& 0.432 & 0.188 & 0.313 & 0.533 & 0.397 & 0.373 \\
+
+\addlinespace[6pt]
+& ChemBERTa
+& SMILES tokens
+& 0.744 & 0.367 & 0.450 & 0.283 & \underline{0.415} & 0.161 & 0.044 & 0.352
+& 0.504 & 0.180 & 0.203 & 0.562 & 0.301 & 0.350 \\
+
+\midrule
+& Ensemble
+& Top-four model predictions
+& \textbf{0.821} & \textbf{0.415} & \textbf{0.574} & \textbf{0.444}
+& \textbf{0.460} & \underline{0.219} & \textbf{0.322} & \textbf{0.465}
+& \textbf{0.618} & \textbf{0.341} & \underline{0.432}
+& \textbf{0.622} & \textbf{0.527} & \textbf{0.508} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+\end{landscape}
+\endgroup
+\clearpage
+
+\begin{figure}[p]
+\centering
+\captionsetup{font=footnotesize}
+\includegraphics[
+  width=0.98\linewidth,
+  height=0.76\textheight,
+  keepaspectratio
+]{Figures/Figure2.eps}
+\caption{\textbf{Endpoint-specific molecular ensemble selection.}
+\textbf{(A)} Macro-AUPRC versus ensemble size \(K\) for all endpoints and
+NR and SR subsets.
+\textbf{(B,C)} Endpoint AUPRC trajectories for NR and SR, respectively.
+Ensemble constituents are endpoint specific and define the frozen molecular
+reference. Abbreviations: NR, nuclear receptor; SR, stress response; AUPRC, area under the precision-recall curve. \textbf{ALT TEXT:}
+Line graphs showing held-out AUPRC as ensemble size increases from one to
+twelve models. Overall, nuclear-receptor, and stress-response macro-AUPRC values
+peak near four models, with separate trajectories shown for each of the
+twelve endpoints.}
+\label{fig:ensemble-size-selection}
+\end{figure}
+\clearpage
+
+\subsection{Transcriptomic complementarity is selective across biological
+contexts}
+
+We next tested whether transcriptomic complementarity depended on biological
+context. Assay metadata provided a descriptive assessment of context correspondence (Table~\ref{tab:tox21-lincs-configurations}). Empirically, positive effects were concentrated in NR-Aromatase, SR-ARE, SR-MMP, and SR-p53 endpoints
+(Fig.~\ref{fig:biological-context-matching}). Together, these results indicate that context matching identifies settings in which endpoint-relevant transcriptomic responses are more
+likely to be observable, but does not guarantee predictive value beyond molecular structure.
+
+\textbf{NR-Aromatase} showed little evidence of transcriptomic
+complementarity at 6~h, with \(\Delta\mathrm{AUPRC}\) ranging from
+approximately zero in HA1E to \(+0.022\) in MCF7; none of the contexts
+reached statistical significance. At 24~h, the assay-aligned MCF7 context
+showed the largest improvement in mean AUPRC (\(\Delta\mathrm{AUPRC}=0.128\), 95\% CI: \(0.026\) to \(0.229\); \(P=0.0141\), \(q=0.0564\); Fig.~\ref{fig:biological-context-matching}A),
+meeting the exploratory but not confirmatory threshold. The delayed MCF7 gain is
+consistent with endocrine signals
+emerging downstream of the proximal aromatase-inhibition~\cite{chen2015aromatase}.
+
+\textbf{SR-ARE} exhibited a selective early response (Fig.~\ref{fig:biological-context-matching}B). In HepG2
+cells at 6~h, mean AUPRC increased (\(\Delta\mathrm{AUPRC}=0.101\), 95\% CI: \(0.033\) to \(0.170\);
+\(P=0.0043\), \(q=0.0511\)), meeting the exploratory threshold. The other 6-h
+contexts yielded changes of at most \(0.007\). At 24~h, none of the contexts showed evidence of a significant change. The early predictive signal in HepG2 is
+consistent with rapid nuclear factor erythroid 2-related factor 2
+(NRF2)-mediated transcriptional adaptation to oxidative
+stress~\cite{shukla2012are}.
+
+\textbf{SR-MMP} showed the broadest transcriptomic complementarity
+(Fig.~\ref{fig:biological-context-matching}C). At 6~h, AUPRC improved across
+all four cell lines, with \(\Delta\mathrm{AUPRC}\) ranging from \(0.059\) in
+HA1E to \(0.108\) in MCF7; all four gains were nominally significant
+(\(P<0.05\)). At 24~h, substantial improvements persisted in HA1E
+(\(\Delta\mathrm{AUPRC}=0.111\), 95\% CI: \(0.030\) to \(0.191\);
+\(P=0.0077\), \(q=0.0925\)) and MCF7
+(\(\Delta\mathrm{AUPRC}=0.131\), 95\% CI: \(0.052\) to \(0.209\);
+\(P=0.0013\), \(q=0.0079\)), whereas HT29 showed no significant gain.
+These results indicate that SR-MMP complementarity was not restricted to the assay-aligned HepG2 context, consistent with mitochondrial perturbation eliciting broader metabolic and stress-response programs across cellular backgrounds~\cite{zorova2018mitochondrial}.
+
+\textbf{SR-p53} showed pronounced context dependence
+(Fig.~\ref{fig:biological-context-matching}D). At 6~h,
+none of the contexts were significant,
+including the HT29 context (\(\Delta\mathrm{AUPRC}=0.089\), 95\% CI:
+\(-0.007\) to \(0.185\); \(P=0.0680\), \(q=0.4078\)). At 24~h, HT29 again showed
+small, non-significant changes, whereas MCF7 produced the largest gain observed
+in the study (\(\Delta\mathrm{AUPRC}=0.215\), 95\% CI: \(0.101\) to \(0.328\);
+\(P=0.00029\), \(q=0.0035\)). The stronger MCF7 response is biologically plausible given its
+wild-type \textit{TP53} background, whereas HT29 carries the transcriptionally
+impaired \textit{TP53} R273H hotspot
+mutation~\cite{low2019mutantp53}.
+
+By contrast, all remaining NR endpoints other than NR-Aromatase, together with
+SR-ATAD5 and SR-HSE, showed no significant transcriptomic gain in any evaluated
+context (Table~\ref{tab:main-auprc}). Several of these assays lacked a specified exact LINCS counterpart, but
+absence of a match alone did not explain the results. NR-AhR showed no
+significant gain despite an exact HepG2 match. Cellular correspondence was
+therefore not sufficient to establish predictive complementarity.
+
+\clearpage
+
+\begin{figure}[p]
+\centering
+\captionsetup{font=footnotesize}
+\includegraphics[
+  width=\linewidth,
+  height=0.72\textheight,
+  keepaspectratio
+]{Figures/Figure3.eps}
+\caption{\textbf{Context-dependent transcriptomic complementarity.}
+\textbf{(A-D)} Performance comparison plots across NR-Aromatase, SR-ARE, SR-MMP, and SR-p53 endpoints, respectively. Left: Bar plots displaying mean AUPRC for molecular-only (hatched) and transcriptome-complemented models (no hatch) across biological contexts. Red bars mark the highest AUPRC\@. Right: Bar plots illustrating paired \(\Delta\mathrm{AUPRC}\) with Nadeau-Bengio-corrected 95\% CI\@. Boxed cells are either exact or proxy matched cell lines defined in Table~\ref{tab:tox21-lincs-configurations}. BH adjustment spans twelve endpoints per context and cohort (\(^{\dagger}0.05\leq q<0.10\), exploratory; \(^{*}q<0.05\) and \(^{**}q\leq0.01\), confirmatory; \(q\geq0.10\), non-significant). Abbreviations: NR, nuclear receptor; SR, stress response; ARE, antioxidant response element;
+MMP, mitochondrial membrane potential; AUPRC, area under the precision-recall curve. \textbf{ALT TEXT:}
+Paired bar graphs on the left comparing
+molecular-only and transcriptome-complemented AUPRC and bar graphs on the right for \(\Delta{\mathrm{AUPRC}}\) with confidence intervals for four endpoints (NR-Aromatase, SR-ARE, SR-MMP, and SR-p53) across biological contexts (cell lines and time points).}
+\label{fig:biological-context-matching}
+\end{figure}
+\clearpage
+
+\subsection{Transcriptomic complementation captures endpoint-relevant biology not fully determined by molecular structure}
+
+Across contexts with reproducible predictive gains, transcriptomic residuals
+mapped to distinct cellular programs that corroborated the endpoint biology (Fig.~\ref{fig:gene-atlas}).
+NR-Aromatase was associated with cholesterol homeostasis indirectly associated with aromatase pathway, SR-ARE with oxidative stress, SR-MMP with mitochondrial and organelle stress, and SR-p53 with canonical genotoxic stress. The residual framework revealed overlooked the cellular programs underlying transcriptomic complementation that were not able to be captured by molecular structure.
+
+\textbf{NR-Aromatase} was associated with cholesterol homeostasis, consistent with the strong negative coefficient of \textit{PSRC1}, a gene implicated in cholesterol regulation (Fig.~\ref{fig:gene-atlas}A)~\cite{luo2022psrc1}. Statin-family compounds showed concordant negative enrichment (NES: \(-2.048\) to \(-1.978\); all \(q<0.05\)). HMG-CoA reductase inhibition perturbs cholesterol and mevalonate metabolism and can alter estrogen-receptor signaling in ER-positive MCF7 cells~\cite{hewitt2003aromatase,simigdala2016cholesterol}, potentially producing downstream responses that overlap with aromatase inhibition.
+
+\textbf{SR-ARE} was characterized by positive coefficients for \textit{HMOX1}, \textit{TXNRD1}, and \textit{GLRX}, consistent with NRF2-regulated antioxidant responses (Fig.~\ref{fig:gene-atlas}B)~\cite{reichard2007nrf2}. ROS-related pathways were positively enriched for compounds including ritanserin and fulvestrant. Fulvestrant has been reported to alter ROS production and antioxidant-enzyme expression in MCF7-derived cells~\cite{badia2016fulvestrant}.
+
+\textbf{SR-MMP} showed enrichment of peroxisomal programs (Fig.~\ref{fig:gene-atlas}C), consistent with the functional coupling between peroxisomes and mitochondria in energy and redox homeostasis~\cite{fransen2017peroxisome}. Parachlorophenol and bicalutamide showed positive and negative peroxisome enrichment, respectively. Androgen-receptor inhibition has also been linked to altered mitochondrial dynamics and peroxisomal ROS signaling~\cite{shiota2024peroxisome}.
+
+\textbf{SR-p53} showed the strongest concordance with canonical DNA-damage responses (Fig.~\ref{fig:gene-atlas}D). \textit{CDKN1A} was the strongest positive coefficient, consistent with p53-mediated cell-cycle arrest and DNA-damage responses~\cite{allen2014p53}. Thiotepa and chlorambucil showed positive enrichment of the p53 pathway, consistent with their established activity as DNA-damaging alkylating agents~\cite{weber2015dnadamaging,krassnig2023chlorambucil}.
+
+Across endpoints, recurrent enrichment of E2F targets, G2/M checkpoint, TNF-\(\alpha\)/NF-\(\kappa\)B signaling, and mTORC1 indicated shared proliferative and stress-response states superimposed on endpoint-specific biology (Fig.~\ref{fig:gene-atlas}E).
+
+\begin{figure}[p]
+\centering
+\captionsetup{font=footnotesize}
+\includegraphics[
+  width=\linewidth,
+  height=0.72\textheight,
+  keepaspectratio
+]{Figures/Figure4.eps}
+\caption{\textbf{Genes, pathways, and compounds associated with transcriptomic complementarity.}
+\textbf{(A-D)} NR-Aromatase, SR-ARE, SR-MMP, and SR-p53 endpoints. Contexts are MCF7 at 24~h except SR-ARE (HepG2, 6~h).
+Left: Horizontal bar plots showing top-10 genes with highest absolute ridge coefficients.
+Right: Bar plots depicting compound-specific pathway enrichment of top-5 with largest absolute (\(|\mathrm{NES}|\)) for the selected pathway. 
+Bar colors indicate the direction of enrichment while significance was denoted by \(^{\dagger}0.05\leq q<0.10\) (exploratory) and \(^{*}q<0.05\) (confirmatory).
+\textbf{(E)} Heatmap showing cross-endpoint GSEA screening across compounds. Color intensity gives the
+fraction of assay-active compounds with significance \(q<0.10\). Asterisks mark pathways with significant enrichment for at least one compound with confirmatory significance. The black vertical line demarcates common pathways observed in at least three endpoints from those in one or two with \(q<0.05\). Bold denotes selected hallmark pathways with high endpoint relevance.
+Abbreviations: NR, nuclear receptor; SR, stress response; ARE, antioxidant response element; MMP, mitochondrial membrane potential. \textbf{ALT TEXT:}
+Five-row multi-panel figure with horizontal bar plots on the left showing top positive and negative ridge coefficients and vertical bar plots on the right depicting
+compound-level pathway enrichment and a heatmap of pathway enrichment across four endpoints (NR-Aromatase, SR-ARE, SR-MMP, and SR-p53) at the bottom.}
+\label{fig:gene-atlas}
+\end{figure}
+\clearpage
+
+\subsection{Transcriptomic complementation refines molecular structure-based toxicity predictions through realized cellular responses}
+
+Transcriptomic complementation rescued compounds underestimated by the molecular model and corrected compounds that were overestimated across all four endpoints (Fig.~\ref{fig:structural-pathway-atlas}A), with the proportion benefiting ranging from \(6.3\%\) in NR-Aromatase to \(29.7\%\) in SR-ARE\@. Recurrently rescued compounds included methylene blue, digoxin, niclosamide, and ouabain (Fig.~\ref{fig:structural-pathway-atlas}B), whereas nabumetone, bergenin, cimaterol, and diphemanil were repeatedly corrected within their respective contexts (Fig.~\ref{fig:structural-pathway-atlas}C). However, the largest shifts were often endpoint-specific; for example, SSR-69071 showed a strong rescue in SR-ARE, whereas diphemanil showed a prominent correction in SR-MMP\@. This endpoint dependence is consistent with context-specific cellular responses. Structural-pair analysis further demonstrated that molecular similarity alone could not fully explain the resulting probability shifts (Fig.~\ref{fig:structural-case-comparisons}).
+
+Niclosamide showed a strong SR-MMP rescue (\(\Delta p=+0.585\)), consistent with its protonophoric uncoupling and mitochondrial depolarization~\cite{kumar2018niclosamide}, whereas teniposide showed the largest SR-p53 rescue (\(\Delta p=+0.703\)), consistent with topoisomerase-II-mediated DNA damage~\cite{long1992teniposide}. Methylene blue was rescued across all four endpoints and is known to induce mitochondrial redox stress and Nrf2/ARE signaling, with stronger exposure capable of producing oxidative DNA damage~\cite{gureev2019methylene}.
+
+Diphemanil showed the largest SR-MMP decrease (\(\Delta p=-0.090\)); notably, an independent mitochondrial health assay did not identify it as a membrane-potential-decreasing compound~\cite{zink2020ethanol}. Voriconazole decreased in NR-Aromatase (\(\Delta p=-0.047\)) and has been reported to inhibit recombinant human CYP19 only weakly relative to other medicinal azoles~\cite{trosken2004aromatase}.
+
+Importantly, teniposide and etoposide were structurally similar (Morgan Tanimoto similarity \(=0.75\)) and nearly indistinguishable under the molecular model (\(\Delta p_{\mathrm{Chem.}}=+0.018\)), yet diverged markedly after transcriptomic complementation (\(\Delta p_{\mathrm{Chem.+Bio.}}=+0.422\)), consistent with greater intracellular accumulation of teniposide and its higher potency in inducing DNA-break-associated effects despite their shared topoisomerase-II mechanism~\cite{long1992teniposide,long1985dna}. Conversely, niclosamide and gossypol were structurally dissimilar (Morgan Tanimoto similarity \(=0.09\)), yet their SR-MMP probability difference reduced from \(0.041\) to \(0.013\) after transcriptomic complementation, converging at high predicted toxicity. Despite their distinct molecular structures, both converging on shared mitochondrial dysfunction~\cite{kumar2018niclosamide,martinez1988gossypol}.
+
+\clearpage
+
+\begin{figure}[p]
+\centering
+\captionsetup{font=footnotesize}
+\includegraphics[
+  width=\linewidth,
+  height=0.72\textheight,
+  keepaspectratio
+]{Figures/Figure5.eps}
+\caption{\textbf{Compound-level predictive rescue and correction.}
+\textbf{(A)} Scatter plots showing predicted probabilities of molecular-only and transcriptome-complemented models across NR-Aromatase, SR-ARE, SR-MMP, and SR-p53. 
+Contexts are MCF7 at 24~h except SR-ARE (HepG2, 6~h). 
+Annotated compounds indicate the rescued (dark red) and corrected (blue) with highest probabilities changes. 
+The probabilities themselves are highlighted by open red circles.
+\textbf{(B,C)} Cross-endpoint rescue and correction heatmaps ranked by cumulative selected change. 
+Each heatmap shows the top-20 compounds plus a low ranking compounds with highest endpoint-specific probability changes. 
+Abbreviations: NR, nuclear receptor; SR, stress response; ARE, antioxidant response element; MMP, mitochondrial membrane potential. \textbf{ALT TEXT:}
+Three-column multi-panel figure with scatter plots on the left comparing molecular-only and transcriptome-complemented
+probabilities for four toxicity endpoints, with rescued and corrected
+compounds highlighted. Two heatmaps on the right rankings compounds by cumulative
+probability increases for rescue and probability decreases for correction.
+}
+\label{fig:structural-pathway-atlas}
+\end{figure}
+\clearpage
+
+\section{Discussion}
+
+\textbf{Transcriptomics added predictive value selectively, mainly for stress response.} This pattern is consistent with an AOP framework~\cite{ankley2010aop}, where molecular structure may be especially informative for proximal receptor- or enzyme-mediated events, whereas transcriptomics can capture
+downstream oxidative, mitochondrial, genotoxic, and metabolic responses that
+emerge only after cellular perturbation. The limited gains across most
+nuclear-receptor endpoints therefore argue against transcriptomics as a
+uniformly beneficial modality; instead, support its use where the endpoint
+is closely coupled to a measurable cellular response state.
+
+\textbf{The usefulness of transcriptomics depended on biological context,
+not tissue similarity alone.} NR-Aromatase and SR-ARE broadly followed the expected
+cellular and temporal correspondence, whereas SR-MMP and SR-p53 demonstrated
+that tissue similarity was insufficient. The broad SR-MMP gains across
+cell lines and the pronounced 24-h SR-p53 gain in MCF7 indicate that pathway
+competence, response kinetics, and the ability of a cellular system to
+propagate downstream stress signals can outweigh naive context
+matching. Context selection for transcriptomic profiling should therefore
+consider not only tissue correspondence but also whether the relevant
+response pathway is intact and observable at the sampled time.
+
+\textbf{These results establish predictive associations in selected cellular
+assays rather than causal mechanisms, limiting broader generalizability.}
+Tox21 assays measure specific cellular endpoint activity rather than
+organism-level adverse outcomes, while LINCS samples a restricted range of
+cell lines, doses, and exposure times. The identified response states therefore
+may not generalize across tissues, exposure regimens, or \textit{in vivo}
+systems. The endpoint-specific linear models also cannot capture nonlinear
+interactions or shared response programs spanning multiple endpoint biologies.
+Moreover, experimental stress responses do not inherently distinguish
+persistent injury from adaptive or compensatory responses, as illustrated by
+anti-oxidants observed within the SR-ARE\@ endpoint. Consequently, Tox21 assay
+activity should not be interpreted as definitive evidence of adverse toxicity,
+because protective adaptation or therapeutically intended stress may
+paradoxically produce similar cellular responses.
+
+\textbf{Future studies should rigorously establish when transcriptomic profiling
+provides reproducible value beyond molecular structure.}
+Denser dose-time sampling, pathway-competent cellular systems, and orthogonal
+functional readouts could help distinguish persistent injury from adaptive or
+compensatory responses and resolve shared stress programs across endpoints.
+In parallel, multitask learning may better capture shared response programs
+while preserving endpoint-specific biology, thereby improving prediction.
+Selected stress-response assays may also serve as pharmacodynamic readouts of
+beneficial adaptation or intended therapeutic stress, warranting further research.
+
+\section{Conclusion}
+
+Perturbation transcriptomics complemented molecular toxicity prediction only
+in selected endpoints and biological contexts. Predictive gains were observed
+primarily in stress-response endpoints and depended on cellular background and
+exposure time. This complementarity reflected endpoint-relevant cellular
+biology rather than mere recapitulation of molecular mechanisms. These
+findings support context-guided transcriptomic profiling as a targeted strategy
+for improving molecular property prediction.
+
+\section*{Key Points}
+
+\begin{itemize}[itemsep=\baselineskip]
+
+\item We developed a systematic framework to quantify the context-specific incremental value of perturbation transcriptomics for molecular structure-based toxicity prediction.
+
+\item Transcriptomic complementarity was selective rather than universal, with gains concentrated in stress-response endpoints and the largest improvement observed for SR-p53 in MCF7 cells at 24 h (\(\Delta\mathrm{AUPRC}=+0.215\)).
+
+\item The framework made transcriptomic complementarity interpretable by connecting context-level performance gains to endpoint-relevant genes, pathways, and compound-specific prediction changes.
+
+\item These findings identify biological context selection as a key design principle for targeted data generation and multimodal toxicity prediction.
+
+\end{itemize}
+
+\section*{Author contributions}
+
+\textbf{Kyungwhan An:} Conceptualization; Formal analysis; Visualization;
+Writing---original draft.
+\textbf{Ho Gym:} Funding acquisition; Conceptualization; Methodology; Writing---review \& editing.
+\textbf{Eunho Lee:} Conceptualization; Methodology; Writing---review \& editing.
+\textbf{Seong Gyu Choi:} Conceptualization; Methodology; Writing---review \& editing.
+\textbf{Sukyeon Ha:} Methodology; Visualization;
+Writing---original draft.
+\textbf{Suyeon Kim:} Supervision; Conceptualization; Methodology; Visualization;
+Writing---original draft.
+\textbf{Hwanjo Yu:} Supervision; Writing---review \& editing.
+All authors reviewed and approved the final manuscript.
+
+\section*{Author notes}
+
+\textbf{Competing interests.}
+Ho Gym is the founder of BASGENBIO Inc., Seoul, Republic of Korea, and holds
+equity interests in the company. Eunho Lee and Seong Gyu Choi are employees of BASGENBIO Inc. All other authors declare no competing interests.
+
+\textbf{Use of LLM-assisted tools.} Large language model (LLM)-based tools were used for language editing, manuscript refinement, and assistance with code writing. These tools did not replace author
+judgment in study design, statistical evaluation, or scientific interpretation. All LLM-assisted outputs were critically reviewed, verified, and revised by the authors, who take full responsibility for the accuracy, validity, interpretation, and integrity of the manuscript, analyses, and figures.
+
+\section*{Author biographies}
+
+Kyungwhan An is a doctoral researcher at Pohang University of Science and
+Technology (POSTECH), Republic of Korea. His contributions to this study
+included conceptualization, formal analysis, visualization, and preparation
+of the original manuscript.
+
+Ho Gym is the founder of BASGENBIO Inc., Seoul, Republic of Korea. His
+contributions to this study included funding acquisition, conceptualization,
+methodological development, and critical review and revision of the manuscript.
+
+Eunho Lee is affiliated with BASGENBIO Inc., Seoul, Republic of Korea. His
+contributions to this study included conceptualization, methodological
+development, and critical review and revision of the manuscript.
+
+Seong Gyu Choi is affiliated with BASGENBIO Inc., Seoul, Republic of Korea.
+His contributions to this study included conceptualization, methodological
+development, and critical review and revision of the manuscript.
+
+Sukyeon Ha is a graduate researcher in the School of Computer Science and
+Engineering at Kyungpook National University, Republic of Korea. His
+contributions included methodological development, visualization, and
+preparation of the original manuscript.
+
+Suyeon Kim is a professor in the School of Computer Science and Engineering at
+Kyungpook National University, Republic of Korea. Her contributions included
+supervision, conceptualization, methodological development, visualization,
+and preparation of the manuscript.
+
+Hwanjo Yu is a professor in the Department of Computer Science and Engineering
+and the Graduate School of Artificial Intelligence at Pohang University of
+Science and Technology (POSTECH), Republic of Korea. His contributions included
+supervision and critical review and revision of the manuscript.
+
+\section*{Funding}
+
+This work was supported by the INNOPOLIS Foundation through the 2025 INNOPOLIS R\&D Support Program (AI Global BigTech Fostering Project), funded by the Ministry of Science and ICT, Republic of Korea [grant number RS-2025-25449754].
+
+\section*{Data availability}
+
+The Library of Integrated Network-based Cellular Signatures (LINCS) L1000
+Phase~I and Phase~II datasets are publicly available through the Gene
+Expression Omnibus (GEO) under accession numbers GSE92742 and GSE70138,
+respectively. Tox21 Data Challenge compound-activity data are publicly
+available through the Toxicology in the 21st Century (Tox21) Program of the
+National Center for Advancing Translational Sciences (NCATS). Scripts used for
+data analysis, statistical evaluation, and figure and table generation are
+available at \url{https://github.com/micolak0115/BioTox}.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\clearpage
+\section*{Supplementary Materials}
+
+% ============================================================
+% Supplementary figures
+% ============================================================
+\begingroup
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\theHfigure}{supp.\arabic{figure}}
+\setcounter{figure}{0}
+
+\begin{center}
+\captionsetup{type=figure,font=footnotesize}
+\includegraphics[
+  width=\linewidth,
+  height=0.84\textheight,
+  keepaspectratio
+]{Figures/FigureS1.eps}
+\captionof{figure}{\textbf{Repeated nested validation of transcriptomic complementarity.}
+Twenty repetitions of five-fold outer cross-validation yielded 100 paired
+held-out evaluations and 20 held-out predictions per compound.
+Three-fold inner validation selected the ridge penalty; scaling, calibration,
+and transcriptomic coefficients were then refitted on the outer-training
+partition. Transcriptomic complementarity was quantified as the logit
+difference between transcriptome-complemented and calibrated molecular
+predictions. \textbf{ALT TEXT:}
+Flow diagram illustrating 20 repetitions of five-fold outer cross-validation
+with three-fold inner validation, outer-training refitting, paired held-out
+molecular and transcriptome-complemented predictions, and calculation of
+the transcriptomic logit contribution.}
+\label{fig:nested-validation}
+\end{center}
+
+\clearpage
+
+\begin{center}
+\captionsetup{type=figure,font=footnotesize}
+\includegraphics[
+  width=\linewidth,
+  height=0.78\textheight,
+  keepaspectratio
+]{Figures/FigureS2.eps}
+\captionof{figure} {\textbf{Comparison of molecular structural similarity with transcriptomic complementarity.}
+\textbf{(A-C)} NR-Aromatase, SR-MMP, and SR-p53. Contexts are MCF7 at 24~h. Left: Scatter plots showing predicted probabilities of molecular-only and transcriptome-complemented models across endpoints. 
+Middle: A 2D molecular structure display illustrating a structurally conserved pair with divergence in complementation. 
+Right: A 2D molecular structure display depicting a structurally distinct pair that are convergent in complementation.
+Each pair portrays shared and exclusive substructures while reporting Tanimoto similarity of Morgan fingerprints and absolute between-compound probability differences. \textbf{ALT TEXT:}
+Three-row multi-panel figure for three endpoints (NR-Aromatase, SR-MMP, and SR-p53) with scatter plots on the left showing compound-level predictions and 2D structure displays on the right illustrating structurally similar compound pairs with divergent
+transcriptomic effects, and structurally dissimilar pairs with convergent
+effects, accompanied by molecular substructures and Morgan Tanimoto similarities
+displayed.}
+\label{fig:structural-case-comparisons}
+\end{center}
+
+\endgroup
+
+\clearpage
+
+% ============================================================
+% Supplementary tables
+% ============================================================
+\setcounter{table}{0}
+\renewcommand{\thetable}{S\arabic{table}}
+
+% Needed when hyperref is loaded
+\makeatletter
+\renewcommand{\theHtable}{supp.\arabic{table}}
+\makeatother
+
+
+% ============================================================
+% Table S1
+% ============================================================
+\begin{landscape}
+\begin{table}[p]
+\centering
+\captionsetup{width=\linewidth}
+
+\caption{\textbf{Stage~1 molecular ensemble construction cohorts.}
+Endpoint-specific label availability and class composition are shown for
+the pooled molecular dataset and its fixed training, validation,
+and held-out ensemble-selection partitions.
+Labeled denotes compounds with an available endpoint-specific Tox21 label;
+Missing denotes compounds without a label for that endpoint. \textbf{ALT TEXT:}
+Table showing labeled, active, inactive, and missing compound counts for
+each of twelve Tox21 endpoints in the pooled molecular dataset and its
+training, validation, and ensemble-selection partitions.}
+\label{tab:stage1-cohort-composition}
+
+\fontsize{9}{10}\selectfont
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.45}
+\setlength{\aboverulesep}{1pt}
+\setlength{\belowrulesep}{1pt}
+\setlength{\arrayrulewidth}{0.6pt}
+
+\begin{tabularx}{\linewidth}{
+@{}
+>{\centering\arraybackslash}p{0.55cm}
+>{\raggedright\arraybackslash}p{1.55cm}|
+*{4}{>{\centering\arraybackslash}X}|
+*{4}{>{\centering\arraybackslash}X}|
+*{4}{>{\centering\arraybackslash}X}|
+*{4}{>{\centering\arraybackslash}X}
+@{}
+}
+
+\toprule
+
+&
+\multirow[c]{2}{*}{\textbf{Endpoint}} &
+\multicolumn{4}{c|}{\textbf{Molecular pool} $(n=1{,}732)$} &
+\multicolumn{4}{c|}{\textbf{Training} $(n=1{,}039)$} &
+\multicolumn{4}{c|}{\textbf{Validation} $(n=346)$} &
+\multicolumn{4}{c}{\textbf{Ensemble selection} $(n=347)$} \\
+
+\cmidrule(lr){3-6}
+\cmidrule(lr){7-10}
+\cmidrule(lr){11-14}
+\cmidrule(lr){15-18}
+
+& &
+Labeled & Active & Inactive & Missing &
+Labeled & Active & Inactive & Missing &
+Labeled & Active & Inactive & Missing &
+Labeled & Active & Inactive & Missing \\
+
+\midrule
+
+\multirow[c]{7}{*}{%
+\rotatebox[origin=c]{90}{\bfseries Nuclear receptor}}
+& AR
+& 1,555 & 107 & 1,448 & 177
+& 927 & 83 & 844 & 112
+& 316 & 12 & 304 & 30
+& 312 & 12 & 300 & 35 \\
+
+& AR-LBD
+& 1,393 & 92 & 1,301 & 339
+& 838 & 70 & 768 & 201
+& 281 & 11 & 270 & 65
+& 274 & 11 & 263 & 73 \\
+
+& AhR
+& 1,352 & 217 & 1,135 & 380
+& 809 & 125 & 684 & 230
+& 272 & 49 & 223 & 74
+& 271 & 43 & 228 & 76 \\
+
+& Aromatase
+& 1,081 & 102 & 979 & 651
+& 645 & 65 & 580 & 394
+& 232 & 22 & 210 & 114
+& 204 & 15 & 189 & 143 \\
+
+& ER
+& 1,199 & 194 & 1,005 & 533
+& 726 & 132 & 594 & 313
+& 237 & 29 & 208 & 109
+& 236 & 33 & 203 & 111 \\
+
+& ER-LBD
+& 1,434 & 90 & 1,344 & 298
+& 866 & 63 & 803 & 173
+& 284 & 14 & 270 & 62
+& 284 & 13 & 271 & 63 \\
+
+& PPAR-$\gamma$
+& 1,268 & 51 & 1,217 & 464
+& 766 & 29 & 737 & 273
+& 255 & 11 & 244 & 91
+& 247 & 11 & 236 & 100 \\
+
+\midrule
+
+\multirow[c]{5}{*}{%
+\rotatebox[origin=c]{90}{\bfseries Stress response}}
+& ARE
+& 1,109 & 269 & 840 & 623
+& 684 & 157 & 527 & 355
+& 210 & 52 & 158 & 136
+& 215 & 60 & 155 & 132 \\
+
+& ATAD5
+& 1,478 & 73 & 1,405 & 254
+& 885 & 40 & 845 & 154
+& 298 & 16 & 282 & 48
+& 295 & 17 & 278 & 52 \\
+
+& HSE
+& 1,280 & 94 & 1,186 & 452
+& 781 & 51 & 730 & 258
+& 240 & 20 & 220 & 106
+& 259 & 23 & 236 & 88 \\
+
+& MMP
+& 1,155 & 262 & 893 & 577
+& 695 & 163 & 532 & 344
+& 230 & 53 & 177 & 116
+& 230 & 46 & 184 & 117 \\
+
+& p53
+& 1,391 & 136 & 1,255 & 341
+& 836 & 70 & 766 & 203
+& 282 & 29 & 253 & 64
+& 273 & 37 & 236 & 74 \\
+
+\bottomrule
+
+\end{tabularx}
+\end{table}
+\end{landscape}
+\clearpage
+
+% ============================================================
+% Table S2
+% ============================================================
+\begin{landscape}
+\begingroup
+\begin{table}[p]
+\centering
+\captionsetup{width=\linewidth,font=footnotesize}
+\caption{\textbf{Stage~2 context-matched cohorts for nuclear-receptor}
+\(n\): labeled compounds, the denominator for active percentages.
+\(\checkmark\): confirmatory-eligible; \(\triangle\): exploratory;
+\(\times\): excluded. Bold active counts are \(<20\); eligibility is not
+statistical significance. Counts use the full 6-h cohort and compounds
+profiled at both times for 24~h. Total profiled (6~h/24~h):
+HA1E, 1,012/861; HepG2, 695/46; HT29, 1,005/606; MCF7, 1,332/1,316. \textbf{ALT TEXT:}
+Table showing labeled-compound counts, active counts, activity percentages,
+and analysis eligibility for seven nuclear-receptor endpoints across four
+cell lines at 6 and 24 hours.}
+\label{tab:nuclear-receptor-task-cell-counts}
+\fontsize{10.2}{11.2}\selectfont
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{0.94}
+\setlength{\aboverulesep}{1pt}
+\setlength{\belowrulesep}{1pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ll|rrrcrrrc@{}} % chktex 44
+\toprule
+\multirow[c]{2}{*}{\textbf{Endpoint}} &
+\multirow[c]{2}{*}{\textbf{Cell}} &
+\multicolumn{4}{c}{\textbf{6~h}} &
+\multicolumn{4}{c}{\textbf{24~h}} \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-10}
+& & \(n\) & Active & Active (\%) & Status &
+\(n\) & Active & Active (\%) & Status \\
+\midrule
+\multirow[c]{4}{*}{AR} & HA1E & 968 & 72 & 7.44 & \(\checkmark\) & 830 & 59 & 7.11 & \(\checkmark\) \\
+ & HepG2 & 668 & 46 & 6.89 & \(\checkmark\) & 45 & \textbf{5} & 11.11 & \(\times\) \\
+ & HT29 & 960 & 72 & 7.50 & \(\checkmark\) & 585 & 44 & 7.52 & \(\checkmark\) \\
+ & MCF7 & 1259 & 82 & 6.51 & \(\checkmark\) & 1243 & 78 & 6.28 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{AR-LBD} & HA1E & 869 & 49 & 5.64 & \(\checkmark\) & 747 & 39 & 5.22 & \(\checkmark\) \\
+ & HepG2 & 598 & 37 & 6.19 & \(\checkmark\) & 31 & \textbf{1} & 3.23 & \(\times\) \\
+ & HT29 & 862 & 47 & 5.45 & \(\checkmark\) & 523 & \textbf{19} & 3.63 & \(\triangle\) \\
+ & MCF7 & 1145 & 53 & 4.63 & \(\checkmark\) & 1129 & 51 & 4.52 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{AhR} & HA1E & 849 & 102 & 12.01 & \(\checkmark\) & 727 & 91 & 12.52 & \(\checkmark\) \\
+ & HepG2 & 585 & 65 & 11.11 & \(\checkmark\) & 36 & \textbf{6} & 16.67 & \(\times\) \\
+ & HT29 & 841 & 95 & 11.30 & \(\checkmark\) & 516 & 63 & 12.21 & \(\checkmark\) \\
+ & MCF7 & 1111 & 112 & 10.08 & \(\checkmark\) & 1099 & 111 & 10.10 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{Aromatase} & HA1E & 759 & 63 & 8.30 & \(\checkmark\) & 655 & 57 & 8.70 & \(\checkmark\) \\
+ & HepG2 & 512 & 47 & 9.18 & \(\checkmark\) & 26 & \textbf{14} & 53.85 & \(\times\) \\
+ & HT29 & 758 & 63 & 8.31 & \(\checkmark\) & 475 & 45 & 9.47 & \(\checkmark\) \\
+ & MCF7 & 1021 & 76 & 7.44 & \(\checkmark\) & 1012 & 76 & 7.51 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{ER} & HA1E & 805 & 132 & 16.40 & \(\checkmark\) & 689 & 112 & 16.26 & \(\checkmark\) \\
+ & HepG2 & 540 & 92 & 17.04 & \(\checkmark\) & 23 & \textbf{11} & 47.83 & \(\times\) \\
+ & HT29 & 799 & 128 & 16.02 & \(\checkmark\) & 487 & 76 & 15.61 & \(\checkmark\) \\
+ & MCF7 & 1067 & 155 & 14.53 & \(\checkmark\) & 1054 & 154 & 14.61 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{ER-LBD} & HA1E & 907 & 55 & 6.06 & \(\checkmark\) & 772 & 40 & 5.18 & \(\checkmark\) \\
+ & HepG2 & 620 & 39 & 6.29 & \(\checkmark\) & 39 & \textbf{8} & 20.51 & \(\times\) \\
+ & HT29 & 902 & 53 & 5.88 & \(\checkmark\) & 547 & 25 & 4.57 & \(\checkmark\) \\
+ & MCF7 & 1194 & 61 & 5.11 & \(\checkmark\) & 1178 & 59 & 5.01 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{PPAR-\(\gamma\)} & HA1E & 811 & 34 & 4.19 & \(\checkmark\) & 696 & 29 & 4.17 & \(\checkmark\) \\
+ & HepG2 & 552 & \textbf{19} & 3.44 & \(\triangle\) & 29 & \textbf{2} & 6.90 & \(\times\) \\
+ & HT29 & 803 & 29 & 3.61 & \(\checkmark\) & 483 & \textbf{17} & 3.52 & \(\triangle\) \\
+ & MCF7 & 1073 & 34 & 3.17 & \(\checkmark\) & 1060 & 33 & 3.11 & \(\checkmark\) \\
+\bottomrule
+\end{tabular*}
+\end{table}
+\endgroup
+\end{landscape}
+\clearpage
+
+% ============================================================
+% Table S3
+% ============================================================
+\begin{landscape}
+\begingroup
+\begin{table}[p]
+\centering
+\captionsetup{width=\linewidth}
+\caption{\textbf{Stage~2 context-matched cohorts for stress-response}
+\(n\): labeled compounds, the denominator for active percentages.
+\(\checkmark\): confirmatory-eligible; \(\triangle\): exploratory;
+\(\times\): excluded. Bold active counts are \(<20\); eligibility is not
+statistical significance. Counts use the full 6-h cohort and compounds
+profiled at both times for 24~h. Total profiled (6~h/24~h):
+HA1E, 1,012/861; HepG2, 695/46; HT29, 1,005/606; MCF7, 1,332/1,316. \textbf{ALT TEXT:}
+Table showing labeled-compound counts, active counts, activity percentages,
+and analysis eligibility for five stress-response endpoints across four
+cell lines at 6 and 24 hours.}
+\label{tab:stress-response-task-cell-counts}
+\fontsize{13}{15}\selectfont
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.0}
+\setlength{\aboverulesep}{1pt}
+\setlength{\belowrulesep}{1pt}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ll|rrrcrrrc@{}} % chktex 44
+\toprule
+\multirow[c]{2}{*}{\textbf{Endpoint}} &
+\multirow[c]{2}{*}{\textbf{Cell}} &
+\multicolumn{4}{c}{\textbf{6~h}} &
+\multicolumn{4}{c}{\textbf{24~h}} \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-10}
+& & \(n\) & Active & Active (\%) & Status &
+\(n\) & Active & Active (\%) & Status \\
+\midrule
+\multirow[c]{4}{*}{ARE} & HA1E & 690 & 136 & 19.71 & \(\checkmark\) & 584 & 118 & 20.21 & \(\checkmark\) \\
+ & HepG2 & 451 & 98 & 21.73 & \(\checkmark\) & 26 & \textbf{15} & 57.69 & \(\times\) \\
+ & HT29 & 682 & 129 & 18.91 & \(\checkmark\) & 416 & 80 & 19.23 & \(\checkmark\) \\
+ & MCF7 & 923 & 160 & 17.33 & \(\checkmark\) & 913 & 159 & 17.42 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{ATAD5} & HA1E & 911 & 50 & 5.49 & \(\checkmark\) & 778 & 43 & 5.53 & \(\checkmark\) \\
+ & HepG2 & 619 & 33 & 5.33 & \(\checkmark\) & 33 & \textbf{6} & 18.18 & \(\times\) \\
+ & HT29 & 903 & 50 & 5.54 & \(\checkmark\) & 544 & 30 & 5.51 & \(\checkmark\) \\
+ & MCF7 & 1196 & 57 & 4.77 & \(\checkmark\) & 1180 & 55 & 4.66 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{HSE} & HA1E & 814 & 52 & 6.39 & \(\checkmark\) & 697 & 43 & 6.17 & \(\checkmark\) \\
+ & HepG2 & 547 & 30 & 5.48 & \(\checkmark\) & 36 & \textbf{6} & 16.67 & \(\times\) \\
+ & HT29 & 806 & 50 & 6.20 & \(\checkmark\) & 498 & 31 & 6.22 & \(\checkmark\) \\
+ & MCF7 & 1077 & 64 & 5.94 & \(\checkmark\) & 1065 & 62 & 5.82 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{MMP} & HA1E & 723 & 129 & 17.84 & \(\checkmark\) & 613 & 111 & 18.11 & \(\checkmark\) \\
+ & HepG2 & 495 & 102 & 20.61 & \(\checkmark\) & 29 & \textbf{19} & 65.52 & \(\times\) \\
+ & HT29 & 717 & 121 & 16.88 & \(\checkmark\) & 430 & 61 & 14.19 & \(\checkmark\) \\
+ & MCF7 & 958 & 143 & 14.93 & \(\checkmark\) & 947 & 141 & 14.89 & \(\checkmark\) \\
+\midrule
+\multirow[c]{4}{*}{p53} & HA1E & 884 & 89 & 10.07 & \(\checkmark\) & 757 & 76 & 10.04 & \(\checkmark\) \\
+ & HepG2 & 603 & 64 & 10.61 & \(\checkmark\) & 38 & \textbf{15} & 39.47 & \(\times\) \\
+ & HT29 & 877 & 85 & 9.69 & \(\checkmark\) & 533 & 57 & 10.69 & \(\checkmark\) \\
+ & MCF7 & 1158 & 100 & 8.64 & \(\checkmark\) & 1142 & 98 & 8.58 & \(\checkmark\) \\
+\bottomrule
+\end{tabular*}
+\end{table}
+\endgroup
+\end{landscape}
+\clearpage
+
+% ============================================================
+% Table S4
+% ============================================================
+\begin{table}[p]
+\centering
+\captionsetup{width=\linewidth}
+\caption{\textbf{Classical molecular-model settings.}
+Logistic regression and XGBoost were each evaluated independently with
+MACCS keys, Morgan (ECFP4) fingerprints, and RDKit topological
+fingerprints for every endpoint. Morgan fingerprints used radius 2.
+Braces denote hyperparameter search spaces. \textbf{ALT TEXT:}
+Table listing input fingerprints, model architecture, hyperparameter
+ranges, optimization settings, and training configurations for logistic
+regression and XGBoost molecular models.}
+\label{tab:stage1-classical-settings}
+
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.05}
+\setlength{\arrayrulewidth}{0.6pt}
+
+\begin{tabularx}{\linewidth}{
+@{}
+>{\raggedright\arraybackslash}p{0.22\linewidth}|
+>{\raggedright\arraybackslash}p{0.31\linewidth}
+>{\raggedright\arraybackslash}X
+@{}
+}
+\toprule
+\textbf{Model family}
+& \textbf{Setting}
+& \textbf{Specification} \\
+\midrule
+
+\textbf{Logistic regression}
+& Input representation (dimension)
+& MACCS keys (167 bits) \\
+
+&
+& Morgan fingerprint, ECFP4 (2,048 bits) \\
+
+&
+& RDKit topological fingerprint (2,048 bits) \\
+
+& Architecture
+& Linear logistic classifier \\
+
+& Inverse regularization, \(C\)
+& \(\{0.001, 0.01, 0.1, 1, 10, 100\}\) \\
+
+& Training budget
+& Maximum 2,000 iterations \\
+
+& Optimizer
+& L-BFGS \\
+
+& Learning rate
+& N/A \\
+
+& Loss function
+& L$_2$-regularized binary cross-entropy \\
+
+\midrule
+
+\textbf{XGBoost}
+& Input representation (dimension)
+& MACCS keys (167 bits) \\
+
+&
+& Morgan fingerprint, ECFP4 (2,048 bits) \\
+
+&
+& RDKit topological fingerprint (2,048 bits) \\
+
+& Architecture
+& Gradient-boosted decision trees (gbtree) \\
+
+& Maximum tree depth
+& \(\{3,4,6\}\) \\
+
+& Row / column subsampling
+& 0.8 / 0.8 \\
+
+& Training budget
+& Maximum 300 rounds / 20-round patience \\
+
+& Optimizer
+& Gradient tree boosting \\
+
+& Learning rate
+& \(\{0.05,0.1\}\) \\
+
+& Loss function
+& Binary cross-entropy (\texttt{binary:logistic}) \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+\clearpage
+
+% ============================================================
+% Table S5
+% ============================================================
+\begin{table}[p]
+\centering
+\captionsetup{width=\linewidth,font=footnotesize}
+\caption{\textbf{Deep molecular-model settings.}
+Chemprop used its multi-hot graph featurizer: 72 atom features (version 2)
+encode atomic number, degree, formal charge, chirality, hydrogen count,
+hybridization, aromaticity, and atomic mass, whereas 14 bond features encode
+bond type, conjugation, ring membership, stereochemistry, and null-bond
+status. Pretrained GNNs used atomic number and chirality as categorical
+node attributes and bond type and bond direction as categorical edge
+attributes, preserving compatibility with the
+supervised\_contextpred checkpoint; categorical indices were
+mapped to learned embeddings before message passing. \textbf{ALT TEXT:}
+Table listing molecular representations, architectures, hidden dimensions,
+training schedules, optimization settings, and loss functions for
+Chemprop, four pretrained graph neural networks, and ChemBERTa.
+}
+\label{tab:stage1-deep-settings}
+
+\fontsize{7.5}{8.2}\selectfont
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.92}
+\setlength{\arrayrulewidth}{0.6pt}
+
+\begin{tabularx}{\linewidth}{
+@{}
+>{\raggedright\arraybackslash}p{0.20\linewidth}|
+>{\raggedright\arraybackslash}p{0.31\linewidth}
+>{\raggedright\arraybackslash}X
+@{}
+}
+\toprule
+\textbf{Model family}
+& \textbf{Setting}
+& \textbf{Specification} \\
+\midrule
+
+\textbf{Chemprop}
+& Input representation (dimension)
+& Molecular graph; node attributes: multi-hot atom featurizer v2 (72);
+edge attributes: multi-hot bond featurizer (14) \\
+
+& Architecture
+& Directed message-passing neural network (D-MPNN) \\
+
+& Message-passing depth
+& 3 \\
+
+& Hidden dimension
+& 300 \\
+
+& Graph readout
+& Mean pooling \\
+
+& Dropout
+& 0 \\
+
+& Batch size
+& 32 \\
+
+& Training budget
+& 100 epochs / 20-epoch patience \\
+
+& Optimizer
+& Adam \\
+
+& Learning rate
+& Noam: \(10^{-4} \rightarrow 10^{-3} \rightarrow 10^{-4}\);
+2-epoch warmup \\
+
+& Loss function
+& Binary cross-entropy \\
+
+\midrule
+
+\textbf{Pretrained GNNs}
+& Input representation (dimension)
+& Molecular graph; node attributes: atomic number and chirality (2);
+edge attributes: bond type and bond direction (2) \\
+
+& Architecture
+& GCN, GAT, GIN, and GraphSAGE \\
+
+& Pretrained checkpoint
+& \texttt{supervised\_contextpred} \\
+
+& Message-passing depth
+& 5 layers \\
+
+& Hidden dimension
+& 300 \\
+
+& Graph readout
+& Mean pooling \\
+
+& Dropout
+& 0.5 \\
+
+& Batch size
+& 32 \\
+
+& Training budget
+& 100 epochs / 20-epoch patience \\
+
+& Optimizer
+& AdamW \\
+
+& Learning rate
+& \(10^{-4}\) \\
+
+& Loss function
+& Binary cross-entropy \\
+
+\midrule
+
+\textbf{ChemBERTa}
+& Input representation (dimension)
+& Tokenized SMILES (maximum 128 tokens) \\
+
+& Architecture
+& Transformer-based molecular language model (MLM) \\
+
+& Pretrained checkpoint
+& ChemBERTa-100M-MLM \\
+
+& Weight decay
+& 0 \\
+
+& Linear warmup
+& 6\% of training steps \\
+
+& Batch size
+& 32 \\
+
+& Training budget
+& 20 epochs / 5-epoch patience \\
+
+& Optimizer
+& AdamW \\
+
+& Learning rate
+& \(10^{-4}\) \\
+
+& Loss function
+& Binary cross-entropy \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+\clearpage
+
+% ============================================================
+% Table S6
+% ============================================================
+\begin{landscape}
+\begingroup
+
+\begin{table}[p]
+\captionsetup{font=small,width=\linewidth,skip=6pt}
+\caption{\textbf{Repeated outer-loop evaluation.}
+Twenty repetitions of five-fold outer cross-validation define 100
+outer-fold evaluations for each endpoint--context cohort. Molecular-only
+and transcriptome-complemented predictions are evaluated on the same
+held-out compounds, with all fitted quantities estimated exclusively
+from the corresponding outer-training partition. \textbf{ALT TEXT:}
+Algorithm table showing 20 repetitions of five-fold outer
+cross-validation, including scaffold-disjoint splitting, inner-loop ridge
+selection, outer-training calibration and transcriptomic fitting, and
+paired held-out performance evaluation.}
+\label{tab:outer-validation}
+
+\fontsize{11}{12}\selectfont
+\setlength{\parskip}{0pt}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+
+\noindent\rule{\linewidth}{0.8pt}\par\nobreak
+
+\begin{algorithmic}[1]
+
+\Require Context-matched cohort
+$\mathcal D^{\mathrm{chem+bio}}_{ec}$,
+frozen molecular logits
+$\boldsymbol\eta^{\mathrm{chem}}_{ec}$,
+and ridge grid $\Lambda$.
+
+\Ensure Paired held-out molecular-only and transcriptome-complemented
+predictions, performance differences, and fitted parameters.
+
+\For{each repetition $i=1,\ldots,20$}
+
+    \State Generate a distinct five-fold scaffold-disjoint outer split.
+
+    \For{each outer fold $j=1,\ldots,5$}
+
+        \State Define fold $j$ as
+        $\mathcal D_{ec}^{\mathrm{held}}$
+        and the remaining four folds as
+        $\mathcal D_{ec}^{\mathrm{t_{out}}}$.
+
+        \State
+        $\widehat\lambda_{ec}
+        \gets
+        \Call{SelectLambda}
+        {\mathcal D_{ec}^{\mathrm{t_{out}}},\Lambda}$
+        using the three-fold inner procedure
+        (Table~\ref{tab:inner-validation}).
+
+        \If{ridge selection fails}
+            \State Skip the current outer fold.
+        \EndIf
+
+        \State Fit the calibration intercept
+        $\widehat a_{ec}^{\mathrm{t_{out}}}$
+        on $\mathcal D_{ec}^{\mathrm{t_{out}}}$,
+        with the molecular logit coefficient fixed to one
+        (Eq.~\ref{eq:calibration-intercept}).
+
+        \State Estimate
+        $\boldsymbol\mu_{ec}^{\mathrm{t_{out}}}$ and
+        $\mathbf d_{ec}^{\mathrm{t_{out}}}$
+        from $\mathcal D_{ec}^{\mathrm{t_{out}}}$,
+        and apply them unchanged to
+        $\mathcal D_{ec}^{\mathrm{held}}$
+        (Eq.~\ref{eq:standardization}).
+
+        \State With
+        $\widehat a_{ec}^{\mathrm{t_{out}}}$ fixed, fit
+        $\widehat{\boldsymbol\beta}_{ec}^{\mathrm{t_{out}}}
+        (\widehat\lambda_{ec})$
+        on $\mathcal D_{ec}^{\mathrm{t_{out}}}$
+        (Eq.~\ref{eq:residual-objective}).
+
+        \State Compute paired held-out predictions
+        $p^{\mathrm{chem,cal}}_{ec}$ and
+        $p^{\mathrm{chem+bio}}_{ec}$
+        on $\mathcal D_{ec}^{\mathrm{held}}$
+        (Eq.~\ref{eq:final-predictions}).
+
+        \State Compute paired held-out
+        $\Delta\mathrm{AUPRC}$ and
+        $\Delta\mathrm{LogLoss}$, and retain predictions,
+        outcomes, and fitted parameters for downstream analyses.
+
+    \EndFor
+
+\EndFor
+
+\State \Return Paired held-out results across all valid outer-fold evaluations.
+
+\end{algorithmic}
+
+\par\nobreak\noindent\rule{\linewidth}{0.8pt}
+
+\end{table}
+\endgroup
+\end{landscape}
+\clearpage
+
+
+% ============================================================
+% Table S7
+% ============================================================
+\begin{landscape}
+\begingroup
+
+\begin{table}[p]
+\captionsetup{font=small,width=\linewidth,skip=6pt}
+\caption{\textbf{Inner-loop ridge selection.}
+Within each outer-training partition, three-fold inner cross-validation
+selects the largest ridge penalty whose mean validation BCE lies within
+one standard error of the minimum. Standardization, calibration, and
+transcriptomic coefficients are estimated exclusively from the
+corresponding inner-training partition. Abbreviations: BCE, binary
+cross-entropy. \textbf{ALT TEXT:}
+Algorithm table showing three-fold inner cross-validation in which
+calibration and transcriptomic coefficients are fitted for each ridge
+penalty, validation losses are averaged, and the final penalty is selected
+using the one-standard-error rule.}
+\label{tab:inner-validation}
+
+\fontsize{11}{12}\selectfont
+\setlength{\parskip}{0pt}
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+
+\noindent\rule{\linewidth}{0.8pt}\par\nobreak
+
+\begin{algorithmic}[1]
+
+\Require Outer-training partition
+$\mathcal D_{ec}^{\mathrm{t_{out}}}$,
+frozen molecular logits
+$\boldsymbol\eta^{\mathrm{chem}}_{ec}$,
+and ridge grid $\Lambda$.
+
+\Ensure Selected ridge penalty
+$\widehat\lambda_{ec}$, or failure if no candidate is valid
+across all three inner folds.
+
+\Function{SelectLambda}
+{$\mathcal D_{ec}^{\mathrm{t_{out}}},\Lambda$}
+
+    \State Split $\mathcal D_{ec}^{\mathrm{t_{out}}}$ into three
+    scaffold-disjoint inner folds.
+
+    \For{each inner fold $\ell=1,2,3$}
+
+        \State Define fold $\ell$ as
+        $\mathcal D_{ec}^{\mathrm{val},\ell}$
+        and the remaining folds as
+        $\mathcal D_{ec}^{\mathrm{t_{in}},\ell}$.
+
+        \State Fit
+        $\widehat a_{ec}^{\mathrm{t_{in}},\ell}$
+        on $\mathcal D_{ec}^{\mathrm{t_{in}},\ell}$,
+        with the molecular logit coefficient fixed to one
+        (Eq.~\ref{eq:calibration-intercept}).
+
+        \State Estimate
+        $\boldsymbol\mu_{ec}^{\mathrm{t_{in}},\ell}$ and
+        $\mathbf d_{ec}^{\mathrm{t_{in}},\ell}$
+        from $\mathcal D_{ec}^{\mathrm{t_{in}},\ell}$,
+        and apply them unchanged to
+        $\mathcal D_{ec}^{\mathrm{val},\ell}$
+        (Eq.~\ref{eq:standardization}).
+
+        \For{each $\lambda\in\Lambda$}
+
+            \State With
+            $\widehat a_{ec}^{\mathrm{t_{in}},\ell}$ fixed, fit
+            $\widehat{\boldsymbol\beta}_{ec}^{\mathrm{t_{in}},\ell}
+            (\lambda)$
+            on $\mathcal D_{ec}^{\mathrm{t_{in}},\ell}$
+            (Eq.~\ref{eq:residual-objective}).
+
+            \State Evaluate the fitted model on
+            $\mathcal D_{ec}^{\mathrm{val},\ell}$ and store
+            $\mathcal L_{ec}^{\mathrm{val},\ell}(\lambda)$
+            (Eq.~\ref{eq:inner-validation-loss});
+            mark $\lambda$ invalid if fitting fails.
+
+        \EndFor
+
+    \EndFor
+
+    \State Retain only penalties valid across all three inner folds,
+    yielding $\Lambda_{\mathrm{valid}}$.
+
+    \If{$\Lambda_{\mathrm{valid}}=\varnothing$}
+        \State \Return Failure.
+    \EndIf
+
+    \State For each $\lambda\in\Lambda_{\mathrm{valid}}$, compute
+    $\overline{\mathcal L}_{ec}^{\mathrm{val}}(\lambda)$
+    across the three inner folds
+    (Eq.~\ref{eq:mean-validation-loss}).
+
+    \State Determine
+    $\lambda_{ec}^{\min}$,
+    the candidate minimizing mean validation loss
+    (Eq.~\ref{eq:lambda-min}).
+
+    \State Compute
+    $\operatorname{SE}_{ec}(\lambda_{ec}^{\min})$
+    across the three inner-validation losses
+    (Eq.~\ref{eq:validation-se}).
+
+    \State Select the largest valid penalty within one standard error
+    of the minimum,
+    $\widehat\lambda_{ec}$
+    (Eq.~\ref{eq:lambda-selection}).
+
+    \State \Return $\widehat\lambda_{ec}$.
+
+\EndFunction
+
+\end{algorithmic}
+
+\par\nobreak\noindent\rule{\linewidth}{0.8pt}
+
+\end{table}
+\endgroup
+\end{landscape}
+\clearpage
+% ============================================================
+% Table S8
+% ============================================================
+\begin{landscape}
+\begingroup
+
+\begin{table}[p]
+\centering
+
+\captionsetup{
+    font=small,
+    width=\linewidth,
+    skip=4pt
+}
+
+\caption{\textbf{Effect of molecular-intercept calibration.}
+Changes are calibrated minus uncalibrated molecular predictions for
+6-h cohorts. Values summarize 20 repetitions; Nadeau-Bengio (NB)
+confidence intervals and tests use 100 paired outer-fold evaluations.
+Negative $\Delta$LogLoss indicates improved calibration. AUPRC is
+unchanged because intercept calibration preserves molecular ranking. \textbf{ALT TEXT:}
+Table comparing calibrated and uncalibrated molecular predictions for four endpoints (NR-Aromatase, SR-ARE, SR-MMP, and SR-p53) across four 6-hour cell-line
+cohorts. Log loss decreases after calibration in every cohort, while
+AUPRC remains unchanged.}
+\label{tab:s1-calibration-selected-endpoints}
+
+\fontsize{8.5}{9.5}\selectfont
+\setlength{\tabcolsep}{1.8pt}
+\setlength{\extrarowheight}{0pt}
+\renewcommand{\arraystretch}{1.05}
+
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}llrrrrrrrr@{}}
+
+\toprule
+\multirow[c]{2}{*}{Endpoint} &
+\multirow[c]{2}{*}{Cell} &
+\multicolumn{4}{c}{Log loss} &
+\multicolumn{4}{c}{AUPRC} \\
+\cmidrule(lr){3-6}\cmidrule(lr){7-10}
+& &
+$\Delta\,\pm$ SD &
+95\% CI &
+$P$ &
+$q$ &
+$\Delta\,\pm$ SD &
+95\% CI &
+$P$ &
+$q$ \\
+\midrule
+
+\multirow[c]{4}{*}{Aromatase}
+& HA1E
+& \(-0.2353\,{\scriptstyle\pm\,0.0077}\)
+& \([-0.2858,\,-0.1849]\)
+& \(4.73\times10^{-15}\)
+& \(1.42\times10^{-14}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& HepG2
+& \(-0.2234\,{\scriptstyle\pm\,0.0100}\)
+& \([-0.2796,\,-0.1672]\)
+& \(4.30\times10^{-12}\)
+& \(1.29\times10^{-11}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& HT29
+& \(-0.2336\,{\scriptstyle\pm\,0.0075}\)
+& \([-0.2885,\,-0.1787]\)
+& \(2.70\times10^{-13}\)
+& \(5.41\times10^{-13}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& MCF7
+& \(-0.2372\,{\scriptstyle\pm\,0.0067}\)
+& \([-0.2769,\,-0.1975]\)
+& \(1.04\times10^{-20}\)
+& \(3.11\times10^{-20}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+\midrule
+
+\multirow[c]{4}{*}{ARE}
+& HA1E
+& \(-0.0736\,{\scriptstyle\pm\,0.0078}\)
+& \([-0.1122,\,-0.0350]\)
+& \(2.62\times10^{-4}\)
+& \(2.85\times10^{-4}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& HepG2
+& \(-0.0648\,{\scriptstyle\pm\,0.0088}\)
+& \([-0.1055,\,-0.0240]\)
+& \(2.10\times10^{-3}\)
+& \(2.30\times10^{-3}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& HT29
+& \(-0.0829\,{\scriptstyle\pm\,0.0058}\)
+& \([-0.1181,\,-0.0476]\)
+& \(9.70\times10^{-6}\)
+& \(1.16\times10^{-5}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& MCF7
+& \(-0.0843\,{\scriptstyle\pm\,0.0094}\)
+& \([-0.1238,\,-0.0449]\)
+& \(4.89\times10^{-5}\)
+& \(5.34\times10^{-5}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+\midrule
+
+\multirow[c]{4}{*}{MMP}
+& HA1E
+& \(-0.0820\,{\scriptstyle\pm\,0.0063}\)
+& \([-0.1117,\,-0.0524]\)
+& \(3.02\times10^{-7}\)
+& \(4.03\times10^{-7}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& HepG2
+& \(-0.0577\,{\scriptstyle\pm\,0.0067}\)
+& \([-0.0928,\,-0.0225]\)
+& \(1.60\times10^{-3}\)
+& \(1.90\times10^{-3}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& HT29
+& \(-0.0864\,{\scriptstyle\pm\,0.0074}\)
+& \([-0.1239,\,-0.0489]\)
+& \(1.43\times10^{-5}\)
+& \(1.56\times10^{-5}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& MCF7
+& \(-0.0940\,{\scriptstyle\pm\,0.0069}\)
+& \([-0.1302,\,-0.0578]\)
+& \(1.30\times10^{-6}\)
+& \(1.56\times10^{-6}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+\midrule
+
+\multirow[c]{4}{*}{p53}
+& HA1E
+& \(-0.1603\,{\scriptstyle\pm\,0.0068}\)
+& \([-0.1973,\,-0.1232]\)
+& \(1.28\times10^{-13}\)
+& \(3.07\times10^{-13}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& HepG2
+& \(-0.1529\,{\scriptstyle\pm\,0.0079}\)
+& \([-0.2026,\,-0.1033]\)
+& \(1.95\times10^{-8}\)
+& \(3.90\times10^{-8}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& HT29
+& \(-0.1613\,{\scriptstyle\pm\,0.0059}\)
+& \([-0.1963,\,-0.1262]\)
+& \(8.73\times10^{-15}\)
+& \(3.49\times10^{-14}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+& MCF7
+& \(-0.1748\,{\scriptstyle\pm\,0.0068}\)
+& \([-0.2102,\,-0.1394]\)
+& \(2.97\times10^{-16}\)
+& \(5.95\times10^{-16}\)
+& \(0.0000\,{\scriptstyle\pm\,0.0000}\)
+& \([0.0000,\,0.0000]\)
+& \textit{--}
+& \textit{--} \\
+
+\bottomrule
+
+\end{tabular}%
+}
+
+\end{table}
+
+\endgroup
+\end{landscape}
+\clearpage
+% ============================================================
+% Table S9
+% ============================================================
+\begin{landscape}
+\begingroup
+\begin{table}[p]
+\centering
+\caption{\textbf{Performance comparisons of molecular-only and transcriptome-completed models across toxicity endpoints and biological contexts.} 
+Molecular-only model (Chem.) and transcriptome-complemented model (Chem. + Bio.) use same test
+compounds per endpoint, cell line, and exposure time and are compared in a paired manner. Superscripts 
+mark the strongest BH threshold met: \(^{\dagger}q<0.10\), \(^{*}q<0.05\),
+\(^{**}q<0.01\), adjusted across twelve endpoints within cell, exposure,
+cohort, and variant. Bold marks positive gains at \(q<0.10\);
+header \((\uparrow)\) marks endpoints with at least one such displayed gain.
+\(^{\ddagger}\): fewer than 20 active compounds. Abbreviations: BH, Benjamini-Hochberg. \textbf{ALT TEXT:}
+Table comparing molecular-only and transcriptome-complemented AUPRC for
+twelve toxicity endpoints across HA1E, HepG2, HT29, and MCF7 cells at
+6 and 24 hours, with significance markers for positive performance gains.}
+\label{tab:main-auprc}
+\fontsize{9}{11}\selectfont
+\setlength{\tabcolsep}{1.5pt}
+\renewcommand{\arraystretch}{1.18}
+% The vertical divider separates context identifiers from endpoint values.
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}ccc|*{12}{c}@{}} % chktex 44
+\toprule
+& \multirow[c]{2}{*}{Time} & \multirow[c]{2}{*}{Cell} &
+\multicolumn{7}{c}{Nuclear receptor (NR)} &
+\multicolumn{5}{c}{Stress response (SR)} \\
+\cmidrule(lr){4-10}\cmidrule(lr){11-15}
+& & & AR & AR-LBD & AhR & \textbf{Aromatase}\,(\(\uparrow\)) & ER & ER-LBD & PPAR-\(\gamma\) & \textbf{ARE}\,(\(\uparrow\)) & ATAD5 & HSE & \textbf{MMP}\,(\(\uparrow\)) & \textbf{p53}\,(\(\uparrow\)) \\
+\midrule
+\multirow[c]{7}{*}[-2.5pt]{\rotatebox[origin=c]{90}{\fontsize{11}{13}\selectfont\bfseries Chem.}} & \multirow[c]{4}{*}{6~h} & HA1E & 0.461 & 0.554 & 0.526 & 0.384 & 0.430 & 0.385 & 0.235 & 0.474 & 0.295 & 0.234 & 0.588 & 0.361 \\
+ &  & HepG2 & 0.537 & 0.554 & 0.477 & 0.346 & 0.477 & 0.404 & 0.300\(^{\ddagger}\) & 0.452 & 0.372 & 0.269 & 0.616 & 0.344 \\
+ &  & HT29 & 0.457 & 0.561 & 0.479 & 0.372 & 0.419 & 0.397 & 0.193 & 0.451 & 0.307 & 0.254 & 0.563 & 0.338 \\
+ &  & MCF7 & 0.459 & 0.581 & 0.473 & 0.409 & 0.402 & 0.379 & 0.222 & 0.452 & 0.254 & 0.248 & 0.527 & 0.295 \\
+\cmidrule(lr){2-15}
+ & \multirow[c]{3}{*}{24~h} & HA1E & 0.432 & 0.503 & 0.527 & 0.397 & 0.441 & 0.411 & 0.241 & 0.469 & 0.311 & 0.231 & 0.571 & 0.350 \\
+ &  & HT29 & 0.385 & 0.510\(^{\ddagger}\) & 0.521 & 0.371 & 0.409 & 0.375 & 0.278\(^{\ddagger}\) & 0.498 & 0.308 & 0.297 & 0.547 & 0.374 \\
+ &  & MCF7 & 0.460 & 0.583 & 0.468 & 0.411 & 0.407 & 0.397 & 0.212 & 0.449 & 0.257 & 0.239 & 0.529 & 0.294 \\
+\midrule
+\multirow[c]{7}{*}[-2.5pt]{\rotatebox[origin=c]{90}{\fontsize{11}{13}\selectfont\bfseries Chem. + Bio.}} & \multirow[c]{4}{*}{6~h} & HA1E & 0.461 & 0.554 & 0.526 & 0.384 & 0.430 & 0.384 & 0.235 & 0.479 & 0.293 & 0.248 & \textbf{0.646}\(^{\dagger}\) & 0.404 \\
+ &  & HepG2 & 0.537 & 0.554 & 0.482 & 0.356 & 0.477 & 0.404 & 0.299\(^{\ddagger}\) & \textbf{0.553}\(^{\dagger}\) & 0.368 & 0.252 & \textbf{0.686}\(^{\dagger}\) & 0.395 \\
+ &  & HT29 & 0.457 & 0.561 & 0.479 & 0.378 & 0.419 & 0.398 & 0.192 & 0.452 & 0.316 & 0.251 & \textbf{0.643}\(^{*}\) & 0.427 \\
+ &  & MCF7 & 0.459 & 0.585 & 0.472 & 0.431 & 0.402 & 0.418 & 0.222 & 0.459 & 0.260 & 0.245 & \textbf{0.635}\(^{**}\) & 0.397 \\
+\cmidrule(lr){2-15}
+ & \multirow[c]{3}{*}{24~h} & HA1E & 0.432 & 0.503 & 0.530 & 0.482 & 0.441 & 0.400 & 0.241 & 0.482 & 0.337 & 0.238 & \textbf{0.681}\(^{\dagger}\) & 0.381 \\
+ &  & HT29 & 0.385 & 0.510\(^{\ddagger}\) & 0.521 & 0.371 & 0.409 & 0.369 & 0.277\(^{\ddagger}\) & 0.492 & 0.308 & 0.299 & 0.553 & 0.399 \\
+ &  & MCF7 & 0.460 & 0.586 & 0.468 & \textbf{0.538}\(^{\dagger}\) & 0.407 & 0.429 & 0.212 & 0.463 & 0.319 & 0.254 & \textbf{0.659}\(^{**}\) & \textbf{0.508}\(^{**}\) \\
+\bottomrule
+\end{tabular*}
+\end{table}
+\endgroup
+\end{landscape}
+
+\paragraph{Text S1: Quality control and processing of perturbation transcriptomic profiles.}
+
+Quality control was performed before replicate aggregation. Perturbation
+units represented by fewer than two replicates were excluded, as were treated
+units with a plate-wise replicate Pearson correlation below 0.30.
+Dimethyl sulfoxide (DMSO) vehicle-control profiles were additionally excluded
+when mitochondrial-, ribosomal-, or hemoglobin-associated expression exceeded
+three standard deviations from the corresponding distribution.
+
+Profiles sharing the same compound, cell line, and exposure time were
+aggregated gene-wise by the median. Perturbation responses were then referenced
+to plate-matched DMSO controls by subtracting the arithmetic mean of the
+corresponding control profiles. The resulting 978-dimensional response
+$\mathbf x_c\in\mathbb R^{978}$ for each compound in context $c$ constituted
+the context-specific transcriptomic dataset $\mathcal D^{\mathrm{bio}}_c$.
+
+\clearpage
+\end{document}

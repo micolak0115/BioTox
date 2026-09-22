@@ -1,0 +1,684 @@
+{
+  "reference_run": "/data/kyungan/scripts/BioTox/publication/_run_output/nested_cv_k4_calibrated_lbfgs_repeated10x5_v1",
+  "candidate_gene_features": "/data/kyungan/scripts/BioTox/publication/_run_output/gene_features_consistent_v1",
+  "validation": "Reconstructed every persisted BioTox OOF probability from the frozen chemical offset, persisted fold intercept and beta, and candidate feature matrix using the original fold-specific scaling rule.",
+  "n_task_cell_variant_groups": 96,
+  "n_oof_predictions_checked": 797440,
+  "global_max_abs_prediction_error": 1.84297022087776e-14,
+  "tolerance": 2e-10,
+  "all_groups_passed": true,
+  "groups": [
+    {
+      "variant": "standardized",
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "n_compounds": 968,
+      "max_abs_prediction_error": 1.5543122344752192e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "n_compounds": 869,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "n_compounds": 849,
+      "max_abs_prediction_error": 3.219646771412954e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "n_compounds": 759,
+      "max_abs_prediction_error": 1.176836406102666e-14
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "n_compounds": 805,
+      "max_abs_prediction_error": 6.2727600891321345e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "n_compounds": 907,
+      "max_abs_prediction_error": 2.858824288409778e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "n_compounds": 811,
+      "max_abs_prediction_error": 1.3877787807814457e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "n_compounds": 690,
+      "max_abs_prediction_error": 1.84297022087776e-14
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "n_compounds": 911,
+      "max_abs_prediction_error": 1.3322676295501878e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "n_compounds": 814,
+      "max_abs_prediction_error": 2.6645352591003757e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "n_compounds": 723,
+      "max_abs_prediction_error": 1.5987211554602254e-14
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "n_compounds": 884,
+      "max_abs_prediction_error": 8.93729534823251e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AR",
+      "cell": "HEPG2",
+      "n_compounds": 668,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AR-LBD",
+      "cell": "HEPG2",
+      "n_compounds": 598,
+      "max_abs_prediction_error": 2.7755575615628914e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AhR",
+      "cell": "HEPG2",
+      "n_compounds": 585,
+      "max_abs_prediction_error": 3.247402347028583e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-Aromatase",
+      "cell": "HEPG2",
+      "n_compounds": 512,
+      "max_abs_prediction_error": 6.2727600891321345e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-ER",
+      "cell": "HEPG2",
+      "n_compounds": 540,
+      "max_abs_prediction_error": 1.6653345369377348e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-ER-LBD",
+      "cell": "HEPG2",
+      "n_compounds": 620,
+      "max_abs_prediction_error": 1.6653345369377348e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-PPAR-gamma",
+      "cell": "HEPG2",
+      "n_compounds": 552,
+      "max_abs_prediction_error": 1.249000902703301e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-ARE",
+      "cell": "HEPG2",
+      "n_compounds": 451,
+      "max_abs_prediction_error": 6.328271240363392e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-ATAD5",
+      "cell": "HEPG2",
+      "n_compounds": 619,
+      "max_abs_prediction_error": 5.218048215738236e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-HSE",
+      "cell": "HEPG2",
+      "n_compounds": 547,
+      "max_abs_prediction_error": 2.942091015256665e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-MMP",
+      "cell": "HEPG2",
+      "n_compounds": 495,
+      "max_abs_prediction_error": 6.5503158452884236e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-p53",
+      "cell": "HEPG2",
+      "n_compounds": 603,
+      "max_abs_prediction_error": 5.495603971894525e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AR",
+      "cell": "HT29",
+      "n_compounds": 960,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "n_compounds": 862,
+      "max_abs_prediction_error": 1.6653345369377348e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "n_compounds": 841,
+      "max_abs_prediction_error": 3.219646771412954e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "n_compounds": 758,
+      "max_abs_prediction_error": 4.052314039881821e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-ER",
+      "cell": "HT29",
+      "n_compounds": 799,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "n_compounds": 902,
+      "max_abs_prediction_error": 1.6653345369377348e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "n_compounds": 803,
+      "max_abs_prediction_error": 2.55351295663786e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "n_compounds": 682,
+      "max_abs_prediction_error": 5.329070518200751e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "n_compounds": 903,
+      "max_abs_prediction_error": 1.1435297153639112e-14
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "n_compounds": 806,
+      "max_abs_prediction_error": 3.0531133177191805e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "n_compounds": 717,
+      "max_abs_prediction_error": 8.881784197001252e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-p53",
+      "cell": "HT29",
+      "n_compounds": 877,
+      "max_abs_prediction_error": 7.549516567451064e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "n_compounds": 1259,
+      "max_abs_prediction_error": 2.7755575615628914e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "n_compounds": 1145,
+      "max_abs_prediction_error": 3.6637359812630166e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "n_compounds": 1111,
+      "max_abs_prediction_error": 1.887379141862766e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "n_compounds": 1021,
+      "max_abs_prediction_error": 5.88418203051333e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "n_compounds": 1067,
+      "max_abs_prediction_error": 2.3037127760972e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "n_compounds": 1194,
+      "max_abs_prediction_error": 2.0539125955565396e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "n_compounds": 1073,
+      "max_abs_prediction_error": 1.6653345369377348e-16
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "n_compounds": 923,
+      "max_abs_prediction_error": 4.718447854656915e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "n_compounds": 1196,
+      "max_abs_prediction_error": 4.052314039881821e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "n_compounds": 1077,
+      "max_abs_prediction_error": 5.218048215738236e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "n_compounds": 958,
+      "max_abs_prediction_error": 5.551115123125783e-15
+    },
+    {
+      "variant": "standardized",
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "n_compounds": 1158,
+      "max_abs_prediction_error": 7.049916206369744e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AR",
+      "cell": "HA1E",
+      "n_compounds": 968,
+      "max_abs_prediction_error": 6.106226635438361e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AR-LBD",
+      "cell": "HA1E",
+      "n_compounds": 869,
+      "max_abs_prediction_error": 2.220446049250313e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AhR",
+      "cell": "HA1E",
+      "n_compounds": 849,
+      "max_abs_prediction_error": 1.1657341758564144e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-Aromatase",
+      "cell": "HA1E",
+      "n_compounds": 759,
+      "max_abs_prediction_error": 4.551914400963142e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-ER",
+      "cell": "HA1E",
+      "n_compounds": 805,
+      "max_abs_prediction_error": 1.942890293094024e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-ER-LBD",
+      "cell": "HA1E",
+      "n_compounds": 907,
+      "max_abs_prediction_error": 1.304512053934559e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-PPAR-gamma",
+      "cell": "HA1E",
+      "n_compounds": 811,
+      "max_abs_prediction_error": 1.249000902703301e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-ARE",
+      "cell": "HA1E",
+      "n_compounds": 690,
+      "max_abs_prediction_error": 9.2148511043888e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-ATAD5",
+      "cell": "HA1E",
+      "n_compounds": 911,
+      "max_abs_prediction_error": 6.661338147750939e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-HSE",
+      "cell": "HA1E",
+      "n_compounds": 814,
+      "max_abs_prediction_error": 1.4432899320127035e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-MMP",
+      "cell": "HA1E",
+      "n_compounds": 723,
+      "max_abs_prediction_error": 8.104628079763643e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-p53",
+      "cell": "HA1E",
+      "n_compounds": 884,
+      "max_abs_prediction_error": 4.829470157119431e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AR",
+      "cell": "HEPG2",
+      "n_compounds": 668,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AR-LBD",
+      "cell": "HEPG2",
+      "n_compounds": 598,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AhR",
+      "cell": "HEPG2",
+      "n_compounds": 585,
+      "max_abs_prediction_error": 1.3322676295501878e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-Aromatase",
+      "cell": "HEPG2",
+      "n_compounds": 512,
+      "max_abs_prediction_error": 3.552713678800501e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-ER",
+      "cell": "HEPG2",
+      "n_compounds": 540,
+      "max_abs_prediction_error": 1.942890293094024e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-ER-LBD",
+      "cell": "HEPG2",
+      "n_compounds": 620,
+      "max_abs_prediction_error": 1.6653345369377348e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-PPAR-gamma",
+      "cell": "HEPG2",
+      "n_compounds": 552,
+      "max_abs_prediction_error": 1.8041124150158794e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-ARE",
+      "cell": "HEPG2",
+      "n_compounds": 451,
+      "max_abs_prediction_error": 3.2751579226442118e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-ATAD5",
+      "cell": "HEPG2",
+      "n_compounds": 619,
+      "max_abs_prediction_error": 1.9984014443252818e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-HSE",
+      "cell": "HEPG2",
+      "n_compounds": 547,
+      "max_abs_prediction_error": 1.2490009027033011e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-MMP",
+      "cell": "HEPG2",
+      "n_compounds": 495,
+      "max_abs_prediction_error": 3.2751579226442118e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-p53",
+      "cell": "HEPG2",
+      "n_compounds": 603,
+      "max_abs_prediction_error": 2.609024107869118e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AR",
+      "cell": "HT29",
+      "n_compounds": 960,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AR-LBD",
+      "cell": "HT29",
+      "n_compounds": 862,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AhR",
+      "cell": "HT29",
+      "n_compounds": 841,
+      "max_abs_prediction_error": 1.1657341758564144e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-Aromatase",
+      "cell": "HT29",
+      "n_compounds": 758,
+      "max_abs_prediction_error": 2.1649348980190553e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-ER",
+      "cell": "HT29",
+      "n_compounds": 799,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-ER-LBD",
+      "cell": "HT29",
+      "n_compounds": 902,
+      "max_abs_prediction_error": 1.6653345369377348e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-PPAR-gamma",
+      "cell": "HT29",
+      "n_compounds": 803,
+      "max_abs_prediction_error": 8.881784197001252e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-ARE",
+      "cell": "HT29",
+      "n_compounds": 682,
+      "max_abs_prediction_error": 3.9968028886505635e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-ATAD5",
+      "cell": "HT29",
+      "n_compounds": 903,
+      "max_abs_prediction_error": 4.107825191113079e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-HSE",
+      "cell": "HT29",
+      "n_compounds": 806,
+      "max_abs_prediction_error": 1.1657341758564144e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-MMP",
+      "cell": "HT29",
+      "n_compounds": 717,
+      "max_abs_prediction_error": 3.552713678800501e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-p53",
+      "cell": "HT29",
+      "n_compounds": 877,
+      "max_abs_prediction_error": 3.1086244689504383e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AR",
+      "cell": "MCF7",
+      "n_compounds": 1259,
+      "max_abs_prediction_error": 2.220446049250313e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AR-LBD",
+      "cell": "MCF7",
+      "n_compounds": 1145,
+      "max_abs_prediction_error": 1.4432899320127035e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-AhR",
+      "cell": "MCF7",
+      "n_compounds": 1111,
+      "max_abs_prediction_error": 6.106226635438361e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-Aromatase",
+      "cell": "MCF7",
+      "n_compounds": 1021,
+      "max_abs_prediction_error": 1.942890293094024e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-ER",
+      "cell": "MCF7",
+      "n_compounds": 1067,
+      "max_abs_prediction_error": 1.942890293094024e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-ER-LBD",
+      "cell": "MCF7",
+      "n_compounds": 1194,
+      "max_abs_prediction_error": 9.71445146547012e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "NR-PPAR-gamma",
+      "cell": "MCF7",
+      "n_compounds": 1073,
+      "max_abs_prediction_error": 1.6653345369377348e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-ARE",
+      "cell": "MCF7",
+      "n_compounds": 923,
+      "max_abs_prediction_error": 1.2212453270876722e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-ATAD5",
+      "cell": "MCF7",
+      "n_compounds": 1196,
+      "max_abs_prediction_error": 5.551115123125783e-16
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-HSE",
+      "cell": "MCF7",
+      "n_compounds": 1077,
+      "max_abs_prediction_error": 1.2212453270876722e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-MMP",
+      "cell": "MCF7",
+      "n_compounds": 958,
+      "max_abs_prediction_error": 2.275957200481571e-15
+    },
+    {
+      "variant": "residualized",
+      "task": "SR-p53",
+      "cell": "MCF7",
+      "n_compounds": 1158,
+      "max_abs_prediction_error": 2.831068712794149e-15
+    }
+  ]
+}

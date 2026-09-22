@@ -1,0 +1,65 @@
+{
+  "analysis": "biological_context_matching_barplot_a4_final",
+  "revision": 27,
+  "page_size": "A4 portrait",
+  "figure_size_inches": [
+    8.27,
+    11.69
+  ],
+  "export_bbox": "fixed page canvas; no tight cropping",
+  "model_refit": false,
+  "variant": "standardized",
+  "representation": "unadjusted",
+  "inference_source": "/data/kyungan/scripts/BioTox/publication/figures/Figure3/source_data/Figure3_all_context_inference.csv",
+  "inference_source_sha256": "d52f5a4dba548087abba44046e90f9153cf275d5f17db33bea58379152ece670",
+  "primary_6h_source": "/data/kyungan/scripts/BioTox/publication/figures/Figure3/source_data/Figure3_primary_6h.csv",
+  "primary_6h_source_sha256": "cba0a140a5481adf84750dd905f9d1b6723130bd19918c973f5bfe3aa648edc9",
+  "paired_24h_source": "/data/kyungan/scripts/BioTox/publication/figures/Figure3/source_data/Figure3_paired_24h.csv",
+  "paired_24h_source_sha256": "3972f48040a3808dd12816e9d89b0116dc39be7318ca2c2f312079db58959079",
+  "selection_rule": "standardized primary full-cohort 6 h estimates for HA1E, HepG2, HT29 and MCF7 plus paired-cohort 24 h estimates for HA1E, HT29 and MCF7 across four selected assays",
+  "ranking_rule": "Within each assay and exposure group, highlight exactly one bar: the highest absolute AUPRC across both models and all eligible cell lines; highlight positive BH q<0.05 gains as confirmatory and 0.05<=q<0.10 gains as exploratory in the incremental subplot",
+  "n_rows": 28,
+  "n_assays": 4,
+  "n_contexts_per_assay": 7,
+  "paired_bar_geometry": "Mol. and Mol. + Bio. inner edges meet without a gap",
+  "gain_annotation_position": "centered above the taller paired error bar",
+  "font_sizes_points": {
+    "panel_letter": 22.0,
+    "assay_title": 14.0,
+    "assay_context": 10.5,
+    "axis_labels": 11.8,
+    "bottom_axis_labels": 12.2,
+    "x_tick_labels": 8.2,
+    "y_tick_labels": 8.8,
+    "within_panel_legends": 7.5,
+    "left_bottom_legend": 8.3,
+    "right_bottom_legend": 7.8,
+    "bottom_legend_title": 10.0
+  },
+  "bottom_legend_title": null,
+  "bottom_legend_anchor_y": 0.008,
+  "bottom_legend_frame": false,
+  "legend_style": {
+    "chem_hatch": "///",
+    "chem_bio_hatch": "",
+    "frame_visible": false,
+    "interior_margin_removed": true,
+    "left_legend_anchor_x": 0.29,
+    "left_legend_ncol": 2,
+    "right_legend_anchor_x": 0.78,
+    "right_legend_ncol": 1,
+    "right_legend_categories": [
+      "No sig. (q >= 0.10)",
+      "Exploratory (0.05 <= q < 0.10)",
+      "Confirmatory (q < 0.05)"
+    ]
+  },
+  "subplot_grid_bottom": 0.145,
+  "output_formats": [
+    "png",
+    "pdf",
+    "svg",
+    "csv",
+    "md"
+  ]
+}

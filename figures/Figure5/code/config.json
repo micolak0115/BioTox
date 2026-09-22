@@ -1,0 +1,31 @@
+{
+  "input": {
+    "compound_selection_statistics": "../source_data/Figure5_compound_selection_statistics.csv",
+    "heatmap_displayed_compounds": "../source_data/Figure5_heatmap_displayed_compounds.csv",
+    "heatmap_cells": "../source_data/Figure5_heatmap_cells.csv"
+  },
+  "input_files": {
+    "compound_selection_statistics": ["../source_data/Figure5_compound_selection_statistics.csv"],
+    "heatmap_displayed_compounds": ["../source_data/Figure5_heatmap_displayed_compounds.csv"],
+    "heatmap_cells": ["../source_data/Figure5_heatmap_cells.csv"],
+    "source_data_aliases": ["../source_data/Figure5_all_compound_rankings.csv"]
+  },
+  "output": {
+    "directory": "..",
+    "files": [
+      "Figure5.pdf",
+      "Figure5.png",
+      "Figure5.svg",
+      "Figure5_preview.png",
+      "caption.md",
+      "methods.md",
+      "source_data/Figure5_all_compound_rankings.csv",
+      "source_data/Figure5_compound_selection_statistics.csv",
+      "source_data/Figure5_heatmap_displayed_compounds.csv",
+      "source_data/Figure5_heatmap_cells.csv",
+      "generation/Figure5_global_endpoint_maxima_audit.csv",
+      "generation/Figure5_layout_audit.json",
+      "generation/Figure5_manifest.json"
+    ]
+  }
+}

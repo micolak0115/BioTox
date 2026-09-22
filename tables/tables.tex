@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\begin{document}
+\section*{Supplementary tables}
+\subsection*{Table S1}
+Table S1. Endpoint-specific chemical-only dataset statistics for molecular-model construction. The molecular pool contained 1,732 scaffold-disjoint compounds and was partitioned into training (n = 1,039), validation (n = 346), and held-out ensemble-selection (n = 347) sets. Within each endpoint and subset, Labeled is the number of compounds with a Tox21 activity label; Active and Inactive partition the labeled compounds; Missing is the number without an endpoint label.
+\texttt{TableS1/TableS1_source_data.csv}
+\subsection*{Table S2}
+Table S2. Nuclear-receptor cohort sizes and eligibility. n: labeled compounds, the denominator for active percentages. ✓: confirmatory-eligible; △: exploratory; ×: excluded. Bold active counts are < 20; eligibility is not statistical significance. Counts use the full 6-h cohort and compounds profiled at both times for 24 h. Total profiled (6 h/24 h): HA1E, 1,012/861; HepG2, 695/46; HT29, 1,005/606; MCF7, 1,332/1,316.
+\texttt{TableS2/TableS2_source_data.csv}
+\subsection*{Table S3}
+Table S3. Stress-response cohort sizes and eligibility. n: labeled compounds, the denominator for active percentages. ✓: confirmatory-eligible; △: exploratory; ×: excluded. Bold active counts are < 20; eligibility is not statistical significance. Counts use the full 6-h cohort and compounds profiled at both times for 24 h. Total profiled (6 h/24 h): HA1E, 1,012/861; HepG2, 695/46; HT29, 1,005/606; MCF7, 1,332/1,316.
+\texttt{TableS3/TableS3_source_data.csv}
+\subsection*{Table S4}
+Table S4. Classical molecular-model settings. Fingerprints are evaluated separately per endpoint; braces denote search spaces.
+\texttt{TableS4/TableS4_source_data.csv}
+\subsection*{Table S5}
+Table S5. Deep molecular-model settings. Pretrained GNNs: GCN, GAT, GIN, GraphSAGE.
+\texttt{TableS5/TableS5_source_data.csv}
+\subsection*{Table S6}
+Table S6. Repeated outer-loop evaluation. Twenty repetitions of five-fold outer cross-validation yield 100 paired held-out evaluations per endpoint-context pair. Molecular-only and transcriptome-complemented predictions are evaluated on the same held-out compounds, with all fitted quantities estimated from the corresponding outer training set only.
+\texttt{TableS6/TableS6_source_data.csv}
+\subsection*{Table S7}
+Table S7. Inner-loop ridge selection. For each outer training set, three-fold inner cross-validation selects the largest eligible ridge penalty within one standard error of the minimum mean validation BCE. Standardization, calibration, and transcriptomic coefficients are estimated from inner training data only.
+\texttt{TableS7/TableS7_source_data.csv}
+\subsection*{Table S8}
+Table S8. Effect of molecular-intercept calibration. NR-Aromatase, SR-ARE, SR-MMP, and SR-p53 across four primary 6-h cohorts. Differences are calibrated minus uncalibrated predictions on identical held-out compounds. Mean and SD summarize 20 repeat-level averages; Nadeau–Bengio (NB) intervals/tests use 100 paired outer-fold effects. Negative log-loss and positive AUPRC changes indicate improved probabilistic fit and discrimination, respectively. Reported q-values retain BH adjustment across all twelve endpoints within cell line and metric.
+\texttt{TableS8/TableS8_source_data.csv}
+\subsection*{Table S9}
+Table S9. Context-specific model performance across twelve Tox21 endpoints. Molecular-only and transcriptome-complemented predictions were tested on identical held-out compounds per endpoint, cell, and exposure time. Significance on the improvement in AUPRC for transcriptomic complementation is marked as follows: †q < 0.10, ∗q < 0.05, and ∗∗q < 0.01. Endpoints and their AUPRC values are bolded if significant; header (↑) marks endpoints with at least one such displayed gain. ‡: fewer than 20 active compounds.
+\texttt{TableS9/TableS9_source_data.csv}
+\end{document}

@@ -1,0 +1,24 @@
+{
+  "input": {
+    "tables_directory": "../source_data"
+  },
+  "input_files": {
+    "tables_directory": [
+      "../source_data/Figure4_pathway_gsea_per_compound.csv",
+      "../source_data/Figure4_pathway_selection.csv",
+      "../source_data/Figure4_top_global_coefficients.csv"
+    ]
+  },
+  "output": {
+    "directory": "../generation",
+    "figure_stem": "Figure4",
+    "files": [
+      "figures/Figure4.pdf",
+      "figures/Figure4.png",
+      "tables/Figure5_heatmap_q010_fraction_q005_significance_audit.csv",
+      "tables/Figure5_per_endpoint_top5_gsea_q010_marker_audit.csv",
+      "../Figure4.pdf",
+      "../Figure4.png"
+    ]
+  }
+}

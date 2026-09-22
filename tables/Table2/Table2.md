@@ -1,0 +1,20 @@
+## Table 2
+
+Molecular-model performance across the twelve Tox21 endpoints. Endpoint-specific AUPRC and macro-AUPRC are reported for the nuclear-receptor (NR) and stress-response (SR) groups. The best and second-best values in each column are shown in bold and underlined, respectively. The random-baseline AUPRC equals endpoint activity prevalence in the molecular evaluation set. Molecular predictors are frozen; their performance is unchanged by the revised transcriptomic fitting procedure.
+
+| Model | NR-AR | NR-AR-LBD | NR-AhR | NR-Aromatase | NR-ER | NR-ER-LBD | NR-PPAR-gamma | NR macro | SR-ARE | SR-ATAD5 | SR-HSE | SR-MMP | SR-p53 | SR macro |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| GAT | 0.138 | 0.087 | 0.365 | 0.165 | 0.263 | 0.049 | 0.073 | 0.163 | 0.371 | 0.140 | 0.129 | 0.351 | 0.211 | 0.240 |
+| MACCS + logistic regression | 0.696 | 0.273 | 0.319 | 0.206 | 0.370 | 0.130 | 0.057 | 0.293 | 0.377 | 0.086 | 0.154 | 0.473 | 0.292 | 0.276 |
+| RDKit descriptors + XGBoost | 0.616 | 0.341 | 0.472 | 0.221 | 0.307 | 0.195 | 0.150 | 0.329 | 0.480 | 0.178 | 0.154 | 0.475 | 0.292 | 0.316 |
+| RDKit descriptors + logistic regression | 0.706 | 0.339 | 0.445 | 0.251 | 0.238 | 0.194 | 0.193 | 0.338 | 0.470 | 0.177 | 0.144 | 0.552 | 0.286 | 0.326 |
+| MACCS + XGBoost | 0.616 | 0.374 | 0.375 | 0.360 | 0.384 | **0.264** | 0.101 | 0.353 | 0.539 | 0.110 | 0.111 | 0.513 | 0.339 | 0.323 |
+| Morgan + XGBoost | 0.764 | <u>0.381</u> | 0.424 | <u>0.370</u> | 0.331 | 0.153 | 0.246 | <u>0.381</u> | 0.428 | 0.159 | 0.157 | 0.474 | 0.247 | 0.293 |
+| Morgan + logistic regression | 0.775 | 0.231 | 0.491 | 0.252 | 0.309 | 0.150 | 0.234 | 0.349 | 0.450 | 0.205 | 0.226 | 0.537 | 0.327 | 0.349 |
+| ChemBERTa | 0.744 | 0.367 | 0.450 | 0.283 | <u>0.415</u> | 0.161 | 0.044 | 0.352 | 0.504 | 0.180 | 0.203 | 0.562 | 0.301 | 0.350 |
+| Chemprop | 0.734 | 0.232 | 0.373 | 0.251 | 0.335 | 0.121 | <u>0.308</u> | 0.336 | 0.432 | 0.188 | 0.313 | 0.533 | 0.397 | 0.373 |
+| GCN | 0.736 | 0.306 | 0.432 | 0.237 | 0.388 | 0.167 | 0.103 | 0.339 | 0.500 | 0.116 | 0.383 | <u>0.572</u> | 0.390 | 0.392 |
+| GraphSAGE | 0.802 | 0.342 | 0.448 | 0.350 | 0.376 | 0.183 | 0.074 | 0.368 | 0.508 | 0.131 | 0.321 | 0.544 | 0.431 | 0.387 |
+| GIN | <u>0.818</u> | 0.370 | <u>0.512</u> | 0.309 | 0.386 | 0.166 | 0.072 | 0.376 | <u>0.569</u> | <u>0.212</u> | **0.456** | 0.525 | <u>0.436</u> | <u>0.440</u> |
+| Task-specific K=4 arithmetic mean | **0.821** | **0.415** | **0.574** | **0.444** | **0.460** | <u>0.219</u> | **0.322** | **0.465** | **0.618** | **0.341** | <u>0.432</u> | **0.622** | **0.527** | **0.508** |
+| Random baseline | 0.038 | 0.040 | 0.159 | 0.074 | 0.140 | 0.046 | 0.045 | 0.077 | 0.279 | 0.058 | 0.089 | 0.200 | 0.136 | 0.152 |

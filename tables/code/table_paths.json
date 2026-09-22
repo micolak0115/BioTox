@@ -1,0 +1,16 @@
+{
+  "generate_table": {
+    "source_summary": "/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1_publication_summary_v1/table_calibrated_20x5_detailed.csv",
+    "source_run": "/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1"
+  },
+  "generate_supplementary_tables": {
+    "tox21_smiles": "/data/kyungan/pretrain-gnns/dataset/tox21/raw/tox21_smiles.csv",
+    "cohort_dir": "/data/kyungan/scripts/BioTox/backup/matched_split_rebuilt",
+    "paired_manifest": "/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/paired_timepoint_inputs_6h24h_8to12uM_v1/RUN_COMPLETE.json",
+    "primary_run_manifest": "/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1/RUN_COMPLETE.json",
+    "assay_metadata": "/data/kyungan/scripts/BioTox/backup/main_table3_tox21_lincs_config_v1/table3_tox21_lincs_numeric.csv",
+    "ensemble_composition": "/data/kyungan/scripts/BioTox/backup/chemical_ensemble_auprc_table_csv_v1/k4_ensemble_composition.csv",
+    "chem_splitter_dir": "/data/kyungan/scripts/BioTox/publication/standalone/chem/run"
+  },
+  "output_root": "/data/kyungan/scripts/BioTox/publication/tables/_generated"
+}

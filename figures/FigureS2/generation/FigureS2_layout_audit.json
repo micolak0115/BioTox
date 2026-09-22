@@ -1,0 +1,277 @@
+{
+  "compound_label_clearance": [
+    {
+      "name": "Tioconazole",
+      "gap_px": 2.8978039732337493
+    },
+    {
+      "name": "Sertaconazole",
+      "gap_px": 4.220638618903081
+    },
+    {
+      "name": "Calcifediol",
+      "gap_px": 3.240073017364921
+    },
+    {
+      "name": "Calcitriol",
+      "gap_px": 7.073798144683451
+    },
+    {
+      "name": "Teniposide",
+      "gap_px": 2.6975815339976634
+    },
+    {
+      "name": "Etoposide",
+      "gap_px": 4.020416179666995
+    },
+    {
+      "name": "Oxiconazole",
+      "gap_px": 2.8978039732337493
+    },
+    {
+      "name": "Dequalinium",
+      "gap_px": 4.020416179666995
+    },
+    {
+      "name": "Gossypol",
+      "gap_px": 2.697581533997777
+    },
+    {
+      "name": "Niclosamide",
+      "gap_px": 4.220638618903195
+    },
+    {
+      "name": "Raloxifene",
+      "gap_px": 2.897803973233806
+    },
+    {
+      "name": "BRD-K63750851",
+      "gap_px": 4.220638618903138
+    }
+  ],
+  "page_mm": [
+    210,
+    297
+  ],
+  "labels": [
+    {
+      "task": "",
+      "name": "Tioconazole",
+      "leader": false,
+      "offset_points": [
+        7.0,
+        0.0
+      ],
+      "bounds_pixels": [
+        185.93511462561605,
+        1020.4757103603567,
+        266.4385868478382,
+        1037.828547816954
+      ],
+      "adjacent_candidates_exhausted": false
+    },
+    {
+      "task": "",
+      "name": "Sertaconazole",
+      "leader": false,
+      "offset_points": [
+        7.0,
+        0.0
+      ],
+      "bounds_pixels": [
+        186.097467155565,
+        974.4515366939179,
+        278.8196893777872,
+        991.8043741505151
+      ],
+      "adjacent_candidates_exhausted": false
+    },
+    {
+      "task": "",
+      "name": "Dequalinium",
+      "leader": true,
+      "offset_points": [
+        22.000000000000004,
+        -38.1051177665153
+      ],
+      "bounds_pixels": [
+        150.48290299203208,
+        894.1472000768034,
+        234.2051252142543,
+        911.8694222990256
+      ],
+      "adjacent_candidates_exhausted": true
+    },
+    {
+      "task": "",
+      "name": "Oxiconazole",
+      "leader": false,
+      "offset_points": [
+        7.0,
+        0.0
+      ],
+      "bounds_pixels": [
+        164.5281064856054,
+        946.4047331763549,
+        246.25032870782763,
+        963.757570632952
+      ],
+      "adjacent_candidates_exhausted": false
+    },
+    {
+      "task": "",
+      "name": "Gossypol",
+      "leader": true,
+      "offset_points": [
+        -1.4695761589768237e-14,
+        -80.0
+      ],
+      "bounds_pixels": [
+        236.17426904215884,
+        628.7919603024428,
+        299.89649126438104,
+        646.514182524665
+      ],
+      "adjacent_candidates_exhausted": true
+    },
+    {
+      "task": "",
+      "name": "Niclosamide",
+      "leader": true,
+      "offset_points": [
+        52.500000000000014,
+        -90.93266739736605
+      ],
+      "bounds_pixels": [
+        232.54345100734764,
+        610.4017658160326,
+        314.26567322956987,
+        627.7546032726298
+      ],
+      "adjacent_candidates_exhausted": true
+    },
+    {
+      "task": "",
+      "name": "Calcifediol",
+      "leader": true,
+      "offset_points": [
+        11.500000000000002,
+        19.918584287042087
+      ],
+      "bounds_pixels": [
+        200.239585524618,
+        706.5497915163859,
+        270.96180774684024,
+        723.902628972983
+      ],
+      "adjacent_candidates_exhausted": true
+    },
+    {
+      "task": "",
+      "name": "Calcitriol",
+      "leader": true,
+      "offset_points": [
+        -16.0,
+        1.959434878635765e-15
+      ],
+      "bounds_pixels": [
+        96.50438696432599,
+        646.1177681089953,
+        157.22660918654822,
+        663.4706055655925
+      ],
+      "adjacent_candidates_exhausted": true
+    },
+    {
+      "task": "",
+      "name": "Teniposide",
+      "leader": false,
+      "offset_points": [
+        7.0,
+        0.0
+      ],
+      "bounds_pixels": [
+        133.5239920988912,
+        380.9573863871037,
+        206.32433932111343,
+        398.6796086093259
+      ],
+      "adjacent_candidates_exhausted": false
+    },
+    {
+      "task": "",
+      "name": "Etoposide",
+      "leader": false,
+      "offset_points": [
+        7.0,
+        0.0
+      ],
+      "bounds_pixels": [
+        138.18919425106023,
+        269.1852098014355,
+        205.91141647328246,
+        286.9074320236577
+      ],
+      "adjacent_candidates_exhausted": false
+    },
+    {
+      "task": "",
+      "name": "BRD-K63750851",
+      "leader": true,
+      "offset_points": [
+        31.112698372208094,
+        31.112698372208087
+      ],
+      "bounds_pixels": [
+        145.38811375293577,
+        305.98401477664504,
+        246.110335975158,
+        323.3368522332422
+      ],
+      "adjacent_candidates_exhausted": true
+    },
+    {
+      "task": "",
+      "name": "Raloxifene",
+      "leader": true,
+      "offset_points": [
+        22.627416997969515,
+        -22.627416997969526
+      ],
+      "bounds_pixels": [
+        162.39174063528796,
+        226.53026967059756,
+        232.1139628575102,
+        243.8831071271948
+      ],
+      "adjacent_candidates_exhausted": true
+    }
+  ],
+  "scatter_aspect_ratios": [
+    1.0,
+    1.0000000000000002,
+    1.0000000000000002
+  ],
+  "BC_matching_bounds": [
+    true,
+    true,
+    true
+  ],
+  "ABC_row_top_bottom_aligned": [
+    true,
+    true,
+    true
+  ],
+  "headers": {
+    "letter_fontsize": 26,
+    "subtitle_fontsize": 17,
+    "subtitle_color": "#20252B"
+  },
+  "removed_detail_lines": [
+    "Common substructure",
+    "Coverage"
+  ],
+  "shared_scaffold_coordinate_alignment": "all six pairs passed atom-coordinate equality at atol=1e-6",
+  "probability_separation_validation": "all six pairs matched Figure5 per-compound probabilities at atol=1e-12",
+  "probability_annotation": "\u0394p = p(first) - p(second) within each model"
+}

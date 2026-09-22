@@ -1,0 +1,18 @@
+## Table S1
+
+Table S1. Endpoint-specific chemical-only dataset statistics for molecular-model construction. The molecular pool contained 1,732 scaffold-disjoint compounds and was partitioned into training (n = 1,039), validation (n = 346), and held-out ensemble-selection (n = 347) sets. Within each endpoint and subset, Labeled is the number of compounds with a Tox21 activity label; Active and Inactive partition the labeled compounds; Missing is the number without an endpoint label.
+
+| family | endpoint | stage1_pool_n_total | stage1_pool_n_labeled | stage1_pool_n_positive | stage1_pool_n_negative | stage1_pool_n_missing | stage1_train_n_total | stage1_train_n_labeled | stage1_train_n_positive | stage1_train_n_negative | stage1_train_n_missing | stage1_validation_n_total | stage1_validation_n_labeled | stage1_validation_n_positive | stage1_validation_n_negative | stage1_validation_n_missing | stage1_ensemble_selection_n_total | stage1_ensemble_selection_n_labeled | stage1_ensemble_selection_n_positive | stage1_ensemble_selection_n_negative | stage1_ensemble_selection_n_missing |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| NR | NR-AR | 1732 | 1555 | 107 | 1448 | 177 | 1039 | 927 | 83 | 844 | 112 | 346 | 316 | 12 | 304 | 30 | 347 | 312 | 12 | 300 | 35 |
+| NR | NR-AR-LBD | 1732 | 1393 | 92 | 1301 | 339 | 1039 | 838 | 70 | 768 | 201 | 346 | 281 | 11 | 270 | 65 | 347 | 274 | 11 | 263 | 73 |
+| NR | NR-AhR | 1732 | 1352 | 217 | 1135 | 380 | 1039 | 809 | 125 | 684 | 230 | 346 | 272 | 49 | 223 | 74 | 347 | 271 | 43 | 228 | 76 |
+| NR | NR-Aromatase | 1732 | 1081 | 102 | 979 | 651 | 1039 | 645 | 65 | 580 | 394 | 346 | 232 | 22 | 210 | 114 | 347 | 204 | 15 | 189 | 143 |
+| NR | NR-ER | 1732 | 1199 | 194 | 1005 | 533 | 1039 | 726 | 132 | 594 | 313 | 346 | 237 | 29 | 208 | 109 | 347 | 236 | 33 | 203 | 111 |
+| NR | NR-ER-LBD | 1732 | 1434 | 90 | 1344 | 298 | 1039 | 866 | 63 | 803 | 173 | 346 | 284 | 14 | 270 | 62 | 347 | 284 | 13 | 271 | 63 |
+| NR | NR-PPAR-gamma | 1732 | 1268 | 51 | 1217 | 464 | 1039 | 766 | 29 | 737 | 273 | 346 | 255 | 11 | 244 | 91 | 347 | 247 | 11 | 236 | 100 |
+| SR | SR-ARE | 1732 | 1109 | 269 | 840 | 623 | 1039 | 684 | 157 | 527 | 355 | 346 | 210 | 52 | 158 | 136 | 347 | 215 | 60 | 155 | 132 |
+| SR | SR-ATAD5 | 1732 | 1478 | 73 | 1405 | 254 | 1039 | 885 | 40 | 845 | 154 | 346 | 298 | 16 | 282 | 48 | 347 | 295 | 17 | 278 | 52 |
+| SR | SR-HSE | 1732 | 1280 | 94 | 1186 | 452 | 1039 | 781 | 51 | 730 | 258 | 346 | 240 | 20 | 220 | 106 | 347 | 259 | 23 | 236 | 88 |
+| SR | SR-MMP | 1732 | 1155 | 262 | 893 | 577 | 1039 | 695 | 163 | 532 | 344 | 346 | 230 | 53 | 177 | 116 | 347 | 230 | 46 | 184 | 117 |
+| SR | SR-p53 | 1732 | 1391 | 136 | 1255 | 341 | 1039 | 836 | 70 | 766 | 203 | 346 | 282 | 29 | 253 | 64 | 347 | 273 | 37 | 236 | 74 |

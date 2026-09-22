@@ -1,0 +1,19 @@
+{
+  "source_run": "/data/kyungan/scripts/BioTox/publication/standalone/bio/run/methodology_audit/results/primary_6h_20x5",
+  "source_run_manifest_sha256": "ea931fe72969e9f19dadbfcbeda6c7bf972cf534163b85a70d297ef27f2aa9e7",
+  "stage2_model_spec": "frozen_offset_fixed_calibration_intercept_ridge_biology_v3",
+  "analysis_complete": true,
+  "full_methods_20x5": true,
+  "n_repeats": 20,
+  "n_groups": 48,
+  "gene_coefficients": "arithmetic mean over all outer training fits",
+  "attributions": "mean of fold-specific standardized feature times coefficient over held-out repeats",
+  "rescue_rule": "y=1; mean delta >0.05; delta >0.05 in at least15 repeats; BH q<0.05",
+  "correction_rule": "y=0; mean delta <-0.02; delta <-0.02 in at least15 repeats; BH q<0.05",
+  "wilcoxon_null": "paired probability difference equals zero; greater for toxic, less for non-toxic",
+  "bh_family": "all compounds within each variant/endpoint/cell before effect and stability filtering",
+  "wilcoxon_zero_method": "wilcox; all-zero differences assigned p=1",
+  "wilcoxon_method": "scipy auto",
+  "input_feature_hashes_verified": true,
+  "chemical_offset_hash_verified": true
+}

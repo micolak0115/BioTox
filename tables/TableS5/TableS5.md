@@ -1,0 +1,12 @@
+## Table S5
+
+Table S5. Deep molecular-model settings. Pretrained GNNs: GCN, GAT, GIN, GraphSAGE.
+
+| Representation | Size | Model | Selection / tuning | Class weighting | Settings |
+| --- | --- | --- | --- | --- | --- |
+| Molecular graph | 300.0 | GCN | Initialized from supervised_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection | BCE pos_weight=n_negative/n_positive | 5 message-passing layers; hidden_dim=300; mean pooling; JK=last; dropout=0.5; batch_size=32; AdamW lr=1e-4; max_epochs=100; patience=20 |
+| Molecular graph | 300.0 | GAT | Initialized from supervised_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection | BCE pos_weight=n_negative/n_positive | 5 message-passing layers; hidden_dim=300; mean pooling; JK=last; dropout=0.5; batch_size=32; AdamW lr=1e-4; max_epochs=100; patience=20 |
+| Molecular graph | 300.0 | GIN | Initialized from supervised_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection | BCE pos_weight=n_negative/n_positive | 5 message-passing layers; hidden_dim=300; mean pooling; JK=last; dropout=0.5; batch_size=32; AdamW lr=1e-4; max_epochs=100; patience=20 |
+| Molecular graph | 300.0 | GraphSAGE | Initialized from supervised_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection | BCE pos_weight=n_negative/n_positive | 5 message-passing layers; hidden_dim=300; mean pooling; JK=last; dropout=0.5; batch_size=32; AdamW lr=1e-4; max_epochs=100; patience=20 |
+| Canonical SMILES tokens | — | DeepChem/ChemBERTa-100M-MLM | End-to-end single-task fine-tuning; validation AUPRC checkpoint selection | BCE pos_weight=n_negative/n_positive | max_length=128; batch_size=32; AdamW lr=1e-4; weight_decay=0; linear warmup=6%; gradient clipping=1.0; max_epochs=20; patience=5 |
+| Directed molecular graph | 300.0 | Chemprop D-MPNN | Single-task training; early stopping on validation loss | Unweighted binary classification loss | hidden_dim=300; depth=3; mean aggregation; dropout=0; batch_size=32; max_epochs=100; patience=20 |

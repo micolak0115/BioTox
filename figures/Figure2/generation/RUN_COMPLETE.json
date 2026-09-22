@@ -1,0 +1,37 @@
+{
+  "analysis": "stage1_topk_ensemble_a4_portrait_publication_final",
+  "supersedes": "Figure2_A4_final_v4",
+  "source_curve": "/data/kyungan/scripts/BioTox/publication/figures/Figure2/source_data/Figure2_topk_ensemble_curve.csv",
+  "source_curve_sha256": "1e46566353426226977e795c92e6511e1f1c047778a0f03fa7f71307eba97961",
+  "canvas_inches": [
+    8.27,
+    11.69
+  ],
+  "paper": "A4",
+  "orientation": "portrait",
+  "n_tasks": 12,
+  "selected_k": 4,
+  "selected_k_global_macro_auprc": 0.48282832266407477,
+  "peak_k": 4,
+  "peak_global_macro_auprc": 0.48282832266407477,
+  "panel_a_title": "Macro-AUPRC for Ensemble selection",
+  "panel_layout": {
+    "A": "one vertically expanded full-width macro panel",
+    "B": "seven NR subplots in a three-column portrait grid",
+    "C": "five SR subplots in a three-column portrait grid"
+  },
+  "legend_location": "inside Panel A below the title",
+  "figure_paths": [
+    "/data/kyungan/scripts/BioTox/publication/figures/Figure2/generation/stage1_topk_ensemble_a4_publication_final.pdf",
+    "/data/kyungan/scripts/BioTox/publication/figures/Figure2/generation/stage1_topk_ensemble_a4_publication_final.png",
+    "/data/kyungan/scripts/BioTox/publication/figures/Figure2/generation/stage1_topk_ensemble_a4_publication_final.svg"
+  ],
+  "figure_sha256": {
+    "stage1_topk_ensemble_a4_publication_final.pdf": "e0e48e1fd0beea3c527e0dcc7060dd0d5712a3ef9a779c54cb8c82f3c849b605",
+    "stage1_topk_ensemble_a4_publication_final.png": "591fc0f01152338c91d9c12f82debe6738908720226061a66478f60421e246cd",
+    "stage1_topk_ensemble_a4_publication_final.svg": "50d96178f50581800606d85cf67207ca4271796d628ec5bf113e310939b4503b"
+  },
+  "macro_data": "/data/kyungan/scripts/BioTox/publication/figures/Figure2/generation/stage1_topk_global_macro_auprc.csv",
+  "caption": "/data/kyungan/scripts/BioTox/publication/figures/Figure2/generation/stage1_topk_ensemble_a4_publication_final_caption.md",
+  "complete": true
+}

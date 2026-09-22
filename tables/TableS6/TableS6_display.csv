@@ -1,0 +1,16 @@
+Section,Setting,Value
+Study design,Chemical prior,Endpoint-specific top-4 arithmetic mean
+Study design,Chemical prior coefficient,Fixed at 1.0
+Study design,Stage-2 intercept,"Fit an unpenalized offset-only intercept on each inner/outer training partition, then freeze it for β estimation and predictions"
+Study design,Transcriptomic coefficients,β only; minimize mean unweighted BCE + (λ/2)||β||² with the calibrated molecular offset fixed
+Input,Cell lines,"HA1E, HEPG2, HT29, MCF7"
+Input,Primary exposure,Primary full-cohort 6 h; paired 6-h and 24-h cohorts evaluated separately
+Input,Dose window,8-12 uM
+Input,Genes,978 L1000 landmark genes
+Input,Replicate aggregation,Feature-wise median
+Preprocessing,No-adjustment variant,Unadjusted perturbation expression; feature-wise training mean/SD (ddof=0); replace SD < 1e-8 by 1; apply training scaler to validation/test
+Validation,Outer repeats,20
+Validation,Outer folds per repeat,5
+Validation,Outer grouping,Bemis-Murcko scaffold
+Validation,Distinct outer partitions,Required; duplicate signatures forbidden
+Validation,Minimum class count,At least 2 positives and 2 negatives in outer train and test

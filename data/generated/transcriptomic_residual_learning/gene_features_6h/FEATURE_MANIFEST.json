@@ -1,0 +1,56 @@
+{
+  "source_raw_directory": "/data/kyungan/scripts/BioTox/publication/_run_output/gene_features",
+  "output_directory": "/data/kyungan/scripts/BioTox/publication/_run_output/gene_features_consistent_v1",
+  "construction": "CeViChe residualized matrices regenerated deterministically from each copied raw matrix using publication.build_gene_features.residualize",
+  "raw_and_residual_compound_order_identical": true,
+  "files": {
+    "HA1E_gene_features_raw.csv": {
+      "sha256": "17347d0ccd9d5ce92a5c986b1b11c960f33127754e09064358a97f3ac3ee4bb1",
+      "rows": 1012
+    },
+    "HA1E_gene_features_residualized.csv": {
+      "sha256": "5898c099129102041eb7aedb67e1c3287fd6c9fcb6c895fc7f79b60141dffeaa",
+      "rows": 1012
+    },
+    "HA1E_ceviche_score.csv": {
+      "sha256": "04fbcce43eb1eafa44876471ccb7ae6d4e95d8d0109ac3468f8feba3d33829d2",
+      "rows": 1012
+    },
+    "HEPG2_gene_features_raw.csv": {
+      "sha256": "a3554f21a049dd05e3aed00e762316a0aafade0195d9659c9e497922e6cd03fb",
+      "rows": 695
+    },
+    "HEPG2_gene_features_residualized.csv": {
+      "sha256": "9201fe2e0dffb0648fdc22316a75434d5fdfaa19b2dc69e82b7ec00719e1ab4c",
+      "rows": 695
+    },
+    "HEPG2_ceviche_score.csv": {
+      "sha256": "4ef0cbf5f333fbf5a73b575e6347d6991f80494a005d5380fba1d0c14a55ea52",
+      "rows": 695
+    },
+    "HT29_gene_features_raw.csv": {
+      "sha256": "f84442279fa010152c96f9a38a51caaf9085de005688772201d5b8f4308ef79c",
+      "rows": 1005
+    },
+    "HT29_gene_features_residualized.csv": {
+      "sha256": "a6e38ce8a1704d2701a931ef5e840adbd2ab57ab91579519a9ebc0f22ce2ab47",
+      "rows": 1005
+    },
+    "HT29_ceviche_score.csv": {
+      "sha256": "6ff1d35868ef6431de9d3b0f256d40b73e55c84c0ccafb3fbb24b525d1a75475",
+      "rows": 1005
+    },
+    "MCF7_gene_features_raw.csv": {
+      "sha256": "18a067cdd85bac792f48758923688569a437575afa241dfdf50e8998656b1f61",
+      "rows": 1332
+    },
+    "MCF7_gene_features_residualized.csv": {
+      "sha256": "61e28ea15cb0ed2db31a6552dacec4184ba84e2a571df9a02ab1845c78907b0b",
+      "rows": 1332
+    },
+    "MCF7_ceviche_score.csv": {
+      "sha256": "a3aace05d74344da54e6f6b9f588cc008f3af571b83f188724d6e912d8f0349d",
+      "rows": 1332
+    }
+  }
+}

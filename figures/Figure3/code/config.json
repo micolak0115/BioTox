@@ -1,0 +1,27 @@
+{
+  "input": {
+    "inference_source": "../source_data/Figure3_all_context_inference.csv",
+    "primary_6h_source": "../source_data/Figure3_primary_6h.csv",
+    "paired_24h_source": "../source_data/Figure3_paired_24h.csv"
+  },
+  "input_files": {
+    "inference_source": ["../source_data/Figure3_all_context_inference.csv"],
+    "primary_6h_source": ["../source_data/Figure3_primary_6h.csv"],
+    "paired_24h_source": ["../source_data/Figure3_paired_24h.csv"]
+  },
+  "output": {
+    "directory": "../generation",
+    "files": [
+      "figures/Figure3.pdf",
+      "figures/Figure3.png",
+      "figures/Figure3.svg",
+      "tables/biological_context_matching_plotting_data.csv",
+      "FIGURE_CAPTION.md",
+      "RUN_COMPLETE.json",
+      "../Figure3.pdf",
+      "../Figure3.png",
+      "../Figure3.svg",
+      "../caption.md"
+    ]
+  }
+}

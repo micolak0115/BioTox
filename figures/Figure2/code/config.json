@@ -1,0 +1,26 @@
+{
+  "input": {
+    "topk_ensemble_curve": "../source_data/Figure2_topk_ensemble_curve.csv"
+  },
+  "input_files": {
+    "topk_ensemble_curve": [
+      "../source_data/Figure2_topk_ensemble_curve.csv",
+      "../source_data/Figure2_ensemble_size_selection.csv"
+    ]
+  },
+  "output": {
+    "directory": "../generation",
+    "files": [
+      "stage1_topk_ensemble_a4_publication_final.pdf",
+      "stage1_topk_ensemble_a4_publication_final.png",
+      "stage1_topk_ensemble_a4_publication_final.svg",
+      "stage1_topk_ensemble_a4_publication_final_caption.md",
+      "stage1_topk_global_macro_auprc.csv",
+      "RUN_COMPLETE.json",
+      "../Figure2.pdf",
+      "../Figure2.png",
+      "../Figure2.svg",
+      "../caption.md"
+    ]
+  }
+}

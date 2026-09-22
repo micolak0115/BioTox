@@ -1,0 +1,24 @@
+{
+  "input": {
+    "compound_selection_statistics": "../../Figure5/source_data/Figure5_compound_selection_statistics.csv",
+    "displayed_vertical_structure_cases": "../source_data/FigureS2_displayed_vertical_structure_cases.csv"
+  },
+  "input_files": {
+    "compound_selection_statistics": ["../../Figure5/source_data/Figure5_compound_selection_statistics.csv"],
+    "displayed_vertical_structure_cases": ["../source_data/FigureS2_displayed_vertical_structure_cases.csv"]
+  },
+  "output": {
+    "directory": "..",
+    "files": [
+      "FigureS2.pdf",
+      "FigureS2.png",
+      "FigureS2.svg",
+      "FigureS2_preview.png",
+      "caption.md",
+      "methods.md",
+      "generation/FigureS2_layout_audit.json",
+      "generation/FigureS2_manifest.json",
+      "provenance.json"
+    ]
+  }
+}

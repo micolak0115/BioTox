@@ -1,0 +1,11 @@
+{
+  "pipeline": "calibrated_stage2_repeated_nested_cv_innerseed_v3",
+  "outer_partition_policy": "unchanged from repeated calibrated v1",
+  "inner_seed_requested": 42,
+  "inner_seed_search_attempts": 1000,
+  "inner_seed_policy": "first seed at or above 42 producing three inner scaffold folds with both classes in train and validation",
+  "n_outer_fold_records": 3600,
+  "n_inner_seed_adjustments": 4,
+  "chemical_prior_changed": false,
+  "statistical_model_changed": false
+}

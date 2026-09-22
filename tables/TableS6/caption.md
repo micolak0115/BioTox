@@ -1,0 +1,1 @@
+**Table S6. Repeated outer-loop evaluation. Twenty repetitions of five-fold outer cross-validation yield 100 paired held-out evaluations per endpoint-context pair. Molecular-only and transcriptome-complemented predictions are evaluated on the same held-out compounds, with all fitted quantities estimated from the corresponding outer training set only.**

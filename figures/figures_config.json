@@ -1,0 +1,58 @@
+{
+  "python": "/data/kyungan/miniconda3/envs/cladd/bin/python",
+  "figures": {
+    "Figure2": {
+      "script": "Figure2/code/generate_figure.py",
+      "config": "Figure2/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "Figure2/generation",
+      "clear_run_dir_first": true,
+      "copy": [
+        {"from": "stage1_topk_ensemble_a4_publication_final.pdf", "to": "Figure2.pdf"},
+        {"from": "stage1_topk_ensemble_a4_publication_final.png", "to": "Figure2.png"},
+        {"from": "stage1_topk_ensemble_a4_publication_final.svg", "to": "Figure2.svg"},
+        {"from": "stage1_topk_ensemble_a4_publication_final_caption.md", "to": "caption.md"}
+      ]
+    },
+    "Figure3": {
+      "script": "Figure3/code/generate_figure.py",
+      "config": "Figure3/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "Figure3/generation",
+      "clear_run_dir_first": true,
+      "copy": [
+        {"from": "figures/Figure3.pdf", "to": "Figure3.pdf"},
+        {"from": "figures/Figure3.png", "to": "Figure3.png"},
+        {"from": "figures/Figure3.svg", "to": "Figure3.svg"},
+        {"from": "FIGURE_CAPTION.md", "to": "caption.md"}
+      ]
+    },
+    "Figure4": {
+      "script": "Figure4/code/generate_figure.py",
+      "config": "Figure4/code/config.json",
+      "args": [],
+      "run_dir": "Figure4/generation",
+      "clear_run_dir_first": true,
+      "copy": [
+        {"from": "figures/Figure4.pdf", "to": "Figure4.pdf"},
+        {"from": "figures/Figure4.png", "to": "Figure4.png"}
+      ]
+    },
+    "Figure5": {
+      "script": "Figure5/code/generate_figure5.py",
+      "config": "Figure5/code/config.json",
+      "args": [],
+      "run_dir": null,
+      "clear_run_dir_first": false,
+      "copy": []
+    },
+    "FigureS2": {
+      "script": "FigureS2/code/generate_figureS2.py",
+      "config": "FigureS2/code/config.json",
+      "args": [],
+      "run_dir": null,
+      "clear_run_dir_first": false,
+      "copy": []
+    }
+  }
+}

@@ -1,0 +1,6 @@
+Section,Setting,Value
+Validation,Inner folds,3
+Validation,Inner grouping,Stratified Bemis-Murcko scaffold groups
+Validation,Inner selection metric,Unpenalized mean BCE computed stably from logits on inner-validation folds
+Validation,Ridge selection rule,Select the largest λ anywhere on the grid within one SE of the global minimum mean inner-validation BCE; SE is sample SD across three folds / sqrt(3)
+Optimization,Ridge alpha grid,"λ = 10^(-4 + k/2), k=0,…,24 (25 values); called alpha in the executable; searched in descending order"

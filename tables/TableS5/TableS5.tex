@@ -1,0 +1,22 @@
+
+\small
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{p{0.160\linewidth}p{0.160\linewidth}p{0.160\linewidth}p{0.160\linewidth}p{0.160\linewidth}p{0.160\linewidth}}
+\caption*{\textbf{Table S5}. Deep molecular-model settings. All models used batches of 32. GNN denotes the four pretrained architectures: GCN, GAT, GIN, and GraphSAGE. These frozen molecular-model settings, including their original class weighting, are unchanged; unweighted BCE applies to the revised transcriptomic stage. Shared settings: training seed: 1.}\\
+\toprule
+Representation & Size & Model & Selection / tuning & Class weighting & Settings \\
+\midrule
+\endfirsthead
+\toprule
+Representation & Size & Model & Selection / tuning & Class weighting & Settings \\
+\midrule
+\endhead
+Molecular graph & 300.0 & GCN & Initialized from supervised\_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & 5 message-passing layers; hidden\_dim=300; mean pooling; JK=last; dropout=0.5; batch\_size=32; AdamW lr=1e-4; max\_epochs=100; patience=20 \\
+Molecular graph & 300.0 & GAT & Initialized from supervised\_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & 5 message-passing layers; hidden\_dim=300; mean pooling; JK=last; dropout=0.5; batch\_size=32; AdamW lr=1e-4; max\_epochs=100; patience=20 \\
+Molecular graph & 300.0 & GIN & Initialized from supervised\_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & 5 message-passing layers; hidden\_dim=300; mean pooling; JK=last; dropout=0.5; batch\_size=32; AdamW lr=1e-4; max\_epochs=100; patience=20 \\
+Molecular graph & 300.0 & GraphSAGE & Initialized from supervised\_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & 5 message-passing layers; hidden\_dim=300; mean pooling; JK=last; dropout=0.5; batch\_size=32; AdamW lr=1e-4; max\_epochs=100; patience=20 \\
+Canonical SMILES tokens & — & DeepChem/ChemBERTa-100M-MLM & End-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & max\_length=128; batch\_size=32; AdamW lr=1e-4; weight\_decay=0; linear warmup=6\%; gradient clipping=1.0; max\_epochs=20; patience=5 \\
+Directed molecular graph & 300.0 & Chemprop D-MPNN & Single-task training; early stopping on validation loss & Unweighted binary classification loss & hidden\_dim=300; depth=3; mean aggregation; dropout=0; batch\_size=32; max\_epochs=100; patience=20 \\
+\bottomrule
+\end{longtable}
+
