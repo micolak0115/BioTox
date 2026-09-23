@@ -1,0 +1,8 @@
+{
+  "input_files": {
+    "chem_plot_dir": "/data/kyungan/scripts/BioTox/backup/chem_models_abcd_20x5_final",
+    "chem_inference_dir": "/data/kyungan/scripts/BioTox/backup/chem_models_abcd_20x5_v1",
+    "ridge_dir": "/data/kyungan/scripts/BioTox/backup/tables/source_data/figure3_calibration"
+  },
+  "output": {"directory": "../../_generated/TableS8"}
+}

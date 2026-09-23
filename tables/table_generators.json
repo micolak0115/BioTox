@@ -1,0 +1,61 @@
+{
+  "manuscript_tex": "/data/kyungan/scripts/BioTox/publication/manuscript/BioTox_BiB_Submission_20260921.tex",
+  "tables": {
+    "Table1": {
+      "label": "tab:tox21-lincs-configurations",
+      "generator": null,
+      "source_script": null,
+      "note": "Literal LaTeX table in the manuscript; no external generator is referenced."
+    },
+    "Table2": {
+      "label": "tab:structure-ensemble-auprc",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/build_publication_methods_tables_v1.py",
+      "copied_to": "Table2/code/generate_tables.py"
+    },
+    "TableS1": {
+      "label": "tab:stage1-cohort-composition",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/tables/scripts/Supp1_to_Supp7_01_build_dataset_model_tables.py",
+      "copied_to": "TableS1/code/generate_tables.py"
+    },
+    "TableS2": {
+      "label": "tab:nuclear-receptor-task-cell-counts",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/tables/scripts/Supp6_to_Supp7_02_build_eligibility_tables.py",
+      "copied_to": "TableS2/code/generate_tables.py"
+    },
+    "TableS3": {
+      "label": "tab:stress-response-task-cell-counts",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/tables/scripts/Supp6_to_Supp7_02_build_eligibility_tables.py",
+      "copied_to": "TableS3/code/generate_tables.py"
+    },
+    "TableS4": {
+      "label": "tab:stage1-classical-settings",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/tables/scripts/Supp1_to_Supp7_01_build_dataset_model_tables.py",
+      "copied_to": "TableS4/code/generate_tables.py"
+    },
+    "TableS5": {
+      "label": "tab:stage1-deep-settings",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/tables/scripts/Supp1_to_Supp7_01_build_dataset_model_tables.py",
+      "copied_to": "TableS5/code/generate_tables.py"
+    },
+    "TableS6": {
+      "label": "tab:outer-validation",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/tables/scripts/Supp1_to_Supp7_01_build_dataset_model_tables.py",
+      "copied_to": "TableS6/code/generate_tables.py"
+    },
+    "TableS7": {
+      "label": "tab:inner-validation",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/tables/scripts/Shared_07_build_lambda_selection_summary.py",
+      "copied_to": "TableS7/code/generate_tables.py"
+    },
+    "TableS8": {
+      "label": "tab:s1-calibration-selected-endpoints",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/build_figure3_supplementary_table_v1.py",
+      "copied_to": "TableS8/code/generate_tables.py"
+    },
+    "TableS9": {
+      "label": "tab:main-auprc",
+      "source_script": "/data/kyungan/scripts/BioTox/backup/build_context_matched_main_tables_v1.py",
+      "copied_to": "TableS9/code/generate_tables.py"
+    }
+  }
+}

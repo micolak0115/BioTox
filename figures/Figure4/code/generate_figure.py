@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Figure 5 v24: exploratory q<0.10 fractions with confirmatory q<0.05 markers.
+"""Generate Figure 4 from the configured Figure 4 source-data snapshot.
 
-This is a plotting-only revision of v23. It reads the same audited v21 GSEA
-tables and does not recompute enrichment statistics.
+The plotting code reads audited source tables and does not recompute enrichment
+statistics.
 
 Display contract:
   - Per-endpoint compound panels show the top five active compounds by |NES|.
@@ -33,16 +33,14 @@ import numpy as np
 import pandas as pd
 
 
-V21_TABLES = Path(
-    "/home/kyungan/scripts/BioTox/publication/final/figures_revised/Figure5/"
-    "unadjusted_global_zbeta_heterogeneity_20260828_v21/tables"
-)
-OUT_DIR = Path(
-    "/home/kyungan/scripts/BioTox/publication/final/figures_revised/Figure5/"
-    "unadjusted_global_zbeta_exploratory_q010_20260831_v24"
-)
-FIG_STEM = "Figure5_per_endpoint_panels_A4_exploratory_q010_20260831_v24"
-DATA_FILE_PREFIX = "Figure5"
+CODE_DIR = Path(__file__).resolve().parent
+CONFIG = json.loads((CODE_DIR / "config.json").read_text(encoding="utf-8"))
+INPUT_FILES = {
+    name: [(CODE_DIR / path).resolve() for path in paths]
+    for name, paths in CONFIG["input_files"].items()
+}
+OUT_DIR = (CODE_DIR / CONFIG["output"]["directory"]).resolve()
+FIG_STEM = CONFIG["output"]["figure_stem"]
 
 FIG_SIZE_IN = (11.69, 15.6)
 CONFIRMATORY_Q = 0.05
@@ -395,9 +393,9 @@ def validate_summary(union_summary: pd.DataFrame) -> None:
 
 
 def main() -> None:
-    beta_top = pd.read_csv(V21_TABLES / f"{DATA_FILE_PREFIX}_top_global_coefficients.csv")
-    union_gsea = pd.read_csv(V21_TABLES / f"{DATA_FILE_PREFIX}_pathway_gsea_per_compound.csv")
-    union_summary = pd.read_csv(V21_TABLES / f"{DATA_FILE_PREFIX}_pathway_selection.csv")
+    beta_top = pd.read_csv(INPUT_FILES["tables_directory"][2])
+    union_gsea = pd.read_csv(INPUT_FILES["tables_directory"][0])
+    union_summary = pd.read_csv(INPUT_FILES["tables_directory"][1])
     validate_summary(union_summary)
 
     for task, gene_set in PANEL_PATHWAY.items():
@@ -528,19 +526,6 @@ def main() -> None:
         len(heatmap_table),
     )
 
-
-
-
-# Canonical config-driven entry point. The former v26-v32 publication
-# overrides are kept here so the versioned rebuild chain is no longer
-# imported.
-CODE_DIR = Path(__file__).resolve().parent
-CONFIG = json.loads((CODE_DIR / "config.json").read_text(encoding="utf-8"))
-V21_TABLES = (CODE_DIR / CONFIG["input"]["tables_directory"]).resolve()
-DATA_FILE_PREFIX = "Figure4"
-OUT_DIR = (CODE_DIR / CONFIG["output"]["directory"]).resolve()
-FIG_STEM = CONFIG["output"]["figure_stem"]
-
 PANEL_PATHWAY["SR-MMP"] = "Pperoxisome"
 COLORBAR_LABEL = "Active fraction"
 HEATMAP_DIVIDER_AFTER_GENE_SET = "mTORC1 Signaling"
@@ -615,4 +600,3 @@ panel_compound_nes = _panel_compound_nes_with_display_case
 
 if __name__ == "__main__":
     main()
-

@@ -1,0 +1,18 @@
+analysis,cell_line,exposure_h,dose_window_uM,n_compounds,n_unique_scaffolds,n_landmark_genes,replicate_aggregation,included_in_named_analysis,analysis_scope_note
+primary_6h,HA1E,6,8-12,1012,673.0,978,feature-wise median,True,Included in the complete primary 6 h analysis
+primary_6h,HEPG2,6,8-12,695,493.0,978,feature-wise median,True,Included in the complete primary 6 h analysis
+primary_6h,HT29,6,8-12,1005,672.0,978,feature-wise median,True,Included in the complete primary 6 h analysis
+primary_6h,MCF7,6,8-12,1332,836.0,978,feature-wise median,True,Included in the complete primary 6 h analysis
+primary_6h_union,Union,6,8-12,1355,,978,feature-wise median,True,Union of complete primary 6 h cell-line cohorts
+all_available_timepoint,HA1E,6,8-12,1012,,978,median within compound/cell/time/8-12uM,True,Included in the complete primary 6 h analysis; this flag does not denote paired-timepoint eligibility
+all_available_timepoint,HA1E,24,8-12,1163,,978,median within compound/cell/time/8-12uM,False,Descriptive availability count; paired analysis uses only compounds observed at both times
+paired_6h_24h,HA1E,6 and 24,8-12,861,,978,median within compound/cell/time/8-12uM,True,
+all_available_timepoint,HEPG2,6,8-12,695,,978,median within compound/cell/time/8-12uM,True,Included in the complete primary 6 h analysis; this flag does not denote paired-timepoint eligibility
+all_available_timepoint,HEPG2,24,8-12,55,,978,median within compound/cell/time/8-12uM,False,Descriptive availability count; paired analysis uses only compounds observed at both times
+paired_6h_24h,HEPG2,6 and 24,8-12,46,,978,median within compound/cell/time/8-12uM,False,Excluded from paired modeling: only 46 compounds
+all_available_timepoint,HT29,6,8-12,1005,,978,median within compound/cell/time/8-12uM,True,Included in the complete primary 6 h analysis; this flag does not denote paired-timepoint eligibility
+all_available_timepoint,HT29,24,8-12,906,,978,median within compound/cell/time/8-12uM,False,Descriptive availability count; paired analysis uses only compounds observed at both times
+paired_6h_24h,HT29,6 and 24,8-12,606,,978,median within compound/cell/time/8-12uM,True,
+all_available_timepoint,MCF7,6,8-12,1332,,978,median within compound/cell/time/8-12uM,True,Included in the complete primary 6 h analysis; this flag does not denote paired-timepoint eligibility
+all_available_timepoint,MCF7,24,8-12,1512,,978,median within compound/cell/time/8-12uM,False,Descriptive availability count; paired analysis uses only compounds observed at both times
+paired_6h_24h,MCF7,6 and 24,8-12,1316,,978,median within compound/cell/time/8-12uM,True,

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "steps": [
+    "fit_candidates",
+    "select_ensemble",
+    "deploy_ensemble"
+  ],
+  "inputs": {
+    "pretrained_gnn_root": "/data/kyungan/pretrain-gnns/chem",
+    "gnn_pretrained_variant": "supervised_contextpred",
+    "chemberta_model": "/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/large_runtime_assets/models/chemberta/DeepChem_ChemBERTa-100M-MLM",
+    "chemprop_python": "/data/kyungan/miniconda3/envs/crisp_chemprop_env/bin/python"
+  },
+  "outputs": {
+    "cohort_dir": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/cohort",
+    "stage1_dir": "../../data/generated/reproducibility_checks/stage1_seed1_20260923/candidates",
+    "ensemble_selection_dir": "../../data/generated/reproducibility_checks/stage1_seed1_20260923/topk_selection",
+    "deployment_dir": "../../data/generated/reproducibility_checks/stage1_seed1_20260923/deployed_k4"
+  },
+  "candidate_training": {
+    "tasks": [
+      "NR-AR",
+      "NR-AR-LBD",
+      "NR-AhR",
+      "NR-Aromatase",
+      "NR-ER",
+      "NR-ER-LBD",
+      "NR-PPAR-gamma",
+      "SR-ARE",
+      "SR-ATAD5",
+      "SR-HSE",
+      "SR-MMP",
+      "SR-p53"
+    ],
+    "candidates": [
+      "MACCS_LR",
+      "MACCS_XGB",
+      "Morgan_LR",
+      "Morgan_XGB",
+      "RDKit_LR",
+      "RDKit_XGB",
+      "GCN_Pretrained",
+      "GAT_Pretrained",
+      "GIN_Pretrained",
+      "GraphSAGE_Pretrained",
+      "ChemBERTa_Pretrained",
+      "Chemprop"
+    ],
+    "seed": 1,
+    "gpu_ids": [-1],
+    "n_jobs": 1,
+    "cache_source_dir": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/candidates",
+    "model_settings": {}
+  },
+  "ensemble": {
+    "k": 4,
+    "n_bootstrap": 2000,
+    "dpi": 300
+  },
+  "reproducibility_check": {
+    "mode": "read_only_seed1_candidate_cache_reassembly",
+    "reference_candidates": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/candidates",
+    "reference_ensemble_selection": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/topk_selection",
+    "reference_deployment": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/deployed_k4",
+    "overwrite_existing_results": false
+  }
+}

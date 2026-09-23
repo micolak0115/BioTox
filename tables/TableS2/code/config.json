@@ -1,0 +1,8 @@
+{
+  "input_files": {
+    "methods_v4": "/data/kyungan/scripts/BioTox/backup/publication_methods_tables_v4",
+    "primary_run": "/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1",
+    "paired_6h_run": "/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_paired6h_repeated20x5_innerseed_v3"
+  },
+  "output": {"directory": "../../_generated/TableS2"}
+}

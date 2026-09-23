@@ -1,6 +1,6 @@
 {
   "figure": "Figure S2",
-  "created_utc": "2026-09-22T06:29:00.704701+00:00",
+  "created_utc": "2026-09-23T00:31:39.768343+00:00",
   "layout": "A4-compatible tight portrait; three endpoint-aligned rows; near-square panel-A scatterplots; height-matched panels B and C",
   "sr_are_result": "no selected-selected qualifying pair; comparator-containing cases excluded",
   "versions": {
@@ -11,18 +11,18 @@
     "rdkit": "2023.09.6"
   },
   "inputs": {
-    "/data/kyungan/scripts/BioTox/publication/figures/Figure5/source_data/Figure5_compound_selection_statistics.csv": "2b55d2e852187099fd3dc4a9909027bb5e479adbc51ebbefdfa16e27f62388db",
+    "/data/kyungan/scripts/BioTox/publication/figures/Figure5/source_data/Figure5_compound_selection_statistics.csv": "6e466166f2f3c15881da4359d6cba2a5acb8dccee91109e1e8e6b85524f63992",
     "/data/kyungan/scripts/BioTox/publication/figures/FigureS2/source_data/FigureS2_displayed_vertical_structure_cases.csv": "db8dbcf5e7280a4315f6a1d9181b04733720d0929197373b7285cf8809ebaa15"
   },
   "outputs": {
     "FigureS2.eps": "d3e9c5b0c50473e3501c8f52a69be10ae341d4b86424d79dcb2810a72183383e",
-    "FigureS2.pdf": "258ab9aef6cef1b842213bea4f7a6104d5e1ef6e696766789dba23195b72e05c",
+    "FigureS2.pdf": "08cce0c04b06de57cadb12295702959f2e414b5f7fd2325442ab0c0de32198d7",
     "FigureS2.png": "da4d376b2b111bae9e24beeba73617a8c4fa47cd82fb0c904f95bfe359f8d13f",
-    "FigureS2.svg": "766b613a23684158ab2df8ce7688a58a20676ca9fab7ac88b9aa6be23825489e",
+    "FigureS2.svg": "4c0bbd6411475f163d745f7d7e15fdfde164058cdc8819c571d4cb543db48d9f",
     "FigureS2.tiff": "dc63dfc16a25128f7d7f09c4d5020094dccf2840ea9f375fa508c07e3bc33baf",
     "FigureS2_preview.png": "6593b47b826b5d2c54f6f6bc9b8f5eff1539ddfca85d8218ce216b7a3058fe36",
     "caption.md": "c62eb98d90583d93d87d0b9b7d164149f8df8016f30eb12def49ee4083988976",
-    "code/config.json": "de42bbba65b53ae90551905affbd125b37b2e66333b397f8538444a3a5ae0a74",
+    "code/config.json": "cf20ae77740dc1e1dd0ecbf8138f7016d95d3f3d1417a44d22b06314d7e3677c",
     "code/generate_figureS2.py": "f3589d751c532ffa07fb915b4a8d2908efad0982be533a079ff118ffda318f2a",
     "generation/FigureS2_layout_audit.json": "eca79f8386737256b6a539ff571b6df05372bfe8c1fcb79406d51ff7c72fd5b9",
     "methods.md": "1eda683517c30947519be6ba5dd84b602580ea583d5be4c75383c49f00928e47",

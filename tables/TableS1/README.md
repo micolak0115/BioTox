@@ -15,5 +15,5 @@ Primary source: `backup/publication_methods_tables_v6/all_publication_tables_v1/
 
 Construction references:
 
-- `publication/standalone/chem/run/chem_stage1_per_task_offset.py`
-- `publication/analyses/m2_2_10_build_matched_cohort_and_scaffold_split.py`
+- `publication/pipeline/stage1/chem_stage1_per_task_offset.py`
+- `publication/analyses/data_preparation/m2_10_build_matched_cohort_and_scaffold_split.py`

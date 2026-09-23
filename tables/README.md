@@ -1,40 +1,50 @@
-# Final tables
+# Publication tables
 
-`Table1` and `Table2` are legacy publication-table asset directories. The
-checked-in `Table1/Table1_source_data.csv` and `Table1/Table1_display.csv` are
-deprecated and must not be used for reproduction or validation; see
-`Table1/DEPRECATED.md`. `TableS1`--`TableS9` are the canonical supplementary
-table sections. Each directory contains the source CSV used for the
-corresponding table.
+Each active publication table has a table-local source-data generator and
+configuration. These scripts consume raw data or already completed Stage-1/
+Stage-2 result files; they do not launch model fitting, repeated CV, figure
+rendering, or another table's generator.
 
-## Supplementary numbering
+## Directory structure
 
-- `TableS1`: endpoint-specific chemical-only dataset statistics
-- `TableS2`: nuclear-receptor cohort sizes and eligibility
-- `TableS3`: stress-response cohort sizes and eligibility
-- `TableS4`: classical molecular-model settings
-- `TableS5`: deep molecular-model settings
-- `TableS6`: repeated outer-loop evaluation
-- `TableS7`: inner-loop ridge selection
-- `TableS8`: molecular-intercept calibration effect
-- `TableS9`: context-specific model performance
+```text
+tables/
+├── README.md
+├── tables_config.json                 # Wrapper routing only
+├── table_generators.json              # Manuscript label and source provenance
+├── regenerate_corrected_tables.py     # Runs selected table-local generators
+├── Table1/                            # Static manuscript table; no generator
+├── Table2/
+└── TableS1/ ... TableS9/
+    ├── code/config.json               # Input-file contract
+    ├── code/generate_tables.py        # Table-specific source-data generator
+    ├── source_data/                   # Checked-in table inputs, when applicable
+    └── generation/                    # Regenerated table data and validation
+```
 
-Generation entry points are in `code/`; Figure S8 carries the calibration-effect visualization.
+`tables_config.json` identifies the script, config, and output directory for
+each table. Input paths remain in the corresponding `Table*/code/config.json`.
+The wrapper validates those inputs before invoking a generator.
 
-## Byte-identical provenance summary
+## Regeneration
 
-The checked-in Table S8 numeric source is byte-identical to the archived
-publication-build output. This verifies the asset copy, but does not imply
-that the archived calibration-ablation run is the current standardized
-primary reproduction run; its run manifest records the residualized variant.
+Run from `publication/` with the `BioTox` environment:
 
-| Asset | Archived byte-identical source | SHA256 | Verification |
-| --- | --- | --- | --- |
-| `/home/kyungan/scripts/BioTox/publication/tables/TableS8/TableS8_source_data.csv` | `/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/tables_full_history/09_figure3_calibration_ablation_statistics/table_s8_figure3_panel_statistics_numeric.csv` | `9e7e2e8cf58b879fe1a1a89d182174b2ee91eae84c8538b49c91fb1c5c952a10` | byte-identical |
+```bash
+conda run -n BioTox python tables/regenerate_corrected_tables.py
+```
 
-## Regenerating
+Regenerate only selected tables:
 
-`code/regenerate_tables.py --output-dir <new-dir>` rebuilds the full table
-bundle from canonical inputs listed in `code/table_paths.json`, writing to a
-fresh directory (existing `Table1/`, `Table2/`, `TableS1/`-`TableS9/` are
-never overwritten). See `code/README.md` for details.
+```bash
+conda run -n BioTox python tables/regenerate_corrected_tables.py \
+  --tables TableS2,TableS3
+```
+
+Outputs are isolated in each table's `generation/` directory. Table 1 is
+literal LaTeX under manuscript label `tab:tox21-lincs-configurations` and is
+intentionally excluded from the active generator list.
+
+Table captions and manuscript labels are documented from
+`../manuscript/BioTox_BiB_Submission_20260921.tex`; generator provenance is in
+`table_generators.json` and `provenance.json`.

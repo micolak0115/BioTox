@@ -1,0 +1,8 @@
+analysis_stage,partition_or_cohort,n_compounds,role
+Tox21 source,All source rows,7462,Starting chemical and endpoint-label collection
+Stage-1 exclusion,LINCS-overlapping scaffolds,5728,Excluded before chemical-prior development
+Stage-1 exclusion,Invalid or unavailable scaffold,2,Excluded before chemical-prior development
+Stage-1 chemical pool,Total,1732,Scaffold-disjoint chemical-prior development
+Stage-1 chemical pool,Training,1039,Candidate parameter estimation
+Stage-1 chemical pool,Validation,346,Within-candidate tuning and checkpoint selection
+Stage-1 chemical pool,Development-selection,347,Candidate ranking and ensemble-size selection

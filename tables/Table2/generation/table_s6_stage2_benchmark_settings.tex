@@ -1,0 +1,57 @@
+\begin{longtable}{lll}
+\caption{Stage-2 model, validation and inference settings.} \label{tab:stage2_settings} \\
+\toprule
+section & setting & value \\
+\midrule
+\endfirsthead
+\caption[]{Stage-2 model, validation and inference settings.} \\
+\toprule
+section & setting & value \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+Study design & Chemical prior & Endpoint-specific top-4 arithmetic mean \\
+Study design & Chemical prior coefficient & Fixed at 1.0 \\
+Study design & Stage-2 intercept & Unpenalized and fit within each training partition \\
+Study design & Transcriptomic coefficients & L2-regularized ridge coefficients \\
+Input & Cell lines & HA1E, HEPG2, HT29, MCF7 \\
+Input & Primary exposure & 6 h \\
+Input & Dose window & 8-12 uM \\
+Input & Genes & 978 L1000 landmark genes \\
+Input & Replicate aggregation & Feature-wise median \\
+Preprocessing & No-adjustment variant & Fold-local z-standardization \\
+Preprocessing & Viability-adjusted variant & Projection away from fixed external CeViChe direction; no additional z-scaling \\
+Validation & Outer repeats & 20 \\
+Validation & Outer folds per repeat & 5 \\
+Validation & Outer grouping & Bemis-Murcko scaffold \\
+Validation & Distinct outer partitions & Required; duplicate signatures forbidden \\
+Validation & Minimum class count & At least 2 positives and 2 negatives in outer train and test \\
+Validation & Inner folds & 3 \\
+Validation & Inner grouping & Stratified Bemis-Murcko scaffold groups \\
+Validation & Inner selection metric & Mean binomial deviance \\
+Validation & Ridge selection rule & One-standard-error rule favoring stronger regularization \\
+Optimization & Ridge alpha grid & 25 values, 10\textasciicircum -4 to 10\textasciicircum 8 at 2 points per decade \\
+Optimization & Solver & L-BFGS-B with analytical gradient \\
+Optimization & Primary max iterations & 500 \\
+Optimization & Cold-retry max iterations & 2000 \\
+Optimization & Gradient tolerance & 1e-6 \\
+Optimization & Acceptance gradient & 1e-5 \\
+Optimization & Function tolerance & 1e-14 \\
+Likelihood & Primary objective & Unweighted Bernoulli negative log-likelihood \\
+Metric & Primary discrimination metric & AUPRC \\
+Metric & Secondary discrimination metric & AUROC \\
+Metric & Calibration metrics & Log loss and Brier score \\
+Inference & Paired effect & Combined minus recalibrated chemical model on identical outer-test compounds \\
+Inference & Dependence correction & Nadeau-Bengio corrected resampled paired t-test on 100 outer-fold effects \\
+Inference & Multiple testing & Benjamini-Hochberg within variant and cell across 12 endpoints \\
+Interpretation & Confirmatory active-count threshold & At least 20 active compounds per endpoint-cell cohort \\
+Reproducibility & Stage-1 seed & 1 \\
+Reproducibility & Outer seed requests & 2042, 3042, 4042, 5042, 6042, 7042, 8042, 9042, 10042, 11042, 12042, 13042, 14042, 15042, 16042, 17042, 18042, 19042, 20042, 21042 \\
+Reproducibility & Successful Stage-2 outer fits & 9600 \\
+Reproducibility & Failed Stage-2 outer fits & 0 \\
+\end{longtable}

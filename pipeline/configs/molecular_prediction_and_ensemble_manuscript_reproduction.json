@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "steps": [
+    "select_ensemble",
+    "deploy_ensemble"
+  ],
+  "outputs": {
+    "cohort_dir": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/cohort",
+    "stage1_dir": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/candidates",
+    "ensemble_selection_dir": "../../data/generated/manuscript_replication_run/molecular_prediction_and_ensemble/topk_selection",
+    "deployment_dir": "../../data/generated/manuscript_replication_run/molecular_prediction_and_ensemble/deployed_k4"
+  },
+  "ensemble": {
+    "k": 4,
+    "n_bootstrap": 2000,
+    "dpi": 300
+  }
+}

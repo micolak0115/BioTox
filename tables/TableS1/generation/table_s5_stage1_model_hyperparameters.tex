@@ -1,0 +1,30 @@
+\begin{longtable}{llrllll}
+\caption{Stage-1 chemical candidate hyperparameters.} \label{tab:stage1_hyperparameters} \\
+\toprule
+candidate & representation & representation size & model & optimization or tuning & class imbalance & fixed settings \\
+\midrule
+\endfirsthead
+\caption[]{Stage-1 chemical candidate hyperparameters.} \\
+\toprule
+candidate & representation & representation size & model & optimization or tuning & class imbalance & fixed settings \\
+\midrule
+\endhead
+\midrule
+\multicolumn{7}{r}{Continued on next page} \\
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+MACCS\_LR & MACCS structural keys & 167 & Logistic regression & C in \{0.001, 0.01, 0.1, 1, 10, 100\}; selected by validation AUPRC & class\_weight=balanced & max\_iter=2000 \\
+Morgan\_LR & Morgan fingerprint & 2048 & Logistic regression & radius=2; C in \{0.001, 0.01, 0.1, 1, 10, 100\}; selected by validation AUPRC & class\_weight=balanced & max\_iter=2000 \\
+RDKit\_LR & RDKit topological fingerprint & 2048 & Logistic regression & C in \{0.001, 0.01, 0.1, 1, 10, 100\}; selected by validation AUPRC & class\_weight=balanced & max\_iter=2000 \\
+MACCS\_XGB & MACCS structural keys & 167 & XGBoost & max\_depth in \{3, 4, 6\}; learning\_rate in \{0.05, 0.1\}; selected by validation AUPRC & scale\_pos\_weight=n\_negative/n\_positive & n\_estimators=300; subsample=0.8; colsample\_bytree=0.8; early\_stopping\_rounds=20; eval\_metric=aucpr; n\_jobs=1 \\
+Morgan\_XGB & Morgan fingerprint & 2048 & XGBoost & radius=2; max\_depth in \{3, 4, 6\}; learning\_rate in \{0.05, 0.1\}; selected by validation AUPRC & scale\_pos\_weight=n\_negative/n\_positive & n\_estimators=300; subsample=0.8; colsample\_bytree=0.8; early\_stopping\_rounds=20; eval\_metric=aucpr; n\_jobs=1 \\
+RDKit\_XGB & RDKit topological fingerprint & 2048 & XGBoost & max\_depth in \{3, 4, 6\}; learning\_rate in \{0.05, 0.1\}; selected by validation AUPRC & scale\_pos\_weight=n\_negative/n\_positive & n\_estimators=300; subsample=0.8; colsample\_bytree=0.8; early\_stopping\_rounds=20; eval\_metric=aucpr; n\_jobs=1 \\
+GCN\_Pretrained & Molecular graph & 300 & GCN & Initialized from supervised\_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & 5 message-passing layers; hidden\_dim=300; mean pooling; JK=last; dropout=0.5; batch\_size=32; AdamW lr=1e-4; max\_epochs=100; patience=20 \\
+GAT\_Pretrained & Molecular graph & 300 & GAT & Initialized from supervised\_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & 5 message-passing layers; hidden\_dim=300; mean pooling; JK=last; dropout=0.5; batch\_size=32; AdamW lr=1e-4; max\_epochs=100; patience=20 \\
+GIN\_Pretrained & Molecular graph & 300 & GIN & Initialized from supervised\_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & 5 message-passing layers; hidden\_dim=300; mean pooling; JK=last; dropout=0.5; batch\_size=32; AdamW lr=1e-4; max\_epochs=100; patience=20 \\
+GraphSAGE\_Pretrained & Molecular graph & 300 & GraphSAGE & Initialized from supervised\_contextpred checkpoint; end-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & 5 message-passing layers; hidden\_dim=300; mean pooling; JK=last; dropout=0.5; batch\_size=32; AdamW lr=1e-4; max\_epochs=100; patience=20 \\
+ChemBERTa\_Pretrained & Canonical SMILES tokens & NA & DeepChem/ChemBERTa-100M-MLM & End-to-end single-task fine-tuning; validation AUPRC checkpoint selection & BCE pos\_weight=n\_negative/n\_positive & max\_length=128; batch\_size=32; AdamW lr=1e-4; weight\_decay=0; linear warmup=6\%; gradient clipping=1.0; max\_epochs=20; patience=5 \\
+Chemprop & Directed molecular graph & 300 & Chemprop D-MPNN & Single-task training; early stopping on validation loss & Unweighted binary classification loss & hidden\_dim=300; depth=3; mean aggregation; dropout=0; batch\_size=32; max\_epochs=100; patience=20 \\
+\end{longtable}

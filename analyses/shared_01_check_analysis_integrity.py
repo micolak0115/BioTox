@@ -23,7 +23,12 @@ REQUIRED_COLUMNS = {
     "sha256",
     "purpose",
 }
-NAME_PATTERN = re.compile(r"m(?P<major>\d+)_(?P<minor>\d+)_(?P<sequence>\d{2})_[a-z0-9_]+\.py")
+NAME_PATTERN = re.compile(r"m(?P<minor>\d+)_(?P<sequence>\d{2})_[a-z0-9_]+\.py")
+SECTION_DIRECTORY = {
+    "2.2": "data_preparation",
+    "2.3": "model_specification",
+    "2.4": "posthoc_analysis",
+}
 
 
 def sha256(path: Path) -> str:
@@ -57,12 +62,15 @@ def main() -> None:
         if position in seen_positions:
             errors.append("duplicate section/sequence")
         seen_positions.add(position)
-        match = NAME_PATTERN.fullmatch(name)
-        expected_section = record["methods_section"].replace(".", "_")
-        if not match or f"{match.group('major')}_{match.group('minor')}" != expected_section:
+        match = NAME_PATTERN.fullmatch(Path(name).name)
+        expected_minor = record["methods_section"].split(".")[-1]
+        if not match or match.group("minor") != expected_minor:
             errors.append("filename does not match methods section")
         if not match or match.group("sequence") != record["sequence"]:
             errors.append("filename does not match sequence")
+        expected_directory = SECTION_DIRECTORY.get(record["methods_section"])
+        if expected_directory is None or Path(name).parent.as_posix() != expected_directory:
+            errors.append("filename is not stored under its methods-section directory")
         if not script.is_file():
             errors.append("script missing")
             actual_hash = ""
@@ -99,7 +107,11 @@ def main() -> None:
         )
 
     indexed = set(seen_names)
-    present = {path.name for path in ROOT.glob("m*.py")}
+    present = {
+        path.relative_to(ROOT).as_posix()
+        for directory in SECTION_DIRECTORY.values()
+        for path in (ROOT / directory).glob("m*.py")
+    }
     unindexed = sorted(present - indexed)
     missing_scripts = sorted(indexed - present)
     failures = [row for row in report if row["status"] == "FAIL"]

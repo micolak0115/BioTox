@@ -1,5 +1,5 @@
 {
-  "python": "/data/kyungan/miniconda3/envs/cladd/bin/python",
+  "python": "python",
   "figures": {
     "Figure2": {
       "script": "Figure2/code/generate_figure.py",

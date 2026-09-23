@@ -1,0 +1,13 @@
+task,rule,k,ensemble_candidates,test_auprc
+NR-AR,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.7784190610139977
+NR-AR-LBD,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.3782851426349814
+NR-AhR,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.5350880188529478
+NR-Aromatase,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.39009841904631753
+NR-ER,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.44912408952599064
+NR-ER-LBD,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.22202718657774578
+NR-PPAR-gamma,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.18784511335185777
+SR-ARE,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.5487234477102337
+SR-ATAD5,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.23051002110498336
+SR-HSE,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.30052738906585197
+SR-MMP,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.6529215344153533
+SR-p53,mean,12,MACCS_LR;MACCS_XGB;Morgan_LR;Morgan_XGB;RDKit_LR;RDKit_XGB;GCN_Pretrained;GAT_Pretrained;GIN_Pretrained;GraphSAGE_Pretrained;ChemBERTa_Pretrained;Chemprop,0.4958245511530422

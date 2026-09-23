@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "reproducibility_check": {
+    "purpose": "Re-run Stage 2 from the frozen inputs used for the manuscript, without using Stage 1 refit/reproduction outputs.",
+    "stage1_source": "original_manuscript_frozen",
+    "stage1_reproduction_outputs_used": false,
+    "overwrite_existing_results": false,
+    "original_stage1_offset_sha256": "b4aef5a1efa6d3b2d6819a32343a634b884db9b0d4e2592fe9c3755dee15fac0",
+    "reference_primary_run": "../../data/generated/transcriptomic_residual_learning/primary_6h_20x5",
+    "reference_paired_6h_run": "/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_paired6h_repeated20x5_innerseed_v3",
+    "reference_paired_24h_run": "../../data/generated/transcriptomic_residual_learning/paired_24h_20x5",
+    "reference_calibration_sensitivity_run": "../../data/generated/transcriptomic_residual_learning/calibration_sensitivity_20x5"
+  },
+  "steps": [
+    "run_primary_residual_cv",
+    "run_paired_6h_residual_cv",
+    "run_paired_24h_residual_cv",
+    "run_calibration_sensitivity"
+  ],
+  "inputs": {
+    "cohort_dir": "/data/kyungan/scripts/BioTox/backup/matched_split_rebuilt",
+    "chem_offset": "/data/kyungan/scripts/BioTox/backup/chem_offset_k4_deployed/chem_offset_final.csv"
+  },
+  "outputs": {
+    "gene_features_dir": "../../data/generated/transcriptomic_residual_learning/gene_features_6h",
+    "paired_input_root": "../../data/generated/transcriptomic_residual_learning/paired_inputs_6h24h",
+    "primary_run_dir": "../../data/generated/reproducibility_checks/stage2_original_manuscript_20260923_v1/primary_6h_20x5",
+    "paired_6h_run_dir": "../../data/generated/reproducibility_checks/stage2_original_manuscript_20260923_v1/paired_6h_20x5",
+    "paired_24h_run_dir": "../../data/generated/reproducibility_checks/stage2_original_manuscript_20260923_v1/paired_24h_20x5",
+    "calibration_sensitivity_dir": "../../data/generated/reproducibility_checks/stage2_original_manuscript_20260923_v1/calibration_sensitivity_20x5"
+  },
+  "residual_learning": {
+    "variant": "standardized",
+    "tasks": [
+      "NR-AR",
+      "NR-AR-LBD",
+      "NR-AhR",
+      "NR-Aromatase",
+      "NR-ER",
+      "NR-ER-LBD",
+      "NR-PPAR-gamma",
+      "SR-ARE",
+      "SR-ATAD5",
+      "SR-HSE",
+      "SR-MMP",
+      "SR-p53"
+    ],
+    "cells": ["HA1E", "HEPG2", "HT29", "MCF7"],
+    "outer_folds": 5,
+    "outer_seeds": [
+      2042,
+      3042,
+      4042,
+      5042,
+      6042,
+      7042,
+      8042,
+      9042,
+      10042,
+      11042,
+      12042,
+      13042,
+      14042,
+      15042,
+      16042,
+      17042,
+      18042,
+      19042,
+      20042,
+      21042
+    ],
+    "seed_search_attempts": 1000,
+    "ridge_solver": "lbfgs",
+    "n_jobs": 24,
+    "points_per_decade": 2.0,
+    "maxiter": 500,
+    "retry_maxiter": 2000,
+    "gtol": 1e-6,
+    "acceptance_gradient": 1e-5,
+    "ftol": 1e-14,
+    "use_sample_weight": false,
+    "skip_summary": false
+  },
+  "paired_timepoints": {
+    "times_hours": [6, 24],
+    "dose_window_um": [8.0, 12.0],
+    "cells": ["HA1E", "HT29", "MCF7"]
+  },
+  "calibration_sensitivity": {
+    "source_run_dir": null,
+    "variant": "standardized",
+    "tasks": null,
+    "cells": null,
+    "expected_repeats": 20,
+    "repeat_limit": null,
+    "n_jobs": 24
+  }
+}

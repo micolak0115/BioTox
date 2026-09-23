@@ -1,0 +1,21 @@
+{
+  "created_at_utc": "2026-09-23T05:40:46.295183+00:00",
+  "pipeline": "publication_split_statistics_v1",
+  "output_dir": "/data/kyungan/scripts/BioTox/publication/tables/TableS3/generation",
+  "outer_count_source": "archived_oof_membership",
+  "outer_counts_exact": true,
+  "inner_membership_serialized": false,
+  "inner_counts_reported": false,
+  "confirmatory_min_total_positives": 20,
+  "minimum_outer_partition_class_count": 2,
+  "paired_min_cohort_size": 50,
+  "primary_outer_fold_rows": 4800,
+  "paired_outer_fold_rows": 3600,
+  "generated_files": {
+    "audit_stage2_outer_fold_counts.csv": "022ec2c6ac9899ab465cee1640c677ad446dec84bbeda603c7c1ddfbbcf14b6b",
+    "audit_stage2_outer_fold_summary.csv": "a83c0afa44f1790079ce67c04f04405ccb9786e42692d8dab923399cdab0b6dc",
+    "table_1_study_design_exact_splits.csv": "1a0ef0bf010ae99b08cee97263e3098fc803ca68def10e00fdf213fed8e600c6",
+    "table_s2_primary_6h_eligibility.csv": "6a4865d38053439c50076079f0a6c1a2e51c542fbc13b976caebf104d986bc87",
+    "table_s3_paired_timepoint_eligibility.csv": "732f66b10a9accc480a037bbd909eb498885757b5926c66a5fe69e2bd58973f7"
+  }
+}

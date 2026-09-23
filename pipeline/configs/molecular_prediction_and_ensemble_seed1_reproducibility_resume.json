@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "steps": [
+    "select_ensemble",
+    "deploy_ensemble"
+  ],
+  "outputs": {
+    "cohort_dir": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/cohort",
+    "stage1_dir": "../../data/generated/reproducibility_checks/stage1_seed1_20260923/candidates",
+    "ensemble_selection_dir": "../../data/generated/reproducibility_checks/stage1_seed1_20260923/topk_selection",
+    "deployment_dir": "../../data/generated/reproducibility_checks/stage1_seed1_20260923/deployed_k4"
+  },
+  "ensemble": {
+    "k": 4,
+    "n_bootstrap": 2000,
+    "dpi": 300
+  },
+  "reproducibility_check": {
+    "mode": "resume_after_completed_read_only_seed1_candidate_cache_reassembly",
+    "reference_candidates": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/candidates",
+    "reference_ensemble_selection": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/topk_selection",
+    "reference_deployment": "../../data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/deployed_k4",
+    "overwrite_existing_results": false,
+    "model_refit_performed": false
+  }
+}

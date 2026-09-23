@@ -1,0 +1,35 @@
+# Main BioTox publication environment.
+#
+# Create:
+#   conda env create -f BioTox_environment.yml
+#
+# The Chemprop Stage-1 candidate uses the separate BioTox_chemprop
+# environment because its Python/PyTorch stack is incompatible with this one.
+name: BioTox
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - pip:
+      - numpy==1.24.4
+      - pandas==2.2.3
+      - scipy==1.13.1
+      - scikit-learn==1.5.2
+      - statsmodels==0.14.6
+      - joblib==1.5.3
+      - threadpoolctl==3.6.0
+      - matplotlib==3.9.3
+      - seaborn==0.13.2
+      - pillow==11.3.0
+      - h5py==3.14.0
+      - psutil==7.2.2
+      - anndata==0.10.8
+      - scanpy==1.10.3
+      - cmapPy==4.0.1
+      - rdkit==2024.3.2
+      - torch==2.2.2
+      - torch-geometric==2.6.1
+      - transformers==4.41.0
+      - xgboost==2.1.4
+

@@ -1,0 +1,13 @@
+family,task,mechanistic_endpoint,tox21_protocol,tox21_assay_system,tox21_exposure_h,tox21_vehicle,tox21_n_concentration_points,exact_lincs_cell,cell_alignment,best_overall_cell,best_overall_timepoint
+NR,NR-AR,Androgen-receptor transcriptional activation,tox21-ar-mda-kb2-luc-agonist-p1,MDA-kb2 AR-luc,16,DMSO,16,,No exact LINCS counterpart,HEPG2,6h
+NR,NR-AR-LBD,Androgen-receptor ligand-binding-domain activation,tox21-ar-bla-agonist-p1,AR-bla,16,DMSO,16,,No exact LINCS counterpart,MCF7,24h
+NR,NR-AhR,Aryl-hydrocarbon-receptor activation,tox21-ahr-p1,HepG2-AhR-luc,24,DMSO,16,HEPG2,Exact match available; rank 9,HA1E,24h
+NR,NR-Aromatase,Aromatase activity/inhibition,tox21-aromatase-p1,MCF-7,24,DMSO,16,MCF7,Exact match; global best,MCF7,24h
+NR,NR-ER,Estrogen-receptor transcriptional response,tox21-er-luc-bg1-4e2-antagonist-p2,BG1,22,DMSO,16,,No exact LINCS counterpart,HEPG2,6h
+NR,NR-ER-LBD,Estrogen-receptor ligand-binding-domain activation,tox21-er-bla-agonist-p2,HEK293,18,DMSO,16,,No exact LINCS counterpart,HEPG2,6h
+NR,NR-PPAR-gamma,PPAR-gamma activation,tox21-pparg-bla-agonist-p1,PPARg-bla,17,DMSO,16,,No exact LINCS counterpart,HEPG2,6h
+SR,SR-ARE,Antioxidant-response-element activation,tox21-are-bla-p1,ARE-bla reporter system,16,DMSO,16,,No exact LINCS counterpart,HEPG2,6h
+SR,SR-ATAD5,ATAD5/ELG1 DNA-damage response,tox21-elg1-luc-agonist-p1,HEK293T,,DMSO,16,,No exact LINCS counterpart,HEPG2,6h
+SR,SR-HSE,Heat-shock response-element activation,tox21-hse-bla-p1,HeLa,5,DMSO,16,,No exact LINCS counterpart,HT29,24h
+SR,SR-MMP,Mitochondrial membrane-potential disruption,tox21-mitotox-p1,HepG2,1,DMSO,16,HEPG2,Exact match available; rank 3,HA1E,24h
+SR,SR-p53,p53 response-element activation,tox21-p53-bla-p1,p53RE-bla reporter system,16,DMSO,16,,No exact LINCS counterpart,MCF7,24h

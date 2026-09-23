@@ -1,0 +1,4 @@
+scope,n_outer_folds,upper_boundary_n,upper_boundary_pct,lower_boundary_n,lower_boundary_pct,saturated_no_bio_signal_n,saturated_no_bio_signal_pct,one_se_stronger_n,one_se_stronger_pct
+residualized,4800,3791,78.97916666666667,0,0.0,3150,65.625,4049,84.35416666666666
+standardized,4800,3688,76.83333333333333,0,0.0,3070,63.95833333333333,4076,84.91666666666666
+all,9600,7479,77.90625,0,0.0,6220,64.79166666666667,8125,84.63541666666666

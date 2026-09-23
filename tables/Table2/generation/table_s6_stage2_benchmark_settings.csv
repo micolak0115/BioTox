@@ -1,0 +1,40 @@
+section,setting,value,provenance
+Study design,Chemical prior,Endpoint-specific top-4 arithmetic mean,Completed-run manifest and archived audit artifacts
+Study design,Chemical prior coefficient,Fixed at 1.0,Completed-run manifest and archived audit artifacts
+Study design,Stage-2 intercept,Unpenalized and fit within each training partition,Completed-run manifest and archived audit artifacts
+Study design,Transcriptomic coefficients,L2-regularized ridge coefficients,Completed-run manifest and archived audit artifacts
+Input,Cell lines,"HA1E, HEPG2, HT29, MCF7",Completed-run manifest and archived audit artifacts
+Input,Primary exposure,6 h,Completed-run manifest and archived audit artifacts
+Input,Dose window,8-12 uM,Completed-run manifest and archived audit artifacts
+Input,Genes,978 L1000 landmark genes,Completed-run manifest and archived audit artifacts
+Input,Replicate aggregation,Feature-wise median,Completed-run manifest and archived audit artifacts
+Preprocessing,No-adjustment variant,Fold-local z-standardization,Completed-run manifest and archived audit artifacts
+Preprocessing,Viability-adjusted variant,Projection away from fixed external CeViChe direction; no additional z-scaling,Completed-run manifest and archived audit artifacts
+Validation,Outer repeats,20,Completed-run manifest and archived audit artifacts
+Validation,Outer folds per repeat,5,Completed-run manifest and archived audit artifacts
+Validation,Outer grouping,Bemis-Murcko scaffold,Completed-run manifest and archived audit artifacts
+Validation,Distinct outer partitions,Required; duplicate signatures forbidden,Completed-run manifest and archived audit artifacts
+Validation,Minimum class count,At least 2 positives and 2 negatives in outer train and test,Completed-run manifest and archived audit artifacts
+Validation,Inner folds,3,Completed-run manifest and archived audit artifacts
+Validation,Inner grouping,Stratified Bemis-Murcko scaffold groups,Completed-run manifest and archived audit artifacts
+Validation,Inner selection metric,Mean binomial deviance,Completed-run manifest and archived audit artifacts
+Validation,Ridge selection rule,One-standard-error rule favoring stronger regularization,Completed-run manifest and archived audit artifacts
+Optimization,Ridge alpha grid,"25 values, 10^-4 to 10^8 at 2 points per decade",Completed-run manifest and archived audit artifacts
+Optimization,Solver,L-BFGS-B with analytical gradient,Versioned executable defaults in offset_ridge_lbfgs.py and nested_cv_offset_logistic_calibrated_v2.py; not persisted in the completed-run manifest
+Optimization,Primary max iterations,500,Versioned executable defaults in offset_ridge_lbfgs.py and nested_cv_offset_logistic_calibrated_v2.py; not persisted in the completed-run manifest
+Optimization,Cold-retry max iterations,2000,Versioned executable defaults in offset_ridge_lbfgs.py and nested_cv_offset_logistic_calibrated_v2.py; not persisted in the completed-run manifest
+Optimization,Gradient tolerance,1e-6,Versioned executable defaults in offset_ridge_lbfgs.py and nested_cv_offset_logistic_calibrated_v2.py; not persisted in the completed-run manifest
+Optimization,Acceptance gradient,1e-5,Versioned executable defaults in offset_ridge_lbfgs.py and nested_cv_offset_logistic_calibrated_v2.py; not persisted in the completed-run manifest
+Optimization,Function tolerance,1e-14,Versioned executable defaults in offset_ridge_lbfgs.py and nested_cv_offset_logistic_calibrated_v2.py; not persisted in the completed-run manifest
+Likelihood,Primary objective,Unweighted Bernoulli negative log-likelihood,Completed-run manifest and archived audit artifacts
+Metric,Primary discrimination metric,AUPRC,Completed-run manifest and archived audit artifacts
+Metric,Secondary discrimination metric,AUROC,Completed-run manifest and archived audit artifacts
+Metric,Calibration metrics,Log loss and Brier score,Completed-run manifest and archived audit artifacts
+Inference,Paired effect,Combined minus recalibrated chemical model on identical outer-test compounds,Completed-run manifest and archived audit artifacts
+Inference,Dependence correction,Nadeau-Bengio corrected resampled paired t-test on 100 outer-fold effects,Completed-run manifest and archived audit artifacts
+Inference,Multiple testing,Benjamini-Hochberg within variant and cell across 12 endpoints,Completed-run manifest and archived audit artifacts
+Interpretation,Confirmatory active-count threshold,At least 20 active compounds per endpoint-cell cohort,Completed-run manifest and archived audit artifacts
+Reproducibility,Stage-1 seed,1,Completed-run manifest and archived audit artifacts
+Reproducibility,Outer seed requests,"2042, 3042, 4042, 5042, 6042, 7042, 8042, 9042, 10042, 11042, 12042, 13042, 14042, 15042, 16042, 17042, 18042, 19042, 20042, 21042",Completed-run manifest and archived audit artifacts
+Reproducibility,Successful Stage-2 outer fits,9600,Completed-run manifest and archived audit artifacts
+Reproducibility,Failed Stage-2 outer fits,0,Completed-run manifest and archived audit artifacts

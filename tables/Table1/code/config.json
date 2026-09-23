@@ -1,0 +1,5 @@
+{
+  "input_files": {},
+  "output": {"directory": "../generation"},
+  "note": "Table 1 is a literal manuscript table; no generator or external prerequisite is used."
+}

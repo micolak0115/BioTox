@@ -1,0 +1,36 @@
+{
+  "status": "complete",
+  "generator": "/data/kyungan/scripts/BioTox/publication/tables/Table2/code/generate_tables.py",
+  "source_files": {
+    "tox21": "/data/kyungan/pretrain-gnns/dataset/tox21/raw/tox21_smiles.csv",
+    "cohort_dir": "/data/kyungan/scripts/BioTox/backup/matched_split_rebuilt",
+    "paired_manifest": "/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/paired_timepoint_inputs_6h24h_8to12uM_v1/RUN_COMPLETE.json",
+    "primary_run_manifest": "/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1/RUN_COMPLETE.json",
+    "assay_metadata": "/data/kyungan/scripts/BioTox/backup/main_table3_tox21_lincs_config_v1/table3_tox21_lincs_numeric.csv",
+    "ensemble_composition": "/data/kyungan/scripts/BioTox/backup/chemical_ensemble_auprc_table_csv_v1/k4_ensemble_composition.csv"
+  },
+  "outputs": {
+    "flow": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s0_dataset_flow.csv",
+    "endpoint": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s1_tox21_endpoint_statistics.csv",
+    "primary_counts": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s2_primary_6h_task_cell_counts.csv",
+    "cohort": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s3_lincs_cohort_statistics.csv",
+    "paired_counts": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s4_paired_timepoint_task_cell_counts.csv",
+    "stage1_hyper": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s5_stage1_model_hyperparameters.csv",
+    "stage2_settings": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s6_stage2_benchmark_settings.csv",
+    "ensemble": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s7_k4_ensemble_composition.csv",
+    "flow_tex": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s0_dataset_flow.tex",
+    "endpoint_tex": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s1_tox21_endpoint_statistics.tex",
+    "stage1_hyper_tex": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s5_stage1_model_hyperparameters.tex",
+    "stage2_settings_tex": "/data/kyungan/scripts/BioTox/publication/tables/Table2/generation/table_s6_stage2_benchmark_settings.tex"
+  },
+  "row_counts": {
+    "dataset_flow": 7,
+    "tox21_endpoint_statistics": 12,
+    "primary_6h_task_cell_counts": 48,
+    "lincs_cohort_statistics": 17,
+    "paired_timepoint_task_cell_counts": 96,
+    "stage1_model_hyperparameters": 12,
+    "stage2_benchmark_settings": 39,
+    "k4_ensemble_constituents": 48
+  }
+}

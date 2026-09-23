@@ -1,0 +1,15 @@
+{
+  "source_run": "/data/kyungan/scripts/BioTox/publication/pipeline/stage2/methodology_audit/results/paired_24h_20x5",
+  "source_pipeline": "calibrated_stage2_repeated_nested_cv_innerseed_v3",
+  "n_repeats": 20,
+  "outer_folds_per_repeat": 5,
+  "n_paired_draws_per_task_cell": 100,
+  "primary_metric": "AUPRC",
+  "secondary_metric": "AUROC",
+  "calibration_metric": "LogLoss (negative BioTox-minus-Chem-only delta improves fit)",
+  "stage2_model_spec": "frozen_offset_fixed_calibration_intercept_ridge_biology_v3",
+  "calibration_intercept_frozen": true,
+  "primary_inference": "Nadeau-Bengio corrected resampled paired t-test",
+  "multiple_testing": "Benjamini-Hochberg within variant and cell",
+  "confirmatory_multiplicity_family": "standardized variant: 12 tasks within each cell; residualized variant is a separate sensitivity family"
+}

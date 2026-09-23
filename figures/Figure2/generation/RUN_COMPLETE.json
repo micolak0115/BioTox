@@ -27,9 +27,9 @@
     "/data/kyungan/scripts/BioTox/publication/figures/Figure2/generation/stage1_topk_ensemble_a4_publication_final.svg"
   ],
   "figure_sha256": {
-    "stage1_topk_ensemble_a4_publication_final.pdf": "e0e48e1fd0beea3c527e0dcc7060dd0d5712a3ef9a779c54cb8c82f3c849b605",
+    "stage1_topk_ensemble_a4_publication_final.pdf": "fb811da517c7d22e1fa0a3e4e1cd4f5dddd85924b8df245ee5bed5512f5a3403",
     "stage1_topk_ensemble_a4_publication_final.png": "591fc0f01152338c91d9c12f82debe6738908720226061a66478f60421e246cd",
-    "stage1_topk_ensemble_a4_publication_final.svg": "50d96178f50581800606d85cf67207ca4271796d628ec5bf113e310939b4503b"
+    "stage1_topk_ensemble_a4_publication_final.svg": "c55d274ffbcde102e2554c4aed44f4eec6a9bfc2869a5c26eb51105bc4caeb63"
   },
   "macro_data": "/data/kyungan/scripts/BioTox/publication/figures/Figure2/generation/stage1_topk_global_macro_auprc.csv",
   "caption": "/data/kyungan/scripts/BioTox/publication/figures/Figure2/generation/stage1_topk_ensemble_a4_publication_final_caption.md",

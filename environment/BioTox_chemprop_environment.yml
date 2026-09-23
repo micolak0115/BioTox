@@ -1,0 +1,25 @@
+# Chemprop/D-MPNN Stage-1 candidate environment.
+#
+# Create:
+#   conda env create -f BioTox_chemprop_environment.yml
+#
+# This environment is intentionally separate from BioTox: Chemprop 2.2.2
+# requires a newer Python/PyTorch stack than the main publication pipeline.
+name: BioTox_chemprop
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - numpy==2.4.6
+      - pandas==3.0.3
+      - scipy==1.17.1
+      - scikit-learn==1.9.0
+      - joblib==1.5.3
+      - threadpoolctl==3.6.0
+      - rdkit==2026.3.4
+      - torch==2.6.0
+      - lightning==2.6.5
+      - chemprop==2.2.2
+

@@ -1,0 +1,135 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-09-23T06:03:02.974232+00:00",
+  "fixed_seed": 1,
+  "candidate_cache_mode": "read_only_reference_cache_reassembly",
+  "model_refit_performed": false,
+  "existing_results_overwritten": false,
+  "reference_candidates": "/data/kyungan/scripts/BioTox/publication/data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/candidates",
+  "reference_selection": "/data/kyungan/scripts/BioTox/publication/data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/topk_selection",
+  "reference_deployment": "/data/kyungan/scripts/BioTox/publication/data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/deployed_k4",
+  "reproduced_root": "/data/kyungan/scripts/BioTox/publication/data/generated/reproducibility_checks/stage1_seed1_20260923",
+  "candidate_caches": {
+    "NR-AR.pkl": {
+      "reference_sha256": "40bc6dc0f5e126492c923cbcc5f0ab9be2b8535c8dcd8451439c9d34f0f96c14",
+      "reproduced_sha256": "736c6e1242163a774441d6291bb600ad8e9a121b700c1bbd72b2199d4b5e2547",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "NR-AR-LBD.pkl": {
+      "reference_sha256": "1e6e4ae68fa8feea86365930017f47b9bee1528171988c2e85bfc34eebdc0775",
+      "reproduced_sha256": "6189e99261afbcddf4e030074bc75fc746dc9f0b0266857809eff819f8cf01b0",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "NR-AhR.pkl": {
+      "reference_sha256": "32369b6b87752042100a0201a3b4654b047e8c98c797ce38709297329fed1257",
+      "reproduced_sha256": "73729616095b14cf4a52d9bc60dffd4e473f7087831ef9130c36af5a8ee50771",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "NR-Aromatase.pkl": {
+      "reference_sha256": "dac12cd86ba3bab0644e882782cd39d285413fb5f0a70619507ec69e6253778d",
+      "reproduced_sha256": "237e59a6e3fb4396c78efbb7b037bf63d712da817f41dff388375b4cf7704501",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "NR-ER.pkl": {
+      "reference_sha256": "7d4ffa5651cc9ea7dc4fec2a1a24a7dff388bc416e8b85a48234784570015518",
+      "reproduced_sha256": "12cf25a6f7d9fcb067bb00dceec2a2f4fb4ab39121b009256a8ab8f8acef55f3",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "NR-ER-LBD.pkl": {
+      "reference_sha256": "e7369a8f92b8776099f03a359bc82cce1b10d5b1e7e19e72f3f5ee327a981a8b",
+      "reproduced_sha256": "37629d6ef0a7113fab8f0eb7291ca4df89e5c0a76afb5398f90a33d694a1b985",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "NR-PPAR-gamma.pkl": {
+      "reference_sha256": "1ecc7ecdfceca818290bdea05a20d4066f9783d9a6378feef6683bd772bc91a1",
+      "reproduced_sha256": "92a74e1b239bc6e432f575cd4837f5a9c8388eaf7f031dce2b3aab80c5e043d2",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "SR-ARE.pkl": {
+      "reference_sha256": "f90b623fd3472a214416746b6a2a1779b6fc115b1e205f84c9770ee53a489c8f",
+      "reproduced_sha256": "7f268a51af05be4e1867b32d49c37efe47c8d72665c02f458163a7e08218e4e6",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "SR-ATAD5.pkl": {
+      "reference_sha256": "7bd622b19cf2468b9b324bc93512ae51dcfa273d4967ecc515e5faeb5350161a",
+      "reproduced_sha256": "0f6d0fe9146aa3149b795b8df2e7bce37f3d1955be22b5555ad9b94c3fc1cefd",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "SR-HSE.pkl": {
+      "reference_sha256": "76fc2c9a3c95b5fb83c1199e57cb9d397be00e32f99ab9236f87524a23bd9baa",
+      "reproduced_sha256": "f53ee8f0956f65bf5fe5e4b670bbe6cbdc173278baf19eb4c8f8992cb5325afa",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "SR-MMP.pkl": {
+      "reference_sha256": "bf1f5901de77fbe55a98c2697074fc7040e34651a6bd238c1a050cd37910a97d",
+      "reproduced_sha256": "ad974f824fcda58c83aa5f448eb5e87d40e9d889a00995e97e7d48d23ce6732b",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    },
+    "SR-p53.pkl": {
+      "reference_sha256": "7117f29acabe00c7845087917fdda1efaf39d88f24baa2cd330316ae126c9abb",
+      "reproduced_sha256": "6deea3ef02ee8121769631c7fcacb09623a3ba660fd2e44345ead13ea58ec272",
+      "semantic_match": true,
+      "seed": 1,
+      "candidate_count": 12
+    }
+  },
+  "csv_outputs": {
+    "selection/stage1_topk_ensemble_curve_revised.csv": {
+      "reference_sha256": "1e46566353426226977e795c92e6511e1f1c047778a0f03fa7f71307eba97961",
+      "reproduced_sha256": "1e46566353426226977e795c92e6511e1f1c047778a0f03fa7f71307eba97961",
+      "table_match": true,
+      "rows": 144,
+      "columns": 10
+    },
+    "selection/stage1_topk_k4_reference_by_task.csv": {
+      "reference_sha256": "4fd8b3a3f9da45997dcf4daa5001a74bd69d66b18ea8e551f9f1ee555f1dfbb3",
+      "reproduced_sha256": "4fd8b3a3f9da45997dcf4daa5001a74bd69d66b18ea8e551f9f1ee555f1dfbb3",
+      "table_match": true,
+      "rows": 12,
+      "columns": 10
+    },
+    "selection/stage1_topk_macro_summary_revised.csv": {
+      "reference_sha256": "4d9915d88e4501bd07d52557c204a1b2d27dd91da804eb430668d06532920513",
+      "reproduced_sha256": "4d9915d88e4501bd07d52557c204a1b2d27dd91da804eb430668d06532920513",
+      "table_match": true,
+      "rows": 12,
+      "columns": 5
+    },
+    "deployment/chem_offset_final.csv": {
+      "reference_sha256": "dd7d385c7d69daba08fa791baf1273a49bb3e68fa0e5cdadaa8a38d06d15e299",
+      "reproduced_sha256": "dd7d385c7d69daba08fa791baf1273a49bb3e68fa0e5cdadaa8a38d06d15e299",
+      "table_match": true,
+      "rows": 1355,
+      "columns": 13
+    },
+    "deployment/chem_prior_deployment_report.csv": {
+      "reference_sha256": "cee760af18c5c3e677bc811f2a63903009fd1740e10696bc2250052a39ea7d67",
+      "reproduced_sha256": "cee760af18c5c3e677bc811f2a63903009fd1740e10696bc2250052a39ea7d67",
+      "table_match": true,
+      "rows": 12,
+      "columns": 5
+    }
+  }
+}

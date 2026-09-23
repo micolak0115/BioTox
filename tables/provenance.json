@@ -8,9 +8,9 @@
       "bytes": 3173,
       "sha256": "ea9363e51338b318b86cad80a9565867776a608b626c553a1dd45ed78be2d296"
     },
-    "Table1/Table1_source_data.csv": {
-      "bytes": 6534,
-      "sha256": "57597ace439e8c0828d30fa6bf4750920b87bb2007bd797b1545af6f8714de65"
+    "Table1/source_data/Table1_source_data.csv": {
+      "bytes": 1794,
+      "sha256": "22b469f32fa0f5c771fd3560a7124280391f5d4329e1186abd2a234d7a61b1fa"
     },
     "Table2/Table2.html": {
       "bytes": 5243,
@@ -48,7 +48,7 @@
       "bytes": 347,
       "sha256": "0a099f597e83cec4b0fcec424d061130400124d1644a7a608adaa2e5be6efc48"
     },
-    "Table2/Table2_source_data.csv": {
+    "Table2/source_data/Table2_source_data.csv": {
       "bytes": 33201,
       "sha256": "3ebd7c13d0ecd6b058dd2caf42abacd57e39bf54067d4fed899a5da9beb34b8e"
     },
@@ -64,7 +64,7 @@
       "bytes": 2874,
       "sha256": "eedea9d70fbc52a1e2c3623ca8d85bc5df275d9ff3fcb545357e3a5d7389cbe4"
     },
-    "TableS1/TableS1_source_data.csv": {
+    "TableS1/source_data/TableS1_source_data.csv": {
       "bytes": 1654,
       "sha256": "2b6514001823ef6eabbdc6f8f6bb98239ddb3cc79859eb7195d1754555df41f6"
     },
@@ -100,17 +100,13 @@
       "bytes": 43704,
       "sha256": "0280c3581589c48bcce0bb6eec1ff5964d7a3370616c6e8ccf10e6ed28f2b80b"
     },
-    "TableS2/TableS2_source_data.csv": {
+    "TableS2/source_data/TableS2_source_data.csv": {
       "bytes": 6910,
       "sha256": "fb74cb251521bc8b59654aabe70f8dbd70aa734342a87c63c28587a31c11fe78"
     },
     "TableS2/caption.md": {
       "bytes": 430,
       "sha256": "f9a30016480b639ff98c5316a7e76276e1538d7b56ec729a208073ccfdd2a6cd"
-    },
-    "TableS2/cohort_validation.json": {
-      "bytes": 33743,
-      "sha256": "b93a8de91befbb6111ddc89f2dd89dc8b7d9721c325e41611fa162aed2104e70"
     },
     "TableS3/TableS3.html": {
       "bytes": 5636,
@@ -136,17 +132,13 @@
       "bytes": 327077,
       "sha256": "2829e198ec2828df99f24230565ab431232a5d0e779ee653910e2e549e582232"
     },
-    "TableS3/TableS3_source_data.csv": {
+    "TableS3/source_data/TableS3_source_data.csv": {
       "bytes": 4988,
       "sha256": "b013f24b702cf164855426dc3d228d94cd60d2818a7e688a702279071403b763"
     },
     "TableS3/caption.md": {
       "bytes": 429,
       "sha256": "5f44808f890de1f835d40c9324e1f0baa7d078999d759f27ed9cf9db98c33b60"
-    },
-    "TableS3/cohort_validation.json": {
-      "bytes": 24147,
-      "sha256": "b9683a28371baed29a193e7724766cd044b02b496b657033471ce03680592b7d"
     },
     "TableS4/TableS4.html": {
       "bytes": 3043,
@@ -172,7 +164,7 @@
       "bytes": 262955,
       "sha256": "6a06444739669c24b422d3e3ff61c752c642192789f6d07ccc8854161c401cf0"
     },
-    "TableS4/TableS4_source_data.csv": {
+    "TableS4/source_data/TableS4_source_data.csv": {
       "bytes": 1656,
       "sha256": "2d2ffa4690afd42ab8fa468d4e38d9b6ce31c8e3d53dcbf2f80e263425f9b858"
     },
@@ -208,7 +200,7 @@
       "bytes": 369751,
       "sha256": "30b4aac5c8eb9552923d888fec75ad5da1c3bd0d190465c09a17934d021d132b"
     },
-    "TableS5/TableS5_source_data.csv": {
+    "TableS5/source_data/TableS5_source_data.csv": {
       "bytes": 2320,
       "sha256": "5addb565949b74939fdb8aa2aa10cdbf44a20a82fa16d5028458c8cc8ad426bd"
     },
@@ -236,7 +228,7 @@
       "bytes": 1171,
       "sha256": "408291d9c037bb0005209630376847c91e1c78c376c6b217f5e984eb71f05d62"
     },
-    "TableS6/TableS6_source_data.csv": {
+    "TableS6/source_data/TableS6_source_data.csv": {
       "bytes": 3252,
       "sha256": "4461726105f572ad7c7feb6a060caac0744d95d0f55368c381d1fbbe101744f3"
     },
@@ -260,7 +252,7 @@
       "bytes": 548,
       "sha256": "45278b9e6b9f469cf9a3801144d91c504742102a543a7882ea5286d4e5260c9c"
     },
-    "TableS7/TableS7_source_data.csv": {
+    "TableS7/source_data/TableS7_source_data.csv": {
       "bytes": 1249,
       "sha256": "6f5c89710761870c5a89bda24e5ca32bdab7df3b3d368a8f54b4ca135d577ecc"
     },
@@ -284,7 +276,7 @@
       "bytes": 7347,
       "sha256": "6b3ba8688a3dc5e893acaff1e929c2ca1d49edf979df831ea78b8f4f5fb20b5b"
     },
-    "TableS8/TableS8_source_data.csv": {
+    "TableS8/source_data/TableS8_source_data.csv": {
       "bytes": 15721,
       "sha256": "9e7e2e8cf58b879fe1a1a89d182174b2ee91eae84c8538b49c91fb1c5c952a10"
     },
@@ -332,7 +324,7 @@
       "bytes": 18512,
       "sha256": "1cda768d5a301e72df8ee628d09b83aae80ba35db6dd693fd0d2153bb93e0f49"
     },
-    "TableS9/TableS9_source_data.csv": {
+    "TableS9/source_data/TableS9_source_data.csv": {
       "bytes": 35452,
       "sha256": "d25eb819652efd741450becd0138aad34d2a9a6154d459ab2ee33ab5ea8a8785"
     },
@@ -375,6 +367,14 @@
     "tables.tex": {
       "bytes": 3973,
       "sha256": "eb332a8c4a8b5e8dc44c4770025e94e764e223ab9c48576cf90122b843c70775"
+    },
+    "TableS6/generation/cohort_validation.json": {
+      "bytes": 33755,
+      "sha256": "f68d23c886e6e30928f69412302db46975786c3895398033116de2ac50eb1be6"
+    },
+    "TableS7/generation/cohort_validation.json": {
+      "bytes": 24159,
+      "sha256": "261c0b1f95214961fbf0673baaac96d0c65cdf93a8722ce29aa1854bc7f83fca"
     }
   }
 }

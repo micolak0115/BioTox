@@ -1,0 +1,6 @@
+{
+  "input_files": {
+    "repeated_cv_run": "/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1"
+  },
+  "output": {"directory": "../../_generated/TableS7"}
+}

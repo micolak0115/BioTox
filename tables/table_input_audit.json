@@ -1,0 +1,73 @@
+{
+  "manuscript": "manuscript/BioTox_BiB_Submission_20260921.tex",
+  "order": [
+    "Table1",
+    "Table2",
+    "TableS1",
+    "TableS2",
+    "TableS3",
+    "TableS4",
+    "TableS5",
+    "TableS6",
+    "TableS7",
+    "TableS8",
+    "TableS9"
+  ],
+  "findings": {
+    "Table1": {
+      "status": "correct",
+      "input_scope": "none",
+      "reason": "Literal LaTeX table in the manuscript."
+    },
+    "Table2": {
+      "status": "review_required",
+      "input_scope": "config.json contains the six inputs used by the copied multi-table generator.",
+      "reason": "The generator is a broad dataset/model package builder; its generated ensemble-composition output is not the same schema as the manuscript's molecular-performance table."
+    },
+    "TableS1": {
+      "status": "review_required",
+      "input_scope": "The manuscript table itself needs the Stage-1 split/cohort file; the copied generator currently builds several supplementary outputs and therefore reads all six configured inputs.",
+      "reason": "The paths are now explicit in config.json, but the generator should be narrowed to the TableS1 cohort output before it is used for a fresh regeneration."
+    },
+    "TableS2": {
+      "status": "correct",
+      "input_scope": "methods_v4, primary_run, paired_6h_run",
+      "reason": "The generator reads archived cohort counts and archived OOF membership for the NR/SR eligibility tables."
+    },
+    "TableS3": {
+      "status": "correct",
+      "input_scope": "methods_v4, primary_run, paired_6h_run",
+      "reason": "The same eligibility generator is filtered to the stress-response endpoints by the manuscript table."
+    },
+    "TableS4": {
+      "status": "review_required",
+      "input_scope": "The table content is code-defined; the copied generator currently also reads the six package inputs.",
+      "reason": "Classical model settings do not intrinsically require run manifests or cohort data."
+    },
+    "TableS5": {
+      "status": "review_required",
+      "input_scope": "The table content is code-defined; the copied generator currently also reads the six package inputs.",
+      "reason": "Deep model settings do not intrinsically require run manifests or cohort data."
+    },
+    "TableS6": {
+      "status": "review_required",
+      "input_scope": "The manuscript table needs the primary completed-run manifest; the copied generator currently also reads the other five inputs.",
+      "reason": "Outer-validation settings are manifest-driven, but the shared generator is broader than this table."
+    },
+    "TableS7": {
+      "status": "correct",
+      "input_scope": "repeated_cv_run",
+      "reason": "The generator reads the 96 archived fold-result files from this run directory."
+    },
+    "TableS8": {
+      "status": "correct",
+      "input_scope": "chem_plot_dir, chem_inference_dir, ridge_dir",
+      "reason": "These are the four panel source files assembled by the generator."
+    },
+    "TableS9": {
+      "status": "correct",
+      "input_scope": "primary_detail, paired_6h_detail, paired_24h_detail",
+      "reason": "The generator reads the three detailed timepoint-performance CSVs."
+    }
+  }
+}

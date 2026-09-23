@@ -1,0 +1,28 @@
+{
+  "pipeline": "stage1_k4_equal_weight_deployment",
+  "fixed_model_seed": 1,
+  "ensemble_rule": "arithmetic_mean",
+  "k": 4,
+  "n_tasks": 12,
+  "stage1_dir": "/data/kyungan/scripts/BioTox/publication/data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/candidates",
+  "cohort_dir": "/data/kyungan/scripts/BioTox/publication/data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/cohort",
+  "reference_path": "/data/kyungan/scripts/BioTox/publication/data/generated/molecular_prediction_and_ensemble_manuscript_reproduction/topk_selection/stage1_topk_k4_reference_by_task.csv",
+  "reference_sha256": "4fd8b3a3f9da45997dcf4daa5001a74bd69d66b18ea8e551f9f1ee555f1dfbb3",
+  "cache_sha256_by_task": {
+    "NR-AR": "40bc6dc0f5e126492c923cbcc5f0ab9be2b8535c8dcd8451439c9d34f0f96c14",
+    "NR-AR-LBD": "1e6e4ae68fa8feea86365930017f47b9bee1528171988c2e85bfc34eebdc0775",
+    "NR-AhR": "32369b6b87752042100a0201a3b4654b047e8c98c797ce38709297329fed1257",
+    "NR-Aromatase": "dac12cd86ba3bab0644e882782cd39d285413fb5f0a70619507ec69e6253778d",
+    "NR-ER": "7d4ffa5651cc9ea7dc4fec2a1a24a7dff388bc416e8b85a48234784570015518",
+    "NR-ER-LBD": "e7369a8f92b8776099f03a359bc82cce1b10d5b1e7e19e72f3f5ee327a981a8b",
+    "NR-PPAR-gamma": "1ecc7ecdfceca818290bdea05a20d4066f9783d9a6378feef6683bd772bc91a1",
+    "SR-ARE": "f90b623fd3472a214416746b6a2a1779b6fc115b1e205f84c9770ee53a489c8f",
+    "SR-ATAD5": "7bd622b19cf2468b9b324bc93512ae51dcfa273d4967ecc515e5faeb5350161a",
+    "SR-HSE": "76fc2c9a3c95b5fb83c1199e57cb9d397be00e32f99ab9236f87524a23bd9baa",
+    "SR-MMP": "bf1f5901de77fbe55a98c2697074fc7040e34651a6bd238c1a050cd37910a97d",
+    "SR-p53": "7117f29acabe00c7845087917fdda1efaf39d88f24baa2cd330316ae126c9abb"
+  },
+  "offset_sha256": "dd7d385c7d69daba08fa791baf1273a49bb3e68fa0e5cdadaa8a38d06d15e299",
+  "deployment_report_sha256": "cee760af18c5c3e677bc811f2a63903009fd1740e10696bc2250052a39ea7d67",
+  "analysis_complete": true
+}

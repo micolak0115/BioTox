@@ -1,0 +1,76 @@
+{
+  "python": "python",
+  "tables": {
+    "Table2": {
+      "script": "Table2/code/generate_tables.py",
+      "config": "Table2/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "Table2/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS1": {
+      "script": "TableS1/code/generate_tables.py",
+      "config": "TableS1/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS1/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS2": {
+      "script": "TableS2/code/generate_tables.py",
+      "config": "TableS2/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS2/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS3": {
+      "script": "TableS3/code/generate_tables.py",
+      "config": "TableS3/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS3/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS4": {
+      "script": "TableS4/code/generate_tables.py",
+      "config": "TableS4/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS4/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS5": {
+      "script": "TableS5/code/generate_tables.py",
+      "config": "TableS5/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS5/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS6": {
+      "script": "TableS6/code/generate_tables.py",
+      "config": "TableS6/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS6/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS7": {
+      "script": "TableS7/code/generate_tables.py",
+      "config": "TableS7/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS7/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS8": {
+      "script": "TableS8/code/generate_tables.py",
+      "config": "TableS8/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS8/generation",
+      "clear_run_dir_first": true
+    },
+    "TableS9": {
+      "script": "TableS9/code/generate_tables.py",
+      "config": "TableS9/code/config.json",
+      "args": ["--output-dir", "{run_dir}"],
+      "run_dir": "TableS9/generation",
+      "clear_run_dir_first": true
+    }
+  },
+  "static_tables": ["Table1"]
+}

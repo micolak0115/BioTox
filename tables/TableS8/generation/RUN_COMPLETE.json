@@ -1,0 +1,31 @@
+{
+  "table": "Table S8",
+  "sources": {
+    "panel_a_plot_summary": "/data/kyungan/scripts/BioTox/backup/chem_models_abcd_20x5_final/plotting_summary_mean_sd.csv",
+    "panel_a_inference": "/data/kyungan/scripts/BioTox/backup/chem_models_abcd_20x5_v1/chem_model_c_vs_d_summary.csv",
+    "panel_b_repeat_means": "/data/kyungan/scripts/BioTox/backup/tables/source_data/figure3_calibration/calibration_ridge_repeat_means.csv",
+    "panel_b_inference": "/data/kyungan/scripts/BioTox/backup/tables/source_data/figure3_calibration/calibration_ridge_summary_all.csv"
+  },
+  "outputs": [
+    "/data/kyungan/scripts/BioTox/publication/tables/TableS8/generation/table_s8_figure3_panel_statistics_numeric.csv",
+    "/data/kyungan/scripts/BioTox/publication/tables/TableS8/generation/table_s8_figure3_panel_statistics_display.csv",
+    "/data/kyungan/scripts/BioTox/publication/tables/TableS8/generation/table_s8_figure3_panel_statistics.md",
+    "/data/kyungan/scripts/BioTox/publication/tables/TableS8/generation/table_s8_figure3_panel_statistics.tex",
+    "/data/kyungan/scripts/BioTox/publication/tables/TableS8/generation/TABLE_CAPTION.md",
+    "/data/kyungan/scripts/BioTox/publication/tables/TableS8/generation/LATEX_RECIPE.md"
+  ],
+  "output_sha256": {
+    "table_s8_figure3_panel_statistics_numeric.csv": "c02b9700b3b740388d7e3ad3267ff5793e97e52701a91d4afb0acdf10e713ed7",
+    "table_s8_figure3_panel_statistics_display.csv": "e3e141aa0e517244159dc65573cb81741fb59c6ed4a5fa4bef4be22a591f25a9",
+    "table_s8_figure3_panel_statistics.md": "a5b9460ae57454e87f811feee053c60fa8311e15cf6792dd2cc24310071fb323",
+    "table_s8_figure3_panel_statistics.tex": "5e12a6d2f1b7476da0ea7add036e839e477a22db3b4ec36080d6ec32fafaf945",
+    "TABLE_CAPTION.md": "11d5e7beddaeeb1af35180608c912b44776f4e9f9b1d58921defaee27e072392",
+    "LATEX_RECIPE.md": "745efa72cd8869c0a6b299f257c07f25eb7c3b6aff58243893b36e33ac7135dd"
+  },
+  "n_rows": 48,
+  "n_endpoint_cell_contexts": 48,
+  "visual_unit": "20 repeat means; each averages five outer folds",
+  "inference_unit": "100 paired outer-fold effects",
+  "multiple_testing": "BH within panel and cell across 12 endpoints",
+  "analysis_complete": true
+}

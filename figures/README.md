@@ -1,134 +1,138 @@
-# Final figures
+# Publication figures
 
-Each figure directory contains the publication asset, frozen source data, and
-its canonical generator at `code/generate_figure.py`. Figure 2 and Figure 4
-also retain the helper modules required by their generators.
+This directory contains the checked-in figure assets, source data, provenance,
+and generator code. Figure captions below are taken from
+`../manuscript/BioTox_BiB_Submission_20260921.tex`.
 
-Figure 1 is materialized from `Figure1/source_data/Figure1_editable.svg` by
-`Figure1/code/generate_figure.py`.
+## Directory structure
 
-## Manuscript cross-check
-
-The manuscript used for the comparison is:
-
-`/home/kyungan/scripts/BioTox/publication/manuscript/BioTox_BiB_Submission_20260921.tex`
-
-The following publication source-data files were compared with the values,
-statistics, captions, and tables in the manuscript and were judged to match.
-These are the files consumed by the canonical figure generators, not merely
-the rendered SVG/PDF assets.
-
-| Figure | Matched source-data filepath |
-|---|---|
-| Figure 2 | `/data/kyungan/scripts/BioTox/publication/figures/Figure2/source_data/Figure2_topk_ensemble_curve.csv` |
-| Figure 2 alias | `/data/kyungan/scripts/BioTox/publication/figures/Figure2/source_data/Figure2_ensemble_size_selection.csv` |
-| Figure 3 | `/data/kyungan/scripts/BioTox/publication/figures/Figure3/source_data/Figure3_all_context_inference.csv` |
-| Figure 3 | `/data/kyungan/scripts/BioTox/publication/figures/Figure3/source_data/Figure3_primary_6h.csv` |
-| Figure 3 | `/data/kyungan/scripts/BioTox/publication/figures/Figure3/source_data/Figure3_paired_24h.csv` |
-| Figure 4 | `/data/kyungan/scripts/BioTox/publication/figures/Figure4/source_data/Figure4_pathway_gsea_per_compound.csv` |
-| Figure 4 | `/data/kyungan/scripts/BioTox/publication/figures/Figure4/source_data/Figure4_pathway_selection.csv` |
-| Figure 4 | `/data/kyungan/scripts/BioTox/publication/figures/Figure4/source_data/Figure4_top_global_coefficients.csv` |
-| Figure 5 | `/data/kyungan/scripts/BioTox/publication/figures/Figure5/source_data/Figure5_compound_selection_statistics.csv` |
-| Figure 5 | `/data/kyungan/scripts/BioTox/publication/figures/Figure5/source_data/Figure5_heatmap_displayed_compounds.csv` |
-| Figure 5 | `/data/kyungan/scripts/BioTox/publication/figures/Figure5/source_data/Figure5_heatmap_cells.csv` |
-| Figure 5 alias | `/data/kyungan/scripts/BioTox/publication/figures/Figure5/source_data/Figure5_all_compound_rankings.csv` |
-| Figure S2 | `/data/kyungan/scripts/BioTox/publication/figures/Figure5/source_data/Figure5_compound_selection_statistics.csv` |
-| Figure S2 | `/data/kyungan/scripts/BioTox/publication/figures/FigureS2/source_data/FigureS2_displayed_vertical_structure_cases.csv` |
-
-### Known manuscript typo
-
-Only one manuscript value was found to be inconsistent with the source data:
-the Figure S2 Gossypol--Niclosamide example.
-
-| Item | Value |
-|---|---:|
-| Original source-data difference | `0.400834 -> 0.012816` |
-| Manuscript value | `0.041 -> 0.013` |
-| Correct rounded value | approximately `0.401 -> 0.013` |
-
-The Figure S2 cases are derived from
-`Figure5/source_data/Figure5_compound_selection_statistics.csv`; they are not
-an independent statistical analysis. The remaining Figure S2 cases and the
-Figure 2--5 statistics checked against the manuscript were classified as
-matching.
-
-## Source-data provenance
-
-The paths above are the frozen inputs in this publication bundle. The original
-upstream analysis path was recorded for Figure 2 in the historical source
-registry at:
-
-`/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/SOURCE_REGISTRY.csv`
-
-`/data/kyungan/scripts/BioTox/publication/_run_output/chem_offset_valid_tuned_classical/publication_summary/stage1_topk_ensemble_curve_revised.csv`
-
-That registry records the same SHA-256 for the canonical upstream file and the
-bundled Figure 2 source file:
-`1e46566353426226977e795c92e6511e1f1c047778a0f03fa7f71307eba97961`.
-The recorded `_run_output` path is not currently present on the filesystem,
-so it is provenance evidence rather than a currently available input path.
-The Figure 2 alias also matches:
-
-`/data/kyungan/scripts/BioTox/backup/figures_unadjusted_primary_20260826/Figure2/stage1_topk_global_macro_auprc.csv`
-
-For Figures 3--5 and Figure S2, the current `config.json` and generation
-manifests record the frozen files under
-`/data/kyungan/scripts/BioTox/publication/figures/*/source_data/`, but do not
-record a unique original upstream path. Candidate backup directories must not
-be treated as the original source without a matching hash or registry entry.
-The authoritative current input declarations are in:
-
-- `Figure2/code/config.json`
-- `Figure3/code/config.json`
-- `Figure4/code/config.json`
-- `Figure5/code/config.json`
-- `FigureS2/code/config.json`
-
-## Manuscript table provenance
-
-The table generators and their canonical input paths are defined in:
-
-`/home/kyungan/scripts/BioTox/publication/tables/code/table_paths.json`
-
-| Table set | Original input filepath(s) |
-|---|---|
-| Main Tables 1--2 and performance supplements | `/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1_publication_summary_v1/table_calibrated_20x5_detailed.csv` and `/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1/` |
-| Main Table 3 | `/data/kyungan/scripts/BioTox/backup/main_table3_tox21_lincs_config_v1/table3_tox21_lincs_numeric.csv` |
-| Supplementary Table S1 | `/data/kyungan/pretrain-gnns/dataset/tox21/raw/tox21_smiles.csv` plus the configured Stage-1 run and cohort inputs |
-| Supplementary Table S2 | `/data/kyungan/scripts/BioTox/backup/matched_split_rebuilt/` |
-| Supplementary Table S3 | `/data/kyungan/scripts/BioTox/backup/matched_split_rebuilt/` and `/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/paired_timepoint_inputs_6h24h_8to12uM_v1/RUN_COMPLETE.json` |
-| Supplementary Table S4 | `/data/kyungan/scripts/BioTox/backup/publication_pre_release_20260902/figures_full_history/source_data/paired_timepoint_inputs_6h24h_8to12uM_v1/RUN_COMPLETE.json` |
-| Supplementary Tables S5--S6 | `/data/kyungan/scripts/BioTox/publication/standalone/chem/run` and the configured primary Stage-1 run |
-| Supplementary Table S7 | `/data/kyungan/scripts/BioTox/backup/chemical_ensemble_auprc_table_csv_v1/k4_ensemble_composition.csv` |
-| Supplementary Tables S8--S9 | `/data/kyungan/scripts/BioTox/backup/nested_cv_k4_calibrated_lbfgs_repeated20x5_combined_v1_publication_summary_v1/table_calibrated_20x5_detailed.csv` and the configured Stage-2 run directory |
-
-The generated table package is written under:
-
-`/data/kyungan/scripts/BioTox/publication/tables/_generated/`
-
-The supplementary generator writes `table_s0_dataset_flow.csv` through
-`table_s7_k4_ensemble_composition.csv` there. The primary generator writes
-the standardized AUPRC, residualized AUPRC, AUROC, calibration, and related
-forest-plot outputs under its run-specific `tables/`, `figures/`, and `data/`
-subdirectories. Existing checked-in files under
-`/data/kyungan/scripts/BioTox/publication/tables/Table1/`, `Table2/`, and
-`TableS1/`--`TableS9/` are not overwritten by regeneration.
-
-The current table configuration points to the old/uncorrected 20x5 nested-CV
-run under `/data/kyungan/scripts/BioTox/backup/`. These are the documented
-source paths used for the manuscript comparison; they should not be described
-as a corrected-estimator provenance chain until `table_paths.json` is updated.
-
-## Regeneration
-
-Run the wrapper from this directory:
-
-```bash
-python regenerate_corrected_figures.py
+```text
+figures/
+├── README.md
+├── figures_config.json                 # Wrapper routing and copy rules
+├── regenerate_corrected_figures.py     # Figure regeneration wrapper
+├── Figure1/                            # Static framework artwork
+├── Figure2/                            # Ensemble-size selection
+├── Figure3/                            # Context-dependent complementarity
+├── Figure4/                            # Genes, pathways, and compounds
+├── Figure5/                            # Compound-level rescue/correction
+├── FigureS1/                           # Static supplementary artwork
+└── FigureS2/                           # Structure-case supplementary figure
 ```
 
-It reads each figure's `code/config.json`, validates the configured input
-files, and invokes the canonical `generate_figure.py` entry point. Figure 4's
-generator contains the retained publication logic formerly spread across the
-versioned `Rebuild_Figure5_per_endpoint_panels_*.py` scripts; those older
-versions are preserved under `Figure4/code/deprecated/` and are not active.
+Every figure directory contains its checked-in rendered assets (`.pdf`,
+`.eps`, `.svg`, `.png`, or `.tiff` as available). Generated figures also have
+`code/`, `source_data/`, `generation/`, `caption.md`, `methods.md`, and/or
+`provenance.json`. List every current file with:
+
+```bash
+find . -type f ! -path '*/__pycache__/*' -printf '%P\n' | sort
+```
+
+## Figure-specific files
+
+| Directory | Files and purpose |
+|---|---|
+| `Figure1/` | `Figure1.eps`, `.pdf`, `.svg`, `.tiff`: static framework artwork. It has no active generator or source-data directory in this release. |
+| `Figure2/` | `code/config.json`, `code/generate_figure.py`: generator and input/output contract; `source_data/Figure2_topk_ensemble_curve.csv` and `Figure2_ensemble_size_selection.csv`: ensemble curves; `generation/`: generated plot, caption, macro-AUPRC CSV, and `RUN_COMPLETE.json`; `Figure2.*`, `caption.md`, `provenance.json`: checked-in assets and provenance. |
+| `Figure3/` | `code/config.json`, `code/generate_figure.py`: generator; `source_data/Figure3_all_context_inference.csv`, `Figure3_primary_6h.csv`, `Figure3_paired_24h.csv`: frozen statistics; `generation/`: caption and manifest; `Figure3.*`, `caption.md`, `provenance.json`: assets and provenance. |
+| `Figure4/` | `code/config.json`, `code/generate_figure.py`: generator; `source_data/Figure4_pathway_gsea_per_compound.csv`, `Figure4_pathway_selection.csv`, `Figure4_top_global_coefficients.csv`: frozen pathway/gene inputs; `Figure4.*`, `provenance.json`: assets and provenance. |
+| `Figure5/` | `code/config.json`, `code/generate_figure5.py`: generator; `source_data/Figure5_all_compound_rankings.csv`, `Figure5_compound_selection_statistics.csv`, `Figure5_heatmap_displayed_compounds.csv`, `Figure5_heatmap_cells.csv`: frozen inputs; `generation/`: layout/global-maxima audits and manifest; `Figure5.*`, `caption.md`, `methods.md`, `provenance.json`: assets, methods, and provenance. |
+| `FigureS1/` | `FigureS1.eps`, `.pdf`, `.svg`, `.tiff`: static supplementary artwork. No active generator is included. |
+| `FigureS2/` | `code/config.json`, `code/generate_figureS2.py`: generator; `source_data/FigureS2_displayed_vertical_structure_cases.csv`: selected cases; `generation/`: layout audit and manifest; `FigureS2.*`, `caption.md`, `methods.md`, `provenance.json`: assets, methods, and provenance. |
+
+## Regeneration commands
+
+Run from `publication/` after creating `BioTox`:
+
+```bash
+conda run -n BioTox python figures/regenerate_corrected_figures.py
+```
+
+Regenerate a subset without touching the other figures:
+
+```bash
+conda run -n BioTox python figures/regenerate_corrected_figures.py \
+  --figures Figure2,Figure3
+```
+
+The wrapper reads each figure's `code/config.json`, validates every configured
+source file, invokes that figure's generator, copies canonical filenames, and
+writes the configured generation manifest. Figure1 and FigureS1 are static and
+are not included in the wrapper's active figure list.
+
+Figure generators consume checked-in source data and completed Stage-1/Stage-2
+results. They do not fit molecular models, rerun repeated CV, or modify
+`data/generated/`.
+
+The wrapper uses the `python` executable from the active environment specified
+by the command above; no machine-specific Conda prefix is embedded in the
+figure routing configuration.
+
+## Manuscript captions
+
+### Figure 1 — `fig:framework-overview`
+
+**Two-stage framework for context-dependent transcriptomic complementarity.**
+Abbreviations: DMSO, dimethyl sulfoxide; trt, treatment. **ALT TEXT:** Flow
+diagram illustrating molecular structures and Tox21 assays entering a frozen
+molecular-prediction stage, and the fixed predictions themselves with LINCS
+transcriptomic profiles together entering a context-matched residual-modeling
+stage, and outputs for context-, gene-, and compound-level analyses.
+
+### Figure 2 — `fig:ensemble-size-selection`
+
+**Endpoint-specific molecular ensemble selection.** **(A)** Macro-AUPRC versus
+ensemble size (K) for all endpoints and NR and SR subsets. **(B,C)** Endpoint
+AUPRC trajectories for NR and SR, respectively. Ensemble constituents are
+endpoint specific and define the frozen molecular reference. Abbreviations: NR,
+nuclear receptor; SR, stress response; AUPRC, area under the precision-recall
+curve. **ALT TEXT:** Line graphs showing held-out AUPRC as ensemble size
+increases from one to twelve models. Overall, nuclear-receptor, and
+stress-response macro-AUPRC values peak near four models, with separate
+trajectories shown for each of the twelve endpoints.
+
+### Figure 3 — `fig:biological-context-matching`
+
+**Context-dependent transcriptomic complementarity.** **(A-D)** Performance
+comparison plots across NR-Aromatase, SR-ARE, SR-MMP, and SR-p53 endpoints,
+respectively. Left: Bar plots displaying mean AUPRC for molecular-only
+(hatched) and transcriptome-complemented models (no hatch) across biological
+contexts. Red bars mark the highest AUPRC. Right: Bar plots illustrating paired
+ΔAUPRC with Nadeau-Bengio-corrected 95% CI. Boxed cells are either exact or
+proxy matched cell lines defined in Table 1. BH adjustment spans twelve
+endpoints per context and cohort. Abbreviations: NR, nuclear receptor; SR,
+stress response; ARE, antioxidant response element; MMP, mitochondrial
+membrane potential; AUPRC, area under the precision-recall curve.
+
+### Figure 4 — `fig:gene-atlas`
+
+**Genes, pathways, and compounds associated with transcriptomic
+complementarity.** **(A-D)** NR-Aromatase, SR-ARE, SR-MMP, and SR-p53 endpoints.
+Contexts are MCF7 at 24 h except SR-ARE (HepG2, 6 h). Left: Horizontal bar
+plots showing top-10 genes with highest absolute ridge coefficients. Right: Bar
+plots depicting compound-specific pathway enrichment of top-5 with largest
+absolute NES for the selected pathway. **(E)** Heatmap showing cross-endpoint
+GSEA screening across compounds. Color intensity gives the fraction of
+assay-active compounds with significance (q<0.10).
+
+### Figure 5 — `fig:structural-pathway-atlas`
+
+**Compound-level predictive rescue and correction.** **(A)** Scatter plots
+showing predicted probabilities of molecular-only and transcriptome-complemented
+models across NR-Aromatase, SR-ARE, SR-MMP, and SR-p53. Contexts are MCF7 at
+24 h except SR-ARE (HepG2, 6 h). Annotated compounds indicate the rescued and
+corrected compounds with highest probability changes. **(B,C)** Cross-endpoint
+rescue and correction heatmaps ranked by cumulative selected change.
+
+### Figure S1
+
+No `fig:` label or corresponding `\caption{}` was found for Figure S1 in the
+current manuscript source. The directory therefore documents the checked-in
+static artwork only.
+
+### Figure S2
+
+No `fig:` label or corresponding `\caption{}` was found for Figure S2 in the
+current manuscript source. Its checked-in `caption.md` and generator remain
+available as the asset-level documentation.

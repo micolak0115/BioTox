@@ -1,0 +1,13 @@
+stage,source,cell_line,partition,exact_compound_count,fold_structure,provenance
+Stage 1,Tox21-only (scaffold-disjoint from LINCS cohorts),-,Total,1732,Fixed scaffold partition,Frozen Stage-1 split file
+Stage 1,Tox21-only (scaffold-disjoint from LINCS cohorts),-,Training,1039,Fixed scaffold partition,Frozen Stage-1 split file
+Stage 1,Tox21-only (scaffold-disjoint from LINCS cohorts),-,Validation,346,Fixed scaffold partition,Frozen Stage-1 split file
+Stage 1,Tox21-only (scaffold-disjoint from LINCS cohorts),-,Ensemble evaluation,347,Fixed scaffold partition,Frozen Stage-1 split file
+Stage 2 primary 6 h,LINCS-Tox21 matched compounds,"HA1E, HEPG2, HT29, MCF7",Outer training,302-1159,20 repeats x 5 scaffold-grouped folds,Archived OOF membership
+Stage 2 primary 6 h,LINCS-Tox21 matched compounds,"HA1E, HEPG2, HT29, MCF7",Outer test,30-426,20 repeats x 5 scaffold-grouped folds,Archived OOF membership
+Stage 2 primary 6 h,LINCS-Tox21 matched compounds,"HA1E, HEPG2, HT29, MCF7",Inner training,Not serialized,3 scaffold-grouped folds within outer training,Seed and protocol archived; membership unavailable
+Stage 2 primary 6 h,LINCS-Tox21 matched compounds,"HA1E, HEPG2, HT29, MCF7",Inner validation,Not serialized,3 scaffold-grouped folds within outer training,Seed and protocol archived; membership unavailable
+Stage 2 paired 6/24 h,LINCS-Tox21 matched compounds,"HA1E, HT29, MCF7",Outer training,280-1131,20 repeats x 5 scaffold-grouped folds,Archived OOF membership
+Stage 2 paired 6/24 h,LINCS-Tox21 matched compounds,"HA1E, HT29, MCF7",Outer test,33-430,20 repeats x 5 scaffold-grouped folds,Archived OOF membership
+Stage 2 paired 6/24 h,LINCS-Tox21 matched compounds,"HA1E, HT29, MCF7",Inner training,Not serialized,3 scaffold-grouped folds within outer training,Seed and protocol archived; membership unavailable
+Stage 2 paired 6/24 h,LINCS-Tox21 matched compounds,"HA1E, HT29, MCF7",Inner validation,Not serialized,3 scaffold-grouped folds within outer training,Seed and protocol archived; membership unavailable

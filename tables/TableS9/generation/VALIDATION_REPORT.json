@@ -1,0 +1,21 @@
+{
+  "created_at_utc": "2026-09-23T05:41:04.103772+00:00",
+  "output": "/data/kyungan/scripts/BioTox/publication/tables/TableS9/generation",
+  "checks": {
+    "context_rows": 4,
+    "context_all_positive": true,
+    "context_nominal_positive_count": 4,
+    "context_broader_family_fdr_count": 2,
+    "context_broader_family_fdr_endpoints": [
+      "SR-MMP",
+      "SR-p53"
+    ],
+    "exact_match_rows": 3,
+    "exact_match_nominal_positive_count": 1,
+    "exact_match_broader_family_fdr_count": 0,
+    "exact_match_all_standardized": true,
+    "v3_rows": 3,
+    "v3_all_targeted_family_fdr": true
+  },
+  "status": "PASS"
+}

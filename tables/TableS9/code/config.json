@@ -1,0 +1,9 @@
+{
+  "input_files": {
+    "primary_detail": "/data/kyungan/scripts/BioTox/backup/tables/source_data/timepoint_performance/primary_6h/table_calibrated_20x5_detailed.csv",
+    "paired_6h_detail": "/data/kyungan/scripts/BioTox/backup/tables/source_data/timepoint_performance/paired_6h/table_calibrated_20x5_detailed.csv",
+    "paired_24h_detail": "/data/kyungan/scripts/BioTox/backup/tables/source_data/timepoint_performance/paired_24h/table_calibrated_20x5_detailed.csv",
+    "canonical_readable_dir": "/data/kyungan/scripts/BioTox/backup/tables/readable"
+  },
+  "output": {"directory": "../../_generated/TableS9"}
+}

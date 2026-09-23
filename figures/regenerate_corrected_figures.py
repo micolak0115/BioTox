@@ -91,14 +91,23 @@ def run_figure(name: str, spec: dict, python: str) -> dict:
     for arg in spec.get("args", []):
         args.append(arg.replace("{run_dir}", str(run_dir)) if run_dir else arg)
 
+    configured_files = source_paths.get("_configured_files", {})
     print(f"[{name}] source data:", flush=True)
     for key, path in source_paths.items():
+        if key == "_configured_files":
+            continue
         if isinstance(path, list):
             print(f"  {key}:", flush=True)
             for item in path:
                 print(f"    {item}", flush=True)
         else:
             print(f"  {key}: {path}", flush=True)
+    if configured_files:
+        print(f"[{name}] full input file inventory:", flush=True)
+        for key, files in configured_files.items():
+            print(f"  {key}:", flush=True)
+            for item in files:
+                print(f"    {item}", flush=True)
     print(f"[{name}] running: {python} {' '.join(args)}", flush=True)
     subprocess.run([python, *args], check=True)
 
