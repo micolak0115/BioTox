@@ -11,7 +11,8 @@ data/
 ├── README.md
 ├── SHA256SUMS                         # SHA-256 hashes for bundled files
 ├── lincs/
-│   └── compoundinfo_beta.txt          # LINCS compound metadata
+│   ├── compoundinfo_beta.txt          # LINCS compound metadata
+│   └── *.h5ad.tar.gz.part_aa..af     # Split aggregate LINCS archive
 ├── tox21/
 │   └── tox21_smiles.csv               # Tox21 compound structures
 ├── pathways/
@@ -34,13 +35,61 @@ find . -type f ! -path './generated/*' -printf '%P\n' | sort
 find generated -type f -printf '%P\n' | sort
 ```
 
+## Reconstruct the aggregate LINCS H5AD
+
+The tracked files
+`lincs/lincs_merge_chemical_filter_select_align_aggregate.h5ad.tar.gz.part_aa`
+through `part_af` are consecutive pieces of one gzip-compressed tar archive;
+they are not independently extractable archives. After cloning the repository,
+run the following commands from the repository root:
+
+```bash
+git lfs pull --include='data/lincs/*.tar.gz.part_*'
+
+archive='data/lincs/lincs_merge_chemical_filter_select_align_aggregate.h5ad.tar.gz'
+
+# Confirm that the complete, correctly ordered six-part set is available.
+printf '%s\n' "${archive}".part_*
+test "$(find data/lincs -maxdepth 1 -type f \
+  -name 'lincs_merge_chemical_filter_select_align_aggregate.h5ad.tar.gz.part_*' \
+  | wc -l)" -eq 6
+
+# Build through a temporary name, validate it, and avoid partial final files.
+test ! -e "$archive" || {
+  echo "Refusing to overwrite existing archive: $archive" >&2
+  exit 1
+}
+cat "${archive}".part_* > "${archive}.tmp"
+gzip -t "${archive}.tmp"
+mv "${archive}.tmp" "$archive"
+
+# Extract the H5AD where the pipeline configurations expect it.
+tar -xzf "$archive" -C data/lincs/
+(cd data && grep \
+  ' lincs/lincs_merge_chemical_filter_select_align_aggregate.h5ad$' \
+  SHA256SUMS | sha256sum --check -)
+```
+
+Successful verification reports:
+
+```text
+lincs/lincs_merge_chemical_filter_select_align_aggregate.h5ad: OK
+```
+
+The merge order is determined by the zero-padded suffixes (`part_aa`,
+`part_ab`, ..., `part_af`). Do not use `tar` on each part separately. If
+`gzip -t` fails, remove only the incomplete `.tmp` file, fetch the LFS parts
+again, and repeat the merge. The final `.tar.gz` can be retained for archival
+purposes or removed after the extracted H5AD passes its checksum.
+
 ## Integrity check
 
 ```bash
-sha256sum --check SHA256SUMS
+(cd data && sha256sum --check SHA256SUMS)
 ```
 
-The hash file covers bundled files, not large external inputs or newly created
+Run this command from the repository root. The hash file covers bundled inputs
+and the reconstructed aggregate LINCS H5AD, but not newly generated pipeline
 outputs.
 
 ## Relationship to the workflows

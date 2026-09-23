@@ -23,11 +23,42 @@ publication/
 └── analyses/                         # Audits and post-hoc analyses
 ```
 
-For a complete live inventory, including every generated result file:
+## Reconstruct the split LINCS data archive
+
+The aggregate LINCS input is stored as six Git LFS parts under `data/lincs/`
+because the complete file is too large to distribute as one repository file.
+From the repository root, download the LFS objects and concatenate the parts in
+their filename order:
 
 ```bash
-find . -type f ! -path '*/__pycache__/*' -printf '%P\n' | sort
+git lfs pull --include='data/lincs/*.tar.gz.part_*'
+
+archive='data/lincs/lincs_merge_chemical_filter_select_align_aggregate.h5ad.tar.gz'
+test ! -e "$archive" || {
+  echo "Refusing to overwrite existing archive: $archive" >&2
+  exit 1
+}
+cat "${archive}".part_* > "${archive}.tmp"
+gzip -t "${archive}.tmp"
+mv "${archive}.tmp" "$archive"
+tar -xzf "$archive" -C data/lincs/
 ```
+
+The wildcard expands lexically from `part_aa` through `part_af`; all six parts
+must be present. The extraction creates
+`data/lincs/lincs_merge_chemical_filter_select_align_aggregate.h5ad`, which is
+the path used by both pipeline configs. Verify the extracted file before
+running either pipeline:
+
+```bash
+(cd data && grep \
+  ' lincs/lincs_merge_chemical_filter_select_align_aggregate.h5ad$' \
+  SHA256SUMS | sha256sum --check -)
+```
+
+If the merged archive already exists, retain it or move it elsewhere before
+running the reconstruction commands; the example intentionally refuses to
+overwrite it. See [`data/README.md`](data/README.md) for the data layout.
 
 ## Recreate the environments
 
